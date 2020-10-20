@@ -1,0 +1,2 @@
+1;Licencia1;Disponibilidad1;1;AsientosDisponibles1;PlacaVehiculoDefault1
+2;Licencia2;Disponibilidad2;5;AsientosDisponibles1;PlacaVehiculoDefault2

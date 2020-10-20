@@ -119,7 +119,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="frmConductor.cpp" />
+    <ClCompile Include="frmDatosConductor.cpp" />
     <ClCompile Include="frmElegirModo.cpp" />
     <ClCompile Include="frmLogin.cpp" />
     <ClCompile Include="frmRegistrar.cpp" />
@@ -133,7 +133,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="frmConductor.h">
+    <ClInclude Include="frmDatosConductor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmElegirModo.h">
@@ -147,8 +147,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmConductor.resx">
-      <DependentUpon>frmConductor.h</DependentUpon>
+    <EmbeddedResource Include="frmDatosConductor.resx">
+      <DependentUpon>frmDatosConductor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmElegirModo.resx">
       <DependentUpon>frmElegirModo.h</DependentUpon>

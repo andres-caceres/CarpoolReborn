@@ -11,9 +11,8 @@ namespace CarpoolModel {
 	public ref class Conductor {
 
 			/*Definición de atributos*/
-		private:
-			int codigo;
-			String^ CodigoDeUsuario;
+		public:
+			int CodigoDeUsuario;
 			String^ NumeroDeLicencia;
 			String^ Disponibilidad;
 			int CalificacionConductor;

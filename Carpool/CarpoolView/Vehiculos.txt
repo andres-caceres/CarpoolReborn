@@ -1,0 +1,2 @@
+Marca1;Modelo1;Placa1;Color1;Tipo1;NumAsientos1;Propietario1;TarjetaProp1;
+Marca2;Modelo2;Placa2;Color2;Tipo2;NumAsientos2;Propietario2;TarjetaProp2;

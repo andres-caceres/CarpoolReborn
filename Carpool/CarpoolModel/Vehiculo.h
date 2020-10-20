@@ -7,10 +7,10 @@ namespace CarpoolModel {
 	public ref class Vehiculo {
 
 		/*Definición de atributos*/
-	private:
+	public:
 		String^ Marca;
-		String^ Placa;
 		String^ Modelo;
+		String^ Placa;
 		String^ Color;
 		String^ Tipo;
 		String^ NumeroAsientos;
@@ -20,6 +20,7 @@ namespace CarpoolModel {
 		/*Métodos*/
 	public:
 		/*Método Constructor*/
-		Vehiculo();
+		Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad);
+		//Vehiculo();
 	};
 }

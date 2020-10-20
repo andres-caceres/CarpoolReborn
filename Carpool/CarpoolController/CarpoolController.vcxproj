@@ -115,6 +115,14 @@
       <Project>{3cb89854-539e-45d4-9c8c-35b9c70aedc3}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GestorConductor.h" />
+    <ClInclude Include="GestorVehiculo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GestorConductor.cpp" />
+    <ClCompile Include="GestorVehiculo.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

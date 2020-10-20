@@ -27,7 +27,7 @@
     <ClCompile Include="frmRegistrar.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="frmConductor.cpp">
+    <ClCompile Include="frmDatosConductor.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="frmRegistrar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="frmConductor.h">
+    <ClInclude Include="frmDatosConductor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
