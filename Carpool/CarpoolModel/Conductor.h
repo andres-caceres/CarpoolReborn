@@ -12,11 +12,12 @@ namespace CarpoolModel {
 
 			/*Definición de atributos*/
 		public:
-			int CodigoDeUsuario;
+			int CodigoDeUsuario; //TODO: cambiar a UserID
+			String^ Nombre;		//TODO: buscar desde GestorUsuario
 			String^ NumeroDeLicencia;
 			String^ Disponibilidad;
 			int CalificacionConductor;
-			String^ Posicion;
+			String^ Posicion; //TODO: posicion default?
 			String^ AsientosDisponibles;
 			Vehiculo^ objVehiculo;
 			Chat^ objChat;
@@ -24,7 +25,8 @@ namespace CarpoolModel {
 
 			/*Métodos*/
 		public:
-
 			Conductor();
+			Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, Vehiculo^ objVehiculo);
+			
 	};
 }

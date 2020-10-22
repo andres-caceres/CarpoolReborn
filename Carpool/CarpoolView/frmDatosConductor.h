@@ -1,5 +1,5 @@
 #pragma once
-
+#include"frmMisVehiculos.h"
 
 namespace CarpoolView {
 
@@ -23,8 +23,31 @@ namespace CarpoolView {
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
-			this->objGestorConductor = gcnew GestorConductor();
-			this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			//this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			Calificacion = 0;
+			//
+		}
+
+		frmDatosConductor(GestorConductor^ objGestorConductor, Conductor^ objConductor)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			this->objGestorConductor = objGestorConductor;
+			this->objConductor = objConductor;
+			this->objVehiculo = gcnew Vehiculo(); //#profe
+			//this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			Calificacion = 0;
+			//
+		}
+		frmDatosConductor(GestorVehiculo^ objGestorVehiculo)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			this->objGestorVehiculo = objGestorVehiculo;
+			//this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			Calificacion = 0;
 			//
 		}
 
@@ -43,23 +66,44 @@ namespace CarpoolView {
 	protected:
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ lblCalificacion;
+
 	private: System::Windows::Forms::ImageList^ imageList1;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ textBoxPlaca;
+
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBoxModelo;
+	private: System::Windows::Forms::TextBox^ textBoxMarca;
+
+
+
+
+
+
 
 	private: System::Windows::Forms::Button^ button1;
 	private: System::ComponentModel::IContainer^ components;
 
 	private: 
 		GestorConductor^ objGestorConductor;
-		GestorVehiculo^ objGestorVehiculoDefault;
+		GestorVehiculo^ objGestorVehiculo; //#profe no tiene por que llamarse
+		Conductor^ objConductor;
+		Vehiculo^ objVehiculo;//#profe
+
+	private: System::Windows::Forms::TextBox^ textBoxLicencia;
+	private: System::Windows::Forms::TextBox^ textBoxNombre;
+
+
+
+
+
+
+		   //GestorVehiculo^ objGestorVehiculoDefault;
+		int Calificacion;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -76,16 +120,18 @@ namespace CarpoolView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmDatosConductor::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->textBoxLicencia = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxNombre = (gcnew System::Windows::Forms::TextBox());
+			this->lblCalificacion = (gcnew System::Windows::Forms::Label());
 			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxPlaca = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxModelo = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxMarca = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
@@ -103,7 +149,9 @@ namespace CarpoolView {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->label4);
+			this->groupBox1->Controls->Add(this->textBoxLicencia);
+			this->groupBox1->Controls->Add(this->textBoxNombre);
+			this->groupBox1->Controls->Add(this->lblCalificacion);
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
@@ -112,38 +160,57 @@ namespace CarpoolView {
 			this->groupBox1->Size = System::Drawing::Size(268, 327);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"groupBox1";
+			this->groupBox1->Text = L"Conductor";
 			// 
-			// label4
+			// textBoxLicencia
 			// 
-			this->label4->ImageIndex = 5;
-			this->label4->ImageList = this->imageList1;
-			this->label4->Location = System::Drawing::Point(90, 30);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(128, 32);
-			this->label4->TabIndex = 3;
-			this->label4->Text = L"label4";
-			this->label4->Click += gcnew System::EventHandler(this, &frmDatosConductor::label4_Click);
+			this->textBoxLicencia->Enabled = false;
+			this->textBoxLicencia->Location = System::Drawing::Point(117, 131);
+			this->textBoxLicencia->Name = L"textBoxLicencia";
+			this->textBoxLicencia->ReadOnly = true;
+			this->textBoxLicencia->Size = System::Drawing::Size(137, 20);
+			this->textBoxLicencia->TabIndex = 8;
+			// 
+			// textBoxNombre
+			// 
+			this->textBoxNombre->Enabled = false;
+			this->textBoxNombre->Location = System::Drawing::Point(117, 89);
+			this->textBoxNombre->Name = L"textBoxNombre";
+			this->textBoxNombre->ReadOnly = true;
+			this->textBoxNombre->Size = System::Drawing::Size(137, 20);
+			this->textBoxNombre->TabIndex = 7;
+			this->textBoxNombre->TextChanged += gcnew System::EventHandler(this, &frmDatosConductor::textBox4_TextChanged);
+			// 
+			// lblCalificacion
+			// 
+			this->lblCalificacion->ImageIndex = 7;
+			this->lblCalificacion->ImageList = this->imageList1;
+			this->lblCalificacion->Location = System::Drawing::Point(126, 30);
+			this->lblCalificacion->Name = L"lblCalificacion";
+			this->lblCalificacion->Size = System::Drawing::Size(128, 32);
+			this->lblCalificacion->TabIndex = 3;
+			this->lblCalificacion->Click += gcnew System::EventHandler(this, &frmDatosConductor::label4_Click);
 			// 
 			// imageList1
 			// 
 			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
 			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			this->imageList1->Images->SetKeyName(0, L"estrellas05.png");
-			this->imageList1->Images->SetKeyName(1, L"estrellas10.png");
-			this->imageList1->Images->SetKeyName(2, L"estrellas15.png");
-			this->imageList1->Images->SetKeyName(3, L"estrellas20.png");
-			this->imageList1->Images->SetKeyName(4, L"estrellas25.png");
-			this->imageList1->Images->SetKeyName(5, L"estrellas30.png");
-			this->imageList1->Images->SetKeyName(6, L"estrellas35.png");
-			this->imageList1->Images->SetKeyName(7, L"estrellas40.png");
-			this->imageList1->Images->SetKeyName(8, L"estrellas45.png");
-			this->imageList1->Images->SetKeyName(9, L"estrellas50.png");
+			this->imageList1->Images->SetKeyName(0, L"estrellas00.png");
+			this->imageList1->Images->SetKeyName(1, L"estrellas05.png");
+			this->imageList1->Images->SetKeyName(2, L"estrellas10.png");
+			this->imageList1->Images->SetKeyName(3, L"estrellas15.png");
+			this->imageList1->Images->SetKeyName(4, L"estrellas20.png");
+			this->imageList1->Images->SetKeyName(5, L"estrellas25.png");
+			this->imageList1->Images->SetKeyName(6, L"estrellas30.png");
+			this->imageList1->Images->SetKeyName(7, L"estrellas35.png");
+			this->imageList1->Images->SetKeyName(8, L"estrellas40.png");
+			this->imageList1->Images->SetKeyName(9, L"estrellas45.png");
+			this->imageList1->Images->SetKeyName(10, L"estrellas50.png");
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(6, 90);
+			this->label3->Location = System::Drawing::Point(6, 92);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(44, 13);
 			this->label3->TabIndex = 2;
@@ -163,10 +230,10 @@ namespace CarpoolView {
 			// groupBox2
 			// 
 			this->groupBox2->Controls->Add(this->button1);
-			this->groupBox2->Controls->Add(this->textBox3);
+			this->groupBox2->Controls->Add(this->textBoxPlaca);
 			this->groupBox2->Controls->Add(this->label7);
-			this->groupBox2->Controls->Add(this->textBox2);
-			this->groupBox2->Controls->Add(this->textBox1);
+			this->groupBox2->Controls->Add(this->textBoxModelo);
+			this->groupBox2->Controls->Add(this->textBoxMarca);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->label5);
 			this->groupBox2->Location = System::Drawing::Point(286, 12);
@@ -184,14 +251,16 @@ namespace CarpoolView {
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmDatosConductor::button1_Click);
 			// 
-			// textBox3
+			// textBoxPlaca
 			// 
-			this->textBox3->Location = System::Drawing::Point(106, 251);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->ReadOnly = true;
-			this->textBox3->Size = System::Drawing::Size(117, 20);
-			this->textBox3->TabIndex = 5;
+			this->textBoxPlaca->Enabled = false;
+			this->textBoxPlaca->Location = System::Drawing::Point(106, 251);
+			this->textBoxPlaca->Name = L"textBoxPlaca";
+			this->textBoxPlaca->ReadOnly = true;
+			this->textBoxPlaca->Size = System::Drawing::Size(117, 20);
+			this->textBoxPlaca->TabIndex = 5;
 			// 
 			// label7
 			// 
@@ -202,23 +271,25 @@ namespace CarpoolView {
 			this->label7->TabIndex = 4;
 			this->label7->Text = L"Placa:";
 			// 
-			// textBox2
+			// textBoxModelo
 			// 
-			this->textBox2->Location = System::Drawing::Point(106, 212);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(117, 20);
-			this->textBox2->TabIndex = 3;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &frmDatosConductor::textBox2_TextChanged);
+			this->textBoxModelo->Enabled = false;
+			this->textBoxModelo->Location = System::Drawing::Point(106, 212);
+			this->textBoxModelo->Name = L"textBoxModelo";
+			this->textBoxModelo->ReadOnly = true;
+			this->textBoxModelo->Size = System::Drawing::Size(117, 20);
+			this->textBoxModelo->TabIndex = 3;
+			this->textBoxModelo->TextChanged += gcnew System::EventHandler(this, &frmDatosConductor::textBox2_TextChanged);
 			// 
-			// textBox1
+			// textBoxMarca
 			// 
-			this->textBox1->Location = System::Drawing::Point(106, 173);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(117, 20);
-			this->textBox1->TabIndex = 2;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &frmDatosConductor::textBox1_TextChanged);
+			this->textBoxMarca->Enabled = false;
+			this->textBoxMarca->Location = System::Drawing::Point(106, 173);
+			this->textBoxMarca->Name = L"textBoxMarca";
+			this->textBoxMarca->ReadOnly = true;
+			this->textBoxMarca->Size = System::Drawing::Size(117, 20);
+			this->textBoxMarca->TabIndex = 2;
+			this->textBoxMarca->TextChanged += gcnew System::EventHandler(this, &frmDatosConductor::textBox1_TextChanged);
 			// 
 			// label6
 			// 
@@ -275,23 +346,33 @@ private: System::Void CargarVentana(System::Object^ sender, System::EventArgs^ e
 	this->objGestorConductor->LeerConductoresDesdeArchivo();
 
 	//Busca el conductor con user id
-	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(UserID);
+	Conductor^ objConductor = this->objGestorConductor->BuscarConductorxUserID(1);
 
-	//lee la lista de vehiculos
-	this->objGestorVehiculoDefault->LeerVehiculosDesdeArchivo();
+	//Vehiculo^ objVehiculoDefault = objConductor->objVehiculoDefault;
 
-	Vehiculo^ objVehiculoDefault = objConductor->objVehiculo;
-
-	//busca en la lista de vehiculos el vehiculo actual
-	//crear el objeto vehiculo actual
 	//Muestra en la ventana los datos del conductor como el vehiculo actual
+	Calificacion = this->objConductor->CalificacionConductor;
 
+	this->lblCalificacion->ImageIndex = Calificacion*2; //actualiza estrellas basado en calificacion
 
+	this->textBoxNombre->Text= this->objConductor->Nombre; //TODO: aun no funciona
+	this->textBoxLicencia->Text = this->objConductor->NumeroDeLicencia;
+	this->textBoxMarca->Text = "Toyota";
+	this->textBoxModelo->Text = "Carina";
+	this->textBoxPlaca->Text = "BGI-300";
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
 }
 private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	//frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(this->objVehiculo);
+	//VentanaMisVehiculos->ShowDialog();
+
 }
 };
 }

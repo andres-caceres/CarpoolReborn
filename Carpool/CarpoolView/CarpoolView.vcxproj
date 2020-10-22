@@ -119,9 +119,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmDatosConductor.cpp" />
     <ClCompile Include="frmElegirModo.cpp" />
     <ClCompile Include="frmLogin.cpp" />
+    <ClCompile Include="frmMisVehiculos.cpp" />
     <ClCompile Include="frmRegistrar.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -133,6 +135,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="frmAgregarVehiculo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmDatosConductor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -142,16 +147,25 @@
     <ClInclude Include="frmLogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmMisVehiculos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmRegistrar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAgregarVehiculo.resx">
+      <DependentUpon>frmAgregarVehiculo.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDatosConductor.resx">
       <DependentUpon>frmDatosConductor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmElegirModo.resx">
       <DependentUpon>frmElegirModo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMisVehiculos.resx">
+      <DependentUpon>frmMisVehiculos.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

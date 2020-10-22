@@ -30,6 +30,12 @@
     <ClCompile Include="frmDatosConductor.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmMisVehiculos.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmAgregarVehiculo.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmElegirModo.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmDatosConductor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmMisVehiculos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmAgregarVehiculo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

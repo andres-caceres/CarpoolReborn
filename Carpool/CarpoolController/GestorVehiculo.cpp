@@ -43,6 +43,15 @@ Vehiculo^ GestorVehiculo::ObtenerVehiculoPorPlaca(String^ Placa) {
 	return objVehiculo;
 }
 
+Vehiculo^ GestorVehiculo::ObtenerVehiculoDeLista(int indice) {
+	return this->listaVehiculos[indice];
+}
+
+int GestorVehiculo::ObtenerCantidadVehiculos() {
+	return this->listaVehiculos->Count;
+}
+
+
 void GestorVehiculo::AgregarVehiculo(Vehiculo^ objVehiculo) {
 	this->listaVehiculos->Add(objVehiculo);
 }

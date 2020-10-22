@@ -1,12 +1,7 @@
 #include "Vehiculo.h"
 
 using namespace CarpoolModel;
-/*
-Vehiculo::Vehiculo()
-{
 
-}
-*/
 Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad) {
 
 	this->Marca = Marca;
@@ -17,5 +12,9 @@ Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, 
 	this->NumeroAsientos = NumeroAsientos;
 	this->Propietario = Propietario;
 	this->NumeroTarjetaPropiedad = NumeroTarjetaPropiedad;
+
+}
+
+Vehiculo::Vehiculo() {
 
 }

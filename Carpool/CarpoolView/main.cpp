@@ -15,7 +15,7 @@ void main(void)
 }
 */
 
-#include "frmDatosConductor.h"
+#include "frmMisVehiculos.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -26,6 +26,6 @@ void main(void)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	frmDatosConductor ventana;
+	frmMisVehiculos ventana;
 	Application::Run(% ventana);
 }

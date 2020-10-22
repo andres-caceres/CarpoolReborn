@@ -1,2 +1,3 @@
-1;Licencia1;Disponibilidad1;1;AsientosDisponibles1;PlacaVehiculoDefault1
-2;Licencia2;Disponibilidad2;5;AsientosDisponibles1;PlacaVehiculoDefault2
+1;Juan;Licencia1;Disponibilidad1;1;Lugar1;AsientosDisponibles1;PlacaVehiculoDefault1
+2;Pedro;Licencia2;Disponibilidad2;2;Lugar2;AsientosDisponibles2;PlacaVehiculoDefault2
+3;Monica;Licencia3;Disponibilidad3;5;Lugar3;AsientosDisponibles3;PlacaVehiculoDefault3
