@@ -10,13 +10,14 @@ namespace CarpoolController {
 
 	private:
 		List<Vehiculo^>^ listaVehiculos;
+		//List<Vehiculo^>^ listaVehiculosDeConductor;
 
 	public:
 		GestorVehiculo();
 		void LeerVehiculosDesdeArchivo();
 		Vehiculo^ ObtenerVehiculoDeLista(int indice);
 		Vehiculo^ ObtenerVehiculoPorPlaca(String^ Placa);
-		//Vehiculo^ ObtenerVehiculoPorConductor();
+		//List<Vehiculo^>^ ObtenerVehiculosPorConductor(Conductor^ objConductor);
 		int ObtenerCantidadVehiculos();
 		void AgregarVehiculo(Vehiculo^ objVehiculo);
 		void EliminarVehiculo(String^ Placa);

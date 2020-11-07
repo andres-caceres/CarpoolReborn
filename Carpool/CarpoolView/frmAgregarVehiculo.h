@@ -79,7 +79,8 @@ namespace CarpoolView {
 
 	private:
 		GestorVehiculo^ objGestorVehiculo;
-		/// <summary>
+
+		   /// <summary>
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;

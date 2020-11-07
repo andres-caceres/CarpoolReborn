@@ -14,11 +14,11 @@ Conductor::Conductor(int CodigoDeUsuario, String^ Nombre, String^ Licencia, Stri
 	this->AsientosDisponibles = AsientosDisponibles;
 	this->objVehiculo = objVehiculo;
 	this->objChat = gcnew Chat();
-	this->objMetodoPago = gcnew MetodoPago();
+	//this->objMetodoPago = gcnew MetodoPago();
 }
 
 Conductor::Conductor() {
 	this->objVehiculo = gcnew Vehiculo();
 	this->objChat = gcnew Chat();
-	this->objMetodoPago = gcnew MetodoPago();
+	//this->objMetodoPago = gcnew MetodoPago();
 }

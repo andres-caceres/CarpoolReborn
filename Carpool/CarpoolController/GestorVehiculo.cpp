@@ -6,6 +6,7 @@ using namespace System::IO;
 
 GestorVehiculo::GestorVehiculo() {
 	listaVehiculos = gcnew List<Vehiculo^>();
+	//listaVehiculosDeConductor = gcnew List<Vehiculo^>();
 }
 
 void GestorVehiculo::LeerVehiculosDesdeArchivo() {
@@ -24,8 +25,10 @@ void GestorVehiculo::LeerVehiculosDesdeArchivo() {
 		String^ NumAsientos = campos[5];
 		String^ Propietairo	= campos[6];
 		String^ TrjPropiedad= campos[7];
+		//String^ IDConductor	= campos[8];
 
-		Vehiculo^ objVehiculo= gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, TrjPropiedad);
+		//Vehiculo^ objVehiculo= gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, TrjPropiedad, IDConductor);
+		Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, TrjPropiedad);
 		this->listaVehiculos->Add(objVehiculo);
 	}
 }
@@ -70,9 +73,23 @@ void GestorVehiculo::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaVehiculos->Count);
 	for (int i = 0; i < this->listaVehiculos->Count; i++) {
 		Vehiculo^ objVehiculo = this->listaVehiculos[i];
-		lineasArchivo[i] = objVehiculo->Marca + ";" + objVehiculo->Modelo + ";" + objVehiculo->Placa + ";" + objVehiculo->Color + ";" + objVehiculo->Tipo + ";" + objVehiculo->NumeroAsientos + ";" + objVehiculo->NumeroTarjetaPropiedad;
+		lineasArchivo[i] = objVehiculo->Marca + ";" + objVehiculo->Modelo + ";" + objVehiculo->Placa + ";" + objVehiculo->Color + ";" + objVehiculo->Tipo + ";" + objVehiculo->NumeroAsientos + ";" + objVehiculo->NumeroTarjetaPropiedad + ";" + objVehiculo->IDConductor;
 	}
 	File::WriteAllLines("Vehiculos.txt", lineasArchivo);
 }
+/*
+List<Vehiculo^>^ ObtenerVehiculosPorConductor(Conductor^ objConductor)
+{
+	Vehiculo^ objVehiculo = nullptr;
+	for (int i = 0; i < this->listaVehiculos->Count; i++)
+	{
+		if (this->listaVehiculos[i]->IDConductor == objConductor->CodigoDeUsuario) {
+			objVehiculo = this->listaVehiculos[i];
+			this->listaVehiculosDeConductor->Add(objVehiculo);
+		}
+	}
+	return listaVehiculosDeConductor;
 
+}
+*/
 //OTROS METODOS

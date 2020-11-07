@@ -23,11 +23,15 @@ namespace CarpoolView {
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
-			//this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			//GestorVehiculo^ objGestorVehiculoDefault = gcnew GestorVehiculo();
+			this->objGestorConductor = gcnew GestorConductor();
+			this->objConductor = gcnew Conductor();
+			this->objGestorVehiculo = gcnew GestorVehiculo();
+			this->objVehiculoDefault = gcnew Vehiculo(); //#profe
 			Calificacion = 0;
 			//
 		}
-
+		
 		frmDatosConductor(GestorConductor^ objGestorConductor, Conductor^ objConductor)
 		{
 			InitializeComponent();
@@ -35,22 +39,23 @@ namespace CarpoolView {
 			//TODO: Add the constructor code here
 			this->objGestorConductor = objGestorConductor;
 			this->objConductor = objConductor;
-			this->objVehiculo = gcnew Vehiculo(); //#profe
-			//this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			this->objGestorVehiculo = gcnew GestorVehiculo();
+			this->objVehiculoDefault = gcnew Vehiculo(); //#profe
 			Calificacion = 0;
 			//
 		}
-		frmDatosConductor(GestorVehiculo^ objGestorVehiculo)
+		frmDatosConductor(GestorConductor^ objGestorConductor)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
-			this->objGestorVehiculo = objGestorVehiculo;
-			//this->objGestorVehiculoDefault = gcnew GestorVehiculo();
+			this->objGestorConductor = objGestorConductor;
+			this->objConductor = gcnew Conductor();
+			this->objGestorVehiculo = gcnew GestorVehiculo();
+			this->objVehiculoDefault = gcnew Vehiculo(); //#profe
 			Calificacion = 0;
 			//
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -92,17 +97,12 @@ namespace CarpoolView {
 		GestorConductor^ objGestorConductor;
 		GestorVehiculo^ objGestorVehiculo; //#profe no tiene por que llamarse
 		Conductor^ objConductor;
-		Vehiculo^ objVehiculo;//#profe
+		Vehiculo^ objVehiculoDefault;//#profe
 
 	private: System::Windows::Forms::TextBox^ textBoxLicencia;
 	private: System::Windows::Forms::TextBox^ textBoxNombre;
 
 
-
-
-
-
-		   //GestorVehiculo^ objGestorVehiculoDefault;
 		int Calificacion;
 		/// <summary>
 		/// Required designer variable.
@@ -245,11 +245,11 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(125, 287);
+			this->button1->Location = System::Drawing::Point(90, 288);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(100, 23);
 			this->button1->TabIndex = 6;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"Cambiar Vehiculo";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &frmDatosConductor::button1_Click);
 			// 
@@ -340,17 +340,15 @@ private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void CargarVentana(System::Object^ sender, System::EventArgs^ e) {
 
-	int UserID = 1;
+	//int UserID = 1;
 
 	//objGestorConductor lee la lista de conductores desde archivo
 	this->objGestorConductor->LeerConductoresDesdeArchivo();
 
 	//Busca el conductor con user id
-	Conductor^ objConductor = this->objGestorConductor->BuscarConductorxUserID(1);
+	this-> objConductor = this->objGestorConductor->BuscarConductorxUserID(1);
 
-	//Vehiculo^ objVehiculoDefault = objConductor->objVehiculoDefault;
-
-	//Muestra en la ventana los datos del conductor como el vehiculo actual
+	//Muestra en la ventana los datos del conductor
 	Calificacion = this->objConductor->CalificacionConductor;
 
 	this->lblCalificacion->ImageIndex = Calificacion*2; //actualiza estrellas basado en calificacion
@@ -360,6 +358,11 @@ private: System::Void CargarVentana(System::Object^ sender, System::EventArgs^ e
 	this->textBoxMarca->Text = "Toyota";
 	this->textBoxModelo->Text = "Carina";
 	this->textBoxPlaca->Text = "BGI-300";
+	/*
+	this->textBoxMarca->Text = this->objConductor->objVehiculo->Marca;
+	this->textBoxModelo->Text = this->objConductor->objVehiculo->Modelo;
+	this->textBoxPlaca->Text = this->objConductor->objVehiculo->Placa;
+	*/
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -370,8 +373,8 @@ private: System::Void textBox4_TextChanged(System::Object^ sender, System::Event
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	//frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(this->objVehiculo);
-	//VentanaMisVehiculos->ShowDialog();
+	frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(); //aqui debería poderse enviar
+	VentanaMisVehiculos->ShowDialog();
 
 }
 };

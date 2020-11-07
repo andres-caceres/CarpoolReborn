@@ -21,7 +21,7 @@ namespace CarpoolModel {
 			String^ AsientosDisponibles;
 			Vehiculo^ objVehiculo;
 			Chat^ objChat;
-			MetodoPago^ objMetodoPago;
+			//MetodoPago^ objMetodoPago;
 
 			/*Métodos*/
 		public:

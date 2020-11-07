@@ -16,11 +16,13 @@ namespace CarpoolModel {
 		String^ NumeroAsientos;
 		String^ Propietario;
 		String^ NumeroTarjetaPropiedad;
+		String^ IDConductor;
 
 		/*Métodos*/
 	public:
 		/*Método Constructor*/
 		Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad);
+		Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad, String^ IDConductor);
 		Vehiculo();
 	};
 }

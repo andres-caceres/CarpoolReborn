@@ -27,12 +27,22 @@ namespace CarpoolView {
 			//
 		}
 
-		frmMisVehiculos(GestorVehiculo^ objGestorVehiculo)
+		frmMisVehiculos(GestorVehiculo^ objGestorVehiculo) //TODO: es necesario?
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			this->objGestorVehiculo = objGestorVehiculo;
+			//
+		}
+
+		frmMisVehiculos( Conductor^ objConductor)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			GestorConductor^ objGestorConductor = gcnew GestorConductor();
+			this->objConductor = objConductor;
 			//
 		}
 
@@ -49,7 +59,9 @@ namespace CarpoolView {
 		}
 
 	private:
+		GestorConductor^ objGestorConductor;
 		GestorVehiculo^ objGestorVehiculo;
+		Conductor^ objConductor;
 
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -186,6 +198,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmMisVehiculos";
 			this->Text = L"frmMisVehiculos";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmMisVehiculos::frmMisVehiculos_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &frmMisVehiculos::frmMisVehiculos_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
@@ -202,6 +215,7 @@ private: System::Void dataGridView1_CellContentClick_1(System::Object^ sender, S
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void frmMisVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
+
 	this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
 
 	this->dataGridView1->Rows->Clear();
@@ -221,8 +235,8 @@ private: System::Void frmMisVehiculos_Load(System::Object^ sender, System::Event
 	}
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
+	//devolver vehiculo seleccionado
+	this->Close();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //BotonNuevo
 
@@ -267,6 +281,10 @@ private: System::Void buttonEliminar_Click(System::Object^ sender, System::Event
 		//fila[7] = objVehiculo->NumeroTarjetaPropiedad;
 		this->dataGridView1->Rows->Add(fila);	
 	}
+}
+private: System::Void frmMisVehiculos_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+
+	this->objGestorVehiculo->EscribirArchivo();
 }
 };
 }
