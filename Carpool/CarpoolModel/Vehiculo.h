@@ -8,7 +8,7 @@ namespace CarpoolModel {
 
 		/*Definición de atributos*/
 	public:
-		String^ Marca;
+		String^ Marca;	
 		String^ Modelo;
 		String^ Placa;
 		String^ Color;

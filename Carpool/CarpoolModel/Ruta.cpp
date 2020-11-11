@@ -1,7 +1,19 @@
 #include "Ruta.h"
 
-using namespace CarpoolModel;
+using namespace System;
 
-Ruta::Ruta() {
-	this->ListaRuta = gcnew List<Ruta^>();
+namespace CarpoolModel {
+
+	Ruta::Ruta(int CodigoRuta, String^ Origen, String^ Destino,String^ Favoritos) {
+		//this->ListaRuta = gcnew List<Ruta^>();
+		this->CodigoRuta = CodigoRuta;
+		this->Origen = Origen;
+		this->Destino = Destino;
+		this->Favoritos = Favoritos;
+
+	}
+
+	Ruta::Ruta() {
+
+	}
 }

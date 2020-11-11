@@ -9,14 +9,13 @@ namespace CarpoolModel {
 	public ref class Contactos {
 
 		/*Definición de atributos*/
-	private:
+	public:
 		int codigo;
 		String^ apodo;
-		String^ favoritos;
+		String^ dni;
 
 		/*Métodos*/
 	public:
-
-		Contactos();
+		Contactos(int codigo, String^ apodo,String^ dni);
 	};
 }

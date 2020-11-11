@@ -1,0 +1,2 @@
+#include "frmNuevoContacto.h"
+

@@ -1,4 +1,6 @@
 #pragma once
+#include "frmPasajero.h"
+#include "frmConductor.h"
 
 namespace CarpoolView {
 
@@ -10,7 +12,7 @@ namespace CarpoolView {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for frmElegirModo
+	/// Resumen de frmElegirModo
 	/// </summary>
 	public ref class frmElegirModo : public System::Windows::Forms::Form
 	{
@@ -19,13 +21,13 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 			//
-			//TODO: Add the constructor code here
+			//TODO: agregar código de constructor aquí
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Clean up any resources being used.
+		/// Limpiar los recursos que se estén usando.
 		/// </summary>
 		~frmElegirModo()
 		{
@@ -37,59 +39,89 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button1;
 	protected:
 	private: System::Windows::Forms::Button^ button2;
-
-	protected:
+	private: System::Windows::Forms::Button^ button3;
 
 	private:
 		/// <summary>
-		/// Required designer variable.
+		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
+		/// Método necesario para admitir el Diseñador. No se puede modificar
+		/// el contenido de este método con el editor de código.
 		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(101, 59);
+			this->button1->ForeColor = System::Drawing::Color::Blue;
+			this->button1->Location = System::Drawing::Point(102, 81);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(230, 55);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Pasajero";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmElegirModo::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(101, 124);
+			this->button2->ForeColor = System::Drawing::Color::Green;
+			this->button2->Location = System::Drawing::Point(102, 206);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(230, 55);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Conductor";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &frmElegirModo::button2_Click);
 			// 
+			// button3
+			// 
+			this->button3->ForeColor = System::Drawing::Color::Red;
+			this->button3->Location = System::Drawing::Point(153, 335);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(127, 35);
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"Cerrar sesión";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmElegirModo::button3_Click);
+			// 
 			// frmElegirModo
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(422, 424);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"frmElegirModo";
-			this->Text = L"frmElegirModo";
+			this->Text = L"Elegir modo";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmElegirModo::frmElegirModo_FormClosing);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmPasajero^ ventanaPasajero = gcnew frmPasajero();
+		ventanaPasajero->Show();
+		this->Hide();
 	}
-	};
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmConductor^ ventanaConductor = gcnew frmConductor();
+		ventanaConductor->Show();
+		this->Hide();
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+	private: System::Void frmElegirModo_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+		Application::Exit();
+	}
+};
 }

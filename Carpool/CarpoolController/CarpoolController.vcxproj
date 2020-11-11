@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{0049B5AB-EF53-4ACA-8D3E-07CE8F851280}</ProjectGuid>
+    <ProjectGuid>{782B1EBC-38FE-40DC-A366-1A4F94BA5052}</ProjectGuid>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>CarpoolController</RootNamespace>
@@ -111,17 +111,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CarpoolModel\CarpoolModel.vcxproj">
-      <Project>{3cb89854-539e-45d4-9c8c-35b9c70aedc3}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="GestorConductor.h" />
+    <ClInclude Include="GestorContacto.h" />
+    <ClInclude Include="GestorPasajero.h" />
+    <ClInclude Include="GestorRuta.h" />
+    <ClInclude Include="GestorUsuario.h" />
     <ClInclude Include="GestorVehiculo.h" />
+    <ClInclude Include="GestorViaje.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GestorConductor.cpp" />
+    <ClCompile Include="GestorContacto.cpp" />
+    <ClCompile Include="GestorPasajero.cpp" />
+    <ClCompile Include="GestorRuta.cpp" />
+    <ClCompile Include="GestorUsuario.cpp" />
     <ClCompile Include="GestorVehiculo.cpp" />
+    <ClCompile Include="GestorViaje.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarpoolModel\CarpoolModel.vcxproj">
+      <Project>{f2076874-ff77-41e5-b3da-0e73d8f0d5dc}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

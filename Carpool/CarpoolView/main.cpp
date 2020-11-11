@@ -1,31 +1,14 @@
-/*
-#include "frmAgregarVehiculo.h"
+#include "frmLogin.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace CarpoolView;
 
-void main(void)
+void main(array <String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	frmAgregarVehiculo ventana;
-	Application::Run(% ventana);
-}
-*/
-
-#include "frmDatosConductor.h"
-
-using namespace System;
-using namespace System::Windows::Forms;
-using namespace CarpoolView;
-
-void main(void)
-{
-	Application::EnableVisualStyles();
-	Application::SetCompatibleTextRenderingDefault(false);
-
-	frmDatosConductor ventana;
+	frmLogin ventana;
 	Application::Run(% ventana);
 }

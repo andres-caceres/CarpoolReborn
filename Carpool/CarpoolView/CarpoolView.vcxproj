@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{17EA773E-F9A5-4609-B186-6CA3E3115FC8}</ProjectGuid>
+    <ProjectGuid>{F9B1FA0F-21C6-4BCB-B625-84E489938D90}</ProjectGuid>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>CarpoolView</RootNamespace>
@@ -81,6 +81,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -112,20 +114,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarpoolController\CarpoolController.vcxproj">
-      <Project>{0049b5ab-ef53-4aca-8d3e-07ce8f851280}</Project>
+      <Project>{782b1ebc-38fe-40dc-a366-1a4f94ba5052}</Project>
     </ProjectReference>
     <ProjectReference Include="..\CarpoolModel\CarpoolModel.vcxproj">
-      <Project>{3cb89854-539e-45d4-9c8c-35b9c70aedc3}</Project>
+      <Project>{f2076874-ff77-41e5-b3da-0e73d8f0d5dc}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="frmAgregarVehiculo.cpp" />
-    <ClCompile Include="frmDatosConductor.cpp" />
-    <ClCompile Include="frmElegirModo.cpp" />
-    <ClCompile Include="frmLogin.cpp" />
-    <ClCompile Include="frmMisVehiculos.cpp" />
-    <ClCompile Include="frmRegistrar.cpp" />
-    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -135,10 +128,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="frmAdministrador.cpp" />
+    <ClCompile Include="frmAgregarVehiculo.cpp" />
+    <ClCompile Include="frmBuscarUsuario.cpp" />
+    <ClCompile Include="frmConductor.cpp" />
+    <ClCompile Include="frmCreaViaje.cpp" />
+    <ClCompile Include="frmDatosConductor.cpp" />
+    <ClCompile Include="frmDatosPersonales.cpp" />
+    <ClCompile Include="frmEditarContacto.cpp" />
+    <ClCompile Include="frmElegirMetodoPago.cpp" />
+    <ClCompile Include="frmElegirModo.cpp" />
+    <ClCompile Include="frmLogin.cpp" />
+    <ClCompile Include="frmMantViaje.cpp" />
+    <ClCompile Include="frmMisVehiculos.cpp" />
+    <ClCompile Include="frmNuevoContacto.cpp" />
+    <ClCompile Include="frmPasajero.cpp" />
+    <ClCompile Include="frmRegister.cpp" />
+    <ClCompile Include="frmReservaViaje.cpp" />
+    <ClCompile Include="frmRevisarViajes.cpp" />
+    <ClCompile Include="frmTarjeta.cpp" />
+    <ClCompile Include="frmUpdateContacto.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="frmAdministrador.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmAgregarVehiculo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmBuscarUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmCreaViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmDatosConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmDatosPersonales.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmEditarContacto.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmElegirMetodoPago.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmElegirModo.h">
@@ -147,25 +184,94 @@
     <ClInclude Include="frmLogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmMantViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmMisVehiculos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmRegistrar.h">
+    <ClInclude Include="frmNuevoContacto.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPasajero.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmRegister.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReservaViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmRevisarViajes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmTarjeta.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmUpdateContacto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAdministrador.resx">
+      <DependentUpon>frmAdministrador.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarUsuario.resx">
+      <DependentUpon>frmBuscarUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConductor.resx">
+      <DependentUpon>frmConductor.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreaViaje.resx">
+      <DependentUpon>frmCreaViaje.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatosConductor.resx">
       <DependentUpon>frmDatosConductor.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDatosPersonales.resx">
+      <DependentUpon>frmDatosPersonales.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarContacto.resx">
+      <DependentUpon>frmEditarContacto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmElegirMetodoPago.resx">
+      <DependentUpon>frmElegirMetodoPago.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmElegirModo.resx">
       <DependentUpon>frmElegirModo.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantViaje.resx">
+      <DependentUpon>frmMantViaje.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMisVehiculos.resx">
       <DependentUpon>frmMisVehiculos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoContacto.resx">
+      <DependentUpon>frmNuevoContacto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPasajero.resx">
+      <DependentUpon>frmPasajero.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegister.resx">
+      <DependentUpon>frmRegister.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservaViaje.resx">
+      <DependentUpon>frmReservaViaje.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRevisarViajes.resx">
+      <DependentUpon>frmRevisarViajes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTarjeta.resx">
+      <DependentUpon>frmTarjeta.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateContacto.resx">
+      <DependentUpon>frmUpdateContacto.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

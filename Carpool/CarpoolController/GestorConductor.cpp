@@ -12,22 +12,22 @@ GestorConductor::GestorConductor() {
 }
 
 void GestorConductor::LeerConductoresDesdeArchivo() {
-	
+
 	this->listaConductores->Clear();
-	array<String^>^ lineas = File::ReadAllLines("Conductores.txt"); 
+	array<String^>^ lineas = File::ReadAllLines("Conductores.txt");
 	String^ separadores = ";";
 	for each (String ^ lineaContacto in lineas)
 	{
 
 		array<String^>^ palabras = lineaContacto->Split(separadores->ToCharArray());
 		int UserID = Convert::ToInt32(palabras[0]);
-		String^ Nombre					= palabras[1]; //TODO: buscar nombre usando en GestorUsuario (cambiar en Conductor.h)
-		String^ Licencia				= palabras[2];
-		String^ Disponibilidad			= palabras[3];
+		String^ Nombre = palabras[1]; //TODO: buscar nombre usando en GestorUsuario (cambiar en Conductor.h)
+		String^ Licencia = palabras[2];
+		String^ Disponibilidad = palabras[3];
 		int Calificacion = Convert::ToInt32(palabras[4]);
-		String^ Posicion				= palabras[5];
-		String^ AsientosDisponibles		= palabras[6];
-		String^ PlacaDefault			= palabras[7]; //TODO: puede ser int?
+		String^ Posicion = palabras[5];
+		String^ AsientosDisponibles = palabras[6];
+		String^ PlacaDefault = palabras[7]; //TODO: puede ser int?
 
 		//cargar vehiculo de la lista
 		GestorVehiculo^ objBuscadorVehiculo = gcnew GestorVehiculo();

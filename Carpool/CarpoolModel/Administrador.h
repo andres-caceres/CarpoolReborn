@@ -6,15 +6,15 @@ using namespace System::Collections::Generic; /*Contiene la definición e impleme
 namespace CarpoolModel {
 	public ref class Administrador {
 
-			/*Definición de atributos*/
-		private:
-			String^ Acceso;
-			String^ TipoAdmin;
-			int CodigoDeAdmin;
+		/*Definición de atributos*/
+	private:
+		String^ Acceso;
+		String^ TipoAdmin;
+		int CodigoDeAdmin;
 
-			/*Métodos*/
-		public:
-			/*Método Constructor*/
-			Administrador();
+		/*Métodos*/
+	public:
+		/*Método Constructor*/
+		Administrador();
 	};
 }

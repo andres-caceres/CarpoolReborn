@@ -15,7 +15,7 @@ Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, 
 
 }
 
-Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad,String^ IDConductor) {
+Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad, String^ IDConductor) {
 
 	this->Marca = Marca;
 	this->Modelo = Modelo;

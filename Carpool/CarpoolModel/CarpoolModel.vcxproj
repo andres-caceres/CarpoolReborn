@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{3CB89854-539E-45D4-9C8C-35B9C70AEDC3}</ProjectGuid>
+    <ProjectGuid>{F2076874-FF77-41E5-B3DA-0E73D8F0D5DC}</ProjectGuid>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>CarpoolModel</RootNamespace>
@@ -111,38 +111,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Administrador.cpp" />
-    <ClCompile Include="Chat.cpp" />
-    <ClCompile Include="Conductor.cpp" />
-    <ClCompile Include="Contactos.cpp" />
-    <ClCompile Include="CuentaBancaria.cpp" />
-    <ClCompile Include="DatosMapa.cpp" />
-    <ClCompile Include="Horario.cpp" />
-    <ClCompile Include="MetodoPago.cpp" />
-    <ClCompile Include="Pasajero.cpp" />
-    <ClCompile Include="Paypal.cpp" />
-    <ClCompile Include="Ruta.cpp" />
-    <ClCompile Include="Tarjeta.cpp" />
-    <ClCompile Include="Usuario.cpp" />
-    <ClCompile Include="Vehiculo.cpp" />
-    <ClCompile Include="Viaje.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Administrador.h" />
     <ClInclude Include="Chat.h" />
     <ClInclude Include="Conductor.h" />
     <ClInclude Include="Contactos.h" />
-    <ClInclude Include="CuentaBancaria.h" />
     <ClInclude Include="DatosMapa.h" />
-    <ClInclude Include="Horario.h" />
-    <ClInclude Include="MetodoPago.h" />
+    <ClInclude Include="Horarios.h" />
+    <ClInclude Include="MetodoTransferencia.h" />
     <ClInclude Include="Pasajero.h" />
-    <ClInclude Include="Paypal.h" />
     <ClInclude Include="Ruta.h" />
-    <ClInclude Include="Tarjeta.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Vehiculo.h" />
     <ClInclude Include="Viaje.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Administrador.cpp" />
+    <ClCompile Include="Chat.cpp" />
+    <ClCompile Include="Conductor.cpp" />
+    <ClCompile Include="Contactos.cpp" />
+    <ClCompile Include="DatosMapa.cpp" />
+    <ClCompile Include="Horarios.cpp" />
+    <ClCompile Include="MetodoTransferencia.cpp" />
+    <ClCompile Include="Pasajero.cpp" />
+    <ClCompile Include="Ruta.cpp" />
+    <ClCompile Include="Usuario.cpp" />
+    <ClCompile Include="Vehiculo.cpp" />
+    <ClCompile Include="Viaje.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

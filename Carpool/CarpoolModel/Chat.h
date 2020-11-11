@@ -9,15 +9,15 @@ namespace CarpoolModel {
 
 	public ref class Chat {
 
-			/*Definición de atributos*/
-		private:
-			String^ Favoritos;
-			String^ PIN;
-			int CodigoChat;
+		/*Definición de atributos*/
+	private:
+		String^ Favoritos;
+		String^ PIN;
+		int CodigoChat;
 
-			/*Métodos*/
-		public:
-			/*Método Constructor*/
-			Chat();
+		/*Métodos*/
+	public:
+		/*Método Constructor*/
+		Chat();
 	};
 }

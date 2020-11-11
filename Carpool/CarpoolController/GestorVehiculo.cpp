@@ -17,14 +17,14 @@ void GestorVehiculo::LeerVehiculosDesdeArchivo() {
 	for each (String ^ lineaVehiculo in lineas) {
 
 		array<String^>^ campos = lineaVehiculo->Split(separadores->ToCharArray());
-		String^ Marca		= campos[0];
-		String^ Modelo		= campos[1];
-		String^ Placa		= campos[2];
-		String^ Color		= campos[3];
-		String^ Tipo		= campos[4];
+		String^ Marca = campos[0];
+		String^ Modelo = campos[1];
+		String^ Placa = campos[2];
+		String^ Color = campos[3];
+		String^ Tipo = campos[4];
 		String^ NumAsientos = campos[5];
-		String^ Propietairo	= campos[6];
-		String^ TrjPropiedad= campos[7];
+		String^ Propietairo = campos[6];
+		String^ TrjPropiedad = campos[7];
 		//String^ IDConductor	= campos[8];
 
 		//Vehiculo^ objVehiculo= gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, TrjPropiedad, IDConductor);
