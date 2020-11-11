@@ -2,6 +2,7 @@
 #include "frmDatosPersonales.h"
 #include "frmUpdateContacto.h"
 #include "frmReservaViaje.h"
+#include "frmDatosPasajero.h"
 
 namespace CarpoolView {
 
@@ -83,7 +84,8 @@ namespace CarpoolView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(979, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(734, 24);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -94,32 +96,33 @@ namespace CarpoolView {
 					this->datosPasajeroToolStripMenuItem
 			});
 			this->misDatosToolStripMenuItem->Name = L"misDatosToolStripMenuItem";
-			this->misDatosToolStripMenuItem->Size = System::Drawing::Size(87, 24);
+			this->misDatosToolStripMenuItem->Size = System::Drawing::Size(70, 20);
 			this->misDatosToolStripMenuItem->Text = L"Mis datos";
 			// 
 			// datosPersonalesToolStripMenuItem
 			// 
 			this->datosPersonalesToolStripMenuItem->Name = L"datosPersonalesToolStripMenuItem";
-			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(206, 26);
+			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->datosPersonalesToolStripMenuItem->Text = L"Datos personales";
 			this->datosPersonalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::datosPersonalesToolStripMenuItem_Click);
 			// 
 			// datosPasajeroToolStripMenuItem
 			// 
 			this->datosPasajeroToolStripMenuItem->Name = L"datosPasajeroToolStripMenuItem";
-			this->datosPasajeroToolStripMenuItem->Size = System::Drawing::Size(206, 26);
+			this->datosPasajeroToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->datosPasajeroToolStripMenuItem->Text = L"Datos pasajero";
+			this->datosPasajeroToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::datosPasajeroToolStripMenuItem_Click);
 			// 
 			// misViajesToolStripMenuItem
 			// 
 			this->misViajesToolStripMenuItem->Name = L"misViajesToolStripMenuItem";
-			this->misViajesToolStripMenuItem->Size = System::Drawing::Size(87, 24);
+			this->misViajesToolStripMenuItem->Size = System::Drawing::Size(70, 20);
 			this->misViajesToolStripMenuItem->Text = L"Mis viajes";
 			// 
 			// misContactosToolStripMenuItem
 			// 
 			this->misContactosToolStripMenuItem->Name = L"misContactosToolStripMenuItem";
-			this->misContactosToolStripMenuItem->Size = System::Drawing::Size(114, 24);
+			this->misContactosToolStripMenuItem->Size = System::Drawing::Size(93, 20);
 			this->misContactosToolStripMenuItem->Text = L"Mis contactos";
 			this->misContactosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::misContactosToolStripMenuItem_Click);
 			// 
@@ -131,30 +134,31 @@ namespace CarpoolView {
 			});
 			this->elegirViajeToolStripMenuItem->ForeColor = System::Drawing::Color::Red;
 			this->elegirViajeToolStripMenuItem->Name = L"elegirViajeToolStripMenuItem";
-			this->elegirViajeToolStripMenuItem->Size = System::Drawing::Size(98, 24);
+			this->elegirViajeToolStripMenuItem->Size = System::Drawing::Size(76, 20);
 			this->elegirViajeToolStripMenuItem->Text = L"Elegir Viaje";
 			// 
 			// buscarViajesToolStripMenuItem
 			// 
 			this->buscarViajesToolStripMenuItem->Name = L"buscarViajesToolStripMenuItem";
-			this->buscarViajesToolStripMenuItem->Size = System::Drawing::Size(259, 26);
+			this->buscarViajesToolStripMenuItem->Size = System::Drawing::Size(207, 22);
 			this->buscarViajesToolStripMenuItem->Text = L"Buscar Viajes";
 			this->buscarViajesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::buscarViajesToolStripMenuItem_Click);
 			// 
 			// rutasYHorariosFavoritosToolStripMenuItem
 			// 
 			this->rutasYHorariosFavoritosToolStripMenuItem->Name = L"rutasYHorariosFavoritosToolStripMenuItem";
-			this->rutasYHorariosFavoritosToolStripMenuItem->Size = System::Drawing::Size(259, 26);
+			this->rutasYHorariosFavoritosToolStripMenuItem->Size = System::Drawing::Size(207, 22);
 			this->rutasYHorariosFavoritosToolStripMenuItem->Text = L"Rutas y horarios favoritos";
 			// 
 			// frmPasajero
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(979, 659);
+			this->ClientSize = System::Drawing::Size(734, 535);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"frmPasajero";
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->Text = L"Pasajero";
@@ -183,6 +187,11 @@ private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender
 	frmReservaViaje^ ventanaReservaViaje = gcnew frmReservaViaje();
 	ventanaReservaViaje->MdiParent = this;
 	ventanaReservaViaje->Show();
+}
+private: System::Void datosPasajeroToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmDatosPasajero^ ventanaDatosPasajero = gcnew frmDatosPasajero(); //TODO: debe pasarle el gestorPasajero
+	ventanaDatosPasajero->MdiParent = this;
+	ventanaDatosPasajero->Show();
 }
 };
 }
