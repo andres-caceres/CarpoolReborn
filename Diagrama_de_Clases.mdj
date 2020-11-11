@@ -135,7 +135,7 @@
 											"top": 526,
 											"width": 105.87890625,
 											"height": 13,
-											"text": "+CódigoAdmin",
+											"text": "+CodigoAdmin",
 											"horizontalAlignment": 0
 										},
 										{
@@ -383,7 +383,7 @@
 											"top": 510,
 											"width": 123.1826171875,
 											"height": 13,
-											"text": "+CódigoDeUsuario",
+											"text": "+CodigoDeUsuario",
 											"horizontalAlignment": 0
 										},
 										{
@@ -758,7 +758,7 @@
 											"top": 494,
 											"width": 173.08154296875,
 											"height": 13,
-											"text": "+CódigoDeUsuario",
+											"text": "+CodigoDeUsuario",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1342,7 +1342,7 @@
 											"top": 230,
 											"width": 118.14892578125,
 											"height": 13,
-											"text": "+CódigoDeUsuario",
+											"text": "+CodigoDeUsuario",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3401,7 +3401,7 @@
 											"top": 494,
 											"width": 78.0126953125,
 											"height": 13,
-											"text": "+Código",
+											"text": "+Codigo",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5856,8 +5856,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 985,
-									"top": 927,
+									"left": 753,
+									"top": 907,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -5877,8 +5877,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 986,
-									"top": 912,
+									"left": 754,
+									"top": 892,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -5898,8 +5898,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 982,
-									"top": 956,
+									"left": 750,
+									"top": 936,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -5919,8 +5919,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 585,
-									"top": 875,
+									"left": 584,
+									"top": 865,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -5940,8 +5940,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 590,
-									"top": 862,
+									"left": 587,
+									"top": 852,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -5961,8 +5961,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 575,
-									"top": 901,
+									"left": 577,
+									"top": 892,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -6072,7 +6072,7 @@
 								"$ref": "AAAAAAF04lcJRGZCTzI="
 							},
 							"lineStyle": 1,
-							"points": "557:891;752:928;1216:968;1304:657",
+							"points": "557:884;680:896;752:928;1216:968;1304:657",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF04oyxMmhWBog="
@@ -10762,8 +10762,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0zRuoOPSKBO0="
 							},
-							"name": "CódigoAdmin",
-							"type": ""
+							"name": "CodigoAdmin"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11058,8 +11057,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0zRvOFvS0Yzg="
 							},
-							"name": "CódigoDeUsuario",
-							"type": ""
+							"name": "CodigoDeUsuario"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11419,8 +11417,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0zRvw5fTe0+k="
 							},
-							"name": "CódigoDeUsuario",
-							"type": ""
+							"name": "CodigoDeUsuario"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11828,8 +11825,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF0zR2QKvUTWX0="
 							},
-							"name": "CódigoDeUsuario",
-							"type": ""
+							"name": "CodigoDeUsuario"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12849,8 +12845,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF04lbmSGTSapA="
 							},
-							"name": "Código",
-							"type": ""
+							"name": "Codigo"
 						},
 						{
 							"_type": "UMLAttribute",

@@ -11,14 +11,16 @@ namespace CarpoolModel {
 	public ref class Pasajero {
 
 		/*Definición de atributos*/
-	private:
-		String^ Posicion;
+	public:
+		int CodigoDeUsuario;		
 		int Calificacion;
-		int CodigoDeUsuario;
+		String^ Posicion;
+		
 
 		/*Métodos*/
 	public:
 		/*Método Constructor*/
 		Pasajero();
+		Pasajero(int UserID, int Calificacion, String^ Posicion);
 	};
 }
