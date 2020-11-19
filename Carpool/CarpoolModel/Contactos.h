@@ -10,7 +10,7 @@ namespace CarpoolModel {
 
 		/*Definición de atributos*/
 	public:
-		int codigo;
+		int codigo; //comentario
 		String^ apodo;
 		String^ dni;
 
