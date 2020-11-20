@@ -24,11 +24,12 @@ void GestorVehiculo::LeerVehiculosDesdeArchivo() {
 		String^ Tipo = campos[4];
 		String^ NumAsientos = campos[5];
 		String^ Propietairo = campos[6];
-		String^ TrjPropiedad = campos[7];
+		String^ SOAT = campos[7];
+		String^ RevTec = campos[8];
 		//String^ IDConductor	= campos[8];
 
 		//Vehiculo^ objVehiculo= gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, TrjPropiedad, IDConductor);
-		Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, TrjPropiedad);
+		Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, NumAsientos, Propietairo, SOAT, RevTec);
 		this->listaVehiculos->Add(objVehiculo);
 	}
 }
@@ -73,7 +74,7 @@ void GestorVehiculo::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaVehiculos->Count);
 	for (int i = 0; i < this->listaVehiculos->Count; i++) {
 		Vehiculo^ objVehiculo = this->listaVehiculos[i];
-		lineasArchivo[i] = objVehiculo->Marca + ";" + objVehiculo->Modelo + ";" + objVehiculo->Placa + ";" + objVehiculo->Color + ";" + objVehiculo->Tipo + ";" + objVehiculo->NumeroAsientos + ";" + objVehiculo->NumeroTarjetaPropiedad + ";" + objVehiculo->IDConductor;
+		lineasArchivo[i] = objVehiculo->Marca + ";" + objVehiculo->Modelo + ";" + objVehiculo->Placa + ";" + objVehiculo->Color + ";" + objVehiculo->Tipo + ";" + objVehiculo->NumeroAsientos + ";" + objVehiculo->SOAT + ";" + objVehiculo->RevTec + ";" + objVehiculo->IDConductor;
 	}
 	File::WriteAllLines("Vehiculos.txt", lineasArchivo);
 }

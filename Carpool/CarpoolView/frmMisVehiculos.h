@@ -230,7 +230,8 @@ namespace CarpoolView {
 		//Por si se agranda el datagrid:
 		//fila[5] = objVehiculo->NumeroAsientos;
 		//fila[6] = objVehiculo->Propietario;
-		//fila[7] = objVehiculo->NumeroTarjetaPropiedad;
+		//fila[7] = objVehiculo->SOAT;
+		//fila[8] = objVehiculo->RevTec;
 		this->dataGridView1->Rows->Add(fila);	
 	}
 }
@@ -252,7 +253,8 @@ private: System::Void buttonNuevo_Click(System::Object^ sender, System::EventArg
 			//Por si se agranda el datagrid:
 			//fila[5] = objVehiculo->NumeroAsientos;
 			//fila[6] = objVehiculo->Propietario;
-			//fila[7] = objVehiculo->NumeroTarjetaPropiedad;
+			//fila[7] = objVehiculo->SOAT;
+			//fila[8] = objVehiculo->RevTec;
 			this->dataGridView1->Rows->Add(fila);
 		}
 }
@@ -282,7 +284,8 @@ private: System::Void frmMisVehiculos_Load(System::Object^ sender, System::Event
 			//Por si se agranda el datagrid:
 			//fila[5] = objVehiculo->NumeroAsientos;
 			//fila[6] = objVehiculo->Propietario;
-			//fila[7] = objVehiculo->NumeroTarjetaPropiedad;
+			//fila[7] = objVehiculo->SOAT;
+			//fila[8] = objVehiculo->RevTec;
 			this->dataGridView1->Rows->Add(fila);
 		}
 }

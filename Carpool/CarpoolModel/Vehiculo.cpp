@@ -2,7 +2,7 @@
 
 using namespace CarpoolModel;
 
-Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad) {
+Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec) {
 
 	this->Marca = Marca;
 	this->Modelo = Modelo;
@@ -11,11 +11,12 @@ Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, 
 	this->Tipo = Tipo;
 	this->NumeroAsientos = NumeroAsientos;
 	this->Propietario = Propietario;
-	this->NumeroTarjetaPropiedad = NumeroTarjetaPropiedad;
+	this->SOAT = SOAT;
+	this->RevTec = RevTec;
 
 }
 
-Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ NumeroTarjetaPropiedad, String^ IDConductor) {
+Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec, String^ IDConductor) {
 
 	this->Marca = Marca;
 	this->Modelo = Modelo;
@@ -24,7 +25,8 @@ Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, 
 	this->Tipo = Tipo;
 	this->NumeroAsientos = NumeroAsientos;
 	this->Propietario = Propietario;
-	this->NumeroTarjetaPropiedad = NumeroTarjetaPropiedad;
+	this->SOAT = SOAT;
+	this->RevTec = RevTec;
 	this->IDConductor = IDConductor;
 }
 
