@@ -141,6 +141,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"frmRevisarViajes";
 			this->Text = L"Revisar Viajes";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmRevisarViajes::frmRevisarViajes_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &frmRevisarViajes::frmRevisarViajes_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

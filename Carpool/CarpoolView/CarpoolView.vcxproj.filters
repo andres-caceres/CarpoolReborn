@@ -81,6 +81,12 @@
     <ClCompile Include="frmDatosPasajero.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="frmSeguridad.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="frmPreguntaSeguridad.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmLogin.h">
@@ -144,6 +150,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmDatosPasajero.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmSeguridad.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmPreguntaSeguridad.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,6 @@
 #pragma once
+#include "frmSeguridad.h"
+#include "frmPreguntaSeguridad.h"
 
 namespace CarpoolView {
 
@@ -29,6 +31,7 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 			this->objGestorUsuario = objGestorUsuario;
+			this->objUsuario = gcnew Usuario();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -76,6 +79,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: GestorUsuario^ objGestorUsuario;
+	private: Usuario^ objUsuario;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox3;
@@ -85,6 +89,8 @@ namespace CarpoolView {
 	private: System::Windows::Forms::TextBox^ textBox7;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
 
 
 
@@ -107,6 +113,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmRegister::typeid));
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
@@ -126,6 +133,8 @@ namespace CarpoolView {
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -143,7 +152,7 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label9);
 			this->groupBox1->Controls->Add(this->label10);
 			this->groupBox1->Controls->Add(this->label11);
-			this->groupBox1->Location = System::Drawing::Point(77, 49);
+			this->groupBox1->Location = System::Drawing::Point(62, 228);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
@@ -154,13 +163,16 @@ namespace CarpoolView {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"@gmail.com", L"@hotmail.com", L"@outlook.es" });
-			this->comboBox1->Location = System::Drawing::Point(338, 231);
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"@pucp.edu.pe", L"@gmail.com", L"@hotmail.com",
+					L"@outlook.es"
+			});
+			this->comboBox1->Location = System::Drawing::Point(338, 234);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(153, 24);
 			this->comboBox1->TabIndex = 28;
-			this->comboBox1->Text = L"@pucp.edu.pe";
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &frmRegister::comboBox1_SelectedIndexChanged);
 			// 
 			// textBox5
@@ -271,7 +283,7 @@ namespace CarpoolView {
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::Red;
-			this->button1->Location = System::Drawing::Point(139, 530);
+			this->button1->Location = System::Drawing::Point(163, 530);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(132, 38);
 			this->button1->TabIndex = 25;
@@ -282,7 +294,7 @@ namespace CarpoolView {
 			// button2
 			// 
 			this->button2->ForeColor = System::Drawing::Color::Green;
-			this->button2->Location = System::Drawing::Point(370, 530);
+			this->button2->Location = System::Drawing::Point(364, 530);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(132, 38);
 			this->button2->TabIndex = 26;
@@ -307,16 +319,40 @@ namespace CarpoolView {
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->radioButton2);
+			this->groupBox2->Controls->Add(this->radioButton1);
 			this->groupBox2->Controls->Add(this->label12);
 			this->groupBox2->Controls->Add(this->textBox7);
 			this->groupBox2->Controls->Add(this->label13);
 			this->groupBox2->Controls->Add(this->textBox6);
-			this->groupBox2->Location = System::Drawing::Point(82, 357);
+			this->groupBox2->Location = System::Drawing::Point(62, 34);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(523, 133);
+			this->groupBox2->Size = System::Drawing::Size(528, 172);
 			this->groupBox2->TabIndex = 30;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Datos de la cuenta";
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(131, 136);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(85, 21);
+			this->radioButton1->TabIndex = 31;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"Pasajero";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(272, 136);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(94, 21);
+			this->radioButton2->TabIndex = 32;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"Conductor";
+			this->radioButton2->UseVisualStyleBackColor = true;
 			// 
 			// frmRegister
 			// 
@@ -327,6 +363,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmRegister";
 			this->Text = L"Registro";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmRegister::frmRegister_FormClosing);
@@ -340,7 +377,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		int es_valido,esta_completo;
+		int es_valido, esta_completo, mismos_datos, mismo_tipo_usuario;
 		String^ nombres = this->textBox1->Text;
 		String^ apellidoPaterno = this->textBox2->Text;
 		String^ apellidoMaterno = this->textBox3->Text;
@@ -348,18 +385,49 @@ namespace CarpoolView {
 		String^ correo = this->textBox5->Text + this->comboBox1->Text;
 		String^ userName = this->textBox6->Text;
 		String^ password = this->textBox7->Text;
-		Usuario^ objUsuario = gcnew Usuario(nombres,apellidoPaterno,apellidoMaterno,dni,correo,userName,password,0);
-		es_valido = objGestorUsuario->UsuarioRepetido(dni,correo,userName);
-		esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
+		int tipoUsuario;
+		if (this->radioButton1->Checked == true) {
+			tipoUsuario = 2;	// Pasajero
+		}
+		if (this->radioButton2->Checked == true) {
+			tipoUsuario = 3;	//Conductor
+		}
+		if ((radioButton2->Checked == false) && (radioButton1->Checked == false)) {
+			MessageBox::Show("Debe seleccionar una opcion");
+		}
 
-		if (es_valido && esta_completo) {
-			this->objGestorUsuario->AgregarUsuario(objUsuario);
-			MessageBox::Show("El usuario ha sido agregado correctamente");
+		Usuario^ objUsuario = gcnew Usuario(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
+		es_valido = objGestorUsuario->UsuarioRepetido(userName);
+		mismos_datos = objGestorUsuario->MismosDatos(dni, correo, nombres, apellidoPaterno, apellidoMaterno);
+		esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
+		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuario(dni, correo, nombres, apellidoPaterno, apellidoMaterno, tipoUsuario);
+
+		this->objUsuario = objUsuario;//NO SE SI ESTA BIEN ATENTO
+
+		if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
+			frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
+			ventanaSeguridad->Show();
+			//this->Hide();
+			//this->objGestorUsuario->AgregarUsuario(objUsuario);
+			this->Close();
+		}
+
+		if (mismos_datos && es_valido && mismo_tipo_usuario) {
+			MessageBox::Show("Ya hay una cuenta con el mismo tipo de usuario y datos");
+		}
+
+		if (es_valido && esta_completo && (!mismos_datos) && esta_completo) {	//Primera vez registro
+			frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
+			ventanaPreguntaSeguridad->Show();
+
+			//this->objGestorUsuario->AgregarUsuario(objUsuario);		IMPORTANTE
+			//MessageBox::Show("El usuario ha sido agregado correctamente");
 			this->Close();
 		}
 		if (!es_valido) {
-			MessageBox::Show("UserName y/o correo y/o DNI ya existente");
+			MessageBox::Show("UserName ya existente");
 		}
+
 		if (!esta_completo) {
 			MessageBox::Show("Debe llenar todos los espacios");
 		}
@@ -368,19 +436,27 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmRegister_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	int esta_completo;
-	String^ nombres = this->textBox1->Text;
-	String^ apellidoPaterno = this->textBox2->Text;
-	String^ apellidoMaterno = this->textBox3->Text;
-	String^ dni = this->textBox4->Text;
-	String^ correo = this->textBox5->Text + this->comboBox1->Text;
-	String^ userName = this->textBox6->Text;
-	String^ password = this->textBox7->Text;
-	Usuario^ objUsuario = gcnew Usuario(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password,0);
-	esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
-	if (esta_completo) {
-		this->objGestorUsuario->EscribirArchivo();
-	}
+	//int esta_completo;
+	//String^ nombres = this->textBox1->Text;
+	//String^ apellidoPaterno = this->textBox2->Text;
+	//String^ apellidoMaterno = this->textBox3->Text;
+	//String^ dni = this->textBox4->Text;
+	//String^ correo = this->textBox5->Text + this->comboBox1->Text;
+	//String^ userName = this->textBox6->Text;
+	//String^ password = this->textBox7->Text;
+	//int tipoUsuario;
+	//if (this->radioButton1->Checked == true) {
+	//	tipoUsuario = 2;	// Pasajero
+	//}
+	//if (this->radioButton2->Checked == true) {
+	//	tipoUsuario = 3;	//Conductor
+	//}
+	//Usuario^ objUsuario = gcnew Usuario(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password,tipoUsuario);
+
+	//esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
+	//if (esta_completo) {
+	//	this->objGestorUsuario->EscribirArchivo();
+	//}
 }
 private: System::Void frmRegister_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	//this->objGestorUsuario->EscribirArchivo();

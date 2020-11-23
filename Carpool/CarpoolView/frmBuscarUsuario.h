@@ -244,6 +244,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"frmBuscarUsuario";
 			this->Text = L"Buscar Usuario";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmBuscarUsuario::frmBuscarUsuario_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &frmBuscarUsuario::frmBuscarUsuario_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -290,7 +291,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		fila[5] = objUsuario->Correo;
 		fila[6] = objUsuario->Idioma;
 		fila[7] = objUsuario->userName;
-		fila[8] = Convert::ToString(objUsuario->es_admin);
+		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
 		this->dataGridView1->Rows->Add(fila);
 	}
 }
@@ -308,7 +309,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		fila[5] = objUsuario->Correo;
 		fila[6] = objUsuario->Idioma;
 		fila[7] = objUsuario->userName;
-		fila[8] = Convert::ToString(objUsuario->es_admin);
+		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
 		this->dataGridView1->Rows->Add(fila);
 	}
 }

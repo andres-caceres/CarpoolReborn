@@ -146,9 +146,11 @@
     <ClCompile Include="frmMisVehiculos.cpp" />
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
+    <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmReservaViaje.cpp" />
     <ClCompile Include="frmRevisarViajes.cpp" />
+    <ClCompile Include="frmSeguridad.cpp" />
     <ClCompile Include="frmTarjeta.cpp" />
     <ClCompile Include="frmUpdateContacto.cpp" />
     <ClCompile Include="main.cpp" />
@@ -202,6 +204,9 @@
     <ClInclude Include="frmPasajero.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmPreguntaSeguridad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmRegister.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -209,6 +214,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmRevisarViajes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmSeguridad.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmTarjeta.h">
@@ -267,6 +275,9 @@
     <EmbeddedResource Include="frmPasajero.resx">
       <DependentUpon>frmPasajero.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPreguntaSeguridad.resx">
+      <DependentUpon>frmPreguntaSeguridad.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.h</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRevisarViajes.resx">
       <DependentUpon>frmRevisarViajes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeguridad.resx">
+      <DependentUpon>frmSeguridad.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTarjeta.resx">
       <DependentUpon>frmTarjeta.h</DependentUpon>
