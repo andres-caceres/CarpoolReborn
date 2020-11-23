@@ -46,11 +46,17 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ lblMensaje;
-	private: System::Windows::Forms::Label^ lblMensaje5;
+
 	private: System::Windows::Forms::Label^ lblMensaje4;
 	private: System::Windows::Forms::Label^ lblMensaje3;
 	private: System::Windows::Forms::Label^ lblMensaje2;
 	private: GestorUsuario^ objGestorUsuario;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
 
 	private:
 		/// <summary>
@@ -65,9 +71,10 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmDatosPersonales::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->lblMensaje5 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->lblMensaje4 = (gcnew System::Windows::Forms::Label());
 			this->lblMensaje3 = (gcnew System::Windows::Forms::Label());
 			this->lblMensaje2 = (gcnew System::Windows::Forms::Label());
@@ -77,13 +84,19 @@ namespace CarpoolView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::Red;
-			this->button1->Location = System::Drawing::Point(216, 366);
+			this->button1->Location = System::Drawing::Point(372, 356);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(113, 38);
 			this->button1->TabIndex = 8;
@@ -93,7 +106,7 @@ namespace CarpoolView {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->lblMensaje5);
+			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->lblMensaje4);
 			this->groupBox1->Controls->Add(this->lblMensaje3);
 			this->groupBox1->Controls->Add(this->lblMensaje2);
@@ -103,21 +116,19 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(36, 43);
+			this->groupBox1->Location = System::Drawing::Point(36, 41);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(480, 296);
+			this->groupBox1->Size = System::Drawing::Size(481, 296);
 			this->groupBox1->TabIndex = 7;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Sus datos personales";
 			// 
-			// lblMensaje5
+			// textBox1
 			// 
-			this->lblMensaje5->AutoSize = true;
-			this->lblMensaje5->Location = System::Drawing::Point(210, 247);
-			this->lblMensaje5->Name = L"lblMensaje5";
-			this->lblMensaje5->Size = System::Drawing::Size(72, 17);
-			this->lblMensaje5->TabIndex = 9;
-			this->lblMensaje5->Text = L"Tu Correo";
+			this->textBox1->Location = System::Drawing::Point(213, 244);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(225, 22);
+			this->textBox1->TabIndex = 9;
 			// 
 			// lblMensaje4
 			// 
@@ -200,19 +211,74 @@ namespace CarpoolView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Nombre:";
 			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->textBox2);
+			this->groupBox2->Controls->Add(this->label6);
+			this->groupBox2->Controls->Add(this->button2);
+			this->groupBox2->Location = System::Drawing::Point(539, 41);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(423, 158);
+			this->groupBox2->TabIndex = 9;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Datos de usuario";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(38, 43);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(61, 17);
+			this->label6->TabIndex = 0;
+			this->label6->Text = L"Usuario:";
+			// 
+			// button2
+			// 
+			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button2->Location = System::Drawing::Point(121, 101);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(177, 30);
+			this->button2->TabIndex = 1;
+			this->button2->Text = L"Cambiar contraseña";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(144, 43);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(226, 22);
+			this->textBox2->TabIndex = 2;
+			// 
+			// button3
+			// 
+			this->button3->ForeColor = System::Drawing::Color::Green;
+			this->button3->Location = System::Drawing::Point(539, 356);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(172, 38);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Guardar los cambios";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
 			// frmDatosPersonales
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(558, 415);
+			this->BackColor = System::Drawing::SystemColors::Control;
+			this->ClientSize = System::Drawing::Size(1016, 415);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmDatosPersonales";
 			this->Text = L"Datos Personales";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmDatosPersonales::frmDatosPersonales_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -232,7 +298,8 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 	this->lblMensaje2->Text = objUsuario->ApellidoPaterno;
 	this->lblMensaje3->Text = objUsuario->ApellidoMaterno;
 	this->lblMensaje4->Text = objUsuario->DNI;
-	this->lblMensaje5->Text = objUsuario->Correo;
+	this->textBox1->Text = objUsuario->Correo;
+	this->textBox2->Text = objUsuario->userName;
 }
 };
 }

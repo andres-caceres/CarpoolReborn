@@ -133,8 +133,8 @@ namespace CarpoolView {
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -185,9 +185,11 @@ namespace CarpoolView {
 			// textBox4
 			// 
 			this->textBox4->Location = System::Drawing::Point(203, 190);
+			this->textBox4->MaxLength = 8;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(189, 22);
 			this->textBox4->TabIndex = 26;
+			this->textBox4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmRegister::textBox4_KeyPress);
 			// 
 			// textBox3
 			// 
@@ -195,6 +197,7 @@ namespace CarpoolView {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(189, 22);
 			this->textBox3->TabIndex = 25;
+			this->textBox3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmRegister::textBox3_KeyPress);
 			// 
 			// textBox2
 			// 
@@ -202,6 +205,7 @@ namespace CarpoolView {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(189, 22);
 			this->textBox2->TabIndex = 24;
+			this->textBox2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmRegister::textBox2_KeyPress);
 			// 
 			// textBox1
 			// 
@@ -209,6 +213,7 @@ namespace CarpoolView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(189, 22);
 			this->textBox1->TabIndex = 23;
+			this->textBox1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmRegister::textBox1_KeyPress);
 			// 
 			// label7
 			// 
@@ -332,17 +337,6 @@ namespace CarpoolView {
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Datos de la cuenta";
 			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(131, 136);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(85, 21);
-			this->radioButton1->TabIndex = 31;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Pasajero";
-			this->radioButton1->UseVisualStyleBackColor = true;
-			// 
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
@@ -353,6 +347,17 @@ namespace CarpoolView {
 			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"Conductor";
 			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(131, 136);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(85, 21);
+			this->radioButton1->TabIndex = 31;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"Pasajero";
+			this->radioButton1->UseVisualStyleBackColor = true;
 			// 
 			// frmRegister
 			// 
@@ -462,6 +467,55 @@ private: System::Void frmRegister_FormClosed(System::Object^ sender, System::Win
 	//this->objGestorUsuario->EscribirArchivo();
 }
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+
+bool IsNumeric(char c) {
+	if ((c >= '0' && c <= '9') || (c==8))
+	{return true;}
+	return false;
+}
+
+bool IsLetter(char c) {
+	if ((c >= 'a' && c <= 'z') || (c == 8)|| (c >= 'A' && c <= 'Z'))
+	{return true;}
+	return false;
+
+}
+
+
+private: System::Void textBox4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+
+}
+private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (IsLetter(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+}
+private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (IsLetter(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+}
+private: System::Void textBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (IsLetter(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
 }
 };
 }
