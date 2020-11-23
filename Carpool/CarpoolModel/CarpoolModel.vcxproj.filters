@@ -51,6 +51,9 @@
     <ClInclude Include="Viaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Seguridad.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Administrador.cpp">
@@ -87,6 +90,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Viaje.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Seguridad.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

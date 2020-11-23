@@ -24,9 +24,9 @@ void GestorUsuario::LeerUsuariosDesdeArchivo() {
 		String^ Correo = palabras[4];
 		String^ userName = palabras[5];
 		String^ contrasenha = palabras[6];
-		int es_admin = Convert::ToInt32(palabras[7]);
-		
-		Usuario^ objUsuario = gcnew Usuario(Nombre,ApellidoPaterno,ApellidoMaterno,DNI,Correo,userName, contrasenha,es_admin);
+		int tipoUsuario = Convert::ToInt32(palabras[7]);
+
+		Usuario^ objUsuario = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
 		this->listaUsuarios->Add(objUsuario);
 	}
 }
@@ -46,7 +46,7 @@ void GestorUsuario::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaUsuarios->Count);
 	for (int i = 0; i < this->listaUsuarios->Count; i++) {
 		Usuario^ objUsuario = this->listaUsuarios[i];
-		lineasArchivo[i] = objUsuario->Nombre + ";"+ objUsuario->ApellidoPaterno + ";" + objUsuario->ApellidoMaterno + ";" + objUsuario->DNI + ";" + objUsuario->Correo + ";" + objUsuario->userName + ";" + objUsuario->password + ";" + objUsuario->es_admin;
+		lineasArchivo[i] = objUsuario->Nombre + ";" + objUsuario->ApellidoPaterno + ";" + objUsuario->ApellidoMaterno + ";" + objUsuario->DNI + ";" + objUsuario->Correo + ";" + objUsuario->userName + ";" + objUsuario->password + ";" + objUsuario->tipoUsuario;
 	}
 	File::WriteAllLines("Usuarios.txt", lineasArchivo);
 }
@@ -67,15 +67,37 @@ void GestorUsuario::AgregarUsuario(Usuario^ objUsuario) {
 //	return objUsuarioBuscado;
 ///}
 
-int GestorUsuario::UsuarioRepetido(String^ DNI, String^ Correo,String^ userName) {
+int GestorUsuario::UsuarioRepetido(String^ userName) {
 	int es_valido = 1;
 	for (int i = 0; i < this->listaUsuarios->Count; i++) {
-		if ((this->listaUsuarios[i]->userName == userName)|| (this->listaUsuarios[i]->DNI == DNI)|| (this->listaUsuarios[i]->Correo == Correo)) {
+		if ((this->listaUsuarios[i]->userName == userName)) {
 			es_valido = 0;
 			break;
 		}
 	}
 	return es_valido;
+}
+
+int GestorUsuario::MismosDatos(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno) {
+	int mismos_datos = 0;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if ((this->listaUsuarios[i]->ApellidoMaterno == ApellidoMaterno) && (this->listaUsuarios[i]->ApellidoPaterno == ApellidoPaterno) && (this->listaUsuarios[i]->Nombre == Nombre) && (this->listaUsuarios[i]->DNI == DNI) && (this->listaUsuarios[i]->Correo == Correo)) {
+			mismos_datos = 1;
+		}
+	}
+
+	return mismos_datos;
+}
+
+int GestorUsuario::MismoTipoUsuario(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, int tipoUsuario) {
+	int mismo_tipo_usuario = 0;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if ((this->listaUsuarios[i]->ApellidoMaterno == ApellidoMaterno) && (this->listaUsuarios[i]->ApellidoPaterno == ApellidoPaterno) && (this->listaUsuarios[i]->Nombre == Nombre) && (this->listaUsuarios[i]->DNI == DNI) && (this->listaUsuarios[i]->Correo == Correo) && (this->listaUsuarios[i]->tipoUsuario == tipoUsuario)) {
+			mismo_tipo_usuario = 1;
+		}
+	}
+
+	return mismo_tipo_usuario;
 }
 
 int GestorUsuario::ValidarRegistro(String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, String^ DNI, String^ Correo, String^ userName, String^ password) {
@@ -96,10 +118,10 @@ void GestorUsuario::EscribirArchivoUsuarioLogeado(String^ userName) {
 		if (this->listaUsuarios[i]->userName == userName) {
 			objUsuarioBuscado = this->listaUsuarios[i];
 			array<String^>^ lineasArchivo = gcnew array<String^>(this->listaUsuarios->Count);
-			
-				Usuario^ objUsuarioBuscado = this->listaUsuarios[i];
-				lineasArchivo[0] = objUsuarioBuscado->Nombre + ";" + objUsuarioBuscado->ApellidoPaterno + ";" + objUsuarioBuscado->ApellidoMaterno + ";" + objUsuarioBuscado->DNI + ";" + objUsuarioBuscado->Correo + ";" + objUsuarioBuscado->userName + ";" + objUsuarioBuscado->password + ";" + objUsuarioBuscado->es_admin;
-			
+
+			Usuario^ objUsuarioBuscado = this->listaUsuarios[i];
+			lineasArchivo[0] = objUsuarioBuscado->Nombre + ";" + objUsuarioBuscado->ApellidoPaterno + ";" + objUsuarioBuscado->ApellidoMaterno + ";" + objUsuarioBuscado->DNI + ";" + objUsuarioBuscado->Correo + ";" + objUsuarioBuscado->userName + ";" + objUsuarioBuscado->password + ";" + objUsuarioBuscado->tipoUsuario;
+
 			File::WriteAllLines("UsuarioLogeado.txt", lineasArchivo);
 			break;
 		}
@@ -122,9 +144,9 @@ Usuario^ GestorUsuario::LeerUsuarioLogeadoDesdeArchivo() {
 		String^ Correo = palabras[4];
 		String^ userName = palabras[5];
 		String^ contrasenha = palabras[6];
-		int es_admin = Convert::ToInt32(palabras[7]);
+		int tipoUsuario = Convert::ToInt32(palabras[7]);
 
-		Usuario^ objUsuarioLogeado = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha,es_admin);
+		Usuario^ objUsuarioLogeado = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
 		return objUsuarioLogeado;
 	}
 }
@@ -159,18 +181,46 @@ Usuario^ GestorUsuario::ObtenerUsuarioLista(int indice) {
 }
 
 void GestorUsuario::BorrarUsuarioLogeadoDesdeArchivo() {
-	
+
 	File::WriteAllText("UsuarioLogeado.txt", "");
-	
+
 }
 
 int GestorUsuario::VerificarAdmin(String^ userName) {
+	/*Posible error*/
+	int tipoUsuario = 0;
 	int es_admin = 0;
 	for (int i = 0; i < this->listaUsuarios->Count; i++) {
-		if ((this->listaUsuarios[i]->userName == userName) && (this->listaUsuarios[i]->es_admin == 1)) {
+		if ((this->listaUsuarios[i]->userName == userName) && (this->listaUsuarios[i]->tipoUsuario == 1)) {
 			es_admin = 1;
 			break;
 		}
 	}
 	return es_admin;
+}
+
+int GestorUsuario::VerificarPasajero(String^ userName) {
+	/*Posible error*/
+	int tipoUsuario = 0;
+	int es_pasajero = 0;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if ((this->listaUsuarios[i]->userName == userName) && (this->listaUsuarios[i]->tipoUsuario == 2)) {
+			es_pasajero = 1;
+			break;
+		}
+	}
+	return es_pasajero;
+}
+
+int GestorUsuario::VerificarConductor(String^ userName) {
+	/*Posible error*/
+	int tipoUsuario = 0;
+	int es_conductor = 0;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if ((this->listaUsuarios[i]->userName == userName) && (this->listaUsuarios[i]->tipoUsuario == 3)) {
+			es_conductor = 1;
+			break;
+		}
+	}
+	return es_conductor;
 }

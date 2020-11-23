@@ -36,6 +36,9 @@
     <ClInclude Include="GestorViaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="GestorSeguridad.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GestorUsuario.cpp">
@@ -57,6 +60,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="GestorViaje.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorSeguridad.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
