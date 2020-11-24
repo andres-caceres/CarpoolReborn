@@ -172,6 +172,16 @@ void GestorUsuario::EliminarUsuario(String^ userNameEliminar) {
 	}
 }
 
+void GestorUsuario::EliminarUsuarioXDni(String^ dniEliminar) {
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if (this->listaUsuarios[i]->DNI == dniEliminar) {
+			/*Encontre al que debo eliminar*/
+			this->listaUsuarios->RemoveAt(i);
+			break;
+		}
+	}
+}
+
 int GestorUsuario::ObtenerCantidadUsuarios() {
 	return this->listaUsuarios->Count;
 }
@@ -223,4 +233,27 @@ int GestorUsuario::VerificarConductor(String^ userName) {
 		}
 	}
 	return es_conductor;
+}
+
+String^ GestorUsuario::ObtenerContrasenha(String^ userName) {
+	String^ ContrasenhaObtenida;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if (this->listaUsuarios[i]->userName == userName) {
+			ContrasenhaObtenida = this->listaUsuarios[i]->password;
+			break;
+		}
+	}
+	return ContrasenhaObtenida;
+}
+
+int GestorUsuario::ObtenerTipoDeUsuario(String^ userName) {
+	int tipoDeUsuario;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if (this->listaUsuarios[i]->userName == userName) {
+			tipoDeUsuario = this->listaUsuarios[i]->tipoUsuario;
+			break;
+		}
+	}
+	return tipoDeUsuario;
+
 }

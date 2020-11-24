@@ -34,7 +34,9 @@ namespace CarpoolController {
 		int VerificarAdmin(String^ userName);
 		int VerificarPasajero(String^ userName);
 		int VerificarConductor(String^ userName);
-
+		void EliminarUsuarioXDni(String^ dniEliminar);
+		String^ ObtenerContrasenha(String^ userName);
+		int ObtenerTipoDeUsuario(String^ userName);
 
 	};
 }

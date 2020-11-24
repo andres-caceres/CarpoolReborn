@@ -17,9 +17,11 @@ namespace CarpoolView {
 	public ref class frmDatosPersonales : public System::Windows::Forms::Form
 	{
 	public:
+
 		frmDatosPersonales(void)
 		{
 			InitializeComponent();
+			this->objGestorUsuario = gcnew GestorUsuario();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -51,6 +53,8 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ lblMensaje3;
 	private: System::Windows::Forms::Label^ lblMensaje2;
 	private: GestorUsuario^ objGestorUsuario;
+	private: String^ ContrasenhaObtenida;
+	private: int tipoUsuario;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::TextBox^ textBox2;
@@ -85,9 +89,9 @@ namespace CarpoolView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -223,6 +227,13 @@ namespace CarpoolView {
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Datos de usuario";
 			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(144, 43);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(226, 22);
+			this->textBox2->TabIndex = 2;
+			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
@@ -243,13 +254,6 @@ namespace CarpoolView {
 			this->button2->Text = L"Cambiar contraseña";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(144, 43);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(226, 22);
-			this->textBox2->TabIndex = 2;
-			// 
 			// button3
 			// 
 			this->button3->ForeColor = System::Drawing::Color::Green;
@@ -259,6 +263,7 @@ namespace CarpoolView {
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Guardar los cambios";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmDatosPersonales::button3_Click);
 			// 
 			// frmDatosPersonales
 			// 
@@ -274,6 +279,7 @@ namespace CarpoolView {
 			this->Name = L"frmDatosPersonales";
 			this->Text = L"Datos Personales";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmDatosPersonales::frmDatosPersonales_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &frmDatosPersonales::frmDatosPersonales_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
@@ -300,6 +306,28 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 	this->lblMensaje4->Text = objUsuario->DNI;
 	this->textBox1->Text = objUsuario->Correo;
 	this->textBox2->Text = objUsuario->userName;
+
+	ContrasenhaObtenida = this->objGestorUsuario->ObtenerContrasenha(objUsuario->userName);
+	tipoUsuario = this->objGestorUsuario->ObtenerTipoDeUsuario(objUsuario->userName);
+
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ Nombre=this->lblMensaje->Text;
+	String^ ApellidoPaterno = this->lblMensaje->Text;
+	String^ ApellidoMaterno = this->lblMensaje->Text;
+	String^ DNI = this->lblMensaje->Text;
+	String^ Correo = this->textBox1->Text;
+	String^ userName = this->textBox2->Text;
+	
+
+	Usuario^ objUsuario = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, ContrasenhaObtenida,tipoUsuario);
+	this->objGestorUsuario->EliminarUsuarioXDni(DNI);
+	this->objGestorUsuario->AgregarUsuario(objUsuario);
+	MessageBox::Show("Sus datos han sido actualizados correctamente");
+	this->Close();
+}
+private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+	
 }
 };
 }
