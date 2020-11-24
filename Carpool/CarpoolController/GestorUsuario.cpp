@@ -235,10 +235,10 @@ int GestorUsuario::VerificarConductor(String^ userName) {
 	return es_conductor;
 }
 
-String^ GestorUsuario::ObtenerContrasenha(String^ userName) {
+String^ GestorUsuario::ObtenerContrasenha(String^ DNI, int tipoUsuario) {
 	String^ ContrasenhaObtenida;
 	for (int i = 0; i < this->listaUsuarios->Count; i++) {
-		if (this->listaUsuarios[i]->userName == userName) {
+		if ((this->listaUsuarios[i]->DNI == DNI) && this->listaUsuarios[i]->tipoUsuario == tipoUsuario) {
 			ContrasenhaObtenida = this->listaUsuarios[i]->password;
 			break;
 		}

@@ -83,7 +83,7 @@ namespace CarpoolView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(679, 28);
+			this->menuStrip1->Size = System::Drawing::Size(968, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -100,14 +100,14 @@ namespace CarpoolView {
 			// datosPersonalesToolStripMenuItem
 			// 
 			this->datosPersonalesToolStripMenuItem->Name = L"datosPersonalesToolStripMenuItem";
-			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(206, 26);
 			this->datosPersonalesToolStripMenuItem->Text = L"Datos personales";
 			this->datosPersonalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::datosPersonalesToolStripMenuItem_Click);
 			// 
 			// datosConductorToolStripMenuItem
 			// 
 			this->datosConductorToolStripMenuItem->Name = L"datosConductorToolStripMenuItem";
-			this->datosConductorToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->datosConductorToolStripMenuItem->Size = System::Drawing::Size(206, 26);
 			this->datosConductorToolStripMenuItem->Text = L"Datos conductor";
 			this->datosConductorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::datosConductorToolStripMenuItem_Click);
 			// 
@@ -132,21 +132,21 @@ namespace CarpoolView {
 			// crearViajeToolStripMenuItem
 			// 
 			this->crearViajeToolStripMenuItem->Name = L"crearViajeToolStripMenuItem";
-			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(193, 26);
 			this->crearViajeToolStripMenuItem->Text = L"Crear viaje";
 			this->crearViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::crearViajeToolStripMenuItem_Click);
 			// 
 			// viajesFavoritosToolStripMenuItem
 			// 
 			this->viajesFavoritosToolStripMenuItem->Name = L"viajesFavoritosToolStripMenuItem";
-			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(193, 26);
 			this->viajesFavoritosToolStripMenuItem->Text = L"Viajes favoritos";
 			// 
 			// frmConductor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(679, 466);
+			this->ClientSize = System::Drawing::Size(968, 466);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;

@@ -30,7 +30,7 @@ namespace CarpoolView {
 			//
 		}
 
-	protected:
+			protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>

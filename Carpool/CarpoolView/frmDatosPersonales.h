@@ -53,14 +53,14 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ lblMensaje3;
 	private: System::Windows::Forms::Label^ lblMensaje2;
 	private: GestorUsuario^ objGestorUsuario;
-	private: String^ ContrasenhaObtenida;
-	private: int tipoUsuario;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
 
 	private:
 		/// <summary>
@@ -93,6 +93,8 @@ namespace CarpoolView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -217,21 +219,23 @@ namespace CarpoolView {
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->label8);
+			this->groupBox2->Controls->Add(this->label7);
 			this->groupBox2->Controls->Add(this->textBox2);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->button2);
 			this->groupBox2->Location = System::Drawing::Point(539, 41);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(423, 158);
+			this->groupBox2->Size = System::Drawing::Size(423, 203);
 			this->groupBox2->TabIndex = 9;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Datos de usuario";
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(144, 43);
+			this->textBox2->Location = System::Drawing::Point(157, 43);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(226, 22);
+			this->textBox2->Size = System::Drawing::Size(213, 22);
 			this->textBox2->TabIndex = 2;
 			// 
 			// label6
@@ -247,7 +251,7 @@ namespace CarpoolView {
 			// 
 			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->button2->Location = System::Drawing::Point(121, 101);
+			this->button2->Location = System::Drawing::Point(120, 134);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(177, 30);
 			this->button2->TabIndex = 1;
@@ -264,6 +268,24 @@ namespace CarpoolView {
 			this->button3->Text = L"Guardar los cambios";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &frmDatosPersonales::button3_Click);
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(38, 89);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(111, 17);
+			this->label7->TabIndex = 3;
+			this->label7->Text = L"Tipo de usuario:";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(155, 89);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(123, 17);
+			this->label8->TabIndex = 4;
+			this->label8->Text = L"Tu tipo de usuario";
 			// 
 			// frmDatosPersonales
 			// 
@@ -297,6 +319,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objUsuario = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
 	//objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 
@@ -306,19 +329,37 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 	this->lblMensaje4->Text = objUsuario->DNI;
 	this->textBox1->Text = objUsuario->Correo;
 	this->textBox2->Text = objUsuario->userName;
+	
+	if (objUsuario->tipoUsuario == 2) {
+		this->label8->Text = "Pasajero";
+	}
+	if (objUsuario->tipoUsuario == 3) {
+		this->label8->Text = "Conductor";
+	}
 
-	ContrasenhaObtenida = this->objGestorUsuario->ObtenerContrasenha(objUsuario->userName);
-	tipoUsuario = this->objGestorUsuario->ObtenerTipoDeUsuario(objUsuario->userName);
+
+	//ContrasenhaObtenida = this->objGestorUsuario->ObtenerContrasenha(objUsuario->userName);
+
 
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Falta ver que el nombre de usuario no se repita con UsuarioRepetido.
+	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	String^ Nombre=this->lblMensaje->Text;
-	String^ ApellidoPaterno = this->lblMensaje->Text;
-	String^ ApellidoMaterno = this->lblMensaje->Text;
-	String^ DNI = this->lblMensaje->Text;
+	String^ ApellidoPaterno = this->lblMensaje2->Text;
+	String^ ApellidoMaterno = this->lblMensaje3->Text;
+	String^ DNI = this->lblMensaje4->Text;
 	String^ Correo = this->textBox1->Text;
 	String^ userName = this->textBox2->Text;
-	
+	int tipoUsuario;
+	if (this->label8->Text == "Pasajero") {
+		tipoUsuario = 2;
+	}
+	if (this->label8->Text == "Conductor") {
+		tipoUsuario = 3;
+	}
+
+	String^ ContrasenhaObtenida = this->objGestorUsuario->ObtenerContrasenha(DNI, tipoUsuario);
 
 	Usuario^ objUsuario = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, ContrasenhaObtenida,tipoUsuario);
 	this->objGestorUsuario->EliminarUsuarioXDni(DNI);
@@ -326,8 +367,13 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	MessageBox::Show("Sus datos han sido actualizados correctamente");
 	this->Close();
 }
+
+	  
+
 private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	
+	this->objGestorUsuario->EscribirArchivo();
+
 }
 };
 }
