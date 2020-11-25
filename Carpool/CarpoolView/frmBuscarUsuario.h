@@ -78,6 +78,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmBuscarUsuario::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -244,6 +245,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->dataGridView1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmBuscarUsuario";
 			this->Text = L"Buscar Usuario";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -321,20 +323,41 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 	}
 }
 
-//BOTON PARA HACER ADMIN FALTA, CAMBIAR 0 A 1 (En proceso) IDEA
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-//	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-//	int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	
-//	this->dataGridView1->Rows->Clear();
-//	for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
-//		Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
-//		int es_admin=1;
-//		Usuario^ objUsuario = gcnew Usuario(es_admin);
-//		this->dataGridView1->Rows->Add(fila);
-//	}
-	MessageBox::Show("Usuario seleccionado ahora es admin(Todavía no implementado)");
-}
+//BOTON PARA HACER ADMIN FALTA, CAMBIAR A 1
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+		
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+		
+		String^ userNameEditar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[7]->Value->ToString());
+		String^ dniEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[3]->Value->ToString());//acccede codigo Cells[0]
+		
+		Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxUserName(userNameEditar);
+		this->objGestorUsuario->EliminarUsuarioXDni(dniEliminar);
+		Usuario^ objUsuarioAdmin = gcnew Usuario(objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->DNI, objUsuario->Correo, objUsuario->userName, objUsuario->password, 1);
+
+		this->objGestorUsuario->AgregarUsuario(objUsuarioAdmin);
+
+		this->dataGridView1->Rows->Clear();
+		for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
+			Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
+			array<String^>^ fila = gcnew array<String^>(9);
+			fila[0] = objUsuario->Nombre;
+			fila[1] = objUsuario->ApellidoPaterno;
+			fila[2] = objUsuario->ApellidoMaterno;
+			fila[3] = objUsuario->DNI;
+			fila[4] = objUsuario->Edad;
+			fila[5] = objUsuario->Correo;
+			//fila[6] = objUsuario->Idioma;
+			fila[6] = "Español";
+			fila[7] = objUsuario->userName;
+			fila[8] = Convert::ToString(objUsuario->tipoUsuario);
+			this->dataGridView1->Rows->Add(fila);
+
+			
+		}
+		MessageBox::Show("Usuario seleccionado ahora es admin");
+	}
 private: System::Void frmBuscarUsuario_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	this->objGestorUsuario->EscribirArchivo();
 	this->objGestorSeguridad->EscribirArchivo();
