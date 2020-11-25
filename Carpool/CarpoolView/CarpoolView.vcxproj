@@ -153,6 +153,7 @@
     <ClCompile Include="frmRevisarViajes.cpp" />
     <ClCompile Include="frmSeguridad.cpp" />
     <ClCompile Include="frmTarjeta.cpp" />
+    <ClCompile Include="frmTrazarRuta.cpp" />
     <ClCompile Include="frmUpdateContacto.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -224,6 +225,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmTarjeta.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmTrazarRuta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmUpdateContacto.h">
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTarjeta.resx">
       <DependentUpon>frmTarjeta.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrazarRuta.resx">
+      <DependentUpon>frmTrazarRuta.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateContacto.resx">
       <DependentUpon>frmUpdateContacto.h</DependentUpon>

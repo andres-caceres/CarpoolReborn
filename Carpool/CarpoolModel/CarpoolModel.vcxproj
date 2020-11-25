@@ -116,6 +116,7 @@
     <ClInclude Include="Conductor.h" />
     <ClInclude Include="Contactos.h" />
     <ClInclude Include="DatosMapa.h" />
+    <ClInclude Include="Figura.h" />
     <ClInclude Include="Horarios.h" />
     <ClInclude Include="MetodoTransferencia.h" />
     <ClInclude Include="Pasajero.h" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Conductor.cpp" />
     <ClCompile Include="Contactos.cpp" />
     <ClCompile Include="DatosMapa.cpp" />
+    <ClCompile Include="Figura.cpp" />
     <ClCompile Include="Horarios.cpp" />
     <ClCompile Include="MetodoTransferencia.cpp" />
     <ClCompile Include="Pasajero.cpp" />
@@ -139,6 +141,9 @@
     <ClCompile Include="Usuario.cpp" />
     <ClCompile Include="Vehiculo.cpp" />
     <ClCompile Include="Viaje.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
