@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="GestorConductor.h" />
     <ClInclude Include="GestorContacto.h" />
+    <ClInclude Include="GestorFigura.h" />
     <ClInclude Include="GestorPasajero.h" />
     <ClInclude Include="GestorRuta.h" />
     <ClInclude Include="GestorSeguridad.h" />
@@ -123,6 +124,7 @@
   <ItemGroup>
     <ClCompile Include="GestorConductor.cpp" />
     <ClCompile Include="GestorContacto.cpp" />
+    <ClCompile Include="GestorFigura.cpp" />
     <ClCompile Include="GestorPasajero.cpp" />
     <ClCompile Include="GestorRuta.cpp" />
     <ClCompile Include="GestorSeguridad.cpp" />
