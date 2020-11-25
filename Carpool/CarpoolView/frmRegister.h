@@ -385,6 +385,7 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		int es_valido, esta_completo, mismos_datos, mismo_tipo_usuario;
+		
 		String^ nombres = this->textBox1->Text;
 		String^ apellidoPaterno = this->textBox2->Text;
 		String^ apellidoMaterno = this->textBox3->Text;
@@ -403,13 +404,16 @@ namespace CarpoolView {
 			MessageBox::Show("Debe seleccionar una opcion");
 		}
 
-		Usuario^ objUsuario = gcnew Usuario(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
+		int CodigoDeUsuario=this->objGestorUsuario->DarValorAlCodigoDelUsuario();
+
+
+		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
 		es_valido = objGestorUsuario->UsuarioRepetido(userName);
 		mismos_datos = objGestorUsuario->MismosDatos(dni, correo, nombres, apellidoPaterno, apellidoMaterno);
 		esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
 		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuario(dni, correo, nombres, apellidoPaterno, apellidoMaterno, tipoUsuario);
 
-		this->objUsuario = objUsuario;//NO SE SI ESTA BIEN ATENTO
+		this->objUsuario = objUsuario;
 
 		if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
 			frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);

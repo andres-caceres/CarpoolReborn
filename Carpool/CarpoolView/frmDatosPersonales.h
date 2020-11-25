@@ -324,7 +324,7 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
 	//objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
-
+	
 	this->lblMensaje->Text  = objUsuario->Nombre;
 	this->lblMensaje2->Text = objUsuario->ApellidoPaterno;
 	this->lblMensaje3->Text = objUsuario->ApellidoMaterno;
@@ -346,7 +346,9 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Falta ver que el nombre de usuario no se repita con UsuarioRepetido.
+	Usuario^ objUsuarioLogeado = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+	int CodigoDeUsuario = objUsuarioLogeado->CodigoDeUsuario;
 	String^ Nombre=this->lblMensaje->Text;
 	String^ ApellidoPaterno = this->lblMensaje2->Text;
 	String^ ApellidoMaterno = this->lblMensaje3->Text;
@@ -363,7 +365,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	String^ ContrasenhaObtenida = this->objGestorUsuario->ObtenerContrasenha(DNI, tipoUsuario);
 
-	Usuario^ objUsuario = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, ContrasenhaObtenida,tipoUsuario);
+	Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, ContrasenhaObtenida,tipoUsuario);
 	this->objGestorUsuario->EliminarUsuarioXDni(DNI);
 	this->objGestorUsuario->AgregarUsuario(objUsuario);
 	MessageBox::Show("Sus datos han sido actualizados correctamente");

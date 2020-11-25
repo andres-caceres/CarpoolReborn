@@ -13,7 +13,7 @@ namespace CarpoolModel {
 
 		/*Definición de atributos*/
 	public:
-		//String^ Contraseña;
+		int CodigoDeUsuario;
 		String^ Nombre;
 		String^ ApellidoPaterno;
 		String^ ApellidoMaterno;
@@ -24,13 +24,12 @@ namespace CarpoolModel {
 		String^ userName;
 		String^ password;
 		int tipoUsuario;
-
-		int CodigoDeUsuario;
+				
 
 		/*Métodos*/
 	public:
 		/*Método Constructor*/
-		Usuario(String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, String^ DNI, String^ Correo, String^ userName, String^ password, int tipoUsuario);
+		Usuario(int CodigoDeUsuario, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, String^ DNI, String^ Correo, String^ userName, String^ password, int tipoUsuario);
 		Usuario();
 	};
 }

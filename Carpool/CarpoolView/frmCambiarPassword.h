@@ -238,7 +238,7 @@ namespace CarpoolView {
 		/*CAMBIAR CONTRASEÑA*/
 		this->objGestorUsuario->EliminarUsuarioXDni(DniSeguro);
 		Usuario^ objUsuarioLogeado = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
-		Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, objUsuarioLogeado->Correo, objUsuarioLogeado->userName, NuevaPassword, objUsuarioLogeado->tipoUsuario);
+		Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario,objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, objUsuarioLogeado->Correo, objUsuarioLogeado->userName, NuevaPassword, objUsuarioLogeado->tipoUsuario);
 		
 		this->objGestorUsuario->AgregarUsuario(objUsuario);
 		MessageBox::Show("La contraseña ha sido cambiada correctamente");

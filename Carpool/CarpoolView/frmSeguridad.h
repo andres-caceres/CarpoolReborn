@@ -74,6 +74,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmSeguridad::typeid));
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
@@ -89,7 +90,7 @@ namespace CarpoolView {
 			// button2
 			// 
 			this->button2->ForeColor = System::Drawing::Color::Green;
-			this->button2->Location = System::Drawing::Point(331, 322);
+			this->button2->Location = System::Drawing::Point(332, 306);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(132, 38);
 			this->button2->TabIndex = 37;
@@ -100,7 +101,7 @@ namespace CarpoolView {
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::Red;
-			this->button1->Location = System::Drawing::Point(130, 322);
+			this->button1->Location = System::Drawing::Point(130, 306);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(132, 38);
 			this->button1->TabIndex = 36;
@@ -177,10 +178,12 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(610, 410);
+			this->ClientSize = System::Drawing::Size(610, 372);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox3);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmSeguridad";
 			this->Text = L"Seguridad";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmSeguridad::frmSeguridad_FormClosing);

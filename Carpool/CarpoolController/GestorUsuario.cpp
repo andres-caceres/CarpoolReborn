@@ -17,16 +17,17 @@ void GestorUsuario::LeerUsuariosDesdeArchivo() {
 	for each (String ^ lineaUsuario in lineas)
 	{
 		array<String^>^ palabras = lineaUsuario->Split(separadores->ToCharArray());
-		String^ Nombre = palabras[0];
-		String^ ApellidoPaterno = palabras[1];
-		String^ ApellidoMaterno = palabras[2];
-		String^ DNI = palabras[3];
-		String^ Correo = palabras[4];
-		String^ userName = palabras[5];
-		String^ contrasenha = palabras[6];
-		int tipoUsuario = Convert::ToInt32(palabras[7]);
+		int CodigoDeUsuario = Convert::ToInt32(palabras[0]);
+		String^ Nombre = palabras[1];
+		String^ ApellidoPaterno = palabras[2];
+		String^ ApellidoMaterno = palabras[3];
+		String^ DNI = palabras[4];
+		String^ Correo = palabras[5];
+		String^ userName = palabras[6];
+		String^ contrasenha = palabras[7];
+		int tipoUsuario = Convert::ToInt32(palabras[8]);
 
-		Usuario^ objUsuario = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
+		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
 		this->listaUsuarios->Add(objUsuario);
 	}
 }
@@ -46,7 +47,7 @@ void GestorUsuario::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaUsuarios->Count);
 	for (int i = 0; i < this->listaUsuarios->Count; i++) {
 		Usuario^ objUsuario = this->listaUsuarios[i];
-		lineasArchivo[i] = objUsuario->Nombre + ";" + objUsuario->ApellidoPaterno + ";" + objUsuario->ApellidoMaterno + ";" + objUsuario->DNI + ";" + objUsuario->Correo + ";" + objUsuario->userName + ";" + objUsuario->password + ";" + objUsuario->tipoUsuario;
+		lineasArchivo[i] = objUsuario->CodigoDeUsuario + ";" + objUsuario->Nombre + ";" + objUsuario->ApellidoPaterno + ";" + objUsuario->ApellidoMaterno + ";" + objUsuario->DNI + ";" + objUsuario->Correo + ";" + objUsuario->userName + ";" + objUsuario->password + ";" + objUsuario->tipoUsuario;
 	}
 	File::WriteAllLines("Usuarios.txt", lineasArchivo);
 }
@@ -120,7 +121,7 @@ void GestorUsuario::EscribirArchivoUsuarioLogeado(String^ userName) {
 			array<String^>^ lineasArchivo = gcnew array<String^>(this->listaUsuarios->Count);
 
 			Usuario^ objUsuarioBuscado = this->listaUsuarios[i];
-			lineasArchivo[0] = objUsuarioBuscado->Nombre + ";" + objUsuarioBuscado->ApellidoPaterno + ";" + objUsuarioBuscado->ApellidoMaterno + ";" + objUsuarioBuscado->DNI + ";" + objUsuarioBuscado->Correo + ";" + objUsuarioBuscado->userName + ";" + objUsuarioBuscado->password + ";" + objUsuarioBuscado->tipoUsuario;
+			lineasArchivo[0] = objUsuarioBuscado->CodigoDeUsuario + ";" + objUsuarioBuscado->Nombre + ";" + objUsuarioBuscado->ApellidoPaterno + ";" + objUsuarioBuscado->ApellidoMaterno + ";" + objUsuarioBuscado->DNI + ";" + objUsuarioBuscado->Correo + ";" + objUsuarioBuscado->userName + ";" + objUsuarioBuscado->password + ";" + objUsuarioBuscado->tipoUsuario;
 
 			File::WriteAllLines("UsuarioLogeado.txt", lineasArchivo);
 			break;
@@ -137,16 +138,17 @@ Usuario^ GestorUsuario::LeerUsuarioLogeadoDesdeArchivo() {
 	for each (String ^ lineaUsuario in lineas)
 	{
 		array<String^>^ palabras = lineaUsuario->Split(separadores->ToCharArray());
-		String^ Nombre = palabras[0];
-		String^ ApellidoPaterno = palabras[1];
-		String^ ApellidoMaterno = palabras[2];
-		String^ DNI = palabras[3];
-		String^ Correo = palabras[4];
-		String^ userName = palabras[5];
-		String^ contrasenha = palabras[6];
-		int tipoUsuario = Convert::ToInt32(palabras[7]);
+		int CodigoDeUsuario = Convert::ToInt32(palabras[0]);
+		String^ Nombre = palabras[1];
+		String^ ApellidoPaterno = palabras[2];
+		String^ ApellidoMaterno = palabras[3];
+		String^ DNI = palabras[4];
+		String^ Correo = palabras[5];
+		String^ userName = palabras[6];
+		String^ contrasenha = palabras[7];
+		int tipoUsuario = Convert::ToInt32(palabras[8]);
 
-		Usuario^ objUsuarioLogeado = gcnew Usuario(Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
+		Usuario^ objUsuarioLogeado = gcnew Usuario(CodigoDeUsuario, Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
 		return objUsuarioLogeado;
 	}
 }
@@ -256,4 +258,21 @@ int GestorUsuario::ObtenerTipoDeUsuario(String^ userName) {
 	}
 	return tipoDeUsuario;
 
+}
+
+int GestorUsuario::DarValorAlCodigoDelUsuario() {
+	int CodigoDado;
+	LeerUsuariosDesdeArchivo();
+	int i = this->listaUsuarios->Count;
+	
+	if (this->listaUsuarios->Count == 0) {
+		CodigoDado = 1;
+		
+	}
+	else {
+		/**TENER UN CONTADOR HASTA EL i, QUE SACA EL MAYOR CODIGO DE USUARIO.*/
+		CodigoDado = Convert::ToInt32(this->listaUsuarios[i-1]->CodigoDeUsuario)+1;
+	}
+
+	return CodigoDado;
 }

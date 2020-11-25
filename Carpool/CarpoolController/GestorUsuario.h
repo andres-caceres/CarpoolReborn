@@ -37,6 +37,7 @@ namespace CarpoolController {
 		void EliminarUsuarioXDni(String^ dniEliminar);
 		String^ ObtenerContrasenha(String^ DNI, int tipoUsuario);
 		int ObtenerTipoDeUsuario(String^ userName);//Ya no lo uso
+		int DarValorAlCodigoDelUsuario();
 
 
 	};

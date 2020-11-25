@@ -48,6 +48,23 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button1;
 	protected:
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label1;
+	private: GestorUsuario^ objGestorUsuario;
+	private: GestorSeguridad^ objGestorSeguridad;
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column10;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
@@ -57,13 +74,6 @@ namespace CarpoolView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ label1;
-	private: GestorUsuario^ objGestorUsuario;
-	private: GestorSeguridad^ objGestorSeguridad;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
 
 	private:
 		/// <summary>
@@ -81,6 +91,7 @@ namespace CarpoolView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmBuscarUsuario::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -115,16 +126,22 @@ namespace CarpoolView {
 			// 
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
-				this->Column1,
-					this->Column2, this->Column3, this->Column4, this->Column5, this->Column6, this->Column7, this->Column8, this->Column9
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
+				this->Column10,
+					this->Column1, this->Column2, this->Column3, this->Column4, this->Column5, this->Column6, this->Column7, this->Column8, this->Column9
 			});
 			this->dataGridView1->Location = System::Drawing::Point(32, 138);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(1219, 146);
+			this->dataGridView1->Size = System::Drawing::Size(1219, 155);
 			this->dataGridView1->TabIndex = 6;
+			// 
+			// Column10
+			// 
+			this->Column10->HeaderText = L"Codigo";
+			this->Column10->MinimumWidth = 6;
+			this->Column10->Name = L"Column10";
 			// 
 			// Column1
 			// 
@@ -176,7 +193,7 @@ namespace CarpoolView {
 			// 
 			// Column9
 			// 
-			this->Column9->HeaderText = L"Codigo de usuario";
+			this->Column9->HeaderText = L"Tipo de usuario";
 			this->Column9->MinimumWidth = 6;
 			this->Column9->Name = L"Column9";
 			// 
@@ -263,7 +280,7 @@ namespace CarpoolView {
 		Usuario^ objUsuario = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);
 		this->dataGridView1->Rows->Clear();
 
-		array<String^>^ fila = gcnew array<String^>(9);
+		array<String^>^ fila = gcnew array<String^>(10);
 		fila[0] = objUsuario->Nombre;
 		fila[1] = objUsuario->ApellidoPaterno;
 		fila[2] = objUsuario->ApellidoMaterno;
@@ -272,7 +289,8 @@ namespace CarpoolView {
 		fila[5] = objUsuario->Correo;
 		fila[6] = "Español";
 		fila[7] = objUsuario->userName;
-		fila[8] = Convert::ToString(objUsuario->CodigoDeUsuario);
+		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
+		fila[9] = Convert::ToString(objUsuario->CodigoDeUsuario);
 		this->dataGridView1->Rows->Add(fila);
 	}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -289,7 +307,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	this->dataGridView1->Rows->Clear();
 	for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
 		Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
-		array<String^>^ fila = gcnew array<String^>(9);
+		array<String^>^ fila = gcnew array<String^>(10);
 		fila[0] = objUsuario->Nombre;
 		fila[1] = objUsuario->ApellidoPaterno;
 		fila[2] = objUsuario->ApellidoMaterno;
@@ -300,6 +318,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		fila[6] = "Español";
 		fila[7] = objUsuario->userName;
 		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
+		fila[9] = Convert::ToString(objUsuario->CodigoDeUsuario);
 		this->dataGridView1->Rows->Add(fila);
 	}
 }
@@ -309,7 +328,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 
 	for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
 		Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
-		array<String^>^ fila = gcnew array<String^>(9);
+		array<String^>^ fila = gcnew array<String^>(10);
 		fila[0] = objUsuario->Nombre;
 		fila[1] = objUsuario->ApellidoPaterno;
 		fila[2] = objUsuario->ApellidoMaterno;
@@ -319,6 +338,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		fila[6] = "Español";
 		fila[7] = objUsuario->userName;
 		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
+		fila[9] = Convert::ToString(objUsuario->CodigoDeUsuario);
 		this->dataGridView1->Rows->Add(fila);
 	}
 }
@@ -334,7 +354,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		
 		Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxUserName(userNameEditar);
 		this->objGestorUsuario->EliminarUsuarioXDni(dniEliminar);
-		Usuario^ objUsuarioAdmin = gcnew Usuario(objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->DNI, objUsuario->Correo, objUsuario->userName, objUsuario->password, 1);
+		Usuario^ objUsuarioAdmin = gcnew Usuario(objUsuario->CodigoDeUsuario ,objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->DNI, objUsuario->Correo, objUsuario->userName, objUsuario->password, 1);
 
 		this->objGestorUsuario->AgregarUsuario(objUsuarioAdmin);
 
@@ -352,6 +372,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 			fila[6] = "Español";
 			fila[7] = objUsuario->userName;
 			fila[8] = Convert::ToString(objUsuario->tipoUsuario);
+			fila[9] = Convert::ToString(objUsuario->CodigoDeUsuario);
 			this->dataGridView1->Rows->Add(fila);
 
 			
