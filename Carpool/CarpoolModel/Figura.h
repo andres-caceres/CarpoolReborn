@@ -1,4 +1,5 @@
 #pragma once
+//#include "Coordenadas.h"
 
 
 using namespace System;
@@ -14,6 +15,8 @@ namespace CarpoolModel {
 		int finX;
 		int finY;
 		int tipo;
+		//List<Coordenadas^>^ objListaCoordenadas;
+		
 
 		Color objColor;
 

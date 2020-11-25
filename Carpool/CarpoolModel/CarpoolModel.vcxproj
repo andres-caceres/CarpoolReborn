@@ -115,6 +115,7 @@
     <ClInclude Include="Chat.h" />
     <ClInclude Include="Conductor.h" />
     <ClInclude Include="Contactos.h" />
+    <ClInclude Include="Coordenadas.h" />
     <ClInclude Include="DatosMapa.h" />
     <ClInclude Include="Figura.h" />
     <ClInclude Include="Horarios.h" />

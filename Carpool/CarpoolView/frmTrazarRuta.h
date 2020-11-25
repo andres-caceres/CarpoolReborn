@@ -10,6 +10,7 @@ namespace CarpoolView {
 	using namespace System::Drawing;
 	using namespace CarpoolController;
 	using namespace CarpoolModel;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de frmTrazarRuta
@@ -23,6 +24,9 @@ namespace CarpoolView {
 			this->objGestorFigura = gcnew GestorFigura();
 			this->tipoFigura = 1; //Solo usamos lineas
 			this->objColor = Color::Blue;
+			this->flagPrimeraLinea = 1; //iniciamos con el 1er click
+			this->listaFiguras = gcnew List<figura^>();
+			this->listaFiguras->Clear(); //la lista empieza en blanco
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -51,6 +55,12 @@ namespace CarpoolView {
 	private: int inicioY;
 	private: int finX;
 	private: int finY;
+	private: int puntoX;
+	private: int puntoY;
+	private: int flagPrimeraLinea;
+	private: List<figura^>^ listaFiguras;
+	private: System::Windows::Forms::Label^ label2;
+		   //private: List<Coordenadas^> listaCoordenadas;
 
 	private:
 		/// <summary>
@@ -70,6 +80,7 @@ namespace CarpoolView {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -77,9 +88,10 @@ namespace CarpoolView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(13, 13);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(61, 13);
+			this->label1->Size = System::Drawing::Size(114, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Trazar ruta:";
+			this->label1->Text = L"Inserte los puntos que ";
+			this->label1->Click += gcnew System::EventHandler(this, &frmTrazarRuta::label1_Click);
 			// 
 			// button1
 			// 
@@ -92,12 +104,13 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(16, 253);
+			this->button2->Location = System::Drawing::Point(16, 343);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmTrazarRuta::button2_Click);
 			// 
 			// panel1
 			// 
@@ -108,14 +121,26 @@ namespace CarpoolView {
 			this->panel1->Size = System::Drawing::Size(712, 412);
 			this->panel1->TabIndex = 3;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmTrazarRuta::panel1_Paint);
+			this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &frmTrazarRuta::panel1_MouseClick);
 			this->panel1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &frmTrazarRuta::panel1_MouseDown);
 			this->panel1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &frmTrazarRuta::panel1_MouseUp);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(13, 26);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(92, 13);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"conforman la ruta:";
+			this->label2->Click += gcnew System::EventHandler(this, &frmTrazarRuta::label2_Click);
 			// 
 			// frmTrazarRuta
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(859, 437);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -147,15 +172,46 @@ namespace CarpoolView {
 
 	}
 private: System::Void panel1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	this->inicioX = e->X;
-	this->inicioY = e->Y;
+	//this->inicioX = e->X;
+	//this->inicioY = e->Y;
+
+	
+
 }
 private: System::Void panel1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	this->finX = e->X;
-	this->finY = e->Y;
-	figura^ objFigura = gcnew figura(this->inicioX, this->inicioY, this->finX, this->finY, this->tipoFigura, this->objColor);
-	this->objGestorFigura->AgregarFigura(objFigura);
-	this->panel1->Invalidate();
+	//this->finX = e->X;
+	//this->finY = e->Y;
+	//figura^ objFigura = gcnew figura(this->inicioX, this->inicioY, this->finX, this->finY, this->tipoFigura, this->objColor);
+	//this->objGestorFigura->AgregarFigura(objFigura);
+	//this->panel1->Invalidate();
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	
+	if (flagPrimeraLinea == 1) {
+		this->inicioX = e->X;
+		this->inicioY = e->Y;
+		flagPrimeraLinea = 0;
+	}
+	else {
+		this->finX = e->X;
+		this->finY = e->Y;
+
+		figura^ objFigura = gcnew figura(this->inicioX, this->inicioY, this->finX, this->finY, this->tipoFigura, this->objColor);
+		this->objGestorFigura->AgregarFigura(objFigura);
+		this->panel1->Invalidate();
+
+		this->inicioX = this->finX;
+		this->inicioY = this->finY; //Siguiente línea inicia donde acabó la anterior
+
+	}
+
+}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
