@@ -87,6 +87,9 @@
     <ClCompile Include="frmPreguntaSeguridad.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="frmCambiarPassword.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmLogin.h">
@@ -156,6 +159,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmPreguntaSeguridad.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmCambiarPassword.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

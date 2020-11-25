@@ -133,6 +133,7 @@
     <ClCompile Include="frmAdministrador.cpp" />
     <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmBuscarUsuario.cpp" />
+    <ClCompile Include="frmCambiarPassword.cpp" />
     <ClCompile Include="frmConductor.cpp" />
     <ClCompile Include="frmCreaViaje.cpp" />
     <ClCompile Include="frmDatosConductor.cpp" />
@@ -163,6 +164,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmBuscarUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmCambiarPassword.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmConductor.h">
@@ -235,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarPassword.resx">
+      <DependentUpon>frmCambiarPassword.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConductor.resx">
       <DependentUpon>frmConductor.h</DependentUpon>

@@ -260,7 +260,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			ventanaPasajero->Show();
 			this->Hide();
 		}
-		if (es_conductor) {
+		if (es_conductor) {//PASAR UN OBJETO USUARIO
 			frmConductor^ ventanaConductor = gcnew frmConductor();
 			ventanaConductor->Show();
 			this->Hide();

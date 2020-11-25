@@ -1,4 +1,5 @@
 #pragma once
+#include "frmCambiarPassword.h"
 
 namespace CarpoolView {
 
@@ -89,12 +90,12 @@ namespace CarpoolView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -231,6 +232,24 @@ namespace CarpoolView {
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Datos de usuario";
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(155, 89);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(123, 17);
+			this->label8->TabIndex = 4;
+			this->label8->Text = L"Tu tipo de usuario";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(38, 89);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(111, 17);
+			this->label7->TabIndex = 3;
+			this->label7->Text = L"Tipo de usuario:";
+			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(157, 43);
@@ -257,6 +276,7 @@ namespace CarpoolView {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Cambiar contraseña";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmDatosPersonales::button2_Click);
 			// 
 			// button3
 			// 
@@ -268,24 +288,6 @@ namespace CarpoolView {
 			this->button3->Text = L"Guardar los cambios";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &frmDatosPersonales::button3_Click);
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(38, 89);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(111, 17);
-			this->label7->TabIndex = 3;
-			this->label7->Text = L"Tipo de usuario:";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(155, 89);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(123, 17);
-			this->label8->TabIndex = 4;
-			this->label8->Text = L"Tu tipo de usuario";
 			// 
 			// frmDatosPersonales
 			// 
@@ -374,6 +376,10 @@ private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, Sys
 	
 	this->objGestorUsuario->EscribirArchivo();
 
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmCambiarPassword^ ventanaCambiarPassword = gcnew frmCambiarPassword();
+	ventanaCambiarPassword->Show();
 }
 };
 }
