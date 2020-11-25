@@ -1,2 +1,2 @@
-Fernando;Paz;Garcia;12345678;fernando@pucp.edu.pe;fernando;123456;3
+Victor;Sevillano;Macuri;70437078;victor@pucp.edu.pe;victor;123456;1
 

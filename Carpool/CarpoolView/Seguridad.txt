@@ -1,8 +1,1 @@
-12345678;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima
-45678912;domingo, 1 de noviembre de 2020;Mascota de la infancia;Perro
-78945612;domingo, 1 de noviembre de 2020;Mascota de la infancia;Gato
 70437078;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima
-45678912;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima
-70437078;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima
-70437078;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima
-12345678;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima

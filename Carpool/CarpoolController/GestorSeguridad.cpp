@@ -69,3 +69,13 @@ void GestorSeguridad::EscribirArchivo() {
 	}
 	File::WriteAllLines("Seguridad.txt", lineasArchivo);
 }
+
+void GestorSeguridad::EliminarSeguridad(String^ dni) {
+	for (int i = 0; i < this->listaSeguridad->Count; i++) {
+		if (this->listaSeguridad[i]->DniSeguro== dni) {
+			/*Encontre al que debo eliminar*/
+			this->listaSeguridad->RemoveAt(i);
+			break;
+		}
+	}
+}

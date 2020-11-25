@@ -19,6 +19,7 @@ namespace CarpoolController {
 		void AgregarSeguridad(Seguridad^ objSeguridad);
 		String^ ObtenerPregunta(String^ DniSeguro);
 		void EscribirArchivo();
+		void EliminarSeguridad(String^ dni);
 	};
 }
 

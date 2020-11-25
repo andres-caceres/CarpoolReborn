@@ -28,6 +28,7 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 			this->objGestorUsuario = objGestorUsuario;
+			this->objGestorSeguridad = gcnew GestorSeguridad();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -59,6 +60,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: GestorUsuario^ objGestorUsuario;
+	private: GestorSeguridad^ objGestorSeguridad;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
@@ -266,7 +268,7 @@ namespace CarpoolView {
 		fila[3] = objUsuario->DNI;
 		fila[4] = objUsuario->Edad;
 		fila[5] = objUsuario->Correo;
-		fila[6] = objUsuario->Idioma;
+		fila[6] = "Español";
 		fila[7] = objUsuario->userName;
 		fila[8] = Convert::ToString(objUsuario->CodigoDeUsuario);
 		this->dataGridView1->Rows->Add(fila);
@@ -276,7 +278,10 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	//index posicion real
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ userNameEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[7]->Value->ToString());//acccede codigo Cells[0]
+	String^ dniEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[3]->Value->ToString());//acccede codigo Cells[0]
 	this->objGestorUsuario->EliminarUsuario(userNameEliminar);
+	this->objGestorSeguridad->EliminarSeguridad(dniEliminar);
+
 	MessageBox::Show("Contacto eliminado exitosamente");
 
 	this->dataGridView1->Rows->Clear();
@@ -289,7 +294,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		fila[3] = objUsuario->DNI;
 		fila[4] = objUsuario->Edad;
 		fila[5] = objUsuario->Correo;
-		fila[6] = objUsuario->Idioma;
+		//fila[6] = objUsuario->Idioma;
+		fila[6] = "Español";
 		fila[7] = objUsuario->userName;
 		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
 		this->dataGridView1->Rows->Add(fila);
@@ -297,6 +303,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+	this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
 
 	for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
 		Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
@@ -307,7 +314,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		fila[3] = objUsuario->DNI;
 		fila[4] = objUsuario->Edad;
 		fila[5] = objUsuario->Correo;
-		fila[6] = objUsuario->Idioma;
+		fila[6] = "Español";
 		fila[7] = objUsuario->userName;
 		fila[8] = Convert::ToString(objUsuario->tipoUsuario);
 		this->dataGridView1->Rows->Add(fila);
@@ -330,6 +337,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmBuscarUsuario_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	this->objGestorUsuario->EscribirArchivo();
+	this->objGestorSeguridad->EscribirArchivo();
 }
 };
 }
