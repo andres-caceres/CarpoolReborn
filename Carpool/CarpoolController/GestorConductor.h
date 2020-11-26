@@ -16,8 +16,11 @@ namespace CarpoolController {
 		Conductor^ BuscarConductorxUserID(int UserID);
 		int ObtenerCantidadConductores();
 		void AgregarALista(Conductor^ objConductor);
-		void GestorConductor::EscribirArchivo();
-
+		void EscribirArchivo();//Comentario: no deberías eliminar el GestorConductor:: ?? @Andres
+		Conductor^ ObtenerConductorLista(int indice);
+		int ObtenerCantidadConductoresSegunSuValidez(int valido);
+		Conductor^ ObtenerConductorxCodigo(int codigo);
+		void EliminarConductorxCodigo(int codigoEliminar);
 	};
 }
 

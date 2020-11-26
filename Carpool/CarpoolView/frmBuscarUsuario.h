@@ -111,11 +111,6 @@ namespace CarpoolView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmBuscarUsuario::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->Column10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -126,6 +121,11 @@ namespace CarpoolView {
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -154,64 +154,8 @@ namespace CarpoolView {
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(1219, 155);
+			this->dataGridView1->Size = System::Drawing::Size(1219, 209);
 			this->dataGridView1->TabIndex = 6;
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(179, 40);
-			this->textBox1->Margin = System::Windows::Forms::Padding(4);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(132, 22);
-			this->textBox1->TabIndex = 5;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(74, 40);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(80, 18);
-			this->label1->TabIndex = 4;
-			this->label1->Text = L"UserName";
-			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->button1);
-			this->groupBox1->Controls->Add(this->textBox1);
-			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(345, 27);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(537, 90);
-			this->groupBox1->TabIndex = 8;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Buscar";
-			// 
-			// button2
-			// 
-			this->button2->ForeColor = System::Drawing::Color::BlueViolet;
-			this->button2->Location = System::Drawing::Point(456, 325);
-			this->button2->Margin = System::Windows::Forms::Padding(4);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(133, 28);
-			this->button2->TabIndex = 8;
-			this->button2->Text = L"Hacer admin";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &frmBuscarUsuario::button2_Click);
-			// 
-			// button3
-			// 
-			this->button3->ForeColor = System::Drawing::Color::Red;
-			this->button3->Location = System::Drawing::Point(656, 325);
-			this->button3->Margin = System::Windows::Forms::Padding(4);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(133, 28);
-			this->button3->TabIndex = 9;
-			this->button3->Text = L"Eliminar usuario";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &frmBuscarUsuario::button3_Click);
 			// 
 			// Column10
 			// 
@@ -273,15 +217,72 @@ namespace CarpoolView {
 			this->Column9->MinimumWidth = 6;
 			this->Column9->Name = L"Column9";
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(179, 40);
+			this->textBox1->Margin = System::Windows::Forms::Padding(4);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(132, 22);
+			this->textBox1->TabIndex = 5;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(74, 40);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(80, 18);
+			this->label1->TabIndex = 4;
+			this->label1->Text = L"UserName";
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->button1);
+			this->groupBox1->Controls->Add(this->textBox1);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Location = System::Drawing::Point(345, 27);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(537, 90);
+			this->groupBox1->TabIndex = 8;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Buscar";
+			// 
+			// button2
+			// 
+			this->button2->ForeColor = System::Drawing::Color::BlueViolet;
+			this->button2->Location = System::Drawing::Point(457, 385);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(133, 28);
+			this->button2->TabIndex = 8;
+			this->button2->Text = L"Hacer admin";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmBuscarUsuario::button2_Click);
+			// 
+			// button3
+			// 
+			this->button3->ForeColor = System::Drawing::Color::Red;
+			this->button3->Location = System::Drawing::Point(661, 385);
+			this->button3->Margin = System::Windows::Forms::Padding(4);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(133, 28);
+			this->button3->TabIndex = 9;
+			this->button3->Text = L"Eliminar usuario";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmBuscarUsuario::button3_Click);
+			// 
 			// frmBuscarUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1282, 383);
+			this->ClientSize = System::Drawing::Size(1282, 459);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->dataGridView1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmBuscarUsuario";
 			this->Text = L"Buscar Usuario";

@@ -33,3 +33,15 @@ Conductor::Conductor() {
 	this->objChat = gcnew Chat();
 	//this->objMetodoPago = gcnew MetodoPago();
 }
+
+Conductor::Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, int valido) {
+	this->CodigoDeUsuario = CodigoDeUsuario;
+	this->Nombre = Nombre;
+	this->NumeroDeLicencia = NumeroDeLicencia;
+	this->Disponibilidad = Disponibilidad;
+	this->CalificacionConductor = CalificacionConductor;
+	this->Posicion = Posicion;
+	this->AsientosDisponibles = AsientosDisponibles;
+	this->valido = valido;
+
+}
