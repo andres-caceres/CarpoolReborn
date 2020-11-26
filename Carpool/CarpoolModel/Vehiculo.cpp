@@ -2,7 +2,7 @@
 
 using namespace CarpoolModel;
 
-Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec, int valido) {
+Vehiculo::Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec, int valido) {
 
 	this->Marca = Marca;
 	this->Modelo = Modelo;
@@ -17,7 +17,7 @@ Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, 
 
 }
 
-Vehiculo::Vehiculo(String^ Marca, String^ Placa, String^ Modelo, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec, int IDConductor,int valido) {
+Vehiculo::Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec, int IDConductor,int valido) {
 
 	this->Marca = Marca;
 	this->Modelo = Modelo;
