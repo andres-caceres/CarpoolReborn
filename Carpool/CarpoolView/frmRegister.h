@@ -344,13 +344,13 @@ namespace CarpoolView {
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(94, 21);
 			this->radioButton2->TabIndex = 32;
-			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"Conductor";
 			this->radioButton2->UseVisualStyleBackColor = true;
 			// 
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
+			this->radioButton1->Checked = true;
 			this->radioButton1->Location = System::Drawing::Point(131, 136);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(85, 21);

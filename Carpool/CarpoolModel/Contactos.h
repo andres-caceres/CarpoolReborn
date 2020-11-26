@@ -10,12 +10,14 @@ namespace CarpoolModel {
 
 		/*Definición de atributos*/
 	public:
-		int codigo; //comentario
-		String^ apodo; //prueba comentario
-		String^ dni;
+		int codigoDelAñador;
+		int codigoDelAñadido;
+		String^ userNameDelAñadido;
+		String^ Apodo;
+		String^ Nombre;		
 
 		/*Métodos*/
 	public:
-		Contactos(int codigo, String^ apodo,String^ dni);
+		Contactos(int codigoDelAñador, int codigoDelAñadido, String^ userNameDelAñadido, String^ Apodo, String^ Nombre);
 	};
 }

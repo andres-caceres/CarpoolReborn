@@ -25,10 +25,11 @@ namespace CarpoolView {
 			//
 		}
 
-		frmEditarContacto(GestorContacto^ objGestorContacto, int codigoEditar)
+		frmEditarContacto(GestorContacto^ objGestorContacto, String^ userNameEditar)
 		{	
 			this->objGestorContacto = objGestorContacto;
-			this->codigoEditar = codigoEditar;
+			this->userNameEditar = userNameEditar;
+			this->objGestorUsuario = gcnew GestorUsuario();
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
@@ -50,14 +51,16 @@ namespace CarpoolView {
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::TextBox^ textBox3;
+
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ label3;
+
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label1;
+
 	private: GestorContacto^ objGestorContacto;
-	private: int codigoEditar;
+	private: String^ userNameEditar;
+	private: GestorUsuario^ objGestorUsuario;
+	private: System::Windows::Forms::Label^ label1;
 
 	private:
 		/// <summary>
@@ -75,10 +78,8 @@ namespace CarpoolView {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
@@ -86,10 +87,11 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(254, 417);
+			this->button2->ForeColor = System::Drawing::Color::Red;
+			this->button2->Location = System::Drawing::Point(236, 287);
 			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(82, 31);
+			this->button2->Size = System::Drawing::Size(99, 44);
 			this->button2->TabIndex = 8;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -97,10 +99,11 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(108, 417);
+			this->button1->ForeColor = System::Drawing::Color::Green;
+			this->button1->Location = System::Drawing::Point(102, 287);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(82, 31);
+			this->button1->Size = System::Drawing::Size(103, 44);
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -108,59 +111,40 @@ namespace CarpoolView {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox1);
-			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(55, 59);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox1->Size = System::Drawing::Size(352, 307);
+			this->groupBox1->Size = System::Drawing::Size(352, 202);
 			this->groupBox1->TabIndex = 6;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Datos del Contacto";
 			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(155, 221);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(103, 22);
-			this->textBox3->TabIndex = 5;
-			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(155, 145);
+			this->textBox2->Location = System::Drawing::Point(161, 126);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(103, 22);
+			this->textBox2->Size = System::Drawing::Size(153, 22);
 			this->textBox2->TabIndex = 4;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(155, 81);
+			this->textBox1->Location = System::Drawing::Point(161, 61);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(103, 22);
+			this->textBox1->ReadOnly = true;
+			this->textBox1->Size = System::Drawing::Size(153, 22);
 			this->textBox1->TabIndex = 3;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(50, 225);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(39, 17);
-			this->label3->TabIndex = 2;
-			this->label3->Text = L"DNI :";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(50, 146);
+			this->label2->Location = System::Drawing::Point(56, 126);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(57, 17);
@@ -170,18 +154,18 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(50, 82);
+			this->label1->Location = System::Drawing::Point(56, 62);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(64, 17);
+			this->label1->Size = System::Drawing::Size(79, 17);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Codigo : ";
+			this->label1->Text = L"UserName:";
 			// 
 			// frmEditarContacto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(458, 512);
+			this->ClientSize = System::Drawing::Size(458, 364);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
@@ -195,11 +179,14 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		int codigo = Convert::ToInt32(this->textBox1->Text);
-		String^ apodo = this->textBox2->Text;
-		String^ dni = this->textBox3->Text;
-		Contactos^ objContacto = gcnew Contactos(codigo, apodo, dni);
-		this->objGestorContacto->EliminarContacto(codigo);
+		Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+		String^ UserName = this->textBox1->Text;
+		String^ Apodo = this->textBox2->Text;
+		Usuario^ objUsuario = this->objGestorUsuario->ObtenerUsuarioxUserName(UserName);
+
+		Contactos^ objContacto = gcnew Contactos(objUsuarioLogeado->CodigoDeUsuario,objUsuario->CodigoDeUsuario,objUsuario->userName,Apodo,objUsuario->Nombre);
+		this->objGestorContacto->EliminarContactoXuserName(UserName,objUsuarioLogeado->CodigoDeUsuario);
 		this->objGestorContacto->AgregarContacto(objContacto);
 		MessageBox::Show("Contacto actualizado exitosamente");
 		this->Close();
@@ -208,10 +195,11 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmEditarContacto_Load(System::Object^ sender, System::EventArgs^ e) {
-	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxCodigo(this->codigoEditar);
-	this->textBox1->Text = Convert::ToString(objContactoEditar->codigo);
-	this->textBox2->Text = objContactoEditar->apodo;
-	this->textBox3->Text = objContactoEditar->dni;
+	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+
+	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxUserName(userNameEditar,objUsuarioLogeado->CodigoDeUsuario);
+	this->textBox1->Text = objContactoEditar->userNameDelAñadido;
+	this->textBox2->Text = objContactoEditar->Apodo;
 }
 };
 }
