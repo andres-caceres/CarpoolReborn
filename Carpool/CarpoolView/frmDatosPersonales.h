@@ -320,8 +320,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuario = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+	Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxDNIyTipoDeUsuario(objUsuarioLogeado->DNI,objUsuarioLogeado->tipoUsuario);
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
 	//objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	
@@ -369,7 +370,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	this->objGestorUsuario->EliminarUsuarioXDni(DNI);
 	this->objGestorUsuario->AgregarUsuario(objUsuario);
 	MessageBox::Show("Sus datos han sido actualizados correctamente");
-	this->Close();
+	//this->Close();
 }
 
 	  
@@ -378,6 +379,8 @@ private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, Sys
 	
 	this->objGestorUsuario->EscribirArchivo();
 
+	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmCambiarPassword^ ventanaCambiarPassword = gcnew frmCambiarPassword();
