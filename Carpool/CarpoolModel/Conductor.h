@@ -30,6 +30,6 @@ namespace CarpoolModel {
 		Conductor();
 		Conductor(int CodigoDeUsuario);
 		Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, Vehiculo^ objVehiculo, int valido);
-
+		Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, int valido);
 	};
 }

@@ -156,6 +156,8 @@
     <ClCompile Include="frmTarjeta.cpp" />
     <ClCompile Include="frmTrazarRuta.cpp" />
     <ClCompile Include="frmUpdateContacto.cpp" />
+    <ClCompile Include="frmValidarConductor.cpp" />
+    <ClCompile Include="frmValidarVehiculo.cpp" />
     <ClCompile Include="frmVerificarConductor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -238,6 +240,12 @@
     <ClInclude Include="frmUpdateContacto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmValidarConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmValidarVehiculo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmVerificarConductor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -317,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateContacto.resx">
       <DependentUpon>frmUpdateContacto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValidarConductor.resx">
+      <DependentUpon>frmValidarConductor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerificarConductor.resx">
       <DependentUpon>frmVerificarConductor.h</DependentUpon>

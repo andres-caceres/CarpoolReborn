@@ -1,6 +1,6 @@
-#include "GestorViaje.h";
-#include "GestorConductor.h";
-#include "GestorRuta.h";
+#include "GestorViaje.h"
+#include "GestorConductor.h"
+#include "GestorRuta.h"
 #include "GestorPasajero.h"
 
 
