@@ -15,7 +15,8 @@ namespace CarpoolController {
 		void LeerConductoresDesdeArchivo();
 		Conductor^ BuscarConductorxUserID(int UserID);
 		int ObtenerCantidadConductores();
-		//void EscribirConductorAlArchivo();
+		void AgregarALista(Conductor^ objConductor);
+		void GestorConductor::EscribirArchivo();
 
 	};
 }

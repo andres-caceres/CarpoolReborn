@@ -34,6 +34,29 @@ namespace CarpoolView {
 			//
 		}
 
+		frmAgregarVehiculo(int UserID)
+		{
+			InitializeComponent();
+
+			this->objGestorVehiculo = gcnew GestorVehiculo();
+			this->objConductor = gcnew Conductor(UserID);
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+		
+		frmAgregarVehiculo(Conductor^ objConductor)
+		{
+			InitializeComponent();
+
+			this->objGestorVehiculo = objGestorVehiculo;
+			this->objConductor = objConductor;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -70,6 +93,8 @@ namespace CarpoolView {
 
 	private:
 		GestorVehiculo^ objGestorVehiculo;
+		Conductor^ objConductor;
+
 	private: System::Windows::Forms::TextBox^ SOAT;
 
 	private: System::Windows::Forms::Label^ label10;
@@ -390,13 +415,15 @@ namespace CarpoolView {
 			String^ Propietario = this->Propietario->Text;
 			String^ SOAT = this->SOAT->Text;
 			String^ RevTec = this->RevTec->Text;
+			int IDConductor = this->objConductor->CodigoDeUsuario;
 
-			bool valido = 0; //TODO: agregar atributo para revision en obj vehiculo
+			int valido = 2;  // 2: en proceso de validacion (ver vehiculo.h para mas info)
 
 			if (validar_entradas(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec)) {
 
-			Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec);
+			Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec, IDConductor, valido);
 			this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
+			this->objGestorVehiculo->EscribirArchivo();
 
 			MessageBox::Show("Los datos han sido enviados para verificación y aprobación, se le notificará cuando esté disponible para su uso", "Vehiculo Agregado");
 

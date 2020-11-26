@@ -32,6 +32,17 @@ namespace CarpoolView {
 			//
 		}
 
+		frmDatosConductor(Conductor^ objConductor)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//GestorVehiculo^ objGestorVehiculoDefault = gcnew GestorVehiculo();
+			this->objGestorConductor = gcnew GestorConductor();
+			this->objConductor = objConductor;
+			//
+		}
+
 		frmDatosConductor(GestorConductor^ objGestorConductor, Conductor^ objConductor)
 		{
 			InitializeComponent();
@@ -341,26 +352,32 @@ private: System::Void frmDatosConductor_Load(System::Object^ sender, System::Eve
 	//int UserID = 1;
 
 	//objGestorConductor lee la lista de conductores desde archivo
-	this->objGestorConductor->LeerConductoresDesdeArchivo();
+	//this->objGestorConductor->LeerConductoresDesdeArchivo();
 
 	//Busca el conductor con user id
-	this-> objConductor = this->objGestorConductor->BuscarConductorxUserID(3);
+	//this-> objConductor = this->objGestorConductor->BuscarConductorxUserID(3);
 
 	//Muestra en la ventana los datos del conductor
 	Calificacion = this->objConductor->CalificacionConductor;
 
 	this->lblCalificacion->ImageIndex = Calificacion*2; //actualiza estrellas basado en calificacion
 
-	this->textBoxNombre->Text= this->objConductor->Nombre; //TODO: aun no funciona
+	this->textBoxNombre->Text= this->objConductor->Nombre;
 	this->textBoxLicencia->Text = this->objConductor->NumeroDeLicencia;
-	this->textBoxMarca->Text = "Toyota";
-	this->textBoxModelo->Text = "Carina";
-	this->textBoxPlaca->Text = "BGI-300";
-	/*
-	this->textBoxMarca->Text = this->objConductor->objVehiculo->Marca;
-	this->textBoxModelo->Text = this->objConductor->objVehiculo->Modelo;
-	this->textBoxPlaca->Text = this->objConductor->objVehiculo->Placa;
-	*/
+
+
+	if (this->objConductor->objVehiculo == nullptr) {
+
+		this->textBoxMarca->Text = "NULL";
+		this->textBoxModelo->Text = "NULL";
+		this->textBoxPlaca->Text = "NULL";		
+	}
+	else
+	{
+		this->textBoxMarca->Text = this->objConductor->objVehiculo->Marca;
+		this->textBoxModelo->Text = this->objConductor->objVehiculo->Modelo;
+		this->textBoxPlaca->Text = this->objConductor->objVehiculo->Placa;
+	}
 
 }
 private: System::Void lblCalificacion_Click(System::Object^ sender, System::EventArgs^ e) {

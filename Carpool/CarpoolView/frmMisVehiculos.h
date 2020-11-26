@@ -41,6 +41,7 @@ namespace CarpoolView {
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
+			this->objGestorVehiculo = gcnew GestorVehiculo();
 			GestorConductor^ objGestorConductor = gcnew GestorConductor();
 			this->objConductor = objConductor;
 			//
