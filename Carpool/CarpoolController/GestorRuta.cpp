@@ -37,3 +37,16 @@ int GestorRuta::ObtenerCantidadRutas() {
 Ruta^ GestorRuta::ObtenerRutasLista(int indice) {
 	return this->listaRutas[indice];
 }
+
+
+
+Ruta^ GestorRuta::ObtenerRutaxCodigo(int codigo) {
+	Ruta^ objRutaBuscada = nullptr;
+	for (int i = 0; i < this->listaRutas->Count; i++) {
+		if (this->listaRutas[i]->CodigoRuta == codigo) {
+			objRutaBuscada = this->listaRutas[i];
+			break;
+		}
+	}
+	return objRutaBuscada;
+}

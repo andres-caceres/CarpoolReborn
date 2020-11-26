@@ -1,6 +1,7 @@
 #pragma once
 #include "Conductor.h"
 #include "Pasajero.h"
+#include "Ruta.h"
 
 using namespace System; /*Contiene la definición e implementación de la clase String*/
 using namespace System::Collections::Generic; /*Contiene la definición e implementación del List*/
@@ -11,19 +12,22 @@ namespace CarpoolModel {
 		/*Definición de atributos*/
 	public:
 		int codigoViaje;
-		int NumeroPasajeros;
-		String^ Origen;
-		String^ Destino;
 		String^ HoraSalida;
 		String^ HoraLlegada;
-		//Conductor^ objConductor;
-		String^ objConductor;
+		String^ Fecha;
+		String^ Estado;
+		int NumeroPasajeros;
+		int AsientosDisponibles;
 		String^ Tarifa;
+		Ruta^ objRuta;
+		Conductor^ objConductor;
+		List<Pasajero^>^ listaPasajeros;
 
-		/*Métodos*/
+
+
 	public:
-		/*Método Constructor*/
-		//Viaje(int codigoViaje, int NumeroPasajeros, String^ Origen, String^ Destino, String^ HoraSalida, String^ HoraLlegada, String^ Tarifa, Conductor^ objConductor);
-		Viaje(int codigoViaje, int NumeroPasajeros, String^ Origen, String^ Destino, String^ HoraSalida, String^ HoraLlegada, String^ Tarifa, String^ objConductor);
+		Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ Fecha, String^ Estado, int NumeroPasajeros,
+			int AsientosDisponibles, String^ Tarifa, Ruta^ objRuta, Conductor^ objConductor);
+
 	};
 }

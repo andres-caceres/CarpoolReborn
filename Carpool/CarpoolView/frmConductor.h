@@ -2,7 +2,7 @@
 #include "frmDatosPersonales.h"
 #include "frmMisVehiculos.h"
 #include "frmDatosConductor.h"
-#include "frmMantViaje.h"
+#include "frmMantViajes.h"
 namespace CarpoolView {
 
 	using namespace System;
@@ -179,7 +179,7 @@ private: System::Void datosConductorToolStripMenuItem_Click(System::Object^ send
 	ventanaDatosConductor->Show();
 }
 private: System::Void crearViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmMantViaje^ ventanaMantViaje = gcnew frmMantViaje();
+	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes();
 	ventanaMantViaje->MdiParent = this;
 	ventanaMantViaje->Show();
 
