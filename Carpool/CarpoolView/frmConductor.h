@@ -221,7 +221,7 @@ private: System::Void frmConductor_Load(System::Object^ sender, System::EventArg
 			
 		int			UserID = objUsuario->CodigoDeUsuario;
 		String^		nombre = objUsuario->Nombre;
-		String^		Licencia = "Ingrese un número de Licencia";
+		String^		Licencia = "Número de Licencia";
 		String^		Disponibilidad = "Disponible";
 		int			Calificacion = 0;
 		String^		Posicion = "0,0";
