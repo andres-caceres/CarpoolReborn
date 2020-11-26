@@ -8,23 +8,19 @@ GestorPasajero::GestorPasajero() {
 	listaPasajeros = gcnew List<Pasajero^>();
 }
 
-void GestorPasajero::LeerPasajerosDesdeArchivo()
-{
+void GestorPasajero::LeerPasajerosDesdeArchivo() {
 	this->listaPasajeros->Clear();
 	array<String^>^ lineas = File::ReadAllLines("Pasajeros.txt");
 	String^ separadores = ";";
-	for each (String ^ lineaContacto in lineas)
-	{
+	for each (String ^ lineaPasajero in lineas) {
+		array<String^>^ palabras = lineaPasajero->Split(separadores->ToCharArray());
 
-		array<String^>^ palabras = lineaContacto->Split(separadores->ToCharArray());
-		int UserID = Convert::ToInt32(palabras[0]);
-		//String^ Nombre = palabras[1]; //TODO: buscar nombre y otros datos usando GestorUsuario
-		int Calificacion = Convert::ToInt32(palabras[2]);
-		String^ Posicion = palabras[3];
+		int codigousuario = Convert::ToInt32(palabras[0]);
+		int calficacion = Convert::ToInt32(palabras[1]);
+		String^ posicion = palabras[2];
 
-		Pasajero^ objPasajero = gcnew Pasajero(UserID, Calificacion, Posicion);
+		Pasajero^ objPasajero = gcnew Pasajero(codigousuario, calficacion, posicion);
 		this->listaPasajeros->Add(objPasajero);
-
 	}
 }
 

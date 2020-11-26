@@ -20,7 +20,9 @@ namespace CarpoolController {
 		void EscribirArchivo();
 		int ObtenerCantidadViajes();
 		Viaje^ ObtenerViajeLista(int indice);
+		void CargarPasajerosViajes(Viaje^ objViaje);
 		//Contactos^ ObtenerViajexCodigo(int codigo);
+		List<Viaje^>^ DevolverAllViajes();
 
 	};
 }
