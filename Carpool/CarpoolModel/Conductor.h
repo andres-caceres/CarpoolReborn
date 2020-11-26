@@ -20,13 +20,15 @@ namespace CarpoolModel {
 		String^ Posicion; //TODO: posicion default?
 		String^ AsientosDisponibles;
 		Vehiculo^ objVehiculo;
+		int valido; 	// 0: invalido , 1:valido , 2: en proceso
 		Chat^ objChat;
 		//MetodoPago^ objMetodoPago;
 
 		/*Métodos*/
 	public:
 		Conductor();
-		Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, Vehiculo^ objVehiculo);
+		Conductor(int CodigoDeUsuario);
+		Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, Vehiculo^ objVehiculo, int valido);
 
 	};
 }
