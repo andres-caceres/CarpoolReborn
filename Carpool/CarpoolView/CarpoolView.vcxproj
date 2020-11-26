@@ -136,6 +136,7 @@
     <ClCompile Include="frmBuscarUsuario.cpp" />
     <ClCompile Include="frmCambiarPassword.cpp" />
     <ClCompile Include="frmConductor.cpp" />
+    <ClCompile Include="frmCreaViaje.cpp" />
     <ClCompile Include="frmDatosConductor.cpp" />
     <ClCompile Include="frmDatosPasajero.cpp" />
     <ClCompile Include="frmDatosPersonales.cpp" />
@@ -175,6 +176,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmCreaViaje.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmDatosConductor.h">
@@ -254,6 +258,9 @@
     <EmbeddedResource Include="frmConductor.resx">
       <DependentUpon>frmConductor.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCreaViaje.resx">
+      <DependentUpon>frmCreaViaje.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDatosConductor.resx">
       <DependentUpon>frmDatosConductor.h</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +291,9 @@
     <EmbeddedResource Include="frmNuevoContacto.resx">
       <DependentUpon>frmNuevoContacto.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoViaje.resx">
+      <DependentUpon>frmNuevoViaje.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPasajero.resx">
       <DependentUpon>frmPasajero.h</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateContacto.resx">
       <DependentUpon>frmUpdateContacto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerificarConductor.resx">
+      <DependentUpon>frmVerificarConductor.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

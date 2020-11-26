@@ -121,6 +121,7 @@ namespace CarpoolView {
 			this->button2->TabIndex = 20;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmMantViajes::button2_Click);
 			// 
 			// button1
 			// 
@@ -259,5 +260,10 @@ namespace CarpoolView {
 }
 
 
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objGestorViaje);
+	ventanaNuevoViaje->ShowDialog();
+	MostrarGrilla();
+}
 };
 }
