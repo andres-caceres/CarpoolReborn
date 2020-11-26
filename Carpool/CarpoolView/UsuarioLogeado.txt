@@ -1,4 +1,5 @@
-2;Fernando;Paz;Garcia;12345678;fernando@pucp.edu.pe;fernandopaz;123456;3
+4;Francesca;Camarena;Pucuhuanca;45678952;francesca@pucp.edu.pe;francesca;123456;2
+
 
 
 

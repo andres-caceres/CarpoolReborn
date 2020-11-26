@@ -28,6 +28,7 @@ namespace CarpoolView {
 		frmNuevoContacto(GestorContacto^ objGestorContacto)
 		{
 			this->objGestorContacto = objGestorContacto;
+			this->objGestorUsuario = gcnew GestorUsuario();
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -49,13 +50,14 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::TextBox^ textBox3;
+
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ label3;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: GestorContacto^ objGestorContacto;
+	private: GestorUsuario^ objGestorUsuario;
 
 	private:
 		/// <summary>
@@ -73,10 +75,8 @@ namespace CarpoolView {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
@@ -85,7 +85,7 @@ namespace CarpoolView {
 			// button2
 			// 
 			this->button2->ForeColor = System::Drawing::Color::Red;
-			this->button2->Location = System::Drawing::Point(244, 400);
+			this->button2->Location = System::Drawing::Point(235, 292);
 			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(101, 39);
@@ -97,7 +97,7 @@ namespace CarpoolView {
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::Green;
-			this->button1->Location = System::Drawing::Point(94, 400);
+			this->button1->Location = System::Drawing::Point(86, 292);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(101, 39);
@@ -108,32 +108,22 @@ namespace CarpoolView {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox1);
-			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(44, 56);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox1->Size = System::Drawing::Size(352, 287);
+			this->groupBox1->Size = System::Drawing::Size(352, 206);
 			this->groupBox1->TabIndex = 3;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Datos del Contacto";
 			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(155, 221);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(157, 22);
-			this->textBox3->TabIndex = 5;
-			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(155, 145);
+			this->textBox2->Location = System::Drawing::Point(146, 129);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(157, 22);
@@ -141,26 +131,16 @@ namespace CarpoolView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(155, 81);
+			this->textBox1->Location = System::Drawing::Point(146, 65);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(157, 22);
 			this->textBox1->TabIndex = 3;
 			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(50, 225);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(39, 17);
-			this->label3->TabIndex = 2;
-			this->label3->Text = L"DNI :";
-			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(50, 146);
+			this->label2->Location = System::Drawing::Point(41, 130);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(57, 17);
@@ -170,18 +150,18 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(50, 82);
+			this->label1->Location = System::Drawing::Point(41, 66);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(64, 17);
+			this->label1->Size = System::Drawing::Size(79, 17);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Codigo : ";
+			this->label1->Text = L"UserName:";
 			// 
 			// frmNuevoContacto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(446, 472);
+			this->ClientSize = System::Drawing::Size(446, 363);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
@@ -194,13 +174,26 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		int codigo = Convert::ToInt32(this->textBox1->Text);
-		String^ apodo = this->textBox2->Text;
-		String^ dni = this->textBox3->Text;
-		Contactos^ objContacto = gcnew Contactos(codigo, apodo, dni);
-		this->objGestorContacto->AgregarContacto(objContacto);
-		MessageBox::Show("Contacto agregado exitosamente");
-		this->Close();
+		String^ UserName = this->textBox1->Text;
+		String^ Apodo = this->textBox2->Text;
+
+		int CreacionValida = this->objGestorContacto->ValidarRegistro(UserName, Apodo);
+		if (CreacionValida) {
+			this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+			Usuario^ UsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+			Usuario^ UsuarioPorAñadir = this->objGestorUsuario->ObtenerUsuarioxUserName(UserName);
+
+
+			Contactos^ objContacto = gcnew Contactos(UsuarioLogeado->CodigoDeUsuario, UsuarioPorAñadir->CodigoDeUsuario, UsuarioPorAñadir->userName, Apodo, UsuarioPorAñadir->Nombre);
+
+			this->objGestorContacto->AgregarContacto(objContacto);
+
+			MessageBox::Show("Contacto agregado exitosamente");
+			this->Close();
+		}
+		else {
+			MessageBox::Show("Completar todos los campos");
+		}
 	}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();

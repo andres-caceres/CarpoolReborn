@@ -14,11 +14,14 @@ namespace CarpoolController {
 		void LeerContactosDesdeArchivo();
 		int ObtenerCantidadContactos();
 		Contactos^ ObtenerContactoLista(int indice);
-		Contactos^ ObtenerContactoxDni(String^ dni);
-		Contactos^ ObtenerContactoxCodigo(int codigo);
+		Contactos^ ObtenerContactoxApodo(String^ Apodo, int CodigoAñador);
+		//Contactos^ ObtenerContactoxCodigo(int codigo);
 		void AgregarContacto(Contactos^ objContacto);
-		void EliminarContacto(int codigoEliminar);
+		void EliminarContactoXuserName(String^ userName, int codigoAñador);
 		void GrabarEnArchivo();
-		int verificaNuevoUsuario(String^ dni);
+		//int verificaNuevoUsuario(String^ dni);
+		int ValidarRegistro(String^ userNameDelAñadido, String^ Apodo);
+		int ObtenerCantidadContactosSegunCodigoDeAñadidor(int codigoAñadidor);
+		Contactos^ ObtenerContactoxUserName(String^ UserName, int CodigoAñador);
 	};
 }
