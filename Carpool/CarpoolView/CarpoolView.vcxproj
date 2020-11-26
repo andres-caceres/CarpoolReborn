@@ -157,6 +157,7 @@
     <ClCompile Include="frmTrazarRuta.cpp" />
     <ClCompile Include="frmUpdateContacto.cpp" />
     <ClCompile Include="frmValidarConductor.cpp" />
+    <ClCompile Include="frmValidarVehiculo.cpp" />
     <ClCompile Include="frmVerificarConductor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -240,6 +241,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmValidarConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmValidarVehiculo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmVerificarConductor.h">

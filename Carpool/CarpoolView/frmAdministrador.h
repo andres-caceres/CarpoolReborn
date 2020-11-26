@@ -200,6 +200,7 @@ private: System::Void conductorToolStripMenuItem_Click(System::Object^ sender, S
 }
 private: System::Void vehiculosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*VALIDAR VEHICULOS*/
+
 }
 };
 }
