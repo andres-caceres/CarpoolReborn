@@ -144,10 +144,10 @@
     <ClCompile Include="frmEditarContacto.cpp" />
     <ClCompile Include="frmElegirMetodoPago.cpp" />
     <ClCompile Include="frmElegirModo.cpp" />
-    <ClCompile Include="frmEscogeVehiculo.cpp" />
     <ClCompile Include="frmLogin.cpp" />
     <ClCompile Include="frmMantViajes.cpp" />
     <ClCompile Include="frmMisVehiculos.cpp" />
+    <ClCompile Include="frmModificarViaje.cpp" />
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmNuevoViaje.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
@@ -161,7 +161,6 @@
     <ClCompile Include="frmUpdateContacto.cpp" />
     <ClCompile Include="frmValidarConductor.cpp" />
     <ClCompile Include="frmValidarVehiculo.cpp" />
-    <ClCompile Include="frmVerificarConductor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -204,9 +203,6 @@
     <ClInclude Include="frmElegirModo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmEscogeVehiculo.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="frmLogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -214,6 +210,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMisVehiculos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmModificarViaje.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoContacto.h">
@@ -255,13 +254,13 @@
     <ClInclude Include="frmValidarVehiculo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmVerificarConductor.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAdministrador.resx">
       <DependentUpon>frmAdministrador.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregaPasajeros.resx">
+      <DependentUpon>frmAgregaPasajeros.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.h</DependentUpon>
@@ -296,9 +295,6 @@
     <EmbeddedResource Include="frmElegirModo.resx">
       <DependentUpon>frmElegirModo.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEscogeVehiculo.resx">
-      <DependentUpon>frmEscogeVehiculo.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMisVehiculos.resx">
       <DependentUpon>frmMisVehiculos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarViaje.resx">
+      <DependentUpon>frmModificarViaje.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoContacto.resx">
       <DependentUpon>frmNuevoContacto.h</DependentUpon>
@@ -346,9 +345,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmValidarVehiculo.resx">
       <DependentUpon>frmValidarVehiculo.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVerificarConductor.resx">
-      <DependentUpon>frmVerificarConductor.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

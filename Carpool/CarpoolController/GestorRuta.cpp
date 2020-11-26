@@ -50,3 +50,7 @@ Ruta^ GestorRuta::ObtenerRutaxCodigo(int codigo) {
 	}
 	return objRutaBuscada;
 }
+
+void GestorRuta::AgregarRuta(Ruta^ objRuta) {
+	this->listaRutas->Add(objRuta);
+}
