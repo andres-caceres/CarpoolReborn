@@ -343,7 +343,7 @@ namespace CarpoolView {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*CAMBIAR VEHICL*/
 
-		frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(); //aqui debería poderse enviar el conductor
+		frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(this->objConductor); //aqui debería poderse enviar el conductor
 		VentanaMisVehiculos->ShowDialog();
 	}
 private: System::Void frmDatosConductor_Load(System::Object^ sender, System::EventArgs^ e) {

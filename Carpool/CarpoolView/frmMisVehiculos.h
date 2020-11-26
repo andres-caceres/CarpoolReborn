@@ -36,7 +36,7 @@ namespace CarpoolView {
 			//
 		}
 
-		frmMisVehiculos( Conductor^ objConductor)
+		frmMisVehiculos(Conductor^ objConductor)
 		{
 			InitializeComponent();
 			//
@@ -211,36 +211,7 @@ namespace CarpoolView {
 
 		}
 #pragma endregion
-	private: System::Void buttonEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*boton eliminar*/
-
-	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-	String^ placa = this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString();
-	this->objGestorVehiculo->EliminarVehiculo(placa);
-	MessageBox::Show("El vehiculo ha sido eliminado correctamente");
-
-	this->dataGridView1->Rows->Clear();
-	for (int i = 0; i < objGestorVehiculo->ObtenerCantidadVehiculos(); i++) {
-		Vehiculo^ objVehiculo = objGestorVehiculo->ObtenerVehiculoDeLista(i);
-		array<String^>^ fila = gcnew array<String^>(5);
-		fila[0] = objVehiculo->Marca;
-		fila[1] = objVehiculo->Modelo;
-		fila[2] = objVehiculo->Placa;
-		fila[3] = objVehiculo->Color;
-		fila[4] = objVehiculo->Tipo;
-		//Por si se agranda el datagrid:
-		//fila[5] = objVehiculo->NumeroAsientos;
-		//fila[6] = objVehiculo->Propietario;
-		//fila[7] = objVehiculo->SOAT;
-		//fila[8] = objVehiculo->RevTec;
-		this->dataGridView1->Rows->Add(fila);	
-	}
-}
-private: System::Void buttonNuevo_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*boton nuevo*/
-
-	frmAgregarVehiculo^ ventanaAgregarVehiculo = gcnew frmAgregarVehiculo(this->objGestorVehiculo);
-	ventanaAgregarVehiculo->ShowDialog();
+	private: void LoadGrid() {
 
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < objGestorVehiculo->ObtenerCantidadVehiculos(); i++) {
@@ -258,11 +229,31 @@ private: System::Void buttonNuevo_Click(System::Object^ sender, System::EventArg
 			//fila[8] = objVehiculo->RevTec;
 			this->dataGridView1->Rows->Add(fila);
 		}
+	}
+
+	private: System::Void buttonEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*boton eliminar*/
+
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	String^ placa = this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString();
+	this->objGestorVehiculo->EliminarVehiculo(placa);
+	MessageBox::Show("El vehiculo ha sido eliminado correctamente");
+	LoadGrid();
+}
+private: System::Void buttonNuevo_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*boton nuevo*/
+
+	frmAgregarVehiculo^ ventanaAgregarVehiculo = gcnew frmAgregarVehiculo(this->objGestorVehiculo,this->objConductor);
+	ventanaAgregarVehiculo->ShowDialog();
+	LoadGrid();
 }
 private: System::Void buttonSelec_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*boton seleccionar*/
 
 	//devolver vehiculo seleccionado
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	String^ placa = this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString();
+	this->objConductor->objVehiculo = this->objGestorVehiculo->ObtenerVehiculoPorPlaca(placa);
 	this->Close();
 }
 private: System::Void frmMisVehiculos_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
@@ -272,23 +263,8 @@ private: System::Void frmMisVehiculos_FormClosing(System::Object^ sender, System
 private: System::Void frmMisVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
+	LoadGrid();
 
-		this->dataGridView1->Rows->Clear();
-		for (int i = 0; i < objGestorVehiculo->ObtenerCantidadVehiculos(); i++) {
-			Vehiculo^ objVehiculo = objGestorVehiculo->ObtenerVehiculoDeLista(i);
-			array<String^>^ fila = gcnew array<String^>(5);
-			fila[0] = objVehiculo->Marca;
-			fila[1] = objVehiculo->Modelo;
-			fila[2] = objVehiculo->Placa;
-			fila[3] = objVehiculo->Color;
-			fila[4] = objVehiculo->Tipo;
-			//Por si se agranda el datagrid:
-			//fila[5] = objVehiculo->NumeroAsientos;
-			//fila[6] = objVehiculo->Propietario;
-			//fila[7] = objVehiculo->SOAT;
-			//fila[8] = objVehiculo->RevTec;
-			this->dataGridView1->Rows->Add(fila);
-		}
 }
 };
 }
