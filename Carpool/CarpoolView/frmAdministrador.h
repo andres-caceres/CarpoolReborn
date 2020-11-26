@@ -1,6 +1,9 @@
 #pragma once
 #include "frmBuscarUsuario.h"
 #include "frmRevisarViajes.h"
+#include "frmValidarConductor.h"
+#include "frmValidarVehiculo.h"
+#include "frmReporteTiposDeUsuarios.h"
 
 namespace CarpoolView {
 
@@ -55,6 +58,11 @@ namespace CarpoolView {
 	private: System::Windows::Forms::ToolStripMenuItem^ buscarUsuarioToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ buscarVehículosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ revisarRutasYHorariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ mantenimientoConductorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ conductorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ vehiculosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reportesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ usuariosToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -72,30 +80,61 @@ namespace CarpoolView {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmAdministrador::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->buscarUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->mantenimientoConductorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->conductorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->vehiculosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarVehículosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->revisarRutasYHorariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->buscarUsuarioToolStripMenuItem,
-					this->buscarVehículosToolStripMenuItem, this->revisarRutasYHorariosToolStripMenuItem
+					this->mantenimientoConductorToolStripMenuItem, this->buscarVehículosToolStripMenuItem, this->revisarRutasYHorariosToolStripMenuItem,
+					this->reportesToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1266, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1591, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// buscarUsuarioToolStripMenuItem
 			// 
 			this->buscarUsuarioToolStripMenuItem->Name = L"buscarUsuarioToolStripMenuItem";
-			this->buscarUsuarioToolStripMenuItem->Size = System::Drawing::Size(118, 24);
-			this->buscarUsuarioToolStripMenuItem->Text = L"Buscar usuario";
+			this->buscarUsuarioToolStripMenuItem->Size = System::Drawing::Size(176, 24);
+			this->buscarUsuarioToolStripMenuItem->Text = L"Mantenimiento usuario";
 			this->buscarUsuarioToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::buscarUsuarioToolStripMenuItem_Click);
+			// 
+			// mantenimientoConductorToolStripMenuItem
+			// 
+			this->mantenimientoConductorToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->conductorToolStripMenuItem,
+					this->vehiculosToolStripMenuItem
+			});
+			this->mantenimientoConductorToolStripMenuItem->Name = L"mantenimientoConductorToolStripMenuItem";
+			this->mantenimientoConductorToolStripMenuItem->Size = System::Drawing::Size(140, 24);
+			this->mantenimientoConductorToolStripMenuItem->Text = L"Validar conductor";
+			this->mantenimientoConductorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::mantenimientoConductorToolStripMenuItem_Click);
+			// 
+			// conductorToolStripMenuItem
+			// 
+			this->conductorToolStripMenuItem->Name = L"conductorToolStripMenuItem";
+			this->conductorToolStripMenuItem->Size = System::Drawing::Size(175, 26);
+			this->conductorToolStripMenuItem->Text = L"Conductores";
+			this->conductorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::conductorToolStripMenuItem_Click);
+			// 
+			// vehiculosToolStripMenuItem
+			// 
+			this->vehiculosToolStripMenuItem->Name = L"vehiculosToolStripMenuItem";
+			this->vehiculosToolStripMenuItem->Size = System::Drawing::Size(175, 26);
+			this->vehiculosToolStripMenuItem->Text = L"Vehiculos";
+			this->vehiculosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::vehiculosToolStripMenuItem_Click);
 			// 
 			// buscarVehículosToolStripMenuItem
 			// 
@@ -110,11 +149,26 @@ namespace CarpoolView {
 			this->revisarRutasYHorariosToolStripMenuItem->Text = L"Revisar rutas y horarios";
 			this->revisarRutasYHorariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::revisarRutasYHorariosToolStripMenuItem_Click);
 			// 
+			// reportesToolStripMenuItem
+			// 
+			this->reportesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->usuariosToolStripMenuItem });
+			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(82, 24);
+			this->reportesToolStripMenuItem->Text = L"Reportes";
+			this->reportesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::reportesToolStripMenuItem_Click);
+			// 
+			// usuariosToolStripMenuItem
+			// 
+			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->usuariosToolStripMenuItem->Text = L"Usuarios";
+			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::usuariosToolStripMenuItem_Click);
+			// 
 			// frmAdministrador
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1266, 554);
+			this->ClientSize = System::Drawing::Size(1591, 652);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -156,6 +210,29 @@ private: System::Void revisarRutasYHorariosToolStripMenuItem_Click(System::Objec
 	frmRevisarViajes^ ventanaRevisarViajes = gcnew frmRevisarViajes(this->objGestorRutas);
 	ventanaRevisarViajes->MdiParent = this;
 	ventanaRevisarViajes->Show();
+}
+private: System::Void mantenimientoConductorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void conductorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*VALIDAR CONDUCTOR*/
+	frmValidarConductor^ ventanaValidarConductor = gcnew frmValidarConductor();
+	ventanaValidarConductor->MdiParent = this;
+	ventanaValidarConductor->Show();
+}
+private: System::Void vehiculosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*VALIDAR VEHICULOS*/
+	frmValidarVehiculo^ ventanaValidarVehiculo = gcnew frmValidarVehiculo();
+	ventanaValidarVehiculo->MdiParent = this;
+	ventanaValidarVehiculo->Show();
+}
+private: System::Void reportesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void usuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*AQUI VAAA*/
+	frmReporteTiposDeUsuarios^ ventanaReporteTiposDeUsuarios = gcnew frmReporteTiposDeUsuarios();
+	ventanaReporteTiposDeUsuarios->MdiParent = this;
+	ventanaReporteTiposDeUsuarios->Show();
 }
 };
 }

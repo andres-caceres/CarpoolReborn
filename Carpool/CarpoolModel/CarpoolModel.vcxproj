@@ -121,6 +121,7 @@
     <ClInclude Include="Horarios.h" />
     <ClInclude Include="MetodoTransferencia.h" />
     <ClInclude Include="Pasajero.h" />
+    <ClInclude Include="ReporteUsuarios.h" />
     <ClInclude Include="Ruta.h" />
     <ClInclude Include="Seguridad.h" />
     <ClInclude Include="Usuario.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="Horarios.cpp" />
     <ClCompile Include="MetodoTransferencia.cpp" />
     <ClCompile Include="Pasajero.cpp" />
+    <ClCompile Include="ReporteUsuarios.cpp" />
     <ClCompile Include="Ruta.cpp" />
     <ClCompile Include="Seguridad.cpp" />
     <ClCompile Include="Usuario.cpp" />

@@ -99,8 +99,14 @@
     <ClCompile Include="frmCreaViaje.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmEscogeVehiculo.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="frmValidarConductor.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="frmValidarVehiculo.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="frmReporteTiposDeUsuarios.cpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +191,13 @@
     <ClInclude Include="frmCreaViaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="frmEscogeVehiculo.h">
+    <ClInclude Include="frmValidarConductor.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmValidarVehiculo.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmReporteTiposDeUsuarios.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

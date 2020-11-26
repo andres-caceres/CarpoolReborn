@@ -340,11 +340,27 @@ namespace CarpoolView {
 
 		}
 #pragma endregion
+	private: void LoadVehiculo(){
+		if (this->objConductor->objVehiculo == nullptr) {
+
+			this->textBoxMarca->Text = "NULL";
+			this->textBoxModelo->Text = "NULL";
+			this->textBoxPlaca->Text = "NULL";
+		}
+		else
+		{
+			this->textBoxMarca->Text = this->objConductor->objVehiculo->Marca;
+			this->textBoxModelo->Text = this->objConductor->objVehiculo->Modelo;
+			this->textBoxPlaca->Text = this->objConductor->objVehiculo->Placa;
+		}
+	}
+
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		/*CAMBIAR VEHICL*/
 
-		frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(); //aqui debería poderse enviar el conductor
+		frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(this->objConductor); //aqui debería poderse enviar el conductor
 		VentanaMisVehiculos->ShowDialog();
+		LoadVehiculo();
 	}
 private: System::Void frmDatosConductor_Load(System::Object^ sender, System::EventArgs^ e) {
 	/*Load*/
@@ -365,19 +381,7 @@ private: System::Void frmDatosConductor_Load(System::Object^ sender, System::Eve
 	this->textBoxNombre->Text= this->objConductor->Nombre;
 	this->textBoxLicencia->Text = this->objConductor->NumeroDeLicencia;
 
-
-	if (this->objConductor->objVehiculo == nullptr) {
-
-		this->textBoxMarca->Text = "NULL";
-		this->textBoxModelo->Text = "NULL";
-		this->textBoxPlaca->Text = "NULL";		
-	}
-	else
-	{
-		this->textBoxMarca->Text = this->objConductor->objVehiculo->Marca;
-		this->textBoxModelo->Text = this->objConductor->objVehiculo->Modelo;
-		this->textBoxPlaca->Text = this->objConductor->objVehiculo->Placa;
-	}
+	LoadVehiculo();
 
 }
 private: System::Void lblCalificacion_Click(System::Object^ sender, System::EventArgs^ e) {

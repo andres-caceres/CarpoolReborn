@@ -185,16 +185,19 @@ namespace CarpoolView {
 
 		}
 #pragma endregion
-	private: System::Void datosPersonalesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmDatosPersonales^ ventanaDatosPersonales = gcnew frmDatosPersonales();
-		ventanaDatosPersonales->MdiParent = this;
-		ventanaDatosPersonales->Show();
-	}
+private: System::Void datosPersonalesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	frmDatosPersonales^ ventanaDatosPersonales = gcnew frmDatosPersonales();
+	ventanaDatosPersonales->MdiParent = this;
+	ventanaDatosPersonales->Show();
+}
 private: System::Void frmConductor_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+	objGestorConductor->AgregarALista(this->objConductor);
 	objGestorConductor->EscribirArchivo();
 	Application::Exit();
 }
 private: System::Void misVehículosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	frmMisVehiculos^ ventanaMisVehiculos = gcnew frmMisVehiculos(this->objConductor);
 	ventanaMisVehiculos->MdiParent = this;
 	ventanaMisVehiculos->Show();
@@ -207,8 +210,7 @@ private: System::Void datosConductorToolStripMenuItem_Click(System::Object^ send
 private: System::Void crearViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes();
 	ventanaMantViaje->MdiParent = this;
-	ventanaMantViaje->Show();
-	
+	ventanaMantViaje->Show();	
 }
 private: System::Void frmConductor_Load(System::Object^ sender, System::EventArgs^ e) {
 
@@ -216,22 +218,18 @@ private: System::Void frmConductor_Load(System::Object^ sender, System::EventArg
 	this->objConductor = this->objGestorConductor->BuscarConductorxUserID(this->objUsuario->CodigoDeUsuario);
 
 	if (this->objConductor == nullptr) {
-
-		int UserID = objUsuario->CodigoDeUsuario;
-		String^ nombre = objUsuario->Nombre;
-		String^ Licencia = "Ingrese un número de Licencia";
-		String^ Disponibilidad = "Disponible";
-		int Calificacion = 0;
-		String^ Posicion = "0,0";
-		String^ Asientos = "0";
-		Vehiculo^ objVehiculo = gcnew Vehiculo();
-		frmAgregarVehiculo^ ventanaPrimerVehiculo = gcnew frmAgregarVehiculo(this->objUsuario->CodigoDeUsuario);
-		ventanaPrimerVehiculo->Show();
-
-		this->objConductor = gcnew Conductor(UserID, nombre, Licencia, Disponibilidad, Calificacion, Posicion, Asientos, objVehiculo,2);
-		this->objGestorConductor->AgregarALista(objConductor);
+			
+		int			UserID = objUsuario->CodigoDeUsuario;
+		String^		nombre = objUsuario->Nombre;
+		String^		Licencia = "Número de Licencia";
+		String^		Disponibilidad = "Disponible";
+		int			Calificacion = 0;
+		String^		Posicion = "0,0";
+		String^		Asientos = "0";
+		Vehiculo^	objVehiculo = gcnew Vehiculo();
+		this->objConductor = gcnew Conductor(UserID, nombre, Licencia, Disponibilidad, Calificacion, Posicion, Asientos, objVehiculo, 2);
+		
 	}
-
 }
 };
 }

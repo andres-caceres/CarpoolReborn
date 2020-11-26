@@ -295,3 +295,16 @@ int GestorUsuario::DarValorAlCodigoDelUsuario() {
 
 	return CodigoDado;
 }
+
+Usuario^ GestorUsuario::ObtenerUsuarioxDNIyTipoDeUsuario(String^ DNI, int tipoUsuario) {
+	Usuario^ objUsuarioBuscado = nullptr;
+
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if ((this->listaUsuarios[i]->DNI == DNI) && this->listaUsuarios[i]->tipoUsuario == tipoUsuario) {
+			objUsuarioBuscado = this->listaUsuarios[i];
+			break;
+		}
+	}
+
+	return objUsuarioBuscado;
+}

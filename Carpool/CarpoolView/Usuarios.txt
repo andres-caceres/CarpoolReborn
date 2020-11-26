@@ -1,4 +1,4 @@
 1;Victor;Sevillano;Macuri;70437078;victor@pucp.edu.pe;victor;123456;1
 3;Andres;Caceres;Guillen;45678912;andres@pucp.edu.pe;andres;123456;2
-2;Fernando;Paz;Garcia;12345678;fernando@pucp.edu.pe;fernando;123456;3
 4;Francesca;Camarena;Pucuhuanca;45678952;francesca@pucp.edu.pe;francesca;123456;2
+2;Fernando;Paz;Garcia;12345678;fernando@pucp.edu.pe;fernando;123456;3

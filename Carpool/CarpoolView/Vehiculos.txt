@@ -1,6 +1,1 @@
-Marca1;Modelo1;Placa1;Color1;Tipo1;NumAsientos1;Propietario1;TrjPropiedad1;1
-Marca4;Modelo4;Placa4;Color4;Tipo4;NumAsientos4;Propietario4;TrjPropiedad4;1
-Marca5;Modelo5;Placa5;Color5;Tipo5;NumAsientos5;Propietario5;TrjPropiedad5;1
-Marca2;Modelo2;Placa2;Color2;Tipo2;NumAsientos2;Propietario2;TrjPropiedad2;2
-Marca6;Modelo6;Placa6;Color6;Tipo6;NumAsientos6;Propietario6;TrjPropiedad6;2
-Marca3;Modelo3;Placa3;Color3;Tipo3;NumAsientos3;Propietario3;TrjPropiedad3;3
+Audi;TT;PLACA;BLA - Blanco;Hatchback;4;2351235;12341234;12341234;6;2

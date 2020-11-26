@@ -28,7 +28,7 @@ void GestorConductor::LeerConductoresDesdeArchivo() {
 		int Calificacion = Convert::ToInt32(palabras[4]);
 		String^ Posicion = palabras[5];
 		String^ AsientosDisponibles = palabras[6];
-		String^ PlacaDefault = palabras[7]; //TODO: puede ser int?
+		String^ PlacaDefault = palabras[7]; //TODO: puede ser int? //Victor dice: Naaa, dejalo así, el profe dijo si no le sumas o cositas asi no vale la pena.
 		int valido = Convert::ToInt32(palabras[8]);
 
 		//cargar vehiculo de la lista
@@ -65,7 +65,44 @@ void GestorConductor::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaConductores->Count);
 	for (int i = 0; i < this->listaConductores->Count; i++) {
 		Conductor^ objConductor = this->listaConductores[i];
-		lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->Disponibilidad + ";" + objConductor->CalificacionConductor + ";" + objConductor->Posicion + ";" + objConductor->AsientosDisponibles + ";" + objConductor->objVehiculo->Placa + ";" + objConductor->objVehiculo->valido);
+		lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->Disponibilidad + ";" + objConductor->CalificacionConductor + ";" + objConductor->Posicion + ";" + objConductor->AsientosDisponibles + ";" + objConductor->valido);
 	}
 	File::WriteAllLines("Conductors.txt", lineasArchivo);
+}
+
+Conductor^ GestorConductor::ObtenerConductorLista(int indice) {
+	return this->listaConductores[indice];
+}
+
+int GestorConductor::ObtenerCantidadConductoresSegunSuValidez(int valido) {
+	int j = 1;
+	for (int i = 0; i < this->listaConductores->Count; i++)
+	{
+		if (this->listaConductores[i]->valido == valido) {
+			j++;
+		
+		}
+	}
+	return j;
+}
+
+Conductor^ GestorConductor::ObtenerConductorxCodigo(int codigo) {
+	Conductor^ objConductorBuscado = nullptr;
+	for (int i = 0; i < this->listaConductores->Count; i++) {
+		if (this->listaConductores[i]->CodigoDeUsuario == codigo) {
+			objConductorBuscado = this->listaConductores[i];
+			break;
+		}
+	}
+	return objConductorBuscado;
+}
+
+void GestorConductor::EliminarConductorxCodigo(int codigoEliminar) {
+	for (int i = 0; i < this->listaConductores->Count; i++) {
+		if (this->listaConductores[i]->CodigoDeUsuario == codigoEliminar) {
+			/*Encontre al que debo eliminar*/
+			this->listaConductores->RemoveAt(i);
+			break;
+		}
+	}
 }

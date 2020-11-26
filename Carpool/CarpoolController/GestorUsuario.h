@@ -39,7 +39,7 @@ namespace CarpoolController {
 		int ObtenerTipoDeUsuario(String^ userName);//Ya no lo uso
 		int DarValorAlCodigoDelUsuario();
 		int UsuarioRepetidoConCodigo(int codigo);
-
+		Usuario^ ObtenerUsuarioxDNIyTipoDeUsuario(String^ DNI, int tipoUsuario);
 
 	};
 }
