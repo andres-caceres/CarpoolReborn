@@ -24,11 +24,12 @@ namespace CarpoolView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		frmAgregarVehiculo(GestorVehiculo^ objGestorVehiculo)
+		frmAgregarVehiculo(GestorVehiculo^ objGestorVehiculo, Conductor^ objConductor)
 		{
 			InitializeComponent();
 
 			this->objGestorVehiculo = objGestorVehiculo;
+			this->objConductor = objConductor;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -50,7 +51,7 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 
-			this->objGestorVehiculo = objGestorVehiculo;
+			this->objGestorVehiculo = gcnew GestorVehiculo();
 			this->objConductor = objConductor;
 			//
 			//TODO: Add the constructor code here

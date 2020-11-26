@@ -67,5 +67,5 @@ void GestorConductor::EscribirArchivo() {
 		Conductor^ objConductor = this->listaConductores[i];
 		lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->Disponibilidad + ";" + objConductor->CalificacionConductor + ";" + objConductor->Posicion + ";" + objConductor->AsientosDisponibles + ";" + objConductor->objVehiculo->Placa + ";" + objConductor->objVehiculo->valido);
 	}
-	File::WriteAllLines("Conductors.txt", lineasArchivo);
+	File::WriteAllLines("Conductores.txt", lineasArchivo);
 }

@@ -21,10 +21,14 @@ namespace CarpoolModel {
 		int valido;	// 0: invalido , 1:valido , 2: en proceso
 
 		/*Métodos*/
+
 	public:
+
 		/*Método Constructor*/
+
+		Vehiculo();
 		Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec,int valido);
 		Vehiculo(String^ Marca, String^ Modelo, String^ Placa, String^ Color, String^ Tipo, String^ NumeroAsientos, String^ Propietario, String^ SOAT, String^ RevTec, int IDConductor,int valido);
-		Vehiculo();
+		
 	};
 }
