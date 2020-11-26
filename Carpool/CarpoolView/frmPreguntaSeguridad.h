@@ -181,10 +181,11 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(603, 409);
+			this->ClientSize = System::Drawing::Size(603, 400);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox3);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"frmPreguntaSeguridad";
 			this->Text = L"Pregunta Seguridad";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmPreguntaSeguridad::frmPreguntaSeguridad_FormClosing);
@@ -215,6 +216,7 @@ namespace CarpoolView {
 			this->objGestorUsuario->AgregarUsuario(objUsuario);
 			this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
 			MessageBox::Show("El usuario ha sido agregado correctamente");
+			this->Close();
 		}
 
 		if (!esta_lleno) {
@@ -222,7 +224,7 @@ namespace CarpoolView {
 		}
 
 
-		this->Close();
+		
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();

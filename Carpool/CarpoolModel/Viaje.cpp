@@ -2,27 +2,19 @@
 
 using namespace CarpoolModel;
 
-/*
-Viaje::Viaje(int codigoViaje, int NumeroPasajeros, String^ Origen, String^ Destino, String^ HoraSalida, String^ HoraLlegada, String^ Tarifa , Conductor^ objConductor){
+
+Viaje::Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ Fecha, String^ Estado, int NumeroPasajeros,
+	int AsientosDisponibles, String^ Tarifa, Ruta^ objRuta, Conductor^ objConductor) {
+
 	this->codigoViaje = codigoViaje;
-	this->NumeroPasajeros = NumeroPasajeros;
-	this->Origen = Origen;
-	this->Destino = Destino;
 	this->HoraSalida = HoraSalida;
 	this->HoraLlegada = HoraLlegada;
-	this->Tarifa = Tarifa;
-	this->objConductor = objConductor;
-}
-
-*/
-
-Viaje::Viaje(int codigoViaje, int NumeroPasajeros, String^ Origen, String^ Destino, String^ HoraSalida, String^ HoraLlegada, String^ Tarifa, String^ objConductor) {
-	this->codigoViaje = codigoViaje;
+	this->Fecha = Fecha;
+	this->Estado = Estado;
 	this->NumeroPasajeros = NumeroPasajeros;
-	this->Origen = Origen;
-	this->Destino = Destino;
-	this->HoraSalida = HoraSalida;
-	this->HoraLlegada = HoraLlegada;
+	this->AsientosDisponibles = AsientosDisponibles;
 	this->Tarifa = Tarifa;
+	this->objRuta = objRuta;
 	this->objConductor = objConductor;
+	this->listaPasajeros = gcnew List<Pasajero^>();
 }

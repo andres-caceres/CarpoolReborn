@@ -1,7 +1,7 @@
 #pragma once
 #include "frmDatosPersonales.h"
 #include "frmUpdateContacto.h"
-#include "frmReservaViaje.h"
+//#include "frmReservaViaje.h"
 #include "frmDatosPasajero.h"
 
 namespace CarpoolView {
@@ -184,9 +184,9 @@ private: System::Void misContactosToolStripMenuItem_Click(System::Object^ sender
 	ventanaUpdateContactos->Show();
 }
 private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmReservaViaje^ ventanaReservaViaje = gcnew frmReservaViaje();
-	ventanaReservaViaje->MdiParent = this;
-	ventanaReservaViaje->Show();
+	//frmReservaViaje^ ventanaReservaViaje = gcnew frmReservaViaje();
+	//ventanaReservaViaje->MdiParent = this;
+	//ventanaReservaViaje->Show();
 }
 private: System::Void datosPasajeroToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmDatosPasajero^ ventanaDatosPasajero = gcnew frmDatosPasajero(); //TODO: debe pasarle el gestorPasajero

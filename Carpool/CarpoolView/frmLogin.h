@@ -250,6 +250,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		es_pasajero = objGestorUsuario->VerificarPasajero(userName);
 		es_conductor = objGestorUsuario->VerificarConductor(userName);
 
+
 		if (es_admin) {
 			frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
 			ventanaAdministrador->Show();

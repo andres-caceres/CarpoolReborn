@@ -16,6 +16,7 @@ namespace CarpoolController {
 		void LeerRutasDesdeArchivo();
 		int ObtenerCantidadRutas();
 		Ruta^ ObtenerRutasLista(int indice);
+		Ruta^ ObtenerRutaxCodigo(int codigo);
 	};
 }
 

@@ -15,8 +15,6 @@ namespace CarpoolController {
 		GestorPasajero();
 		void LeerPasajerosDesdeArchivo();
 		Pasajero^ BuscarxUserID(int UserID);
-
-		//void GestorPasajero::LeerDatosDesdeArchivo();
 		//void EscribirArchivo();
 		//int ObtenerCantidadContactos();
 		//Contacto^ ObtenerContactoLista(int indice);
