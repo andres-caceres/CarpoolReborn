@@ -129,3 +129,14 @@ Contactos^ GestorContacto::ObtenerContactoxUserName(String^ UserName, int Codigo
 	}
 	return objContactoBuscado;
 }
+
+int GestorContacto::MismoContacto(String^ UserName, int codigoAñador) {
+	int mismo_contacto=0;
+	for (int i = 0; i < this->listaContactos->Count; i++) {
+		if (this->listaContactos[i]->userNameDelAñadido == UserName && this->listaContactos[i]->codigoDelAñador == codigoAñador) {
+			mismo_contacto = 1;
+			break;
+		}
+	}
+	return mismo_contacto;
+}

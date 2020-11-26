@@ -23,5 +23,6 @@ namespace CarpoolController {
 		int ValidarRegistro(String^ userNameDelAñadido, String^ Apodo);
 		int ObtenerCantidadContactosSegunCodigoDeAñadidor(int codigoAñadidor);
 		Contactos^ ObtenerContactoxUserName(String^ UserName, int CodigoAñador);
+		int MismoContacto(String^ UserName, int codigoAñador);
 	};
 }

@@ -183,13 +183,29 @@ namespace CarpoolView {
 			Usuario^ UsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 			Usuario^ UsuarioPorAñadir = this->objGestorUsuario->ObtenerUsuarioxUserName(UserName);
 
+			if (UsuarioPorAñadir == nullptr) {
+				MessageBox::Show("No existe ese userName");
+			}
+			else {
+				int mismo_contacto=this->objGestorContacto->MismoContacto(UsuarioPorAñadir->userName,UsuarioLogeado->CodigoDeUsuario);
+				
+				if (!mismo_contacto) {
+					if (UsuarioLogeado->CodigoDeUsuario == UsuarioPorAñadir->CodigoDeUsuario) {
+						MessageBox::Show("No te puedes agregar a ti mismo");
+					}
+					else {
+						Contactos^ objContacto = gcnew Contactos(UsuarioLogeado->CodigoDeUsuario, UsuarioPorAñadir->CodigoDeUsuario, UsuarioPorAñadir->userName, Apodo, UsuarioPorAñadir->Nombre);
 
-			Contactos^ objContacto = gcnew Contactos(UsuarioLogeado->CodigoDeUsuario, UsuarioPorAñadir->CodigoDeUsuario, UsuarioPorAñadir->userName, Apodo, UsuarioPorAñadir->Nombre);
+						this->objGestorContacto->AgregarContacto(objContacto);
 
-			this->objGestorContacto->AgregarContacto(objContacto);
-
-			MessageBox::Show("Contacto agregado exitosamente");
-			this->Close();
+						MessageBox::Show("Contacto agregado exitosamente");
+						this->Close();
+					}
+				}
+				else {
+					MessageBox::Show("Ya tienes agregado a este contacto");
+				}
+			}
 		}
 		else {
 			MessageBox::Show("Completar todos los campos");
