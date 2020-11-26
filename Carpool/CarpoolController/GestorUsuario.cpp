@@ -260,18 +260,37 @@ int GestorUsuario::ObtenerTipoDeUsuario(String^ userName) {
 
 }
 
+int GestorUsuario::UsuarioRepetidoConCodigo(int codigo) {
+	int mismo_codigo = 0;
+	for (int i = 0; i < this->listaUsuarios->Count; i++) {
+		if ((this->listaUsuarios[i]->CodigoDeUsuario==codigo)) {
+			mismo_codigo = 1;
+			break;
+		}
+	}
+	return mismo_codigo;
+}
+
 int GestorUsuario::DarValorAlCodigoDelUsuario() {
-	int CodigoDado;
+	int CodigoDado=1, CodigoDadoMismo=1;
 	LeerUsuariosDesdeArchivo();
 	int i = this->listaUsuarios->Count;
 	
+	
+
 	if (this->listaUsuarios->Count == 0) {
 		CodigoDado = 1;
-		
 	}
 	else {
-		/**TENER UN CONTADOR HASTA EL i, QUE SACA EL MAYOR CODIGO DE USUARIO.*/
-		CodigoDado = Convert::ToInt32(this->listaUsuarios[i-1]->CodigoDeUsuario)+1;
+		/**TENER FUNCION CODIGO DADO MISMO, SI YA ESTA ESE CODIGO SUMARLE UN +1, HASTA QUE NO SE REPITAN.*/
+		//CodigoDado = CodigoDado + 1;
+		//int CodigoDadoMismo = UsuarioRepetidoConCodigo(CodigoDado);
+		
+		while (CodigoDadoMismo){
+			CodigoDado = CodigoDado + 1;
+			CodigoDadoMismo = UsuarioRepetidoConCodigo(CodigoDado);
+		} 
+
 	}
 
 	return CodigoDado;
