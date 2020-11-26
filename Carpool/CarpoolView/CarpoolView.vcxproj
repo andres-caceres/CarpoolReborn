@@ -329,6 +329,9 @@
     <EmbeddedResource Include="frmValidarConductor.resx">
       <DependentUpon>frmValidarConductor.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmValidarVehiculo.resx">
+      <DependentUpon>frmValidarVehiculo.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerificarConductor.resx">
       <DependentUpon>frmVerificarConductor.h</DependentUpon>
     </EmbeddedResource>

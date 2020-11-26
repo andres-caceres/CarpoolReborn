@@ -103,8 +103,9 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(413, 421);
+			this->ClientSize = System::Drawing::Size(413, 409);
 			this->Controls->Add(this->groupBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"frmElegirMetodoPago";
 			this->Text = L"Elija su método de pago";
 			this->groupBox1->ResumeLayout(false);
