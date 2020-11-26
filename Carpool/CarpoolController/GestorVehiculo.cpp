@@ -95,3 +95,14 @@ List<Vehiculo^>^ ObtenerVehiculosPorConductor(Conductor^ objConductor)
 }
 */
 //OTROS METODOS
+int GestorVehiculo::ObtenerCantidadVehiculosSegunSuValidez(int valido) {
+	int j = 1;
+	for (int i = 0; i < this->listaVehiculos->Count; i++)
+	{
+		if (this->listaVehiculos[i]->valido == valido) {
+			j++;
+
+		}
+	}
+	return j;
+}

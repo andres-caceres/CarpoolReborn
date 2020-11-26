@@ -2,6 +2,7 @@
 #include "frmBuscarUsuario.h"
 #include "frmRevisarViajes.h"
 #include "frmValidarConductor.h"
+#include "frmValidarVehiculo.h"
 
 namespace CarpoolView {
 
@@ -93,7 +94,7 @@ namespace CarpoolView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1266, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1591, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -146,7 +147,7 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1266, 554);
+			this->ClientSize = System::Drawing::Size(1591, 652);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -200,7 +201,9 @@ private: System::Void conductorToolStripMenuItem_Click(System::Object^ sender, S
 }
 private: System::Void vehiculosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*VALIDAR VEHICULOS*/
-
+	frmValidarVehiculo^ ventanaValidarVehiculo = gcnew frmValidarVehiculo();
+	ventanaValidarVehiculo->MdiParent = this;
+	ventanaValidarVehiculo->Show();
 }
 };
 }
