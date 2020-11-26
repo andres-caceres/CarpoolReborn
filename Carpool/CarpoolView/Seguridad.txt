@@ -1,3 +1,4 @@
 70437078;domingo, 8 de noviembre de 2020;Ciudad en la que nació;Lima
 45678912;domingo, 8 de noviembre de 2020;Ciudad en la que nació;Lima
 12345678;domingo, 8 de noviembre de 2020;Ciudad en la que nació;Lima
+45678952;domingo, 1 de noviembre de 2020;Ciudad en la que nació;Lima
