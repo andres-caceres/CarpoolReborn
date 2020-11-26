@@ -11,6 +11,9 @@ namespace CarpoolView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace CarpoolController;
+	using namespace CarpoolModel;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Summary for frmNuevoViaje
@@ -290,6 +293,7 @@ namespace CarpoolView {
 			this->button1->TabIndex = 23;
 			this->button1->Text = L"Verificar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmNuevoViaje::button1_Click);
 			// 
 			// textBox12
 			// 
@@ -546,8 +550,14 @@ namespace CarpoolView {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmCreaViaje^ ventanaCreaViaje = gcnew frmCreaViaje(this->objRuta);
 		ventanaCreaViaje->ShowDialog();
-		this->textBox11->Text = this->objRuta->Origen;
-		this->textBox12->Text = this->objRuta->Destino;
+		this->textBox6->Text = this->objRuta->Origen;
+		this->textBox5->Text = this->objRuta->Destino;
 	}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmVerificarConductor^ ventanaVerificarConductor = gcnew frmVerificarConductor(this->objConductor);
+		ventanaVerificarConductor->ShowDialog();
+		//this->textBox11->Text = this->objConductor->Nombre;
+		//this->textBox12->Text = this->objConductor->CodigoDeUsuario;
+}
 };
 }
