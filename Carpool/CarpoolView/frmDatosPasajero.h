@@ -21,6 +21,16 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 			this->objGestorPasajero = gcnew GestorPasajero();
+			this->objPasajero = gcnew Pasajero();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+		frmDatosPasajero(Pasajero^ objPasajero)
+		{
+			InitializeComponent();
+			this->objGestorPasajero = gcnew GestorPasajero();
+			this->objPasajero= objPasajero;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -67,8 +77,8 @@ namespace CarpoolView {
 
 	private:
 		GestorPasajero^ objGestorPasajero;
+		Pasajero^ objPasajero;
 
-		   Pasajero^ objPasajero;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -185,8 +195,13 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void frmDatosPasajero_Load(System::Object^ sender, System::EventArgs^ e) {
 
-		this->objGestorPasajero->LeerPasajerosDesdeArchivo();
-		this->objPasajero = objGestorPasajero->BuscarxUserID(1);
+		//this->objGestorPasajero->LeerPasajerosDesdeArchivo();
+		//this->objPasajero = objGestorPasajero->BuscarxUserID(1);
+		int Calificacion = this->objPasajero->Calificacion;
+		this->lblCalificacion->ImageIndex = Calificacion * 2; //actualiza estrellas basado en calificacion
+
+		this->textBoxNombre->Text = " ";
+
 	}
 };
 }
