@@ -120,6 +120,7 @@ namespace CarpoolView {
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmSelectOrigenFin::button1_Click);
 			// 
 			// button2
 			// 
@@ -201,6 +202,9 @@ private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows:
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }
