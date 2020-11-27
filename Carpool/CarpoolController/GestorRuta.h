@@ -17,6 +17,8 @@ namespace CarpoolController {
 		int ObtenerCantidadRutas();
 		Ruta^ ObtenerRutasLista(int indice);
 		Ruta^ ObtenerRutaxCodigo(int codigo);
+		void AgregarRuta(Ruta^ objRuta);
+		
 	};
 }
 

@@ -238,6 +238,7 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void frmMantViajes_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->objGestorViaje->LeerViajesDesdeArchivo();
+		
 		List<Viaje^>^ listaViajes = this->objGestorViaje->DevolverAllViajes();
 		MostrarGrilla(listaViajes);
 
