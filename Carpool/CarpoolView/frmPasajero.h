@@ -27,6 +27,15 @@ namespace CarpoolView {
 			//
 		}
 
+		frmPasajero(Usuario^ objUsuario)
+		{
+			InitializeComponent();
+			this->objUsuario = objUsuario;
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -48,7 +57,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::ToolStripMenuItem^ rutasYHorariosFavoritosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPersonalesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPasajeroToolStripMenuItem;
-
+	private: Usuario^ objUsuario;
 
 	private:
 		/// <summary>
