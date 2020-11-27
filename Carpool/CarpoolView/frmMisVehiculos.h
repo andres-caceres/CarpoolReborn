@@ -213,21 +213,25 @@ namespace CarpoolView {
 #pragma endregion
 	private: void LoadGrid() {
 
+		
+
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < objGestorVehiculo->ObtenerCantidadVehiculos(); i++) {
 			Vehiculo^ objVehiculo = objGestorVehiculo->ObtenerVehiculoDeLista(i);
-			array<String^>^ fila = gcnew array<String^>(5);
-			fila[0] = objVehiculo->Marca;
-			fila[1] = objVehiculo->Modelo;
-			fila[2] = objVehiculo->Placa;
-			fila[3] = objVehiculo->Color;
-			fila[4] = objVehiculo->Tipo;
-			//Por si se agranda el datagrid:
-			//fila[5] = objVehiculo->NumeroAsientos;
-			//fila[6] = objVehiculo->Propietario;
-			//fila[7] = objVehiculo->SOAT;
-			//fila[8] = objVehiculo->RevTec;
-			this->dataGridView1->Rows->Add(fila);
+			if (this->objConductor->CodigoDeUsuario == objVehiculo->IDConductor) { //Filtro de vehiculos de este conductor
+				array<String^>^ fila = gcnew array<String^>(5);
+				fila[0] = objVehiculo->Marca;
+				fila[1] = objVehiculo->Modelo;
+				fila[2] = objVehiculo->Placa;
+				fila[3] = objVehiculo->Color;
+				fila[4] = objVehiculo->Tipo;
+				//Por si se agranda el datagrid:
+				//fila[5] = objVehiculo->NumeroAsientos;
+				//fila[6] = objVehiculo->Propietario;
+				//fila[7] = objVehiculo->SOAT;
+				//fila[8] = objVehiculo->RevTec;
+				this->dataGridView1->Rows->Add(fila);
+			}
 		}
 	}
 
