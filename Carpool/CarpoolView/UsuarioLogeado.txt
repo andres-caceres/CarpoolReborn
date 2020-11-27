@@ -1,4 +1,8 @@
-5;Jaime;Arturo;Antono;14578945;jaimeAa@gmail.com;jimmy;123456;2
+1;Victor;Sevillano;Macuri;70437078;victor@pucp.edu.pe;victor;123456;1
+
+
+
+
 
 
 

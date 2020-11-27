@@ -1,2 +1,0 @@
-6;WALDO;Número de Licencia;Disponible;0;0,0;0;2
-6;WALDO;Número de Licencia;Disponible;0;0,0;0;2

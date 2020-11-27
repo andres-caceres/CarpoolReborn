@@ -262,6 +262,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->Hide();
 		}
 		if (es_conductor) {//PASAR UN OBJETO USUARIO
+
 			frmConductor^ ventanaConductor = gcnew frmConductor();
 			ventanaConductor->Show();
 			this->Hide();
