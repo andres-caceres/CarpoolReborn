@@ -4,7 +4,7 @@
 using namespace CarpoolController;
 using namespace CarpoolModel;
 using namespace System;
-using namespace System::IO;
+using namespace System::Text;
 
 GestorConductor::GestorConductor() {
 
@@ -105,4 +105,12 @@ void GestorConductor::EliminarConductorxCodigo(int codigoEliminar) {
 			break;
 		}
 	}
+}
+
+int GestorConductor::DatosLlenos(String^ Licencia) {
+	int datos_llenos = 1;
+	if (Licencia == "") {
+		datos_llenos = 0;
+	}
+	return datos_llenos;
 }

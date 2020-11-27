@@ -250,6 +250,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		es_pasajero = objGestorUsuario->VerificarPasajero(userName);
 		es_conductor = objGestorUsuario->VerificarConductor(userName);
 
+		Usuario^ objUsuarioConductor = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*AQUI CAMBIO*/
+
 
 		if (es_admin) {
 			frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
@@ -257,12 +259,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->Hide();
 		}
 		if (es_pasajero) {
-			frmPasajero^ ventanaPasajero = gcnew frmPasajero();
+			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioConductor);/*Conductor solo es su nombre*/
 			ventanaPasajero->Show();
 			this->Hide();
 		}
 		if (es_conductor) {//PASAR UN OBJETO USUARIO
-			frmConductor^ ventanaConductor = gcnew frmConductor();
+
+			frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioConductor);/*AQUI CAMBIO*/
 			ventanaConductor->Show();
 			this->Hide();
 		}

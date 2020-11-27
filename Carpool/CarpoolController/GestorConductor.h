@@ -2,6 +2,9 @@
 
 using namespace System::Collections::Generic;
 using namespace CarpoolModel;
+using namespace System::IO;
+using namespace System;
+
 
 namespace CarpoolController {
 
@@ -21,6 +24,7 @@ namespace CarpoolController {
 		int ObtenerCantidadConductoresSegunSuValidez(int valido);
 		Conductor^ ObtenerConductorxCodigo(int codigo);
 		void EliminarConductorxCodigo(int codigoEliminar);
+		int DatosLlenos(String^ Licencia);
 	};
 }
 

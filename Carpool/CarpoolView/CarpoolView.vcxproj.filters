@@ -90,6 +90,9 @@
     <ClCompile Include="frmNuevoViaje.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="frmVerificarConductor.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
     <ClCompile Include="frmAgregaPasajeros.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
@@ -105,7 +108,10 @@
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmModificarViaje.cpp">
+    <ClCompile Include="frmRegistroConductor.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="frmSelectOrigenFin.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,6 +188,9 @@
     <ClInclude Include="frmNuevoViaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="frmVerificarConductor.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="frmAgregaPasajeros.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -197,7 +206,10 @@
     <ClInclude Include="frmReporteTiposDeUsuarios.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="frmModificarViaje.h">
+    <ClInclude Include="frmRegistroConductor.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmSelectOrigenFin.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

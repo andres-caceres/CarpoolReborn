@@ -25,10 +25,11 @@ namespace CarpoolView {
 			InitializeComponent();
 
 			this->objUsuario = gcnew Usuario();
-			this->objUsuario->CodigoDeUsuario = 6;
-			this->objUsuario->Nombre = "WALDO";
+			//this->objUsuario->CodigoDeUsuario = 6;
+			//this->objUsuario->Nombre = "WALDO";
 			this->objGestorConductor = gcnew GestorConductor();
 			this->objConductor = gcnew Conductor();
+			this->objGestorUsuario = gcnew GestorUsuario();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -72,6 +73,7 @@ namespace CarpoolView {
 		GestorConductor^ objGestorConductor;
 		Conductor^ objConductor;
 		Usuario^ objUsuario;
+		GestorUsuario^ objGestorUsuario;
 
 		/// <summary>
 		/// Variable del diseñador necesaria.

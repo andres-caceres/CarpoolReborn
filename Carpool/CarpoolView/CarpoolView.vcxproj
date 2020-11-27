@@ -153,9 +153,11 @@
     <ClCompile Include="frmPasajero.cpp" />
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
+    <ClCompile Include="frmRegistroConductor.cpp" />
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
     <ClCompile Include="frmRevisarViajes.cpp" />
     <ClCompile Include="frmSeguridad.cpp" />
+    <ClCompile Include="frmSelectOrigenFin.cpp" />
     <ClCompile Include="frmTarjeta.cpp" />
     <ClCompile Include="frmTrazarRuta.cpp" />
     <ClCompile Include="frmUpdateContacto.cpp" />
@@ -230,6 +232,9 @@
     <ClInclude Include="frmRegister.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmRegistroConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmReporteTiposDeUsuarios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -237,6 +242,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmSeguridad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmSelectOrigenFin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmTarjeta.h">
@@ -322,6 +330,9 @@
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroConductor.resx">
+      <DependentUpon>frmRegistroConductor.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteTiposDeUsuarios.resx">
       <DependentUpon>frmReporteTiposDeUsuarios.h</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeguridad.resx">
       <DependentUpon>frmSeguridad.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectOrigenFin.resx">
+      <DependentUpon>frmSelectOrigenFin.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTarjeta.resx">
       <DependentUpon>frmTarjeta.h</DependentUpon>

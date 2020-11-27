@@ -221,9 +221,12 @@ namespace CarpoolView {
 		/*SI COINCIDE SE AGREGA*/
 		if (es_valido) {
 
-			this->objGestorUsuario->AgregarUsuario(objUsuario);
-			MessageBox::Show("El usuario ha sido agregado correctamente");
-			this->Close();
+
+				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				MessageBox::Show("El usuario ha sido agregado correctamente");
+				this->Close();
+			
+			
 		}
 
 		if (!es_valido) {
@@ -244,7 +247,7 @@ private: System::Void frmSeguridad_Load(System::Object^ sender, System::EventArg
 	/*Si esta esto esta bien*/
 }
 private: System::Void frmSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad(); //NI IDEA SI ESTA BIEN
+	GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad(); 
 
 	this->objGestorUsuario->EscribirArchivo();
 }

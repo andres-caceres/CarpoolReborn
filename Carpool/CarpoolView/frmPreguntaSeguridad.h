@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace CarpoolView {
 
 	using namespace System;
@@ -213,10 +214,13 @@ namespace CarpoolView {
 		//es_valido = objGestorSeguridad->validarSeguridad(DniSeguro, emisionDNI,Respuesta);
 
 		if (esta_lleno) {
-			this->objGestorUsuario->AgregarUsuario(objUsuario);
-			this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
-			MessageBox::Show("El usuario ha sido agregado correctamente");
-			this->Close();
+
+
+				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
+				MessageBox::Show("El usuario ha sido agregado correctamente");
+				this->Close();
+		
 		}
 
 		if (!esta_lleno) {
