@@ -1,6 +1,7 @@
 #pragma once
 #include "frmSeguridad.h"
 #include "frmPreguntaSeguridad.h"
+#include "frmRegistroConductor.h"
 
 namespace CarpoolView {
 
@@ -415,26 +416,34 @@ namespace CarpoolView {
 
 		this->objUsuario = objUsuario;
 
-		if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
-			frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
-			ventanaSeguridad->Show();
-			//this->Hide();
-			//this->objGestorUsuario->AgregarUsuario(objUsuario);
+		if (objUsuario->tipoUsuario == 2) {
+			if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
+				frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
+				ventanaSeguridad->Show();
+				//this->Hide();
+				//this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->Close();
+			}
+
+			if (mismos_datos && es_valido && mismo_tipo_usuario) {
+				MessageBox::Show("Ya hay una cuenta con el mismo tipo de usuario y datos");
+			}
+
+			if (es_valido && esta_completo && (!mismos_datos) && esta_completo) {	//Primera vez registro
+				frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
+				ventanaPreguntaSeguridad->Show();
+
+				//this->objGestorUsuario->AgregarUsuario(objUsuario);		IMPORTANTE
+				//MessageBox::Show("El usuario ha sido agregado correctamente");
+				this->Close();
+			}
+		}
+		else if (objUsuario->tipoUsuario == 3) {
+			frmRegistroConductor^ ventanaRegistroConductor = gcnew frmRegistroConductor(this->objUsuario, this->objGestorUsuario);
+			ventanaRegistroConductor->Show();
 			this->Close();
 		}
 
-		if (mismos_datos && es_valido && mismo_tipo_usuario) {
-			MessageBox::Show("Ya hay una cuenta con el mismo tipo de usuario y datos");
-		}
-
-		if (es_valido && esta_completo && (!mismos_datos) && esta_completo) {	//Primera vez registro
-			frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
-			ventanaPreguntaSeguridad->Show();
-
-			//this->objGestorUsuario->AgregarUsuario(objUsuario);		IMPORTANTE
-			//MessageBox::Show("El usuario ha sido agregado correctamente");
-			this->Close();
-		}
 		if (!es_valido) {
 			MessageBox::Show("UserName ya existente");
 		}
