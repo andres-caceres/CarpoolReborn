@@ -24,10 +24,10 @@ namespace CarpoolView {
 			//
 		}
 
-		frmCreaViaje(GestorRuta^ objGestorRuta, Ruta^ objRuta)
+		frmCreaViaje(Ruta^ objRuta)
 		{
 			InitializeComponent();
-			this->objGestorRuta = objGestorRuta;
+			this->objGestorRuta = gcnew GestorRuta();
 			this->objRuta = objRuta;
 			//
 			//TODO: Add the constructor code here
@@ -216,8 +216,11 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	String^ origen = this->textBox1->Text;
 	String^ destino = this->textBox2->Text;
 	String^ favorito = this->comboBox1->Text;
-	Ruta^ objRuta = gcnew Ruta(codigoRuta,origen,destino,favorito);
-	this->objGestorRuta->AgregarRuta(objRuta);
+	Ruta^ objRutao = gcnew Ruta(codigoRuta,origen,destino,favorito);
+	this->objRuta->CodigoRuta = objRutao->CodigoRuta;
+	this->objRuta->Origen = objRutao->Origen;
+	this->objRuta->Destino = objRutao->Destino;
+	this->objRuta->Favoritos = objRutao->Favoritos;
 	MessageBox::Show("Ruta Creada exitosamente");
 	this->Close();
 

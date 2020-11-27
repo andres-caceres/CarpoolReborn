@@ -35,9 +35,10 @@ namespace CarpoolView {
 			InitializeComponent();
 			this->objGestorViaje = objGestorViaje;
 			this->objConductor = gcnew Conductor();
-			this->objGestorRuta = gcnew GestorRuta();
+			this->objGestorConductor = gcnew GestorConductor();
 			this->objRuta = gcnew Ruta();
 			this->listaPasajeros = gcnew List<Pasajero^>();
+			this->objGestorUsuario = gcnew GestorUsuario();
 
 			//
 			//TODO: Add the constructor code here
@@ -98,6 +99,8 @@ namespace CarpoolView {
 	private: List<Pasajero^>^ listaPasajeros;
 	private: GestorRuta^ objGestorRuta;
 	private: Ruta^ objRuta;
+	private: GestorUsuario^ objGestorUsuario;
+	private: GestorConductor^ objGestorConductor;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::TextBox^ textBox7;
@@ -518,7 +521,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmCreaViaje^ ventanaCreaViaje = gcnew frmCreaViaje(this->objGestorRuta, this->objRuta);
+		frmCreaViaje^ ventanaCreaViaje = gcnew frmCreaViaje(this->objRuta);
 		ventanaCreaViaje->ShowDialog();
 		this->textBox6->Text = this->objRuta->Origen;
 		this->textBox5->Text = this->objRuta->Destino;
@@ -543,13 +546,23 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
 	String^ Tarifa = this->textBox7->Text;
 	int codigoConductor = Convert::ToInt32(this->textBox12->Text);
-
+	int codigoRuta = Convert::ToInt32(this->textBox8->Text);
+	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);
+	Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
 	Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros,
 		AsientosDisponibles, Tarifa, objRuta, objConductor);
+	this->objGestorViaje->AgregarViaje(objViaje);
 	this->Close();
 }
 private: System::Void frmNuevoViaje_Load(System::Object^ sender, System::EventArgs^ e) {
+	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	this->textBox12->Text = Convert::ToString(objUsuarioLogeado->CodigoDeUsuario);
+	this->textBox11->Text = Convert::ToString(objUsuarioLogeado->Nombre);
+
 }
+
+
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }

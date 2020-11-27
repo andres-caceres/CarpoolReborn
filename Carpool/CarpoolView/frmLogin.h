@@ -259,7 +259,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->Hide();
 		}
 		if (es_pasajero) {
-			frmPasajero^ ventanaPasajero = gcnew frmPasajero();
+			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioConductor);/*Conductor solo es su nombre*/
 			ventanaPasajero->Show();
 			this->Hide();
 		}
