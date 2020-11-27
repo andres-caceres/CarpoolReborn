@@ -8,6 +8,9 @@ namespace CarpoolView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace CarpoolController;
+	using namespace CarpoolModel;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Summary for frmModificarViaje
@@ -18,6 +21,19 @@ namespace CarpoolView {
 		frmModificarViaje(void)
 		{
 			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+		frmModificarViaje(GestorViaje^ objGestorViaje)
+		{
+			InitializeComponent();
+			this->objGestorViaje = objGestorViaje;
+			this->objConductor = gcnew Conductor();
+			this->objGestorRuta = gcnew GestorRuta();
+			this->objRuta = gcnew Ruta();
+			this->listaPasajeros = gcnew List<Pasajero^>();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -78,6 +94,11 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ button5;
+	private: GestorViaje^ objGestorViaje;
+	private: Conductor^ objConductor;
+	private: List<Pasajero^>^ listaPasajeros;
+	private: GestorRuta^ objGestorRuta;
+	private: Ruta^ objRuta;
 
 	private:
 		/// <summary>
