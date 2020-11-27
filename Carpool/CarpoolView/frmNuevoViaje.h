@@ -37,6 +37,7 @@ namespace CarpoolView {
 			this->objConductor = gcnew Conductor();
 			this->objGestorConductor = gcnew GestorConductor();
 			this->objRuta = gcnew Ruta();
+			this->objGestorRuta = gcnew GestorRuta();
 			this->listaPasajeros = gcnew List<Pasajero^>();
 			this->objGestorUsuario = gcnew GestorUsuario();
 
