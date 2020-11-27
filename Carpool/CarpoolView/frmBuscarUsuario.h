@@ -385,7 +385,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
 			Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
-			array<String^>^ fila = gcnew array<String^>(9);
+			array<String^>^ fila = gcnew array<String^>(10);
 			fila[0] = Convert::ToString(objUsuario->CodigoDeUsuario);
 			fila[1] = objUsuario->Nombre;
 			fila[2] = objUsuario->ApellidoPaterno;
