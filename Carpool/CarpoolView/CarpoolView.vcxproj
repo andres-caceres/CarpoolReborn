@@ -156,6 +156,7 @@
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
     <ClCompile Include="frmRevisarViajes.cpp" />
     <ClCompile Include="frmSeguridad.cpp" />
+    <ClCompile Include="frmSelectOrigenFin.cpp" />
     <ClCompile Include="frmTarjeta.cpp" />
     <ClCompile Include="frmTrazarRuta.cpp" />
     <ClCompile Include="frmUpdateContacto.cpp" />
@@ -237,6 +238,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmSeguridad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmSelectOrigenFin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmTarjeta.h">
@@ -330,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeguridad.resx">
       <DependentUpon>frmSeguridad.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectOrigenFin.resx">
+      <DependentUpon>frmSelectOrigenFin.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTarjeta.resx">
       <DependentUpon>frmTarjeta.h</DependentUpon>

@@ -3,6 +3,7 @@
 #include "frmUpdateContacto.h"
 //#include "frmReservaViaje.h"
 #include "frmDatosPasajero.h"
+#include "frmSelectOrigenFin.h"
 
 namespace CarpoolView {
 
@@ -88,6 +89,7 @@ namespace CarpoolView {
 			this->menuStrip1->Size = System::Drawing::Size(734, 24);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &frmPasajero::menuStrip1_ItemClicked);
 			// 
 			// misDatosToolStripMenuItem
 			// 
@@ -102,14 +104,14 @@ namespace CarpoolView {
 			// datosPersonalesToolStripMenuItem
 			// 
 			this->datosPersonalesToolStripMenuItem->Name = L"datosPersonalesToolStripMenuItem";
-			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(163, 22);
 			this->datosPersonalesToolStripMenuItem->Text = L"Datos personales";
 			this->datosPersonalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::datosPersonalesToolStripMenuItem_Click);
 			// 
 			// datosPasajeroToolStripMenuItem
 			// 
 			this->datosPasajeroToolStripMenuItem->Name = L"datosPasajeroToolStripMenuItem";
-			this->datosPasajeroToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->datosPasajeroToolStripMenuItem->Size = System::Drawing::Size(163, 22);
 			this->datosPasajeroToolStripMenuItem->Text = L"Datos pasajero";
 			this->datosPasajeroToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::datosPasajeroToolStripMenuItem_Click);
 			// 
@@ -158,7 +160,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmPasajero";
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->Text = L"Pasajero";
@@ -187,11 +189,20 @@ private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender
 	//frmReservaViaje^ ventanaReservaViaje = gcnew frmReservaViaje();
 	//ventanaReservaViaje->MdiParent = this;
 	//ventanaReservaViaje->Show();
+
+	frmSelectOrigenFin^ ventanaSelectOrigenFin = gcnew frmSelectOrigenFin();
+	ventanaSelectOrigenFin->ShowDialog();
+	
+	
+
+
 }
 private: System::Void datosPasajeroToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmDatosPasajero^ ventanaDatosPasajero = gcnew frmDatosPasajero(); //TODO: debe pasarle el gestorPasajero
 	ventanaDatosPasajero->MdiParent = this;
 	ventanaDatosPasajero->Show();
+}
+private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
 }
 };
 }
