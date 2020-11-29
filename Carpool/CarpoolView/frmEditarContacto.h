@@ -17,18 +17,11 @@ namespace CarpoolView {
 	public ref class frmEditarContacto : public System::Windows::Forms::Form
 	{
 	public:
-		frmEditarContacto(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
-		}
 
-		frmEditarContacto(GestorContacto^ objGestorContacto, String^ userNameEditar)
+		frmEditarContacto(GestorContacto^ objGestorContacto, Usuario^ objUsuario)
 		{	
 			this->objGestorContacto = objGestorContacto;
-			this->userNameEditar = userNameEditar;
+			this->objUsuario = objUsuario;
 			this->objGestorUsuario = gcnew GestorUsuario();
 			InitializeComponent();
 			//
@@ -60,6 +53,7 @@ namespace CarpoolView {
 	private: GestorContacto^ objGestorContacto;
 	private: String^ userNameEditar;
 	private: GestorUsuario^ objGestorUsuario;
+	private: Usuario^ objUsuario;
 	private: System::Windows::Forms::Label^ label1;
 
 	private:
@@ -197,7 +191,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void frmEditarContacto_Load(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 
-	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxUserName(userNameEditar,objUsuarioLogeado->CodigoDeUsuario);
+	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxUserName(userNameEditar,objUsuarioLogeado->CodigoDeUsuario); /*AQUI ESE EL CAMBIO*/
 	this->textBox1->Text = objContactoEditar->userNameDelAñadido;
 	this->textBox2->Text = objContactoEditar->Apodo;
 }

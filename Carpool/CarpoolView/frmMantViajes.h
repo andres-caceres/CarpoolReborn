@@ -183,6 +183,7 @@ namespace CarpoolView {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Column1,
@@ -193,7 +194,7 @@ namespace CarpoolView {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 30;
 			this->dataGridView1->RowTemplate->Height = 40;
-			this->dataGridView1->Size = System::Drawing::Size(581, 176);
+			this->dataGridView1->Size = System::Drawing::Size(622, 176);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// Column1
@@ -201,28 +202,24 @@ namespace CarpoolView {
 			this->Column1->HeaderText = L"Codigo";
 			this->Column1->MinimumWidth = 12;
 			this->Column1->Name = L"Column1";
-			this->Column1->Width = 125;
 			// 
 			// Column2
 			// 
 			this->Column2->HeaderText = L"Hora Inicio";
 			this->Column2->MinimumWidth = 12;
 			this->Column2->Name = L"Column2";
-			this->Column2->Width = 125;
 			// 
 			// Column3
 			// 
 			this->Column3->HeaderText = L"Hora Fin";
 			this->Column3->MinimumWidth = 12;
 			this->Column3->Name = L"Column3";
-			this->Column3->Width = 125;
 			// 
 			// Column4
 			// 
 			this->Column4->HeaderText = L"Fecha";
 			this->Column4->MinimumWidth = 12;
 			this->Column4->Name = L"Column4";
-			this->Column4->Width = 125;
 			// 
 			// frmMantViajes
 			// 

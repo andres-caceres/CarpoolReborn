@@ -19,10 +19,19 @@ namespace CarpoolView {
 	{
 	public:
 
-		frmDatosPersonales(void)
+		//frmDatosPersonales(void)
+		//{
+		//	InitializeComponent();
+		//	this->objGestorUsuario = gcnew GestorUsuario();
+		//	//
+		//	//TODO: agregar código de constructor aquí
+		//	//
+		//}
+		frmDatosPersonales(Usuario^ objUsuario)
 		{
 			InitializeComponent();
 			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objUsuario = objUsuario;
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -54,6 +63,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ lblMensaje3;
 	private: System::Windows::Forms::Label^ lblMensaje2;
 	private: GestorUsuario^ objGestorUsuario;
+	private: Usuario^ objUsuario;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::TextBox^ textBox2;
@@ -320,7 +330,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuarioLogeado = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxDNIyTipoDeUsuario(objUsuarioLogeado->DNI,objUsuarioLogeado->tipoUsuario);
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
@@ -347,7 +357,7 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Falta ver que el nombre de usuario no se repita con UsuarioRepetido.
-	Usuario^ objUsuarioLogeado = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	int CodigoDeUsuario = objUsuarioLogeado->CodigoDeUsuario;
 	String^ Nombre=this->lblMensaje->Text;
@@ -383,7 +393,7 @@ private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, Sys
 	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmCambiarPassword^ ventanaCambiarPassword = gcnew frmCambiarPassword();
+	frmCambiarPassword^ ventanaCambiarPassword = gcnew frmCambiarPassword(this->objUsuario);
 	ventanaCambiarPassword->Show();
 }
 };

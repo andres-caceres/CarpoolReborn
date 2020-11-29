@@ -17,7 +17,17 @@ namespace CarpoolView {
 	public ref class frmCambiarPassword : public System::Windows::Forms::Form
 	{
 	public:
-		frmCambiarPassword(void)
+		//frmCambiarPassword(void)
+		//{
+		//	InitializeComponent();
+		//	//
+		//	//TODO: agregar código de constructor aquí
+		//	//
+		//	this->objGestorUsuario = gcnew GestorUsuario();
+		//	this->objGestorSeguridad = gcnew GestorSeguridad();
+		//	this->objUsuario = gcnew Usuario();
+		//}
+		frmCambiarPassword(Usuario^ objUsuario)
 		{
 			InitializeComponent();
 			//
@@ -25,7 +35,7 @@ namespace CarpoolView {
 			//
 			this->objGestorUsuario = gcnew GestorUsuario();
 			this->objGestorSeguridad = gcnew GestorSeguridad();
-			this->objUsuario = gcnew Usuario();
+			this->objUsuario = objUsuario;
 		}
 
 	protected:
@@ -211,7 +221,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmCambiarPassword_Load(System::Object^ sender, System::EventArgs^ e) {
-		Usuario^ objUsuario = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();//puede ser con esto o pasandole el objeto usuario a este form
+		Usuario^ objUsuario = this->objUsuario;
 		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 		this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
 
@@ -225,7 +235,7 @@ namespace CarpoolView {
 
 		this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
 		//GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad();
-		Usuario^ objUsuario = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+		Usuario^ objUsuario = this->objUsuario;
 		String^ DniSeguro = objUsuario->DNI; 
 		String^ emisionDNI = this->dateTimePicker1->Text;
 		String^ Respuesta = this->textBox1->Text;
@@ -237,7 +247,7 @@ namespace CarpoolView {
 	if (es_valido) {
 		/*CAMBIAR CONTRASEÑA*/
 		this->objGestorUsuario->EliminarUsuarioXDni(DniSeguro);
-		Usuario^ objUsuarioLogeado = objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+		Usuario^ objUsuarioLogeado = this->objUsuario;
 		Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario,objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, objUsuarioLogeado->Correo, objUsuarioLogeado->userName, NuevaPassword, objUsuarioLogeado->tipoUsuario);
 		
 		this->objGestorUsuario->AgregarUsuario(objUsuario);

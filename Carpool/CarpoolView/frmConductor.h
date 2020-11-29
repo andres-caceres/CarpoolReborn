@@ -191,7 +191,7 @@ namespace CarpoolView {
 #pragma endregion
 private: System::Void datosPersonalesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	frmDatosPersonales^ ventanaDatosPersonales = gcnew frmDatosPersonales();
+	frmDatosPersonales^ ventanaDatosPersonales = gcnew frmDatosPersonales(this->objUsuario);
 	ventanaDatosPersonales->MdiParent = this;
 	ventanaDatosPersonales->Show();
 }

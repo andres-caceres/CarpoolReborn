@@ -106,6 +106,7 @@ namespace CarpoolView {
 			this->textBox2->PasswordChar = '*';
 			this->textBox2->Size = System::Drawing::Size(132, 22);
 			this->textBox2->TabIndex = 12;
+			this->textBox2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmLogin::textBox2_KeyPress);
 			// 
 			// textBox1
 			// 
@@ -245,12 +246,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	es_valido = objGestorUsuario->validarUsuario(userName, contrasenha);
 	if (es_valido) {
 		/*Puedo ingresar al sistema*/
-		this->objGestorUsuario->EscribirArchivoUsuarioLogeado(userName);
+	//	this->objGestorUsuario->EscribirArchivoUsuarioLogeado(userName);
 		es_admin = objGestorUsuario->VerificarAdmin(userName);
 		es_pasajero = objGestorUsuario->VerificarPasajero(userName);
 		es_conductor = objGestorUsuario->VerificarConductor(userName);
 
-		Usuario^ objUsuarioConductor = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*AQUI CAMBIO*/
+		Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
 
 
 		if (es_admin) {
@@ -259,13 +260,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->Hide();
 		}
 		if (es_pasajero) {
-			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioConductor);/*Conductor solo es su nombre*/
+			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioLogeado);/*Conductor solo es su nombre*/
 			ventanaPasajero->Show();
 			this->Hide();
 		}
 		if (es_conductor) {//PASAR UN OBJETO USUARIO
 
-			frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioConductor);/*AQUI CAMBIO*/
+			frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);/*AQUI CAMBIO*/
 			ventanaConductor->Show();
 			this->Hide();
 		}
@@ -287,10 +288,52 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmLogin_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->objGestorUsuario->BorrarUsuarioLogeadoDesdeArchivo();
-	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
-	this->objGestorUsuario->EscribirArchivo();
+//	this->objGestorUsuario->BorrarUsuarioLogeadoDesdeArchivo();
+//	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+//	this->objGestorUsuario->EscribirArchivo();
 }
 
+private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (e->KeyChar == 13) {
+		int es_valido, es_admin, es_pasajero, es_conductor;
+		//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
+		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+		String^ userName = this->textBox1->Text;
+		String^ contrasenha = this->textBox2->Text;
+		es_valido = this->objGestorUsuario->validarUsuario(userName, contrasenha);
+		if (es_valido) {
+			/*Puedo ingresar al sistema*/
+		//	this->objGestorUsuario->EscribirArchivoUsuarioLogeado(userName);
+			es_admin = this->objGestorUsuario->VerificarAdmin(userName);
+			es_pasajero = this->objGestorUsuario->VerificarPasajero(userName);
+			es_conductor = this->objGestorUsuario->VerificarConductor(userName);
+
+			Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
+
+
+			if (es_admin) {
+				frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
+				ventanaAdministrador->Show();
+				this->Hide();
+			}
+			if (es_pasajero) {
+				frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioLogeado);
+				ventanaPasajero->Show();
+				this->Hide();
+			}
+			if (es_conductor) {//PASAR UN OBJETO USUARIO
+
+				frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
+				ventanaConductor->Show();
+				this->Hide();
+			}
+		}
+		else {
+			MessageBox::Show("Usuario y/o password incorrectos");
+		}
+	}
+
+}
 };
 }

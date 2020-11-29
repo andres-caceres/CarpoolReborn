@@ -184,7 +184,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void datosPersonalesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmDatosPersonales^ ventanaDatosPersonales = gcnew frmDatosPersonales();
+		frmDatosPersonales^ ventanaDatosPersonales = gcnew frmDatosPersonales(this->objUsuario);
 		ventanaDatosPersonales->MdiParent = this;
 		ventanaDatosPersonales->Show();
 	}
@@ -192,7 +192,7 @@ private: System::Void frmPasajero_FormClosing(System::Object^ sender, System::Wi
 	Application::Exit();
 }
 private: System::Void misContactosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmUpdateContacto^ ventanaUpdateContactos = gcnew frmUpdateContacto();
+	frmUpdateContacto^ ventanaUpdateContactos = gcnew frmUpdateContacto(this->objUsuario);
 	ventanaUpdateContactos->MdiParent = this;
 	ventanaUpdateContactos->Show();
 }

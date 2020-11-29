@@ -1,3 +1,1 @@
-Audi;TT;PLACA;BLA - Blanco;Hatchback;4;2351235;12341234;12341234;6;2
-Ferrari;FERRA;123;BEI - Beige;Sedan;4;FERNANDO;123456;123456;2;2
-Porsche;MODELO;1234;AMA - Amarillo;Coupé;6;12341235;1234;12356;2;2
+Chevrolet;4x4;FASFAFASFF;CEL - Celeste;Hatchback;4;Andres Caceres;SOAT;Revision;3;2

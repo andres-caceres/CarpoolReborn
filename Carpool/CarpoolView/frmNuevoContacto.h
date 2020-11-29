@@ -17,18 +17,12 @@ namespace CarpoolView {
 	public ref class frmNuevoContacto : public System::Windows::Forms::Form
 	{
 	public:
-		frmNuevoContacto(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
-		}
 
-		frmNuevoContacto(GestorContacto^ objGestorContacto)
+		frmNuevoContacto(GestorContacto^ objGestorContacto, Usuario^ objUsuario)
 		{
 			this->objGestorContacto = objGestorContacto;
 			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objUsuario = objUsuario;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -58,6 +52,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label1;
 	private: GestorContacto^ objGestorContacto;
 	private: GestorUsuario^ objGestorUsuario;
+	private: Usuario^ objUsuario;
 
 	private:
 		/// <summary>
@@ -180,7 +175,7 @@ namespace CarpoolView {
 		int CreacionValida = this->objGestorContacto->ValidarRegistro(UserName, Apodo);
 		if (CreacionValida) {
 			this->objGestorUsuario->LeerUsuariosDesdeArchivo();
-			Usuario^ UsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+			Usuario^ UsuarioLogeado = this->objUsuario;
 			Usuario^ UsuarioPorAñadir = this->objGestorUsuario->ObtenerUsuarioxUserName(UserName);
 
 			if (UsuarioPorAñadir == nullptr) {
