@@ -111,6 +111,9 @@
     <ClCompile Include="frmSelectOrigenFin.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="frmModificarViaje.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmLogin.h">
@@ -206,5 +209,13 @@
     <ClInclude Include="frmSelectOrigenFin.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="frmModificarViaje.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmModificarViaje.resx">
+      <Filter>Archivos de encabezado</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
