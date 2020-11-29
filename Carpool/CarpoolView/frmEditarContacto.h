@@ -115,7 +115,7 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(55, 59);
+			this->groupBox1->Location = System::Drawing::Point(39, 51);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
@@ -170,7 +170,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmEditarContacto";
-			this->Text = L"frmEditarContacto";
+			this->Text = L"Editar contacto";
 			this->Load += gcnew System::EventHandler(this, &frmEditarContacto::frmEditarContacto_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();

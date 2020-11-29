@@ -121,9 +121,11 @@ namespace CarpoolView {
 			// 
 			// groupBox2
 			// 
-			this->groupBox2->Location = System::Drawing::Point(286, 12);
+			this->groupBox2->Location = System::Drawing::Point(381, 15);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(279, 327);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Size = System::Drawing::Size(372, 402);
 			this->groupBox2->TabIndex = 6;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Ultimo Viaje";
@@ -134,9 +136,11 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->lblCalificacion);
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(12, 12);
+			this->groupBox1->Location = System::Drawing::Point(16, 15);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(268, 327);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Size = System::Drawing::Size(357, 402);
 			this->groupBox1->TabIndex = 5;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Pasajero";
@@ -144,48 +148,53 @@ namespace CarpoolView {
 			// textBoxNombre
 			// 
 			this->textBoxNombre->Enabled = false;
-			this->textBoxNombre->Location = System::Drawing::Point(117, 89);
+			this->textBoxNombre->Location = System::Drawing::Point(156, 110);
+			this->textBoxNombre->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textBoxNombre->Name = L"textBoxNombre";
 			this->textBoxNombre->ReadOnly = true;
-			this->textBoxNombre->Size = System::Drawing::Size(137, 20);
+			this->textBoxNombre->Size = System::Drawing::Size(181, 22);
 			this->textBoxNombre->TabIndex = 7;
 			// 
 			// lblCalificacion
 			// 
 			this->lblCalificacion->ImageIndex = 7;
 			this->lblCalificacion->ImageList = this->imageList1;
-			this->lblCalificacion->Location = System::Drawing::Point(115, 30);
+			this->lblCalificacion->Location = System::Drawing::Point(153, 37);
+			this->lblCalificacion->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblCalificacion->Name = L"lblCalificacion";
-			this->lblCalificacion->Size = System::Drawing::Size(128, 32);
+			this->lblCalificacion->Size = System::Drawing::Size(171, 39);
 			this->lblCalificacion->TabIndex = 3;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(6, 92);
+			this->label3->Location = System::Drawing::Point(8, 113);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(44, 13);
+			this->label3->Size = System::Drawing::Size(58, 17);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Nombre";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(6, 30);
+			this->label1->Location = System::Drawing::Point(8, 37);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(59, 13);
+			this->label1->Size = System::Drawing::Size(76, 17);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Calficación";
 			// 
 			// frmDatosPasajero
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(578, 349);
+			this->ClientSize = System::Drawing::Size(771, 430);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmDatosPasajero";
-			this->Text = L"frmDatosPasajero";
+			this->Text = L"Datos pasajero";
 			this->Load += gcnew System::EventHandler(this, &frmDatosPasajero::frmDatosPasajero_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();

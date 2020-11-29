@@ -326,9 +326,10 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(805, 465);
+			this->ClientSize = System::Drawing::Size(805, 462);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmDatosConductor";
 			this->Text = L"Datos de conductor";
 			this->Load += gcnew System::EventHandler(this, &frmDatosConductor::frmDatosConductor_Load);

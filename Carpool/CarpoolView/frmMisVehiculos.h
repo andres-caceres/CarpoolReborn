@@ -88,6 +88,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmMisVehiculos::typeid));
 			this->buttonEliminar = (gcnew System::Windows::Forms::Button());
 			this->buttonNuevo = (gcnew System::Windows::Forms::Button());
 			this->buttonSelec = (gcnew System::Windows::Forms::Button());
@@ -201,8 +202,9 @@ namespace CarpoolView {
 			this->Controls->Add(this->buttonNuevo);
 			this->Controls->Add(this->buttonSelec);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmMisVehiculos";
-			this->Text = L"frmMisVehiculos";
+			this->Text = L"Mis Vehiculos";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmMisVehiculos::frmMisVehiculos_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &frmMisVehiculos::frmMisVehiculos_Load);
 			this->groupBox1->ResumeLayout(false);

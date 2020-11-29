@@ -86,18 +86,20 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(13, 13);
+			this->label1->Location = System::Drawing::Point(17, 16);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(114, 13);
+			this->label1->Size = System::Drawing::Size(152, 17);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Inserte los puntos que ";
 			this->label1->Click += gcnew System::EventHandler(this, &frmTrazarRuta::label1_Click);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(16, 96);
+			this->button1->Location = System::Drawing::Point(21, 118);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(100, 28);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -105,9 +107,10 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(16, 343);
+			this->button2->Location = System::Drawing::Point(21, 422);
+			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(100, 28);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -117,9 +120,10 @@ namespace CarpoolView {
 			// 
 			this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
 			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->panel1->Location = System::Drawing::Point(135, 13);
+			this->panel1->Location = System::Drawing::Point(180, 16);
+			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(712, 412);
+			this->panel1->Size = System::Drawing::Size(949, 507);
 			this->panel1->TabIndex = 3;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmTrazarRuta::panel1_Paint);
 			this->panel1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &frmTrazarRuta::panel1_MouseClick);
@@ -129,25 +133,27 @@ namespace CarpoolView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(13, 26);
+			this->label2->Location = System::Drawing::Point(17, 32);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(92, 13);
+			this->label2->Size = System::Drawing::Size(123, 17);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"conforman la ruta:";
 			this->label2->Click += gcnew System::EventHandler(this, &frmTrazarRuta::label2_Click);
 			// 
 			// frmTrazarRuta
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(859, 437);
+			this->ClientSize = System::Drawing::Size(1145, 538);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmTrazarRuta";
-			this->Text = L"frmTrazarRuta";
+			this->Text = L"Trazar ruta";
 			this->Load += gcnew System::EventHandler(this, &frmTrazarRuta::frmTrazarRuta_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -312,6 +312,9 @@
     <EmbeddedResource Include="frmMisVehiculos.resx">
       <DependentUpon>frmMisVehiculos.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarViaje.resx">
+      <DependentUpon>frmModificarViaje.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoContacto.resx">
       <DependentUpon>frmNuevoContacto.h</DependentUpon>
     </EmbeddedResource>
