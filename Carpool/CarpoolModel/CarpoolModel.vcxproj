@@ -124,6 +124,7 @@
     <ClInclude Include="ReporteUsuarios.h" />
     <ClInclude Include="Ruta.h" />
     <ClInclude Include="Seguridad.h" />
+    <ClInclude Include="Tarjeta.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Vehiculo.h" />
     <ClInclude Include="Viaje.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="ReporteUsuarios.cpp" />
     <ClCompile Include="Ruta.cpp" />
     <ClCompile Include="Seguridad.cpp" />
+    <ClCompile Include="Tarjeta.cpp" />
     <ClCompile Include="Usuario.cpp" />
     <ClCompile Include="Vehiculo.cpp" />
     <ClCompile Include="Viaje.cpp" />

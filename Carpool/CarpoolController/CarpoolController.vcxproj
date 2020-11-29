@@ -118,6 +118,7 @@
     <ClInclude Include="GestorReporteUsuarios.h" />
     <ClInclude Include="GestorRuta.h" />
     <ClInclude Include="GestorSeguridad.h" />
+    <ClInclude Include="GestorTarjeta.h" />
     <ClInclude Include="GestorUsuario.h" />
     <ClInclude Include="GestorVehiculo.h" />
     <ClInclude Include="GestorViaje.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="GestorReporteUsuarios.cpp" />
     <ClCompile Include="GestorRuta.cpp" />
     <ClCompile Include="GestorSeguridad.cpp" />
+    <ClCompile Include="GestorTarjeta.cpp" />
     <ClCompile Include="GestorUsuario.cpp" />
     <ClCompile Include="GestorVehiculo.cpp" />
     <ClCompile Include="GestorViaje.cpp" />

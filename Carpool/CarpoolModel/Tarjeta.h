@@ -7,15 +7,18 @@ namespace CarpoolModel {
 	public ref class Tarjeta {
 
 		/*Definición de atributos*/
-	private:
+	public:
+		int CodigoPropietario;
 		String^ NroTarjeta;
 		String^ CVV;
-		String^ DiaExp;
+		String^ FechaExp;
 		String^ TipoTarjeta;
+		
 
 		/*Métodos*/
 	public:
 		/*Método Constructor*/
 		Tarjeta();
+		Tarjeta(int CodigoPropietario, String^ NroTarjeta, String^ CVV, String^ FechaExp, String^ TipoTarjeta);
 	};
 }

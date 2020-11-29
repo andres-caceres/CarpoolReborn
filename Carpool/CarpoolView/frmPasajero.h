@@ -4,6 +4,7 @@
 //#include "frmReservaViaje.h"
 #include "frmDatosPasajero.h"
 #include "frmSelectOrigenFin.h"
+#include "frmTarjeta.h"
 
 namespace CarpoolView {
 
@@ -59,6 +60,9 @@ namespace CarpoolView {
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPersonalesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPasajeroToolStripMenuItem;
 	private: Usuario^ objUsuario;
+	private: System::Windows::Forms::ToolStripMenuItem^ metodosDePagoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ tarjetaToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ paypalToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -83,15 +87,18 @@ namespace CarpoolView {
 			this->elegirViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarViajesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->rutasYHorariosFavoritosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->metodosDePagoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->tarjetaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->paypalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->misDatosToolStripMenuItem,
-					this->misViajesToolStripMenuItem, this->misContactosToolStripMenuItem, this->elegirViajeToolStripMenuItem
+					this->misViajesToolStripMenuItem, this->misContactosToolStripMenuItem, this->metodosDePagoToolStripMenuItem, this->elegirViajeToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -162,6 +169,29 @@ namespace CarpoolView {
 			this->rutasYHorariosFavoritosToolStripMenuItem->Size = System::Drawing::Size(259, 26);
 			this->rutasYHorariosFavoritosToolStripMenuItem->Text = L"Rutas y horarios favoritos";
 			// 
+			// metodosDePagoToolStripMenuItem
+			// 
+			this->metodosDePagoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->tarjetaToolStripMenuItem,
+					this->paypalToolStripMenuItem
+			});
+			this->metodosDePagoToolStripMenuItem->Name = L"metodosDePagoToolStripMenuItem";
+			this->metodosDePagoToolStripMenuItem->Size = System::Drawing::Size(142, 24);
+			this->metodosDePagoToolStripMenuItem->Text = L"Metodos de pago";
+			// 
+			// tarjetaToolStripMenuItem
+			// 
+			this->tarjetaToolStripMenuItem->Name = L"tarjetaToolStripMenuItem";
+			this->tarjetaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->tarjetaToolStripMenuItem->Text = L"Tarjeta";
+			this->tarjetaToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::tarjetaToolStripMenuItem_Click);
+			// 
+			// paypalToolStripMenuItem
+			// 
+			this->paypalToolStripMenuItem->Name = L"paypalToolStripMenuItem";
+			this->paypalToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->paypalToolStripMenuItem->Text = L"Paypal";
+			// 
 			// frmPasajero
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -214,6 +244,11 @@ private: System::Void datosPasajeroToolStripMenuItem_Click(System::Object^ sende
 	ventanaDatosPasajero->Show();
 }
 private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
+}
+private: System::Void tarjetaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmTarjeta^ ventanaTarjeta = gcnew frmTarjeta();
+	ventanaTarjeta->MdiParent = this;
+	ventanaTarjeta->Show();
 }
 };
 }
