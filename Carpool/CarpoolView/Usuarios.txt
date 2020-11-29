@@ -7,4 +7,3 @@
 7;Angel;Linares;Antas;45649843;angel@gmail.com;angel;123456;3
 8;Antonio;Bull;Arope;45649813;antonio@hotmail.com;tony;123456;3
 9;Pedro;Tonado;Odin;45641132;pedro@gmail.com;pedro;123456;3
-10;Juan;asd;asd;87654321;juan@pucp.edu.pe;juanito;123456;3
