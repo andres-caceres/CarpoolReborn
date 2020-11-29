@@ -386,8 +386,8 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		for (int i = 0; i < objGestorUsuario->ObtenerCantidadUsuarios(); i++) {
 			Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioLista(i);
 			array<String^>^ fila = gcnew array<String^>(10);
-			fila[0] = Convert::ToString(objUsuario->CodigoDeUsuario);
-			fila[1] = objUsuario->Nombre;
+			fila[0] = Convert::ToString(objUsuario->CodigoDeUsuario); 
+			fila[1] = objUsuario->Nombre; 
 			fila[2] = objUsuario->ApellidoPaterno;
 			fila[3] = objUsuario->ApellidoMaterno;
 			fila[4] = objUsuario->DNI;
