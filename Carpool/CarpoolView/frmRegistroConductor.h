@@ -26,6 +26,12 @@ namespace CarpoolView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
+		frmRegistroConductor(Conductor^ objConductor)
+		{
+			InitializeComponent();
+			this->objConductor = objConductor;
+
+		}
 		frmRegistroConductor(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario)
 		{
 			InitializeComponent();
@@ -54,6 +60,7 @@ namespace CarpoolView {
 	private: Usuario^ objUsuario;
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorConductor^ objGestorConductor;
+		   Conductor^ objConductor;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 
 
@@ -61,6 +68,8 @@ namespace CarpoolView {
 	private: System::Windows::Forms::TextBox^ textBox1;
 
 	private:
+
+
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
@@ -83,9 +92,10 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(209, 251);
+			this->button1->Location = System::Drawing::Point(157, 204);
+			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(113, 49);
+			this->button1->Size = System::Drawing::Size(85, 40);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Cancelar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -93,9 +103,10 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(433, 251);
+			this->button2->Location = System::Drawing::Point(325, 204);
+			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(109, 49);
+			this->button2->Size = System::Drawing::Size(82, 40);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Siguiente";
 			this->button2->UseVisualStyleBackColor = true;
@@ -105,39 +116,44 @@ namespace CarpoolView {
 			// 
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(85, 62);
+			this->groupBox1->Location = System::Drawing::Point(64, 50);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(612, 135);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox1->Size = System::Drawing::Size(459, 110);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Datos Conductor";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(256, 65);
+			this->textBox1->Location = System::Drawing::Point(192, 53);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->textBox1->MaxLength = 9;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(254, 22);
+			this->textBox1->Size = System::Drawing::Size(192, 20);
 			this->textBox1->TabIndex = 1;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(47, 65);
+			this->label1->Location = System::Drawing::Point(35, 53);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(138, 17);
+			this->label1->Size = System::Drawing::Size(105, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Numero de Licencia:";
 			// 
 			// frmRegistroConductor
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(780, 334);
+			this->ClientSize = System::Drawing::Size(585, 271);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"frmRegistroConductor";
 			this->Text = L"Registro Conductor";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmRegistroConductor::frmRegistroConductor_FormClosing);
