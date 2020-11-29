@@ -246,7 +246,7 @@ private: System::Void datosPasajeroToolStripMenuItem_Click(System::Object^ sende
 private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
 }
 private: System::Void tarjetaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmTarjeta^ ventanaTarjeta = gcnew frmTarjeta();
+	frmTarjeta^ ventanaTarjeta = gcnew frmTarjeta(this->objUsuario);
 	ventanaTarjeta->MdiParent = this;
 	ventanaTarjeta->Show();
 }

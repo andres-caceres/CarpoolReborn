@@ -148,6 +148,7 @@
     <ClCompile Include="frmMantViajes.cpp" />
     <ClCompile Include="frmMisVehiculos.cpp" />
     <ClCompile Include="frmModificarViaje.cpp" />
+    <ClCompile Include="frmNuevaTarjeta.cpp" />
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmNuevoViaje.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
@@ -215,6 +216,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmModificarViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevaTarjeta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoContacto.h">
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarViaje.resx">
       <DependentUpon>frmModificarViaje.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaTarjeta.resx">
+      <DependentUpon>frmNuevaTarjeta.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoContacto.resx">
       <DependentUpon>frmNuevoContacto.h</DependentUpon>

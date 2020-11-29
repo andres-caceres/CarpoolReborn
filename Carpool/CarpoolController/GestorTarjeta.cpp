@@ -50,3 +50,41 @@ void GestorTarjeta::EliminarTarjeta(String^ NroTarjeta) {
 		}
 	}
 }
+
+int GestorTarjeta::ObtenerCantidadTarjetasSegunCodigoDePropietario(int codigoPropietario) {
+	int j = 0;
+	for (int i = 0; i < this->listaTarjetas->Count; i++)
+	{
+		if (this->listaTarjetas[i]->CodigoPropietario == codigoPropietario) {
+			j++;
+
+		}
+	}
+	return j;
+
+}
+
+Tarjeta^ GestorTarjeta::ObtenerTarjetaLista(int indice) {
+	return this->listaTarjetas[indice];
+}
+
+int ValidarCreacionTarjeta(String^ NroTarjeta, String^ CVV, String^ FechaExp, String^ TipoTarjeta){
+	int esta_completo = 1;
+	if (NroTarjeta == "" || CVV == "" || FechaExp == "" || TipoTarjeta == "") {
+		esta_completo = 0;
+	}
+	return esta_completo;
+}
+
+int GestorTarjeta::ObtenerCantidadTarjetas() {
+	return this->listaTarjetas->Count;
+}
+
+void GestorTarjeta::EliminarTarjetaXcodigo(String^ NroTarjeta, int codigoPropietario) {
+	for (int i = 0; i < this->listaTarjetas->Count; i++) {
+		if (this->listaTarjetas[i]->CodigoPropietario == codigoPropietario&& this->listaTarjetas[i]->NroTarjeta == NroTarjeta) {
+			this->listaTarjetas->RemoveAt(i);
+			break;
+		}
+	}
+}
