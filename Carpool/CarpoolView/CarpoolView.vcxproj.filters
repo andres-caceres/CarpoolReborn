@@ -90,9 +90,6 @@
     <ClCompile Include="frmNuevoViaje.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmVerificarConductor.cpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClCompile>
     <ClCompile Include="frmAgregaPasajeros.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
@@ -186,9 +183,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmNuevoViaje.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="frmVerificarConductor.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmAgregaPasajeros.h">
