@@ -23,16 +23,15 @@ namespace CarpoolView {
 		frmConductor(void)
 		{
 			InitializeComponent();
-
+			//Valores inventados para el conductor
 			this->objUsuario = gcnew Usuario();
-			//this->objUsuario->CodigoDeUsuario = 6;
-			//this->objUsuario->Nombre = "WALDO";
+			this->objUsuario->CodigoDeUsuario = 6;
+			this->objUsuario->Nombre = "WALDOW";
+
 			this->objGestorConductor = gcnew GestorConductor();
 			this->objConductor = gcnew Conductor();
 			this->objGestorUsuario = gcnew GestorUsuario();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+
 		}
 
 		frmConductor(Usuario^ objUsuario)
@@ -42,9 +41,6 @@ namespace CarpoolView {
 			this->objConductor = gcnew Conductor();
 			this->objUsuario = objUsuario;
 
-			//
-			//TODO: agregar código de constructor aquí
-			//
 		}
 
 	protected:
@@ -196,7 +192,6 @@ private: System::Void datosPersonalesToolStripMenuItem_Click(System::Object^ sen
 	ventanaDatosPersonales->Show();
 }
 private: System::Void frmConductor_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	objGestorConductor->AgregarALista(this->objConductor);
 	objGestorConductor->EscribirArchivo();
 	Application::Exit();
 }
@@ -222,16 +217,20 @@ private: System::Void frmConductor_Load(System::Object^ sender, System::EventArg
 	this->objConductor = this->objGestorConductor->BuscarConductorxUserID(this->objUsuario->CodigoDeUsuario);
 
 	if (this->objConductor == nullptr) {
-			
+		
+		//frmRegistroConductor^ ventanaRegistroConductor = gcnew frmRegistroConductor(this->objConductor);
+		//ventanaRegistroConductor->Show();
+
 		int			UserID = objUsuario->CodigoDeUsuario;
 		String^		nombre = objUsuario->Nombre;
-		String^		Licencia = "Número de Licencia";
+		String^		Licencia = "AAA";
 		String^		Disponibilidad = "Disponible";
 		int			Calificacion = 0;
 		String^		Posicion = "0,0";
 		String^		Asientos = "0";
 		Vehiculo^	objVehiculo = gcnew Vehiculo();
 		this->objConductor = gcnew Conductor(UserID, nombre, Licencia, Disponibilidad, Calificacion, Posicion, Asientos, objVehiculo, 2);
+		this->objGestorConductor->AgregarALista(objConductor);
 		
 	}
 }
