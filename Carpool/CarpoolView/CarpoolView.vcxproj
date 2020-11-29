@@ -214,7 +214,9 @@
     <ClInclude Include="frmMisVehiculos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmModificarViaje.h" />
+    <ClInclude Include="frmModificarViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmNuevoContacto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -310,7 +312,6 @@
     <EmbeddedResource Include="frmMisVehiculos.resx">
       <DependentUpon>frmMisVehiculos.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModificarViaje.resx" />
     <EmbeddedResource Include="frmNuevoContacto.resx">
       <DependentUpon>frmNuevoContacto.h</DependentUpon>
     </EmbeddedResource>

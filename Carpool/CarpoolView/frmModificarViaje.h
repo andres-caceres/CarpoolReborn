@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace CarpoolView {
 
 	using namespace System;
@@ -104,7 +105,7 @@ namespace CarpoolView {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -609,5 +610,5 @@ namespace CarpoolView {
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-};
+	};
 }

@@ -213,9 +213,4 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="frmModificarViaje.resx">
-      <Filter>Archivos de encabezado</Filter>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>
