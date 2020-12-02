@@ -20,11 +20,12 @@ namespace CarpoolView {
 	public ref class frmMantViajes : public System::Windows::Forms::Form
 	{
 	public:
-		frmMantViajes(void)
+		frmMantViajes(Usuario^ objUsuario)
 		{
 			InitializeComponent();
 			this->objGestorViaje = gcnew GestorViaje();
 			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objUsuario = objUsuario;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -51,8 +52,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-
-
+	private: Usuario^ objUsuario;
 
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorViaje^ objGestorViaje;
@@ -98,7 +98,7 @@ namespace CarpoolView {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(543, 425);
+			this->button5->Location = System::Drawing::Point(645, 497);
 			this->button5->Margin = System::Windows::Forms::Padding(1);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(91, 46);
@@ -108,7 +108,7 @@ namespace CarpoolView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(409, 425);
+			this->button4->Location = System::Drawing::Point(511, 497);
 			this->button4->Margin = System::Windows::Forms::Padding(1);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(91, 46);
@@ -119,7 +119,7 @@ namespace CarpoolView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(280, 425);
+			this->button3->Location = System::Drawing::Point(382, 497);
 			this->button3->Margin = System::Windows::Forms::Padding(1);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(91, 46);
@@ -130,7 +130,7 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(152, 425);
+			this->button2->Location = System::Drawing::Point(254, 497);
 			this->button2->Margin = System::Windows::Forms::Padding(1);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(91, 46);
@@ -141,7 +141,7 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(499, 84);
+			this->button1->Location = System::Drawing::Point(596, 95);
 			this->button1->Margin = System::Windows::Forms::Padding(1);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(88, 38);
@@ -152,7 +152,7 @@ namespace CarpoolView {
 			// dateTimePicker1
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(325, 92);
+			this->dateTimePicker1->Location = System::Drawing::Point(422, 103);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(1);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(120, 22);
@@ -161,7 +161,7 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(227, 96);
+			this->label1->Location = System::Drawing::Point(324, 107);
 			this->label1->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(55, 17);
@@ -175,7 +175,7 @@ namespace CarpoolView {
 			this->groupBox1->Margin = System::Windows::Forms::Padding(1);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(1);
-			this->groupBox1->Size = System::Drawing::Size(673, 234);
+			this->groupBox1->Size = System::Drawing::Size(767, 282);
 			this->groupBox1->TabIndex = 16;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Viajes";
@@ -194,7 +194,7 @@ namespace CarpoolView {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 30;
 			this->dataGridView1->RowTemplate->Height = 40;
-			this->dataGridView1->Size = System::Drawing::Size(622, 176);
+			this->dataGridView1->Size = System::Drawing::Size(718, 220);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// Column1
@@ -225,7 +225,7 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(827, 514);
+			this->ClientSize = System::Drawing::Size(987, 596);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
@@ -237,6 +237,7 @@ namespace CarpoolView {
 			this->Margin = System::Windows::Forms::Padding(1);
 			this->Name = L"frmMantViajes";
 			this->Text = L"Mantenimiento de viajes";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmMantViajes::frmMantViajes_Load);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -247,7 +248,7 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void frmMantViajes_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->objGestorViaje->LeerViajesDesdeArchivo();
-			Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+			Usuario^ objUsuarioLogeado = this->objUsuario;
 		
 		List<Viaje^>^ listaViajes = this->objGestorViaje->DevolverAllViajes();
 		MostrarGrilla(listaViajes);
@@ -297,8 +298,8 @@ namespace CarpoolView {
 
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objGestorViaje);
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objGestorViaje,this->objUsuario);
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	ventanaNuevoViaje->ShowDialog();
 	MostrarGrilla();
 	/*this->dataGridView1->Rows->Clear();
@@ -325,7 +326,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmModificarViaje^ ventanaModificarViaje = gcnew frmModificarViaje(this->objGestorViaje);
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	ventanaModificarViaje->ShowDialog();
 	MostrarGrilla();
 }

@@ -173,7 +173,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+		Usuario^ objUsuarioLogeado = this->objUsuario;
 		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 		String^ UserName = this->textBox1->Text;
 		String^ Apodo = this->textBox2->Text;
@@ -189,7 +189,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmEditarContacto_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 
 	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxUserName(userNameEditar,objUsuarioLogeado->CodigoDeUsuario); /*AQUI ESE EL CAMBIO*/
 	this->textBox1->Text = objContactoEditar->userNameDelAñadido;

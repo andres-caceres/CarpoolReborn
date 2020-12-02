@@ -30,7 +30,7 @@ namespace CarpoolView {
 			//
 		}
 
-		frmNuevoViaje(GestorViaje^ objGestorViaje)
+		frmNuevoViaje(GestorViaje^ objGestorViaje,Usuario^objUsuario)
 		{
 			InitializeComponent();
 			this->objGestorViaje = objGestorViaje;
@@ -40,6 +40,7 @@ namespace CarpoolView {
 			this->objGestorRuta = gcnew GestorRuta();
 			this->listaPasajeros = gcnew List<Pasajero^>();
 			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objUsuario = objUsuario;
 
 			//
 			//TODO: Add the constructor code here
@@ -102,6 +103,7 @@ namespace CarpoolView {
 	private: Ruta^ objRuta;
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorConductor^ objGestorConductor;
+	private: Usuario^ objUsuario;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::TextBox^ textBox7;
@@ -593,7 +595,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Tarifa = this->textBox7->Text;
 	int codigoConductor = Convert::ToInt32(this->textBox12->Text);
 	int codigoRuta = Convert::ToInt32(this->textBox8->Text);
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);
 	Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
 	Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros,
@@ -602,7 +604,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmNuevoViaje_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	this->textBox12->Text = Convert::ToString(objUsuarioLogeado->CodigoDeUsuario);
 	this->textBox11->Text = Convert::ToString(objUsuarioLogeado->Nombre);
 

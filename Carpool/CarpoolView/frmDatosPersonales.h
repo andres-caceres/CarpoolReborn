@@ -334,7 +334,6 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxDNIyTipoDeUsuario(objUsuarioLogeado->DNI,objUsuarioLogeado->tipoUsuario);
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
-	//objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	
 	this->lblMensaje->Text  = objUsuario->Nombre;
 	this->lblMensaje2->Text = objUsuario->ApellidoPaterno;
@@ -389,7 +388,6 @@ private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, Sys
 	
 	this->objGestorUsuario->EscribirArchivo();
 
-	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {

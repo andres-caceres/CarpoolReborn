@@ -105,7 +105,7 @@ namespace CarpoolView {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(968, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1039, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -168,7 +168,7 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(968, 466);
+			this->ClientSize = System::Drawing::Size(1039, 560);
 			this->Controls->Add(this->menuStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
@@ -207,7 +207,7 @@ private: System::Void datosConductorToolStripMenuItem_Click(System::Object^ send
 	ventanaDatosConductor->Show();
 }
 private: System::Void crearViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes();
+	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes(this->objUsuario);
 	ventanaMantViaje->MdiParent = this;
 	ventanaMantViaje->Show();	
 }
