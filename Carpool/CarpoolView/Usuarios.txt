@@ -3,3 +3,4 @@
 3;Andres;Caceres;Guillen;78945612;andres@pucp.edu.pe;andres;123456;3
 4;Francesca;Camarena;Pucuhuanca;78978978;francesca@pucp.edu.pe;francesca;123456;2
 5;Pablo;Ortega;Ramirez;12316516;pablo@pucp.edu.pe;pablo;123456;3
+6;Junior;Barrientos;Rivera;65498712;junior@pucp.edu.pe;junior;123456;2
