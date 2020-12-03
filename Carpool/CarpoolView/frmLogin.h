@@ -239,17 +239,17 @@ namespace CarpoolView {
 	
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	int es_valido, es_admin, es_pasajero, es_conductor;
-	GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
-	objGestorUsuario->LeerUsuariosDesdeArchivo();
+	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
+	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	String^ userName = this->textBox1->Text;
 	String^ contrasenha = this->textBox2->Text;
-	es_valido = objGestorUsuario->validarUsuario(userName, contrasenha);
+	es_valido = this->objGestorUsuario->validarUsuario(userName, contrasenha);
 	if (es_valido) {
 		/*Puedo ingresar al sistema*/
 	//	this->objGestorUsuario->EscribirArchivoUsuarioLogeado(userName);
-		es_admin = objGestorUsuario->VerificarAdmin(userName);
-		es_pasajero = objGestorUsuario->VerificarPasajero(userName);
-		es_conductor = objGestorUsuario->VerificarConductor(userName);
+		es_admin = this->objGestorUsuario->VerificarAdmin(userName);
+		es_pasajero = this->objGestorUsuario->VerificarPasajero(userName);
+		es_conductor = this->objGestorUsuario->VerificarConductor(userName);
 
 		Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
 
@@ -260,13 +260,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->Hide();
 		}
 		if (es_pasajero) {
-			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioLogeado);/*Conductor solo es su nombre*/
+			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioLogeado);
 			ventanaPasajero->Show();
 			this->Hide();
 		}
 		if (es_conductor) {//PASAR UN OBJETO USUARIO
 
-			frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);/*AQUI CAMBIO*/
+			frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
 			ventanaConductor->Show();
 			this->Hide();
 		}

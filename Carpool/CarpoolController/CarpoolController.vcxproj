@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="GestorConductor.h" />
     <ClInclude Include="GestorContacto.h" />
+    <ClInclude Include="GestorCoordenadas.h" />
     <ClInclude Include="GestorFigura.h" />
     <ClInclude Include="GestorPasajero.h" />
     <ClInclude Include="GestorReporteUsuarios.h" />
@@ -126,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="GestorConductor.cpp" />
     <ClCompile Include="GestorContacto.cpp" />
+    <ClCompile Include="GestorCoordenadas.cpp" />
     <ClCompile Include="GestorFigura.cpp" />
     <ClCompile Include="GestorPasajero.cpp" />
     <ClCompile Include="GestorReporteUsuarios.cpp" />

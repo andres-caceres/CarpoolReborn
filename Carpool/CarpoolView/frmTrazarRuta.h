@@ -27,6 +27,10 @@ namespace CarpoolView {
 			this->flagPrimeraLinea = 1; //iniciamos con el 1er click
 			this->listaFiguras = gcnew List<figura^>();
 			this->listaFiguras->Clear(); //la lista empieza en blanco
+			this->objGestorRuta = gcnew GestorRuta();
+			this->objGestorCoordenadas = gcnew GestorCoordenadas();
+			this->numeroPuntosMaximo = 50;
+			this->contadorPuntos = 0;
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -60,6 +64,12 @@ namespace CarpoolView {
 	private: int flagPrimeraLinea;
 	private: List<figura^>^ listaFiguras;
 	private: System::Windows::Forms::Label^ label2;
+	private: GestorRuta^ objGestorRuta;
+	private: GestorCoordenadas^ objGestorCoordenadas;
+	private: ListaCoordenadas^ objListaCoordenadas;
+	private: int numeroPuntosMaximo;
+	private: int contadorPuntos;
+	private: Coordenadas objCoordenadasProvisionales;
 		   //private: List<Coordenadas^> listaCoordenadas;
 
 	private:
@@ -200,11 +210,18 @@ private: System::Void panel1_MouseClick(System::Object^ sender, System::Windows:
 	if (flagPrimeraLinea == 1) {
 		this->inicioX = e->X;
 		this->inicioY = e->Y;
+
+		this->objGestorCoordenadas->AgregarParDeCoordenadasAListaCoordenadas(inicioX, inicioY);
+		this->contadorPuntos++;
+
 		flagPrimeraLinea = 0;
 	}
 	else {
 		this->finX = e->X;
 		this->finY = e->Y;
+
+		this->objGestorCoordenadas->AgregarParDeCoordenadasAListaCoordenadas(finX, finY);
+		this->contadorPuntos++;
 
 		figura^ objFigura = gcnew figura(this->inicioX, this->inicioY, this->finX, this->finY, this->tipoFigura, this->objColor);
 		this->objGestorFigura->AgregarFigura(objFigura);
@@ -221,6 +238,25 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Boton grabar
+	//Completamos el resto de puntos con el punto final;
+
+
+	//Antes de escribir en la lista de listas falta leerlas (estoy en proceso de hacer la funcion)
+	if (contadorPuntos < numeroPuntosMaximo) {
+		for (int i = contadorPuntos; i < numeroPuntosMaximo; i++) {
+
+			this->objGestorCoordenadas->AgregarParDeCoordenadasAListaCoordenadas(this->inicioX, this->inicioY);
+
+		}
+	}
+
+	objListaCoordenadas = this->objGestorCoordenadas->GiveMeListaCoordenadas();
+	this->objGestorCoordenadas->AgregarListaCoordenadasAListaDeListasCoordenadas(objListaCoordenadas);
+
+	this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(6);  //ESTOY PONIENDO 6 COMO CODIGO DE VIAJE PROVISIONALMENTE
+
+	
 	this->Close();
 }
 };

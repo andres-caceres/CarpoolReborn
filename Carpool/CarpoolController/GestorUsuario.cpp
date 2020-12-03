@@ -109,50 +109,6 @@ int GestorUsuario::ValidarRegistro(String^ Nombre, String^ ApellidoPaterno, Stri
 	return esta_completo;
 }
 
-//void GestorUsuario::EscribirArchivoUsuarioLogeado(String^userName) {
-//	File::WriteAllText("UsuarioLogeado.txt", userName);
-//}	
-void GestorUsuario::EscribirArchivoUsuarioLogeado(String^ userName) {
-	LeerUsuariosDesdeArchivo();//AÑADIDO
-	Usuario^ objUsuarioBuscado = nullptr;
-	for (int i = 0; i < this->listaUsuarios->Count; i++) {
-		if (this->listaUsuarios[i]->userName == userName) {
-			objUsuarioBuscado = this->listaUsuarios[i];
-			array<String^>^ lineasArchivo = gcnew array<String^>(this->listaUsuarios->Count);
-
-			Usuario^ objUsuarioBuscado = this->listaUsuarios[i];
-			lineasArchivo[0] = objUsuarioBuscado->CodigoDeUsuario + ";" + objUsuarioBuscado->Nombre + ";" + objUsuarioBuscado->ApellidoPaterno + ";" + objUsuarioBuscado->ApellidoMaterno + ";" + objUsuarioBuscado->DNI + ";" + objUsuarioBuscado->Correo + ";" + objUsuarioBuscado->userName + ";" + objUsuarioBuscado->password + ";" + objUsuarioBuscado->tipoUsuario;
-
-			File::WriteAllLines("UsuarioLogeado.txt", lineasArchivo);
-			break;
-		}
-	}
-
-}
-
-Usuario^ GestorUsuario::LeerUsuarioLogeadoDesdeArchivo() {
-	/*Funciona pero luego de registrar*/
-	array<String^>^ lineas = File::ReadAllLines("UsuarioLogeado.txt");
-
-	String^ separadores = ";";
-	for each (String ^ lineaUsuario in lineas)
-	{
-		array<String^>^ palabras = lineaUsuario->Split(separadores->ToCharArray());
-		int CodigoDeUsuario = Convert::ToInt32(palabras[0]);
-		String^ Nombre = palabras[1];
-		String^ ApellidoPaterno = palabras[2];
-		String^ ApellidoMaterno = palabras[3];
-		String^ DNI = palabras[4];
-		String^ Correo = palabras[5];
-		String^ userName = palabras[6];
-		String^ contrasenha = palabras[7];
-		int tipoUsuario = Convert::ToInt32(palabras[8]);
-
-		Usuario^ objUsuarioLogeado = gcnew Usuario(CodigoDeUsuario, Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
-		return objUsuarioLogeado;
-	}
-}
-
 Usuario^ GestorUsuario::ObtenerUsuarioxUserName(String^ userName) {
 	Usuario^ objUsuarioBuscado = nullptr;
 	for (int i = 0; i < this->listaUsuarios->Count; i++) {

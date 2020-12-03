@@ -253,7 +253,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	String^ destino = this->textBox2->Text;
 	String^ favorito = this->comboBox1->Text;
 	Ruta^ objRutao = gcnew Ruta(codigoRuta,origen,destino,favorito);
-	this->objRuta->CodigoRuta = objRutao->CodigoRuta;
+	this->objRuta->CodigoViaje = objRutao->CodigoViaje;
 	this->objRuta->Origen = objRutao->Origen;
 	this->objRuta->Destino = objRutao->Destino;
 	this->objRuta->Favoritos = objRutao->Favoritos;

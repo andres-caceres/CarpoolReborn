@@ -24,8 +24,6 @@ namespace CarpoolController {
 		int MismosDatos(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno);
 		int MismoTipoUsuario(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, int tipoUsuario);
 		int ValidarRegistro(String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, String^ DNI, String^ Correo, String^ userName, String^ password);
-		void EscribirArchivoUsuarioLogeado(String^ userName);
-		Usuario^ LeerUsuarioLogeadoDesdeArchivo();
 		Usuario^ ObtenerUsuarioxUserName(String^ userName);
 		void EliminarUsuario(String^ userNameEliminar);
 		int ObtenerCantidadUsuarios();//IMP

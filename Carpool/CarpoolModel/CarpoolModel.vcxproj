@@ -119,6 +119,7 @@
     <ClInclude Include="DatosMapa.h" />
     <ClInclude Include="Figura.h" />
     <ClInclude Include="Horarios.h" />
+    <ClInclude Include="ListaCoordenadas.h" />
     <ClInclude Include="MetodoTransferencia.h" />
     <ClInclude Include="Pasajero.h" />
     <ClInclude Include="ReporteUsuarios.h" />
@@ -134,9 +135,11 @@
     <ClCompile Include="Chat.cpp" />
     <ClCompile Include="Conductor.cpp" />
     <ClCompile Include="Contactos.cpp" />
+    <ClCompile Include="Coordenadas.cpp" />
     <ClCompile Include="DatosMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="Horarios.cpp" />
+    <ClCompile Include="ListaCoordenadas.cpp" />
     <ClCompile Include="MetodoTransferencia.cpp" />
     <ClCompile Include="Pasajero.cpp" />
     <ClCompile Include="ReporteUsuarios.cpp" />
