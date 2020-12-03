@@ -45,6 +45,21 @@ namespace CarpoolView {
 			//TODO: Add the constructor code here
 			//
 		}
+		frmNuevoViaje(GestorViaje^ objGestorViaje, Usuario^ objUsuario)
+		{
+			InitializeComponent();
+			this->objGestorViaje = objGestorViaje;
+			this->objConductor = gcnew Conductor();
+			this->objGestorConductor = gcnew GestorConductor();
+			this->objRuta = gcnew Ruta();
+			this->objGestorRuta = gcnew GestorRuta();
+			this->listaPasajeros = gcnew List<Pasajero^>();
+			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objUsuario = objUsuario;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -102,6 +117,7 @@ namespace CarpoolView {
 	private: Ruta^ objRuta;
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorConductor^ objGestorConductor;
+	private: Usuario^ objUsuario;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::TextBox^ textBox7;
@@ -573,7 +589,7 @@ namespace CarpoolView {
 		ventanaCreaViaje->ShowDialog();
 		this->textBox6->Text = this->objRuta->Origen;
 		this->textBox5->Text = this->objRuta->Destino;
-		this->textBox8->Text = Convert::ToString(this->objRuta->CodigoRuta);
+		this->textBox8->Text = Convert::ToString(this->objRuta->CodigoViaje);
 
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -595,7 +611,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Tarifa = this->textBox7->Text;
 	int codigoConductor = Convert::ToInt32(this->textBox12->Text);
 	//int codigoRuta = Convert::ToInt32(this->textBox8->Text);
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);
 	//Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
 	Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros,
@@ -604,7 +620,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmNuevoViaje_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	Usuario^ objUsuarioLogeado = this->objUsuario;
 	this->textBox12->Text = Convert::ToString(objUsuarioLogeado->CodigoDeUsuario);
 	this->textBox11->Text = Convert::ToString(objUsuarioLogeado->Nombre);
 	this->textBox2->Text = "No Iniciado";

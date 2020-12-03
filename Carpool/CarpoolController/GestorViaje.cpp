@@ -4,6 +4,7 @@
 #include "GestorPasajero.h"
 
 
+
 using namespace System::IO;
 using namespace CarpoolController;
 using namespace System::Collections::Generic;
@@ -98,7 +99,7 @@ void GestorViaje::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaViajes->Count);
 	for (int i = 0; i < this->listaViajes->Count; i++) {
 		Viaje^ objViaje = this->listaViajes[i];
-		lineasArchivo[i] = objViaje->codigoViaje + ";" + objViaje->HoraSalida + ";" + objViaje->HoraLlegada + ";" + objViaje->Fecha + ";" + objViaje->Estado + ";" + objViaje->NumeroPasajeros + ";" + objViaje->AsientosDisponibles + ";" + objViaje->Tarifa + ";" + objViaje->objRuta->CodigoRuta + ";" + objViaje->objConductor->CodigoDeUsuario;
+		lineasArchivo[i] = objViaje->codigoViaje + ";" + objViaje->HoraSalida + ";" + objViaje->HoraLlegada + ";" + objViaje->Fecha + ";" + objViaje->Estado + ";" + objViaje->NumeroPasajeros + ";" + objViaje->AsientosDisponibles + ";" + objViaje->Tarifa + ";" + objViaje->objRuta->CodigoViaje + ";" + objViaje->objConductor->CodigoDeUsuario;
 	}
 	File::WriteAllLines("Viajes.txt", lineasArchivo);
 	EscribirPasajerosViajeArchivo();
