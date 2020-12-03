@@ -66,7 +66,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label2;
 	private: GestorRuta^ objGestorRuta;
 	private: GestorCoordenadas^ objGestorCoordenadas;
-	private: List<Coordenadas^>^ objListaCoordenadas;
+	private: ListaCoordenadas^ objListaCoordenadas;
 	private: int numeroPuntosMaximo;
 	private: int contadorPuntos;
 	private: Coordenadas objCoordenadasProvisionales;

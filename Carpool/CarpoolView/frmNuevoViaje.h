@@ -573,7 +573,7 @@ namespace CarpoolView {
 		ventanaCreaViaje->ShowDialog();
 		this->textBox6->Text = this->objRuta->Origen;
 		this->textBox5->Text = this->objRuta->Destino;
-		this->textBox8->Text = Convert::ToString(this->objRuta->CodigoRuta);
+		this->textBox8->Text = Convert::ToString(this->objRuta->CodigoViaje);
 
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
