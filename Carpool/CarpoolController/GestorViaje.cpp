@@ -4,7 +4,6 @@
 #include "GestorPasajero.h"
 
 
-using namespace CarpoolController;
 using namespace System::IO;
 using namespace CarpoolController;
 using namespace System::Collections::Generic;
@@ -99,14 +98,48 @@ void GestorViaje::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaViajes->Count);
 	for (int i = 0; i < this->listaViajes->Count; i++) {
 		Viaje^ objViaje = this->listaViajes[i];
-		lineasArchivo[i] = objViaje->codigoViaje + ";" + objViaje->HoraSalida + ";" + objViaje->HoraLlegada + ";" +
-			objViaje->Fecha + ";" + objViaje->Estado + ";" + objViaje->NumeroPasajeros + ";" +
-			objViaje->AsientosDisponibles + ";" + objViaje->Tarifa + ";" + objViaje->objRuta + ";" +
-			objViaje->objConductor;
+		lineasArchivo[i] = objViaje->codigoViaje + ";" + objViaje->HoraSalida + ";" + objViaje->HoraLlegada + ";" + objViaje->Fecha + ";" + objViaje->Estado + ";" + objViaje->NumeroPasajeros + ";" + objViaje->AsientosDisponibles + ";" + objViaje->Tarifa + ";" + objViaje->objRuta->CodigoRuta + ";" + objViaje->objConductor->CodigoDeUsuario;
 	}
 	File::WriteAllLines("Viajes.txt", lineasArchivo);
-}
+	EscribirPasajerosViajeArchivo();
+
+	}
+
+	void GestorViaje::EscribirPasajerosViajeArchivo()
+	{
+		int cantPasajerosViaje = 0;
+		for (int i = 0; i < this->listaViajes->Count; i++)
+		{
+			cantPasajerosViaje = cantPasajerosViaje + this->listaViajes[i]->listaPasajeros->Count;
+		}
+		array<String^>^ lineas = gcnew array<String^>(cantPasajerosViaje);
+		int k = 0;
+		for (int i = 0; i < this->listaViajes->Count; i++)
+		{
+			Viaje^ objViaje = this->listaViajes[i];
+			for (int j = 0; j < objViaje->listaPasajeros->Count; j++) {
+				lineas[k] = objViaje->codigoViaje + "," + objViaje->listaPasajeros[j]->CodigoDeUsuario;
+				k++;
+			}
+		}
+		File::WriteAllLines("pasajerosXviaje.txt", lineas);
+	}
+
+
 
 List<Viaje^>^ GestorViaje::DevolverAllViajes() {
 	return this->listaViajes;
+}
+
+Viaje^ GestorViaje::ObtenerViajeoxCodigo(int codigo) {
+
+	Viaje^ objViajeBuscado = nullptr;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		if (this->listaViajes[i]->codigoViaje == codigo) {
+			objViajeBuscado = this->listaViajes[i];
+			break;
+		}
+	}
+	return objViajeBuscado;
 }
