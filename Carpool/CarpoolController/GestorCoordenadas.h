@@ -21,7 +21,7 @@ namespace CarpoolController {
 		ListaCoordenadas^ GiveMeListaCoordenadas();
 		//void ConvertirListaCoordenadasEnString(List<Coordenadas^>^ listaGenericaCoordenadas, String^ CadenaDeTexto);
 		void saveCoordinatesListAndTripCodeInTxt(int tripCode);
-		void readCoordinatesListFromTxt();
+		void leerListaDeListasDeCoordenadasFromTxt();
 
 
 	};

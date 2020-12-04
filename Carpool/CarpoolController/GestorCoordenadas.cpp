@@ -43,19 +43,23 @@ ListaCoordenadas^ GestorCoordenadas::GiveMeListaCoordenadas() {
 
 void GestorCoordenadas::saveCoordinatesListAndTripCodeInTxt(int tripCode) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaListasCoordenadas->Count);
-	String^ CadenaDeTexto = nullptr; //questionmark
+	String^ CadenaDeTexto = nullptr; 
+	String^ CadenaDeTextoAlternative = nullptr;
 	for (int i = 0; i < this->listaListasCoordenadas->Count; i++) {
-		ListaCoordenadas^ objListaCoordenadasProvisionales = this->listaListasCoordenadas[i];
+		ListaCoordenadas^ objListaCoordenadasProvisionales = gcnew ListaCoordenadas();
+
+		objListaCoordenadasProvisionales = this->listaListasCoordenadas[i];
 		//Convertimos la lista de coordenadas en una cadena de texto
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 25; i++) {
 			Coordenadas^ objCoordenadasProvisionales = objListaCoordenadasProvisionales->objListaCoordenadas[i];
 			CadenaDeTexto = CadenaDeTexto + ";" + objCoordenadasProvisionales->posicionX + ";" + objCoordenadasProvisionales->posicionY;
+			CadenaDeTextoAlternative = CadenaDeTexto;
+			
 		}
+		CadenaDeTexto = "";
 
-		lineasArchivo[i] = Convert::ToString(tripCode) + CadenaDeTexto;
-
-
-
+		lineasArchivo[i] = Convert::ToString(tripCode) + CadenaDeTextoAlternative;
+		
 		//lineasArchivo[i] = objListaCoordenadas->   ConvertirListaCoordenadasEnString or smth
 	}
 	File::WriteAllLines("ListaListasCoordenadas.txt", lineasArchivo);
@@ -64,7 +68,7 @@ void GestorCoordenadas::saveCoordinatesListAndTripCodeInTxt(int tripCode) {
 
 
 
-void GestorCoordenadas::readCoordinatesListFromTxt() {
+void GestorCoordenadas::leerListaDeListasDeCoordenadasFromTxt() {
 	this->listaListasCoordenadas->Clear();
 	array<String^>^ lineas = File::ReadAllLines("ListaListasCoordenadas.txt");
 
@@ -73,6 +77,17 @@ void GestorCoordenadas::readCoordinatesListFromTxt() {
 		array<String^>^ palabras = lineaCoordenadas->Split(separadores->ToCharArray());
 
 		String^ codigoViaje = palabras[0];
+
+		ListaCoordenadas^ listaCoordenadasProvisional = gcnew ListaCoordenadas();
+		listaCoordenadasProvisional-> CodigoViaje = Convert::ToInt32(codigoViaje);
+		//listaCoordenadasProvisional->
+		for (int i = 1; i < 50; i=i+2) {
+			Coordenadas^ objCoordenadasProvisionales = gcnew Coordenadas(Convert::ToInt32(palabras[i]), Convert::ToInt32(palabras[i + 1]));
+			listaCoordenadasProvisional->objListaCoordenadas->Add(objCoordenadasProvisionales);
+		}
+		//listaCoordenadasProvisional->add()
+		
+		listaListasCoordenadas->Add(listaCoordenadasProvisional);
 
 	}
 

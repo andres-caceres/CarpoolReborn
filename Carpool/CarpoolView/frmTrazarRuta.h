@@ -66,7 +66,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label2;
 	private: GestorRuta^ objGestorRuta;
 	private: GestorCoordenadas^ objGestorCoordenadas;
-	private: ListaCoordenadas^ objListaCoordenadas;
+	//private: ListaCoordenadas^ objListaCoordenadas; ////////////////No lo c rick
 	private: int numeroPuntosMaximo;
 	private: int contadorPuntos;
 	private: Coordenadas objCoordenadasProvisionales;
@@ -171,6 +171,10 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmTrazarRuta_Load(System::Object^ sender, System::EventArgs^ e) {
+
+		//Antes de escribir en la lista de listas falta leerlas (Ya está)
+		this->objGestorCoordenadas->leerListaDeListasDeCoordenadasFromTxt();
+
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 		Graphics^ objGraphics = e->Graphics;
@@ -242,7 +246,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	//Completamos el resto de puntos con el punto final;
 
 
-	//Antes de escribir en la lista de listas falta leerlas (estoy en proceso de hacer la funcion)
+
+	
+
 	if (contadorPuntos < numeroPuntosMaximo) {
 		for (int i = contadorPuntos; i < numeroPuntosMaximo; i++) {
 
@@ -251,8 +257,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 
-	objListaCoordenadas = this->objGestorCoordenadas->GiveMeListaCoordenadas();
-	this->objGestorCoordenadas->AgregarListaCoordenadasAListaDeListasCoordenadas(objListaCoordenadas);
+	//objListaCoordenadas = this->objGestorCoordenadas->GiveMeListaCoordenadas();
+	this->objGestorCoordenadas->AgregarListaCoordenadasAListaDeListasCoordenadas(this->objGestorCoordenadas->GiveMeListaCoordenadas()); 
 
 	this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(6);  //ESTOY PONIENDO 6 COMO CODIGO DE VIAJE PROVISIONALMENTE
 
