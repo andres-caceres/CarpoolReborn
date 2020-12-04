@@ -7,8 +7,9 @@ namespace CarpoolModel {
 	public ref class Paypal {
 
 		/*Definición de atributos*/
-	private:
-		String^ usuario;
+	public:
+		int codigoPropietario;
+		String^ correo;
 		String^ contrasenha;
 
 
@@ -16,5 +17,6 @@ namespace CarpoolModel {
 	public:
 		/*Método Constructor*/
 		Paypal();
+		Paypal(int codigoPropietario, String^ correo, String^ contrasenha);
 	};
 }

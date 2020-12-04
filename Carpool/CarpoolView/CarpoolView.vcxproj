@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="frmAdministrador.cpp" />
     <ClCompile Include="frmAgregaPasajeros.cpp" />
+    <ClCompile Include="frmAgregarPaypal.cpp" />
     <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmBuscarUsuario.cpp" />
     <ClCompile Include="frmCambiarPassword.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmNuevoViaje.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
+    <ClCompile Include="frmPaypal.cpp" />
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmRegistroConductor.cpp" />
@@ -171,6 +173,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmAgregaPasajeros.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmAgregarPaypal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmAgregarVehiculo.h">
@@ -230,6 +235,9 @@
     <ClInclude Include="frmPasajero.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmPaypal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmPreguntaSeguridad.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -273,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregaPasajeros.resx">
       <DependentUpon>frmAgregaPasajeros.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarPaypal.resx">
+      <DependentUpon>frmAgregarPaypal.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.h</DependentUpon>
@@ -330,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPasajero.resx">
       <DependentUpon>frmPasajero.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaypal.resx">
+      <DependentUpon>frmPaypal.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPreguntaSeguridad.resx">
       <DependentUpon>frmPreguntaSeguridad.h</DependentUpon>
