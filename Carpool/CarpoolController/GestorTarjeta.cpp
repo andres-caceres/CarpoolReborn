@@ -88,3 +88,14 @@ void GestorTarjeta::EliminarTarjetaXcodigo(String^ NroTarjeta, int codigoPropiet
 		}
 	}
 }
+
+int GestorTarjeta::MismaTarjeta(String^ NroTarjeta, int codigoPropietario, String^ TipoTarjeta) {
+	int misma_tarjeta = 0;
+	for (int i = 0; i < this->listaTarjetas->Count; i++) {
+		if (this->listaTarjetas[i]->CodigoPropietario == codigoPropietario && this->listaTarjetas[i]->NroTarjeta == NroTarjeta && this->listaTarjetas[i]->TipoTarjeta) {
+			misma_tarjeta = 1;
+			break;
+		}
+	}
+	return misma_tarjeta;
+}

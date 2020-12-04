@@ -55,3 +55,14 @@ void GestorPaypal::EliminarPaypalXcodigo(String^ correo, int codigoPropietario) 
 		}
 	}
 }
+
+int GestorPaypal::MismoPaypal(String^ correo, int codigoPropietario) {
+	int mismo_paypal = 0;
+	for (int i = 0; i < this->listaPaypal->Count; i++) {
+		if (this->listaPaypal[i]->codigoPropietario == codigoPropietario && this->listaPaypal[i]->correo == correo) {
+			mismo_paypal = 1;
+			break;
+		}
+	}
+	return mismo_paypal;
+}

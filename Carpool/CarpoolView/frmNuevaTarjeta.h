@@ -261,21 +261,29 @@ namespace CarpoolView {
 		else if (MesExp == "Noviembre") { NumMesExp = "11"; }
 		else if (MesExp == "Diciembre") { NumMesExp = "12"; }
 
+		int misma_tarjeta = this->objGestorTarjeta->MismaTarjeta(NroTarjeta, this->objUsuario->CodigoDeUsuario,TipoTarjeta);
+
 		if ((MesExp == "") || (AnhoExp == "")||(CVV=="")||(NroTarjeta=="")||(TipoTarjeta=="")) {
 			MessageBox::Show("Debe completar todos los datos");
 		}
 		else {
 
-			String^ FechaExp = NumMesExp + "/" + AnhoExp;
-			//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
-			Usuario^ UsuarioLogeado = this->objUsuario;
+			if (!misma_tarjeta) {
+				String^ FechaExp = NumMesExp + "/" + AnhoExp;
+				//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+				Usuario^ UsuarioLogeado = this->objUsuario;
 			
-			Tarjeta^ objTarjeta = gcnew Tarjeta(UsuarioLogeado->CodigoDeUsuario, NroTarjeta, CVV, FechaExp, TipoTarjeta);
+				Tarjeta^ objTarjeta = gcnew Tarjeta(UsuarioLogeado->CodigoDeUsuario, NroTarjeta, CVV, FechaExp, TipoTarjeta);
 
-			this->objGestorTarjeta->AgregarTarjeta(objTarjeta);
+				this->objGestorTarjeta->AgregarTarjeta(objTarjeta);
 
-			MessageBox::Show("Tarjeta añadida exitosamente");
-			this->Close();
+				MessageBox::Show("Tarjeta añadida exitosamente");
+				this->Close();
+			}
+			else {
+				MessageBox::Show("Ya tienes agregada esta tarjeta");
+			}
+			
 			
 		}
 		

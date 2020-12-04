@@ -21,5 +21,6 @@ namespace CarpoolController {
 		Paypal^ ObtenerPaypalLista(int indice);
 		int ObtenerCantidadPaypal();
 		void EliminarPaypalXcodigo(String^ correo, int codigoPropietario);
+		int MismoPaypal(String^ correo, int codigoPropietario);
 	};
 }

@@ -127,28 +127,29 @@ namespace CarpoolView {
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(232, 109);
-			this->textBox2->MaxLength = 3;
+			this->textBox2->MaxLength = 40;
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(160, 22);
+			this->textBox2->PasswordChar = '*';
+			this->textBox2->Size = System::Drawing::Size(214, 22);
 			this->textBox2->TabIndex = 3;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(159, 112);
+			this->label2->Location = System::Drawing::Point(113, 112);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(39, 17);
+			this->label2->Size = System::Drawing::Size(85, 17);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"CVV:";
+			this->label2->Text = L"Contraseña:";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(67, 57);
+			this->label1->Location = System::Drawing::Point(143, 60);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(131, 17);
+			this->label1->Size = System::Drawing::Size(55, 17);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Numero de Tarjeta:";
+			this->label1->Text = L"Correo:";
 			// 
 			// textBox1
 			// 
@@ -179,17 +180,27 @@ namespace CarpoolView {
 		String^ correo = this->textBox1->Text;
 		String^ contrasenha = this->textBox2->Text;
 		
+		int mismo_paypal = this->objGestorPaypal->MismoPaypal(correo,this->objUsuario->CodigoDeUsuario);
+
 		if ((correo == "") || (contrasenha == "")) {
 			MessageBox::Show("Debe llenar todos los datos");
 		}
 		else {
-			Usuario^ UsuarioLogeado = this->objUsuario;
 
-			Paypal^ objPaypal = gcnew Paypal(UsuarioLogeado->CodigoDeUsuario, correo,contrasenha);
-			this->objGestorPaypal->AgregarPaypal(objPaypal);
+			if (!mismo_paypal) {
 
-			MessageBox::Show("Paypal añadido exitosamente");
-			this->Close();
+				Usuario^ UsuarioLogeado = this->objUsuario;
+
+				Paypal^ objPaypal = gcnew Paypal(UsuarioLogeado->CodigoDeUsuario, correo, contrasenha);
+				this->objGestorPaypal->AgregarPaypal(objPaypal);
+
+				MessageBox::Show("Paypal añadido exitosamente");
+				this->Close();
+			}
+			else {
+				MessageBox::Show("Ya existe un paypal con ese correo");
+			}
+
 		}
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
