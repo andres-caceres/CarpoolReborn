@@ -60,6 +60,21 @@ namespace CarpoolView {
 			//TODO: Add the constructor code here
 			//
 		}
+		frmNuevoViaje(GestorViaje^ objGestorViaje, Conductor^ objConductor)
+		{
+			InitializeComponent();
+			this->objGestorViaje = objGestorViaje;
+			//this->objConductor = gcnew Conductor(); ahora recibes
+			this->objGestorConductor = gcnew GestorConductor(); //por que?
+			this->objRuta = gcnew Ruta();
+			this->objGestorRuta = gcnew GestorRuta();
+			this->listaPasajeros = gcnew List<Pasajero^>();
+			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objConductor = objConductor;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -620,9 +635,14 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmNuevoViaje_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuarioLogeado = this->objUsuario;
-	this->textBox12->Text = Convert::ToString(objUsuarioLogeado->CodigoDeUsuario);
-	this->textBox11->Text = Convert::ToString(objUsuarioLogeado->Nombre);
+	//Usuario^ objUsuarioLogeado = this->objUsuario;
+	///*this->textBox12->Text = Convert::ToString(objUsuarioLogeado->CodigoDeUsuario);
+	//this->textBox11->Text = Convert::ToString(objUsuarioLogeado->Nombre);*/
+	this->textBox12->Text = Convert::ToString(objConductor->CodigoDeUsuario);
+	this->textBox11->Text = Convert::ToString(objConductor->Nombre);
+
+
+
 	this->textBox2->Text = "No Iniciado";
 }
 

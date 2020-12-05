@@ -313,7 +313,7 @@ namespace CarpoolView {
 
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objGestorViaje, this->objUsuario);
+	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objGestorViaje, this->objConductor);
 	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	ventanaNuevoViaje->ShowDialog();
 	MostrarGrilla();
