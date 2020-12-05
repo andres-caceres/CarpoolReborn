@@ -626,8 +626,8 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Tarifa = this->textBox7->Text;
 	int codigoConductor = Convert::ToInt32(this->textBox12->Text);
 	//int codigoRuta = Convert::ToInt32(this->textBox8->Text);
-	Usuario^ objUsuarioLogeado = this->objUsuario;
-	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);
+	/*Usuario^ objUsuarioLogeado = this->objUsuario;
+	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);*/
 	//Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
 	Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros,
 		AsientosDisponibles, Tarifa, this->objRuta, this->objConductor);
