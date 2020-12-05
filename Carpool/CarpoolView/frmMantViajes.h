@@ -43,6 +43,19 @@ namespace CarpoolView {
 			//
 		}
 
+		frmMantViajes(Conductor^ objConductor)
+		{
+			InitializeComponent();
+			this->objGestorViaje = gcnew GestorViaje();
+			this->objConductor = objConductor;
+
+
+			//this->objGestorUsuario = gcnew GestorUsuario();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -74,6 +87,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: Usuario^ objUsuario;
+	private: Conductor^ objConductor;
 
 
 
@@ -119,6 +133,7 @@ namespace CarpoolView {
 			this->button5->TabIndex = 23;
 			this->button5->Text = L"Ver";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &frmMantViajes::button5_Click);
 			// 
 			// button4
 			// 
@@ -261,7 +276,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmMantViajes_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->objGestorViaje->LeerViajesDesdeArchivo();
+		this->objGestorViaje->LeerViajesDesdeArchivo(objConductor);
 		//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 		List<Viaje^>^ listaViajes = this->objGestorViaje->DevolverAllViajes();
 		//Metodo en GestorViaje -> DevolverViajesUsuarioLoqueado
@@ -322,6 +337,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void frmMantViajes_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 
 	this->objGestorViaje->EscribirArchivo();
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

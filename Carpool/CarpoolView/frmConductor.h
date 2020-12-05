@@ -150,18 +150,19 @@ namespace CarpoolView {
 			this->definirViajeToolStripMenuItem->Name = L"definirViajeToolStripMenuItem";
 			this->definirViajeToolStripMenuItem->Size = System::Drawing::Size(81, 20);
 			this->definirViajeToolStripMenuItem->Text = L"Definir viaje";
+			this->definirViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::definirViajeToolStripMenuItem_Click);
 			// 
 			// crearViajeToolStripMenuItem
 			// 
 			this->crearViajeToolStripMenuItem->Name = L"crearViajeToolStripMenuItem";
-			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(153, 22);
+			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->crearViajeToolStripMenuItem->Text = L"Crear viaje";
 			this->crearViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::crearViajeToolStripMenuItem_Click);
 			// 
 			// viajesFavoritosToolStripMenuItem
 			// 
 			this->viajesFavoritosToolStripMenuItem->Name = L"viajesFavoritosToolStripMenuItem";
-			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(153, 22);
+			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->viajesFavoritosToolStripMenuItem->Text = L"Viajes favoritos";
 			// 
 			// frmConductor
@@ -173,7 +174,7 @@ namespace CarpoolView {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmConductor";
 			this->Text = L"Conductor";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmConductor::frmConductor_FormClosing);
@@ -207,7 +208,12 @@ private: System::Void datosConductorToolStripMenuItem_Click(System::Object^ send
 	ventanaDatosConductor->Show();
 }
 private: System::Void crearViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes(this->objUsuario);
+	//Boton crear viaje
+
+
+
+	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes(this->objConductor);
+
 	ventanaMantViaje->MdiParent = this;
 	ventanaMantViaje->Show();	
 }
@@ -233,6 +239,8 @@ private: System::Void frmConductor_Load(System::Object^ sender, System::EventArg
 		this->objGestorConductor->AgregarALista(objConductor);
 		
 	}
+}
+private: System::Void definirViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
