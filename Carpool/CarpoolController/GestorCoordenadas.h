@@ -22,6 +22,9 @@ namespace CarpoolController {
 		//void ConvertirListaCoordenadasEnString(List<Coordenadas^>^ listaGenericaCoordenadas, String^ CadenaDeTexto);
 		void saveCoordinatesListAndTripCodeInTxt(int tripCode);
 		void leerListaDeListasDeCoordenadasFromTxt();
+		ListaCoordenadas^ obtenerListaCoordenadasConCodigo(int codigoViaje);
+		//void obtenerFiguraAPartirDeCoordenadasConCodigo(int codigoViaje);
+
 
 
 	};
