@@ -145,10 +145,9 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(95, 544);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button2->Location = System::Drawing::Point(71, 442);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(116, 30);
+			this->button2->Size = System::Drawing::Size(87, 24);
 			this->button2->TabIndex = 22;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -156,10 +155,10 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(312, 544);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->button1->Location = System::Drawing::Point(234, 442);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(116, 30);
+			this->button1->Size = System::Drawing::Size(87, 24);
 			this->button1->TabIndex = 21;
 			this->button1->Text = L"Agregar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -169,31 +168,27 @@ namespace CarpoolView {
 			// 
 			this->groupBox2->Controls->Add(this->Propietario);
 			this->groupBox2->Controls->Add(this->label7);
-			this->groupBox2->Location = System::Drawing::Point(37, 438);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Location = System::Drawing::Point(28, 356);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox2->Size = System::Drawing::Size(465, 76);
+			this->groupBox2->Size = System::Drawing::Size(349, 62);
 			this->groupBox2->TabIndex = 20;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Propietario";
 			// 
 			// Propietario
 			// 
-			this->Propietario->Location = System::Drawing::Point(177, 33);
-			this->Propietario->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Propietario->Location = System::Drawing::Point(133, 27);
 			this->Propietario->MaxLength = 50;
 			this->Propietario->Name = L"Propietario";
-			this->Propietario->Size = System::Drawing::Size(227, 22);
+			this->Propietario->Size = System::Drawing::Size(171, 20);
 			this->Propietario->TabIndex = 13;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(36, 37);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label7->Location = System::Drawing::Point(27, 30);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(137, 17);
+			this->label7->Size = System::Drawing::Size(102, 13);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"Nombres y Apellidos";
 			// 
@@ -215,11 +210,9 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->Placa);
 			this->groupBox1->Controls->Add(this->label6);
 			this->groupBox1->Controls->Add(this->Modelo);
-			this->groupBox1->Location = System::Drawing::Point(37, 38);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Location = System::Drawing::Point(28, 31);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->groupBox1->Size = System::Drawing::Size(465, 393);
+			this->groupBox1->Size = System::Drawing::Size(349, 319);
 			this->groupBox1->TabIndex = 19;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Vehiculo";
@@ -228,36 +221,34 @@ namespace CarpoolView {
 			// 
 			this->Asientos->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->Asientos->FormattingEnabled = true;
-			this->Asientos->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"4", L"5", L"6", L"7", L"8" });
-			this->Asientos->Location = System::Drawing::Point(336, 265);
-			this->Asientos->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Asientos->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"2", L"4", L"5", L"6", L"7", L"8" });
+			this->Asientos->Location = System::Drawing::Point(252, 215);
 			this->Asientos->Name = L"Asientos";
-			this->Asientos->Size = System::Drawing::Size(68, 24);
+			this->Asientos->Size = System::Drawing::Size(52, 21);
 			this->Asientos->TabIndex = 19;
 			// 
 			// RevTec
 			// 
-			this->RevTec->Location = System::Drawing::Point(177, 350);
-			this->RevTec->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->RevTec->Location = System::Drawing::Point(133, 284);
 			this->RevTec->Name = L"RevTec";
-			this->RevTec->Size = System::Drawing::Size(227, 22);
+			this->RevTec->Size = System::Drawing::Size(171, 20);
 			this->RevTec->TabIndex = 18;
+			this->RevTec->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmAgregarVehiculo::RevTec_KeyPress);
 			// 
 			// SOAT
 			// 
-			this->SOAT->Location = System::Drawing::Point(177, 308);
-			this->SOAT->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->SOAT->Location = System::Drawing::Point(133, 250);
 			this->SOAT->Name = L"SOAT";
-			this->SOAT->Size = System::Drawing::Size(227, 22);
+			this->SOAT->Size = System::Drawing::Size(171, 20);
 			this->SOAT->TabIndex = 17;
+			this->SOAT->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmAgregarVehiculo::SOAT_KeyPress);
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(36, 358);
-			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label10->Location = System::Drawing::Point(27, 291);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(116, 17);
+			this->label10->Size = System::Drawing::Size(90, 13);
 			this->label10->TabIndex = 16;
 			this->label10->Text = L"Revisión Técnica";
 			this->label10->Click += gcnew System::EventHandler(this, &frmAgregarVehiculo::label10_Click);
@@ -265,10 +256,9 @@ namespace CarpoolView {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(53, 316);
-			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label9->Location = System::Drawing::Point(40, 257);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(46, 17);
+			this->label9->Size = System::Drawing::Size(36, 13);
 			this->label9->TabIndex = 15;
 			this->label9->Text = L"SOAT";
 			// 
@@ -280,10 +270,10 @@ namespace CarpoolView {
 				L"Sedan", L"Coupé", L"Hatchback", L"Convertible", L"Station Wagon",
 					L"SUV", L"Arenero"
 			});
-			this->Tipo->Location = System::Drawing::Point(177, 217);
-			this->Tipo->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Tipo->Location = System::Drawing::Point(133, 176);
+			this->Tipo->Margin = System::Windows::Forms::Padding(2);
 			this->Tipo->Name = L"Tipo";
-			this->Tipo->Size = System::Drawing::Size(227, 24);
+			this->Tipo->Size = System::Drawing::Size(171, 21);
 			this->Tipo->TabIndex = 14;
 			// 
 			// Color
@@ -296,10 +286,9 @@ namespace CarpoolView {
 					L"MAR - Marrón", L"MOR - Morado", L"NEG - Negro", L"PLA - Plata", L"ROJ - Rojo", L"ROS - Rosado", L"SAL - Salmón", L"TUR - Turquesa",
 					L"VER - Verde", L"VIO - Violeta"
 			});
-			this->Color->Location = System::Drawing::Point(177, 169);
-			this->Color->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Color->Location = System::Drawing::Point(133, 137);
 			this->Color->Name = L"Color";
-			this->Color->Size = System::Drawing::Size(227, 24);
+			this->Color->Size = System::Drawing::Size(171, 21);
 			this->Color->TabIndex = 13;
 			// 
 			// Marca
@@ -312,101 +301,93 @@ namespace CarpoolView {
 					L"Hyundai", L"JAC", L"Jaguar", L"Jeep", L"KIA", L"Land Rover", L"Lexus", L"Maserati", L"Mazda", L"Mercedes-Benz", L"MG", L"Mini",
 					L"Mitsubishi", L"Nissan", L"Peugeot", L"Porsche", L"Renault", L"Subaru", L"Suzuki", L"Toyota", L"Volkswagen", L"Volvo", L"Otro"
 			});
-			this->Marca->Location = System::Drawing::Point(177, 23);
-			this->Marca->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Marca->Location = System::Drawing::Point(133, 19);
 			this->Marca->Name = L"Marca";
-			this->Marca->Size = System::Drawing::Size(227, 24);
+			this->Marca->Size = System::Drawing::Size(171, 21);
 			this->Marca->TabIndex = 7;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(52, 23);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(39, 19);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(47, 17);
+			this->label1->Size = System::Drawing::Size(37, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Marca";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(52, 71);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(39, 58);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(54, 17);
+			this->label2->Size = System::Drawing::Size(42, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Modelo";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(52, 128);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Location = System::Drawing::Point(39, 104);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(43, 17);
+			this->label3->Size = System::Drawing::Size(34, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Placa";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(52, 178);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Location = System::Drawing::Point(39, 145);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(41, 17);
+			this->label4->Size = System::Drawing::Size(31, 13);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Color";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(52, 223);
-			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label5->Location = System::Drawing::Point(39, 181);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(36, 17);
+			this->label5->Size = System::Drawing::Size(28, 13);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Tipo";
 			// 
 			// Placa
 			// 
 			this->Placa->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->Placa->Location = System::Drawing::Point(177, 128);
-			this->Placa->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->Placa->MaxLength = 10;
+			this->Placa->Location = System::Drawing::Point(133, 104);
+			this->Placa->MaxLength = 7;
 			this->Placa->Name = L"Placa";
-			this->Placa->Size = System::Drawing::Size(227, 22);
+			this->Placa->Size = System::Drawing::Size(171, 20);
 			this->Placa->TabIndex = 9;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(52, 268);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Location = System::Drawing::Point(39, 218);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(62, 17);
+			this->label6->Size = System::Drawing::Size(47, 13);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Asientos";
 			// 
 			// Modelo
 			// 
-			this->Modelo->Location = System::Drawing::Point(177, 71);
-			this->Modelo->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Modelo->Location = System::Drawing::Point(133, 58);
+			this->Modelo->MaxLength = 30;
 			this->Modelo->Name = L"Modelo";
-			this->Modelo->Size = System::Drawing::Size(227, 22);
+			this->Modelo->Size = System::Drawing::Size(171, 20);
 			this->Modelo->TabIndex = 8;
 			// 
 			// frmAgregarVehiculo
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(549, 599);
+			this->ClientSize = System::Drawing::Size(412, 487);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmAgregarVehiculo";
 			this->Text = L"Agregar vehículo";
 			this->Load += gcnew System::EventHandler(this, &frmAgregarVehiculo::frmAgregarVehiculo_Load);
@@ -462,10 +443,49 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmAgregarVehiculo_Load(System::Object^ sender, System::EventArgs^ e) {
+
+	this->Propietario->Text = this->objConductor->Nombre;
 }
 private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void tarjetaPropiedad_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+
+	   //VALIDACION DE DATOS DE ENTRADA
+
+	bool IsNumeric(char c) {
+		if ((c >= '0' && c <= '9') || (c == 8))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	bool IsLetter(char c) {
+		if ((c >= 'a' && c <= 'z') || (c == 8) || (c >= 'A' && c <= 'Z'))
+		{
+			return true;
+		}
+		return false;
+
+	}
+private: System::Void SOAT_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+}
+private: System::Void RevTec_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
 }
 };
 }

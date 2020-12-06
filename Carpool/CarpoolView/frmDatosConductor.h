@@ -91,6 +91,13 @@ namespace CarpoolView {
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::Label^ AsientosDisp;
 	private: System::Windows::Forms::ComboBox^ Asientos;
+	private: System::Windows::Forms::TextBox^ NroCta;
+
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::TextBox^ CCI;
+
+	private: System::Windows::Forms::Label^ label4;
 
 
 		int Calificacion;
@@ -127,8 +134,14 @@ namespace CarpoolView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->NroCta = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->CCI = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->groupBox3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// groupBox2
@@ -224,7 +237,7 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(23, 24);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(324, 327);
+			this->groupBox1->Size = System::Drawing::Size(324, 271);
 			this->groupBox1->TabIndex = 3;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Conductor";
@@ -329,11 +342,57 @@ namespace CarpoolView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Calficación";
 			// 
+			// NroCta
+			// 
+			this->NroCta->Location = System::Drawing::Point(85, 30);
+			this->NroCta->Name = L"NroCta";
+			this->NroCta->Size = System::Drawing::Size(210, 20);
+			this->NroCta->TabIndex = 5;
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->label8);
+			this->groupBox3->Controls->Add(this->CCI);
+			this->groupBox3->Controls->Add(this->label4);
+			this->groupBox3->Controls->Add(this->NroCta);
+			this->groupBox3->Location = System::Drawing::Point(23, 301);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(315, 107);
+			this->groupBox3->TabIndex = 6;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Cuenta Bancaria";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(26, 60);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(24, 13);
+			this->label8->TabIndex = 8;
+			this->label8->Text = L"CCI";
+			// 
+			// CCI
+			// 
+			this->CCI->Location = System::Drawing::Point(85, 57);
+			this->CCI->Name = L"CCI";
+			this->CCI->Size = System::Drawing::Size(210, 20);
+			this->CCI->TabIndex = 7;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(15, 33);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(64, 13);
+			this->label4->TabIndex = 6;
+			this->label4->Text = L"Nro. Cuenta";
+			// 
 			// frmDatosConductor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(700, 432);
+			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -347,16 +406,23 @@ namespace CarpoolView {
 			this->groupBox2->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: void ValidarEntradas() {
+
+	}
+
 	private: void LoadVehiculo(){
 		if (this->objConductor->objVehiculo == nullptr) {
 
 			this->textBoxMarca->Text = "NULL";
 			this->textBoxModelo->Text = "NULL";
 			this->textBoxPlaca->Text = "NULL";
+			this->Asientos->Items->Clear();
 		}
 		else
 		{
@@ -364,6 +430,14 @@ namespace CarpoolView {
 			this->textBoxModelo->Text = this->objConductor->objVehiculo->Modelo;
 			this->textBoxPlaca->Text = this->objConductor->objVehiculo->Placa;
 			
+			//TODO:NUMERO DE ASIENTOS POR VEHICULO
+			this->Asientos->Items->Clear();
+			
+			for (int i = 0; i < Convert::ToInt16(this->objConductor->objVehiculo->NumeroAsientos)+1; i++) {
+				String^ num = Convert::ToString(i);
+				this->Asientos->Items->Add(num);
+			}
+			this->Asientos->Text = this->objConductor->objVehiculo->NumeroAsientos;
 		}
 	}
 
@@ -373,6 +447,7 @@ namespace CarpoolView {
 		frmMisVehiculos^ VentanaMisVehiculos = gcnew frmMisVehiculos(this->objConductor); //aqui debería poderse enviar el conductor
 		VentanaMisVehiculos->ShowDialog();
 		LoadVehiculo();
+
 	}
 private: System::Void frmDatosConductor_Load(System::Object^ sender, System::EventArgs^ e) {
 	/*Load*/
@@ -393,14 +468,9 @@ private: System::Void frmDatosConductor_Load(System::Object^ sender, System::Eve
 	this->textBoxNombre->Text= this->objConductor->Nombre;
 	this->textBoxLicencia->Text = this->objConductor->NumeroDeLicencia;
 
-	/* //TODO:NUMERO DE ASIENTOS POR VEHICULO
-	for (int i = 0; i < (this->objConductor->objVehiculo->NumeroAsientos); i++) {
-		String^ num = Convert::ToString(i);
-		this->Asientos->Items->Add(num);
-	}
-	this->objConductor->AsientosDisponibles = Convert::ToInt16(this->Asientos->Text);
-	
-	*/	
+	this->NroCta->Text = this->objConductor->CuentaBancaria;
+	this->Asientos->Text = Convert::ToString(this->objConductor->AsientosDisponibles);
+			
 	//this->objConductor->Disponibilidad = this->checkBox1->Text;
 
 	LoadVehiculo();
@@ -409,6 +479,9 @@ private: System::Void frmDatosConductor_Load(System::Object^ sender, System::Eve
 private: System::Void lblCalificacion_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void frmDatosConductor_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+	ValidarEntradas();
+	this->objConductor->CuentaBancaria = this->NroCta->Text;
+	this->objConductor->AsientosDisponibles = Convert::ToInt16(this->Asientos->Text);
 	this->objGestorConductor->EliminarConductorxCodigo(this->objConductor->CodigoDeUsuario);
 	this->objGestorConductor->AgregarALista(this->objConductor);
 }
