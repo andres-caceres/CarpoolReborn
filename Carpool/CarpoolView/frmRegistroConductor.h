@@ -274,7 +274,7 @@ namespace CarpoolView {
 			// 
 			this->Asientos->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->Asientos->FormattingEnabled = true;
-			this->Asientos->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"4", L"5", L"6", L"7", L"8" });
+			this->Asientos->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"2", L"4", L"5", L"6", L"7", L"8" });
 			this->Asientos->Location = System::Drawing::Point(415, 292);
 			this->Asientos->Margin = System::Windows::Forms::Padding(4);
 			this->Asientos->Name = L"Asientos";
@@ -285,6 +285,7 @@ namespace CarpoolView {
 			// 
 			this->RevTec->Location = System::Drawing::Point(256, 382);
 			this->RevTec->Margin = System::Windows::Forms::Padding(4);
+			this->RevTec->MaxLength = 10;
 			this->RevTec->Name = L"RevTec";
 			this->RevTec->Size = System::Drawing::Size(255, 22);
 			this->RevTec->TabIndex = 18;
@@ -293,6 +294,7 @@ namespace CarpoolView {
 			// 
 			this->SOAT->Location = System::Drawing::Point(256, 335);
 			this->SOAT->Margin = System::Windows::Forms::Padding(4);
+			this->SOAT->MaxLength = 10;
 			this->SOAT->Name = L"SOAT";
 			this->SOAT->Size = System::Drawing::Size(255, 22);
 			this->SOAT->TabIndex = 17;
@@ -418,7 +420,7 @@ namespace CarpoolView {
 			this->Placa->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
 			this->Placa->Location = System::Drawing::Point(256, 155);
 			this->Placa->Margin = System::Windows::Forms::Padding(4);
-			this->Placa->MaxLength = 10;
+			this->Placa->MaxLength = 6;
 			this->Placa->Name = L"Placa";
 			this->Placa->Size = System::Drawing::Size(255, 22);
 			this->Placa->TabIndex = 9;
@@ -437,6 +439,7 @@ namespace CarpoolView {
 			// 
 			this->Modelo->Location = System::Drawing::Point(256, 98);
 			this->Modelo->Margin = System::Windows::Forms::Padding(4);
+			this->Modelo->MaxLength = 20;
 			this->Modelo->Name = L"Modelo";
 			this->Modelo->Size = System::Drawing::Size(255, 22);
 			this->Modelo->TabIndex = 8;
@@ -495,7 +498,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	 
 	if (datos_llenos) {
 		Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo,Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec,objUsuario->CodigoDeUsuario,2);
-		Conductor^ objConductor = gcnew Conductor(objUsuario->CodigoDeUsuario,objUsuario->Nombre,Licencia,0,0,objVehiculo,CuentaBancaria,2);
+		Conductor^ objConductor = gcnew Conductor(objUsuario->CodigoDeUsuario,objUsuario->Nombre + " " +objUsuario->ApellidoPaterno+" "+objUsuario->ApellidoMaterno,Licencia,0,0,objVehiculo,CuentaBancaria,2);
 		
 		int es_valido, mismos_datos, esta_completo, mismo_tipo_usuario;
 		es_valido = objGestorUsuario->UsuarioRepetido(objUsuario->userName);

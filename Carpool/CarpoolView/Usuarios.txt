@@ -1,2 +1,1 @@
 1;Andres;Caceres;Guillen;12345678;andres@pucp.edu.pe;andres;123456;3
-2;Victor;Sevillano;Macuri;70437078;victor@pucp.edu.pe;victor;123456;1
