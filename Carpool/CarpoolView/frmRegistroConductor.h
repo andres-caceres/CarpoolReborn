@@ -93,7 +93,7 @@ namespace CarpoolView {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(157, 204);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(85, 40);
 			this->button1->TabIndex = 0;
@@ -104,7 +104,7 @@ namespace CarpoolView {
 			// button2
 			// 
 			this->button2->Location = System::Drawing::Point(325, 204);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(82, 40);
 			this->button2->TabIndex = 1;
@@ -117,9 +117,9 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(64, 50);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox1->Size = System::Drawing::Size(459, 110);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
@@ -128,7 +128,7 @@ namespace CarpoolView {
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(192, 53);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->MaxLength = 9;
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(192, 20);
@@ -153,10 +153,11 @@ namespace CarpoolView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmRegistroConductor";
 			this->Text = L"Registro Conductor";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmRegistroConductor::frmRegistroConductor_FormClosing);
+			this->Load += gcnew System::EventHandler(this, &frmRegistroConductor::frmRegistroConductor_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
@@ -167,7 +168,11 @@ namespace CarpoolView {
 		this->Close();
 	}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
+	this->objConductor->NumeroDeLicencia = this->textBox1->Text;
+	this->Close();
+
+	/*
 	int datos_llenos;
 	
 	String^ Licencia = this->textBox1->Text;
@@ -206,10 +211,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else {
 		MessageBox::Show("Debe llenar todos los datos");
-	}
+	}*/
 }
 private: System::Void frmRegistroConductor_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	this->objGestorConductor->EscribirArchivo();
+	//this->objGestorConductor->EscribirArchivo();
+}
+private: System::Void frmRegistroConductor_Load(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }
