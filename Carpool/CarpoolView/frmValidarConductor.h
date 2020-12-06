@@ -256,10 +256,10 @@ namespace CarpoolView {
 			fila[0] = Convert::ToString(objConductor->CodigoDeUsuario);
 			fila[1] = objConductor->Nombre;
 			fila[2] = objConductor->NumeroDeLicencia;
-			fila[3] = objConductor->Disponibilidad;
-			fila[4] = Convert::ToString(objConductor->CalificacionConductor);
-			fila[5] = objConductor->Posicion;
-			fila[6] = objConductor->AsientosDisponibles;
+			fila[3] = Convert::ToString(objConductor->CalificacionConductor);
+			fila[4] = Convert::ToString(objConductor->AsientosDisponibles);
+			fila[5] = objConductor->objVehiculo->Placa;
+			fila[6] = objConductor->CuentaBancaria;
 			fila[7] = Convert::ToString(objConductor->valido);
 
 			this->dataGridView1->Rows->Add(fila);
@@ -278,10 +278,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			fila[0] = Convert::ToString(objConductor->CodigoDeUsuario);
 			fila[1] = objConductor->Nombre;
 			fila[2] = objConductor->NumeroDeLicencia;
-			fila[3] = objConductor->Disponibilidad;
-			fila[4] = Convert::ToString(objConductor->CalificacionConductor);
-			fila[5] = objConductor->Posicion;
-			fila[6] = objConductor->AsientosDisponibles;
+			fila[3] = Convert::ToString(objConductor->CalificacionConductor);
+			fila[4] = Convert::ToString(objConductor->AsientosDisponibles);
+			fila[5] = objConductor->objVehiculo->Placa;
+			fila[6] = objConductor->CuentaBancaria;
 			fila[7] = Convert::ToString(objConductor->valido);
 
 			this->dataGridView1->Rows->Add(fila);
@@ -301,10 +301,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 				fila[0] = Convert::ToString(objConductor->CodigoDeUsuario);
 				fila[1] = objConductor->Nombre;
 				fila[2] = objConductor->NumeroDeLicencia;
-				fila[3] = objConductor->Disponibilidad;
-				fila[4] = Convert::ToString(objConductor->CalificacionConductor);
-				fila[5] = objConductor->Posicion;
-				fila[6] = objConductor->AsientosDisponibles;
+				fila[3] = Convert::ToString(objConductor->CalificacionConductor);
+				fila[4] = Convert::ToString(objConductor->AsientosDisponibles);
+				fila[5] = objConductor->objVehiculo->Placa;
+				fila[6] = objConductor->CuentaBancaria;
 				fila[7] = Convert::ToString(objConductor->valido);
 
 				this->dataGridView1->Rows->Add(fila);
@@ -321,7 +321,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 	Conductor^ objConductor = objGestorConductor->ObtenerConductorxCodigo(codigoEditar);
 	this->objGestorConductor->EliminarConductorxCodigo(codigoEditar);
-	Conductor^ objConductorValidado = gcnew Conductor(objConductor->CodigoDeUsuario, objConductor->Nombre, objConductor->NumeroDeLicencia, objConductor->Disponibilidad, objConductor->CalificacionConductor, objConductor->Posicion, objConductor->AsientosDisponibles,1);
+	Conductor^ objConductorValidado = gcnew Conductor(objConductor->CodigoDeUsuario, objConductor->Nombre, objConductor->NumeroDeLicencia, objConductor->CalificacionConductor, objConductor->AsientosDisponibles, objConductor->objVehiculo,objConductor->CuentaBancaria,1);
 
 	this->objGestorConductor->AgregarALista(objConductorValidado);
 
@@ -332,10 +332,10 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		fila[0] = Convert::ToString(objConductor->CodigoDeUsuario);
 		fila[1] = objConductor->Nombre;
 		fila[2] = objConductor->NumeroDeLicencia;
-		fila[3] = objConductor->Disponibilidad;
-		fila[4] = Convert::ToString(objConductor->CalificacionConductor);
-		fila[5] = objConductor->Posicion;
-		fila[6] = objConductor->AsientosDisponibles;
+		fila[3] = Convert::ToString(objConductor->CalificacionConductor);
+		fila[4] = Convert::ToString(objConductor->AsientosDisponibles);
+		fila[5] = objConductor->objVehiculo->Placa;
+		fila[6] = objConductor->CuentaBancaria;
 		fila[7] = Convert::ToString(objConductor->valido);
 
 		this->dataGridView1->Rows->Add(fila);
@@ -353,7 +353,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	Conductor^ objConductor = objGestorConductor->ObtenerConductorxCodigo(codigoEditar);
 	this->objGestorConductor->EliminarConductorxCodigo(codigoEditar);
-	Conductor^ objConductorValidado = gcnew Conductor(objConductor->CodigoDeUsuario, objConductor->Nombre, objConductor->NumeroDeLicencia, objConductor->Disponibilidad, objConductor->CalificacionConductor, objConductor->Posicion, objConductor->AsientosDisponibles, 0);
+	Conductor^ objConductorValidado = gcnew Conductor(objConductor->CodigoDeUsuario, objConductor->Nombre, objConductor->NumeroDeLicencia, objConductor->CalificacionConductor, objConductor->AsientosDisponibles, objConductor->objVehiculo, objConductor->CuentaBancaria, 1);
 
 	this->objGestorConductor->AgregarALista(objConductorValidado);
 
@@ -364,15 +364,13 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		fila[0] = Convert::ToString(objConductor->CodigoDeUsuario);
 		fila[1] = objConductor->Nombre;
 		fila[2] = objConductor->NumeroDeLicencia;
-		fila[3] = objConductor->Disponibilidad;
-		fila[4] = Convert::ToString(objConductor->CalificacionConductor);
-		fila[5] = objConductor->Posicion;
-		fila[6] = objConductor->AsientosDisponibles;
+		fila[3] = Convert::ToString(objConductor->CalificacionConductor);
+		fila[4] = Convert::ToString(objConductor->AsientosDisponibles);
+		fila[5] = objConductor->objVehiculo->Placa;
+		fila[6] = objConductor->CuentaBancaria;
 		fila[7] = Convert::ToString(objConductor->valido);
 
 		this->dataGridView1->Rows->Add(fila);
-
-
 	}
 	MessageBox::Show("Conductor seleccionado fue denegado");
 }

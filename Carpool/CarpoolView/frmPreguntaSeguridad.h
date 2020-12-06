@@ -28,8 +28,25 @@ namespace CarpoolView {
 		frmPreguntaSeguridad(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario)
 		{
 			InitializeComponent();
+			this->registro_conductor = 0;
 			this->objUsuario = objUsuario;
 			this->objGestorUsuario = objGestorUsuario;
+			this->objGestorSeguridad = gcnew GestorSeguridad();
+
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+
+		frmPreguntaSeguridad(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario,Vehiculo^ objVehiculo, Conductor^ objConductor,GestorConductor^ objGestorConductor)
+		{
+			InitializeComponent();
+			this->registro_conductor = 1;
+			this->objUsuario = objUsuario;
+			this->objConductor = objConductor;
+			this->objVehiculo = objVehiculo;
+			this->objGestorUsuario = objGestorUsuario;
+			this->objGestorConductor = objGestorConductor;
 			this->objGestorSeguridad = gcnew GestorSeguridad();
 
 			//
@@ -59,8 +76,12 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ textBox9;
 	private: Usuario^ objUsuario;
+	private: Vehiculo^ objVehiculo;
+	private: Conductor^ objConductor;
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorSeguridad^ objGestorSeguridad;
+	private: GestorConductor^ objGestorConductor;
+	private: int registro_conductor;
 
 	private:
 		/// <summary>
@@ -216,21 +237,38 @@ namespace CarpoolView {
 
 		esta_lleno = this->objGestorSeguridad->SeguridadLlena(emisionDNI, Pregunta, Respuesta);
 		//es_valido = objGestorSeguridad->validarSeguridad(DniSeguro, emisionDNI,Respuesta);
+		if (this->registro_conductor == 0) {
+			if (esta_lleno) {
 
-		if (esta_lleno) {
-
-
+				
 				this->objGestorUsuario->AgregarUsuario(objUsuario);
 				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
-		
-		}
 
-		if (!esta_lleno) {
-			MessageBox::Show("Debe llenar todos los campos");
-		}
+			}
 
+			if (!esta_lleno) {
+				MessageBox::Show("Debe llenar todos los campos");
+			}
+		}
+		else if (this->registro_conductor==1){
+			if (esta_lleno) {
+
+
+				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
+				this->objGestorConductor->AgregarALista(objConductor);
+				
+				MessageBox::Show("El usuario ha sido agregado correctamente");
+				this->Close();
+
+			}
+
+			if (!esta_lleno) {
+				MessageBox::Show("Debe llenar todos los campos");
+			}
+		}
 
 		
 	}
@@ -240,6 +278,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	this->objGestorSeguridad->EscribirArchivo();
 	this->objGestorUsuario->EscribirArchivo();
+	if (this->registro_conductor == 1) {
+		this->objGestorConductor->EscribirArchivo();
+	}
 }
 };
 }

@@ -24,19 +24,18 @@ void GestorConductor::LeerConductoresDesdeArchivo() {
 		int UserID = Convert::ToInt32(palabras[0]);
 		String^ Nombre = palabras[1]; //TODO: buscar nombre usando en GestorUsuario (cambiar en Conductor.h)
 		String^ Licencia = palabras[2];
-		String^ Disponibilidad = palabras[3];
-		int Calificacion = Convert::ToInt32(palabras[4]);
-		String^ Posicion = palabras[5];
-		String^ AsientosDisponibles = palabras[6];
-		String^ PlacaDefault = palabras[7]; //TODO: puede ser int? //Victor dice: Naaa, dejalo así, el profe dijo si no le sumas o cositas asi no vale la pena.
-		int valido = Convert::ToInt32(palabras[8]);
+		int Calificacion = Convert::ToInt32(palabras[3]);
+		int AsientosDisponibles = Convert::ToInt32(palabras[4]);
+		String^ PlacaDefault = palabras[5]; //TODO: puede ser int? //Victor dice: Naaa, dejalo así, el profe dijo si no le sumas o cositas asi no vale la pena.
+		String^ CuentaBancaria = palabras[6];
+		int valido = Convert::ToInt32(palabras[7]);
 
 		//cargar vehiculo de la lista
 		GestorVehiculo^ objBuscadorVehiculo = gcnew GestorVehiculo();
 		objBuscadorVehiculo->LeerVehiculosDesdeArchivo();
 		Vehiculo^ ObjVehiculoDefault = objBuscadorVehiculo->ObtenerVehiculoPorPlaca(PlacaDefault);
 
-		Conductor^ objConductor = gcnew Conductor(UserID, Nombre, Licencia, Disponibilidad, Calificacion, Posicion, AsientosDisponibles, ObjVehiculoDefault, valido);
+		Conductor^ objConductor = gcnew Conductor(UserID, Nombre, Licencia,  Calificacion, AsientosDisponibles, ObjVehiculoDefault, CuentaBancaria,valido);
 		this->listaConductores->Add(objConductor);
 	}
 }
@@ -65,7 +64,7 @@ void GestorConductor::EscribirArchivo() {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaConductores->Count);
 	for (int i = 0; i < this->listaConductores->Count; i++) {
 		Conductor^ objConductor = this->listaConductores[i];
-		lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->Disponibilidad + ";" + objConductor->CalificacionConductor + ";" + objConductor->Posicion + ";" + objConductor->AsientosDisponibles + ";" + objConductor->objVehiculo->Placa + ";" + objConductor->valido);
+		lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->CalificacionConductor + ";" + objConductor->AsientosDisponibles + ";" + objConductor->objVehiculo->Placa + ";" + objConductor->CuentaBancaria + ";" + objConductor->valido);
 	}
 	File::WriteAllLines("Conductores.txt", lineasArchivo); //ARREGLADO
 }
