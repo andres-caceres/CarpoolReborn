@@ -1,2 +1,4 @@
-Alfa Romeo;2;2;ANA - Anaranjado;Coupé;6;2;22;22;3;2
-Bentley;12345;1236;ANA - Anaranjado;Sedan;5;12361236;1235;1236;3;2
+Alfa Romeo;2;2;ANA - Anaranjado;Coupé;6;2;22;22;3;1
+Bentley;12345;1236;ANA - Anaranjado;Sedan;8;12361236;1235;1236;3;1
+BMW;WIII;ABCD;CRE - Crema;Hatchback;5;SHO;SOATT;REVISION;3;1
+Honda;CIvic;AMG234;FUC - Fucsia;Hatchback;2;Andres;12345456;1342613463;3;1

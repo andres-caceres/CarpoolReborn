@@ -221,6 +221,7 @@ namespace CarpoolView {
 		for (int i = 0; i < objGestorVehiculo->ObtenerCantidadVehiculos(); i++) {
 			Vehiculo^ objVehiculo = objGestorVehiculo->ObtenerVehiculoDeLista(i);
 			if (this->objConductor->CodigoDeUsuario == objVehiculo->IDConductor) { //Filtro de vehiculos de este conductor
+
 				array<String^>^ fila = gcnew array<String^>(5);
 				fila[0] = objVehiculo->Marca;
 				fila[1] = objVehiculo->Modelo;
@@ -232,7 +233,8 @@ namespace CarpoolView {
 				//fila[6] = objVehiculo->Propietario;
 				//fila[7] = objVehiculo->SOAT;
 				//fila[8] = objVehiculo->RevTec;
-				this->dataGridView1->Rows->Add(fila);
+				if(objVehiculo->valido!=0){this->dataGridView1->Rows->Add(fila);} //validación de vehiculo
+				
 			}
 		}
 	}
@@ -243,7 +245,7 @@ namespace CarpoolView {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ placa = this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString();
 	this->objGestorVehiculo->EliminarVehiculo(placa);
-	MessageBox::Show("El vehiculo ha sido eliminado correctamente");
+	MessageBox::Show("El vehiculo ha sido eliminado correctamente","Vehiculo Eliminado");
 	LoadGrid();
 }
 private: System::Void buttonNuevo_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -259,8 +261,15 @@ private: System::Void buttonSelec_Click(System::Object^ sender, System::EventArg
 	//devolver vehiculo seleccionado
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ placa = this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString();
-	this->objConductor->objVehiculo = this->objGestorVehiculo->ObtenerVehiculoPorPlaca(placa);
-	this->Close();
+
+	if (this->objGestorVehiculo->ObtenerVehiculoPorPlaca(placa)->valido == 1) {
+		this->objConductor->objVehiculo = this->objGestorVehiculo->ObtenerVehiculoPorPlaca(placa);
+		this->Close();
+	}
+	else
+	{
+		MessageBox::Show("El vehiculo seleccionado se encuentra en proceso de validación, se le notificará cuando esté listo para su uso", "Vehiculo No Disponible");
+	}	
 }
 private: System::Void frmMisVehiculos_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 

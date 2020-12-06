@@ -26,7 +26,7 @@ void GestorConductor::LeerConductoresDesdeArchivo() {
 		String^ Licencia = palabras[2];
 		int Calificacion = Convert::ToInt32(palabras[3]);
 		int AsientosDisponibles = Convert::ToInt32(palabras[4]);
-		String^ PlacaDefault = palabras[5]; //TODO: puede ser int? //Victor dice: Naaa, dejalo así, el profe dijo si no le sumas o cositas asi no vale la pena.
+		String^ PlacaDefault = palabras[5]; 
 		String^ CuentaBancaria = palabras[6];
 		int valido = Convert::ToInt32(palabras[7]);
 
