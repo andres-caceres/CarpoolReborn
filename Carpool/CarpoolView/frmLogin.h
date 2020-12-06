@@ -25,6 +25,7 @@ namespace CarpoolView {
 			InitializeComponent();
 			this->objGestorUsuario = gcnew GestorUsuario();
 			this->objGestorRuta = gcnew GestorRuta();
+			this->objGestorConductor = gcnew GestorConductor();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -53,6 +54,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button2;
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorRuta^ objGestorRuta;
+	private: GestorConductor^ objGestorConductor;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::LinkLabel^ linkLabel1;
 
@@ -252,7 +254,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		es_conductor = this->objGestorUsuario->VerificarConductor(userName);
 
 		Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
-
+		Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
 
 		if (es_admin) {
 			frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
@@ -264,11 +266,19 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			ventanaPasajero->Show();
 			this->Hide();
 		}
-		if (es_conductor) {//PASAR UN OBJETO USUARIO
+		if (es_conductor) {
 
-			frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
-			ventanaConductor->Show();
-			this->Hide();
+			if (objConductorLogeado->valido == 1) {
+				frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
+				ventanaConductor->Show();
+				this->Hide();
+			}
+			else if (objConductorLogeado->valido == 2) {
+				MessageBox::Show("Su solicitud está en proceso");
+			}
+			else if (objConductorLogeado->valido == 0) {
+				MessageBox::Show("Su solicitud ha sido rechazada");
+			}
 		}
 	}
 	else {
