@@ -91,12 +91,22 @@ void GestorCoordenadas::leerListaDeListasDeCoordenadasFromTxt() {
 
 	}
 
-
-
-
-
-
 }
+
+ListaCoordenadas^ GestorCoordenadas::obtenerListaCoordenadasConCodigo(int codigoViaje) {
+
+	ListaCoordenadas^ objListaCoordenadasProvisional = gcnew ListaCoordenadas();
+
+	for (int i = 0; i < this->listaListasCoordenadas->Count; i++) {
+		
+		if (listaListasCoordenadas[i]->CodigoViaje == codigoViaje) {
+			objListaCoordenadasProvisional=	listaListasCoordenadas[i];
+			break;
+		}
+	}
+	return objListaCoordenadasProvisional;
+}
+
 
 
 

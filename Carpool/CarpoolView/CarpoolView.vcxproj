@@ -145,6 +145,7 @@
     <ClCompile Include="frmEditarContacto.cpp" />
     <ClCompile Include="frmElegirMetodoPago.cpp" />
     <ClCompile Include="frmElegirModo.cpp" />
+    <ClCompile Include="frmEscogerViaje.cpp" />
     <ClCompile Include="frmLogin.cpp" />
     <ClCompile Include="frmMantViajes.cpp" />
     <ClCompile Include="frmMisVehiculos.cpp" />
@@ -209,6 +210,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmElegirModo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmEscogerViaje.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmLogin.h">
@@ -317,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmElegirModo.resx">
       <DependentUpon>frmElegirModo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEscogerViaje.resx">
+      <DependentUpon>frmEscogerViaje.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>

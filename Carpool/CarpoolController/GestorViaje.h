@@ -14,6 +14,7 @@ namespace CarpoolController {
 	public:
 		GestorViaje();
 		void LeerViajesDesdeArchivo();
+		void LeerViajesDesdeArchivo(Conductor^ objConductor); //The real G
 		Viaje^ ObtenerViajeoxCodigo(int codigo);
 		void AgregarViaje(Viaje^ objViaje);
 		void EliminarViaje(int codigoEliminar);
