@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="frmAdministrador.cpp" />
     <ClCompile Include="frmAgregaPasajeros.cpp" />
+    <ClCompile Include="frmAgregarPaypal.cpp" />
     <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmBuscarUsuario.cpp" />
     <ClCompile Include="frmCambiarPassword.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="frmEditarContacto.cpp" />
     <ClCompile Include="frmElegirMetodoPago.cpp" />
     <ClCompile Include="frmElegirModo.cpp" />
+    <ClCompile Include="frmEscogerViaje.cpp" />
     <ClCompile Include="frmLogin.cpp" />
     <ClCompile Include="frmMantViajes.cpp" />
     <ClCompile Include="frmMisVehiculos.cpp" />
@@ -152,6 +154,7 @@
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmNuevoViaje.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
+    <ClCompile Include="frmPaypal.cpp" />
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmRegistroConductor.cpp" />
@@ -171,6 +174,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmAgregaPasajeros.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmAgregarPaypal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmAgregarVehiculo.h">
@@ -206,6 +212,9 @@
     <ClInclude Include="frmElegirModo.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmEscogerViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmLogin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -228,6 +237,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPasajero.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPaypal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPreguntaSeguridad.h">
@@ -274,6 +286,9 @@
     <EmbeddedResource Include="frmAgregaPasajeros.resx">
       <DependentUpon>frmAgregaPasajeros.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarPaypal.resx">
+      <DependentUpon>frmAgregarPaypal.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.h</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +322,9 @@
     <EmbeddedResource Include="frmElegirModo.resx">
       <DependentUpon>frmElegirModo.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEscogerViaje.resx">
+      <DependentUpon>frmEscogerViaje.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPasajero.resx">
       <DependentUpon>frmPasajero.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaypal.resx">
+      <DependentUpon>frmPaypal.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPreguntaSeguridad.resx">
       <DependentUpon>frmPreguntaSeguridad.h</DependentUpon>

@@ -407,7 +407,6 @@ namespace CarpoolView {
 
 		int CodigoDeUsuario=this->objGestorUsuario->DarValorAlCodigoDelUsuario();
 
-
 		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
 		es_valido = objGestorUsuario->UsuarioRepetido(userName);
 		mismos_datos = objGestorUsuario->MismosDatos(dni, correo, nombres, apellidoPaterno, apellidoMaterno);
@@ -416,7 +415,7 @@ namespace CarpoolView {
 
 		this->objUsuario = objUsuario;
 
-		if (objUsuario->tipoUsuario == 2) {
+		if ((objUsuario->tipoUsuario == 2)&& (dni->Length==8)) {
 			if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
 				frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
 				ventanaSeguridad->Show();
@@ -432,7 +431,6 @@ namespace CarpoolView {
 			if (es_valido && esta_completo && (!mismos_datos) && esta_completo) {	//Primera vez registro
 				frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
 				ventanaPreguntaSeguridad->Show();
-
 				//this->objGestorUsuario->AgregarUsuario(objUsuario);		IMPORTANTE
 				//MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
@@ -442,6 +440,10 @@ namespace CarpoolView {
 			frmRegistroConductor^ ventanaRegistroConductor = gcnew frmRegistroConductor(this->objUsuario, this->objGestorUsuario);
 			ventanaRegistroConductor->Show();
 			this->Close();
+		}
+
+		if (dni->Length != 8) {
+			MessageBox::Show("Dni debe tener 8 dígitos");
 		}
 
 		if (!es_valido) {

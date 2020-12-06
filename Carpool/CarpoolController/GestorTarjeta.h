@@ -21,5 +21,6 @@ namespace CarpoolController {
 		Tarjeta^ ObtenerTarjetaLista(int indice);
 		int ObtenerCantidadTarjetas();
 		void EliminarTarjetaXcodigo(String^ NroTarjeta, int codigoPropietario);
+		int MismaTarjeta(String^ NroTarjeta, int codigoPropietario, String^ TipoTarjeta);
 	};
 }

@@ -1,9 +1,0 @@
-70437078;01/11/2020;Ciudad en la que nació;Lima
-12345678;01/11/2020;Ciudad en la que nació;Arequipa
-70437078;01/11/2020;Ciudad en la que nació;Lima
-70437078;01/11/2020;Ciudad en la que nació;Lima
-12345678;01/11/2020;Ciudad en la que nació;Arequipa
-78945612;01/11/2020;Ciudad en la que nació;Lima
-78978978;01/11/2020;Ciudad en la que nació;Lima
-12316516;01/11/2020;Ciudad en la que nació;Lima
-65498712;01/12/2020;Ciudad en la que nació;Lima

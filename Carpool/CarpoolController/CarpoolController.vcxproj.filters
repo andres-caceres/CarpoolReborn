@@ -51,6 +51,9 @@
     <ClInclude Include="GestorCoordenadas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="GestorPaypal.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GestorUsuario.cpp">
@@ -87,6 +90,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="GestorCoordenadas.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorPaypal.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

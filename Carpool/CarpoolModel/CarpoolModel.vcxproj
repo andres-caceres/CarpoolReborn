@@ -119,8 +119,10 @@
     <ClInclude Include="DatosMapa.h" />
     <ClInclude Include="Figura.h" />
     <ClInclude Include="Horarios.h" />
+    <ClInclude Include="ListaCoordenadas.h" />
     <ClInclude Include="MetodoTransferencia.h" />
     <ClInclude Include="Pasajero.h" />
+    <ClInclude Include="Paypal.h" />
     <ClInclude Include="ReporteUsuarios.h" />
     <ClInclude Include="Ruta.h" />
     <ClInclude Include="Seguridad.h" />
@@ -138,8 +140,10 @@
     <ClCompile Include="DatosMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="Horarios.cpp" />
+    <ClCompile Include="ListaCoordenadas.cpp" />
     <ClCompile Include="MetodoTransferencia.cpp" />
     <ClCompile Include="Pasajero.cpp" />
+    <ClCompile Include="Paypal.cpp" />
     <ClCompile Include="ReporteUsuarios.cpp" />
     <ClCompile Include="Ruta.cpp" />
     <ClCompile Include="Seguridad.cpp" />

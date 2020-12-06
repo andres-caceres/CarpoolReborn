@@ -157,7 +157,7 @@ namespace CarpoolView {
 
 			array<String^>^ fila = gcnew array<String^>(4);
 
-			fila[0] = Convert::ToString(objRuta->CodigoRuta);
+			fila[0] = Convert::ToString(objRuta->CodigoViaje);
 			fila[1] = objRuta->Origen;
 			fila[2] = objRuta->Destino;
 			fila[3] = objRuta->Favoritos;

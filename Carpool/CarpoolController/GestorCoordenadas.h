@@ -8,19 +8,23 @@ namespace CarpoolController {
 	public ref class GestorCoordenadas {
 
 	private:
-		List<Coordenadas^>^ listaCoordenadas;
 
-		List<List<Coordenadas^>^>^ listaListasCoordenadas;
+		ListaCoordenadas^ listaCoordenadas;
+
+		List<ListaCoordenadas^>^ listaListasCoordenadas;
 
 
 	public:
 		GestorCoordenadas();
 		void AgregarParDeCoordenadasAListaCoordenadas(int coordenadaX, int CoordenadaY);
-		void AgregarListaCoordenadasAListaDeListasCoordenadas(List<Coordenadas^>^ listaCoordenadas);
-		List<Coordenadas^>^ GiveMeListaCoordenadas();
+		void AgregarListaCoordenadasAListaDeListasCoordenadas(ListaCoordenadas^ listaCoordenadas);
+		ListaCoordenadas^ GiveMeListaCoordenadas();
 		//void ConvertirListaCoordenadasEnString(List<Coordenadas^>^ listaGenericaCoordenadas, String^ CadenaDeTexto);
 		void saveCoordinatesListAndTripCodeInTxt(int tripCode);
-		//void readCoordinatesListFromTxt();
+		void leerListaDeListasDeCoordenadasFromTxt();
+		ListaCoordenadas^ obtenerListaCoordenadasConCodigo(int codigoViaje);
+		//void obtenerFiguraAPartirDeCoordenadasConCodigo(int codigoViaje);
+
 
 
 	};

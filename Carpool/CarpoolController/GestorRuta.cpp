@@ -43,7 +43,7 @@ Ruta^ GestorRuta::ObtenerRutasLista(int indice) {
 Ruta^ GestorRuta::ObtenerRutaxCodigo(int codigo) {
 	Ruta^ objRutaBuscada = nullptr;
 	for (int i = 0; i < this->listaRutas->Count; i++) {
-		if (this->listaRutas[i]->CodigoRuta == codigo) {
+		if (this->listaRutas[i]->CodigoViaje == codigo) {
 			objRutaBuscada = this->listaRutas[i];
 			break;
 		}

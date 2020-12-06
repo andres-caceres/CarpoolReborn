@@ -27,7 +27,7 @@ namespace CarpoolModel {
 
 	public:
 		Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ Fecha, String^ Estado, int NumeroPasajeros,
-			int AsientosDisponibles, String^ Tarifa, Ruta^ objRuta, Conductor^ objConductor);
+		int AsientosDisponibles, String^ Tarifa, Ruta^ objRuta, Conductor^ objConductor);	
 
 	};
 }
