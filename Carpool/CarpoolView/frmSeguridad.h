@@ -28,8 +28,25 @@ namespace CarpoolView {
 		frmSeguridad(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario)
 		{
 			InitializeComponent();
+			this->registro_conductor = 0;
 			this->objUsuario = objUsuario;
 			this->objGestorUsuario = objGestorUsuario;
+			this->objGestorSeguridad = gcnew GestorSeguridad();
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+
+		frmSeguridad(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario, Vehiculo^ objVehiculo, Conductor^ objConductor, GestorConductor^ objGestorConductor, GestorVehiculo^ objGestorVehiculo)
+		{
+			InitializeComponent();
+			this->registro_conductor = 1;
+			this->objUsuario = objUsuario;
+			this->objConductor = objConductor;
+			this->objVehiculo = objVehiculo;
+			this->objGestorUsuario = objGestorUsuario;
+			this->objGestorConductor = objGestorConductor;
+			this->objGestorVehiculo = objGestorVehiculo;
 			this->objGestorSeguridad = gcnew GestorSeguridad();
 			//
 			//TODO: agregar código de constructor aquí
@@ -60,6 +77,11 @@ namespace CarpoolView {
 	private: Usuario^ objUsuario;
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorSeguridad^ objGestorSeguridad;
+	private: Vehiculo^ objVehiculo;
+	private: Conductor^ objConductor;
+	private: GestorConductor^ objGestorConductor;
+	private: GestorVehiculo^ objGestorVehiculo;
+	private: int registro_conductor;
 
 	private:
 		/// <summary>
@@ -219,19 +241,29 @@ namespace CarpoolView {
 		es_valido = this->objGestorSeguridad->validarSeguridad(DniSeguro, emisionDNI, Respuesta);
 
 		/*SI COINCIDE SE AGREGA*/
-		if (es_valido) {
-
-
+		if (this->registro_conductor == 0) {
+			if (es_valido) {
 				this->objGestorUsuario->AgregarUsuario(objUsuario);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
-			
-			
+			}
+			else if (!es_valido) {
+				MessageBox::Show("Incorrecto");
+			}
+		}
+		if (this->registro_conductor == 1) {
+			if (es_valido) {
+				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorConductor->AgregarALista(objConductor);
+				this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
+				MessageBox::Show("El usuario ha sido agregado correctamente");
+				this->Close();
+			}
+			else if (!es_valido) {
+				MessageBox::Show("Incorrecto");
+			}
 		}
 
-		if (!es_valido) {
-			MessageBox::Show("Incorrecto");
-		}
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
@@ -247,9 +279,14 @@ private: System::Void frmSeguridad_Load(System::Object^ sender, System::EventArg
 	/*Si esta esto esta bien*/
 }
 private: System::Void frmSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad(); 
+	//GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad(); 
 
 	this->objGestorUsuario->EscribirArchivo();
+	if (this->registro_conductor == 1) {
+		this->objGestorConductor->EscribirArchivo();
+		this->objGestorVehiculo->EscribirArchivo();
+	}
+
 }
 private: System::Void groupBox3_Enter(System::Object^ sender, System::EventArgs^ e) {
 }

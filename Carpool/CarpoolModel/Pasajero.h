@@ -14,13 +14,11 @@ namespace CarpoolModel {
 	public:
 		int CodigoDeUsuario;		
 		int Calificacion;
-		String^ Posicion;
-		
 
 		/*Métodos*/
 	public:
 		/*Método Constructor*/
 		Pasajero();
-		Pasajero(int UserID, int Calificacion, String^ Posicion);
+		Pasajero(int UserID, int Calificacion);
 	};
 }

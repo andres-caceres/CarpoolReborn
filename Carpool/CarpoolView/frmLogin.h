@@ -254,7 +254,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		es_conductor = this->objGestorUsuario->VerificarConductor(userName);
 
 		Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
-		Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
+		
 
 		if (es_admin) {
 			frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
@@ -267,7 +267,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->Hide();
 		}
 		if (es_conductor) {
-
+			this->objGestorConductor->LeerConductoresDesdeArchivo();
+			Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
 			if (objConductorLogeado->valido == 1) {
 				frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
 				ventanaConductor->Show();
@@ -332,11 +333,20 @@ private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows:
 				ventanaPasajero->Show();
 				this->Hide();
 			}
-			if (es_conductor) {//PASAR UN OBJETO USUARIO
-
-				frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
-				ventanaConductor->Show();
-				this->Hide();
+			if (es_conductor) {
+				this->objGestorConductor->LeerConductoresDesdeArchivo();
+				Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
+				if (objConductorLogeado->valido == 1) {
+					frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
+					ventanaConductor->Show();
+					this->Hide();
+				}
+				else if (objConductorLogeado->valido == 2) {
+					MessageBox::Show("Su solicitud está en proceso");
+				}
+				else if (objConductorLogeado->valido == 0) {
+					MessageBox::Show("Su solicitud ha sido rechazada");
+				}
 			}
 		}
 		else {

@@ -38,6 +38,7 @@ namespace CarpoolView {
 			this->objUsuario = objUsuario;
 			this->objGestorUsuario = objGestorUsuario;
 			this->objGestorConductor = gcnew GestorConductor();
+			this->objGestorVehiculo = gcnew GestorVehiculo();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -61,6 +62,7 @@ namespace CarpoolView {
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorConductor^ objGestorConductor;
 	private: Conductor^ objConductor;
+	private: GestorVehiculo^ objGestorVehiculo;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 
 
@@ -515,7 +517,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		}
 
 		if (es_valido && esta_completo && (!mismos_datos) && esta_completo) {	//Primera vez registro
-			frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
+			frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario, objVehiculo, objConductor, this->objGestorConductor, this->objGestorVehiculo);
 			ventanaPreguntaSeguridad->Show();
 
 			//this->objGestorUsuario->AgregarUsuario(objUsuario);		IMPORTANTE

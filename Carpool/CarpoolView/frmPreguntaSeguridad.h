@@ -38,7 +38,7 @@ namespace CarpoolView {
 			//
 		}
 
-		frmPreguntaSeguridad(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario,Vehiculo^ objVehiculo, Conductor^ objConductor,GestorConductor^ objGestorConductor)
+		frmPreguntaSeguridad(Usuario^ objUsuario, GestorUsuario^ objGestorUsuario,Vehiculo^ objVehiculo, Conductor^ objConductor,GestorConductor^ objGestorConductor,GestorVehiculo^ objGestorVehiculo)
 		{
 			InitializeComponent();
 			this->registro_conductor = 1;
@@ -47,6 +47,7 @@ namespace CarpoolView {
 			this->objVehiculo = objVehiculo;
 			this->objGestorUsuario = objGestorUsuario;
 			this->objGestorConductor = objGestorConductor;
+			this->objGestorVehiculo = objGestorVehiculo;
 			this->objGestorSeguridad = gcnew GestorSeguridad();
 
 			//
@@ -81,6 +82,7 @@ namespace CarpoolView {
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorSeguridad^ objGestorSeguridad;
 	private: GestorConductor^ objGestorConductor;
+	private: GestorVehiculo^ objGestorVehiculo;
 	private: int registro_conductor;
 
 	private:
@@ -259,7 +261,7 @@ namespace CarpoolView {
 				this->objGestorUsuario->AgregarUsuario(objUsuario);
 				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
 				this->objGestorConductor->AgregarALista(objConductor);
-				
+				this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
 
@@ -280,6 +282,7 @@ private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, S
 	this->objGestorUsuario->EscribirArchivo();
 	if (this->registro_conductor == 1) {
 		this->objGestorConductor->EscribirArchivo();
+		this->objGestorVehiculo->EscribirArchivo();
 	}
 }
 };

@@ -1,0 +1,3 @@
+70437078;01/11/2020;Ciudad en la que nació;Lima
+12345678;01/12/2020;Ciudad en la que nació;Lima
+45678912;01/12/2020;Ciudad en la que nació;Lima
