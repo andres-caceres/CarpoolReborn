@@ -61,12 +61,16 @@ void GestorConductor::AgregarALista(Conductor^ objConductor) {
 }
 
 void GestorConductor::EscribirArchivo() {
-	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaConductores->Count);
-	for (int i = 0; i < this->listaConductores->Count; i++) {
-		Conductor^ objConductor = this->listaConductores[i];
-		lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->CalificacionConductor + ";" + objConductor->AsientosDisponibles + ";" + objConductor->objVehiculo->Placa + ";" + objConductor->CuentaBancaria + ";" + objConductor->valido);
-	}
-	File::WriteAllLines("Conductores.txt", lineasArchivo); //ARREGLADO
+
+		array<String^>^ lineasArchivo = gcnew array<String^>(this->listaConductores->Count);
+		for (int i = 0; i < this->listaConductores->Count; i++) {
+			Conductor^ objConductor = this->listaConductores[i];
+
+				lineasArchivo[i] = (objConductor->CodigoDeUsuario + ";" + objConductor->Nombre + ";" + objConductor->NumeroDeLicencia + ";" + objConductor->CalificacionConductor + ";" + objConductor->AsientosDisponibles + ";" + objConductor->objVehiculo->Placa + ";" + objConductor->CuentaBancaria + ";" + objConductor->valido);
+			
+		}
+		File::WriteAllLines("Conductores.txt", lineasArchivo); //ARREGLADO
+
 }
 
 Conductor^ GestorConductor::ObtenerConductorLista(int indice) {

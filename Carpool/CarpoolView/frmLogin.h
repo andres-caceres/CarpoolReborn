@@ -26,6 +26,7 @@ namespace CarpoolView {
 			this->objGestorUsuario = gcnew GestorUsuario();
 			this->objGestorRuta = gcnew GestorRuta();
 			this->objGestorConductor = gcnew GestorConductor();
+			this->objGestorVehiculo = gcnew GestorVehiculo();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -55,6 +56,7 @@ namespace CarpoolView {
 	private: GestorUsuario^ objGestorUsuario;
 	private: GestorRuta^ objGestorRuta;
 	private: GestorConductor^ objGestorConductor;
+	private: GestorVehiculo^ objGestorVehiculo;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::LinkLabel^ linkLabel1;
 
@@ -269,7 +271,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		if (es_conductor) {
 			this->objGestorConductor->LeerConductoresDesdeArchivo();
 			Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
-			if (objConductorLogeado->valido == 1) {
+			Vehiculo^ objVehiculoInicial = objConductorLogeado->objVehiculo;
+
+			if ((objConductorLogeado->valido == 1) && (objVehiculoInicial->valido==1)) {
 				frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
 				ventanaConductor->Show();
 				this->Hide();
@@ -279,6 +283,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			}
 			else if (objConductorLogeado->valido == 0) {
 				MessageBox::Show("Su solicitud ha sido rechazada");
+			}
+			else if (objVehiculoInicial->valido == 0) {
+				MessageBox::Show("Su vehiculo ha sido rechazado");
+			}
+			else if (objVehiculoInicial->valido == 2) {
+				MessageBox::Show("Su vehiculo se encuentra en proceso de validacion");
 			}
 		}
 	}
@@ -336,7 +346,9 @@ private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows:
 			if (es_conductor) {
 				this->objGestorConductor->LeerConductoresDesdeArchivo();
 				Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
-				if (objConductorLogeado->valido == 1) {
+				Vehiculo^ objVehiculoInicial = objConductorLogeado->objVehiculo;
+
+				if ((objConductorLogeado->valido == 1) && (objVehiculoInicial->valido == 1)) {
 					frmConductor^ ventanaConductor = gcnew frmConductor(objUsuarioLogeado);
 					ventanaConductor->Show();
 					this->Hide();
@@ -346,6 +358,12 @@ private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows:
 				}
 				else if (objConductorLogeado->valido == 0) {
 					MessageBox::Show("Su solicitud ha sido rechazada");
+				}
+				else if (objVehiculoInicial->valido == 0) {
+					MessageBox::Show("Su vehiculo ha sido rechazado");
+				}
+				else if (objVehiculoInicial->valido == 2) {
+					MessageBox::Show("Su vehiculo se encuentra en proceso de validacion");
 				}
 			}
 		}

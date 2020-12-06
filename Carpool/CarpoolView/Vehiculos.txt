@@ -1,1 +1,1 @@
-Alfa Romeo;4x4;PLACA1;AMA - Amarillo;Coupé;4;Andres Caceres;123123111;651611616;2;2
+Alfa Romeo;4x4;2131312313;AMA - Amarillo;Coupé;4;Andres Caceres;1213165165115656;116516516651651;1;1
