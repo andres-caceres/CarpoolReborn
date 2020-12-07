@@ -92,11 +92,11 @@ namespace CarpoolView {
 			this->misDatosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->datosPersonalesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->datosConductorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cuentaBancariaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->misVehículosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->definirViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->crearViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viajesFavoritosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cuentaBancariaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -113,6 +113,7 @@ namespace CarpoolView {
 			this->menuStrip1->Size = System::Drawing::Size(779, 24);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &frmConductor::menuStrip1_ItemClicked);
 			// 
 			// misDatosToolStripMenuItem
 			// 
@@ -127,16 +128,23 @@ namespace CarpoolView {
 			// datosPersonalesToolStripMenuItem
 			// 
 			this->datosPersonalesToolStripMenuItem->Name = L"datosPersonalesToolStripMenuItem";
-			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(163, 22);
 			this->datosPersonalesToolStripMenuItem->Text = L"Datos personales";
 			this->datosPersonalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::datosPersonalesToolStripMenuItem_Click);
 			// 
 			// datosConductorToolStripMenuItem
 			// 
 			this->datosConductorToolStripMenuItem->Name = L"datosConductorToolStripMenuItem";
-			this->datosConductorToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->datosConductorToolStripMenuItem->Size = System::Drawing::Size(163, 22);
 			this->datosConductorToolStripMenuItem->Text = L"Datos conductor";
 			this->datosConductorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::datosConductorToolStripMenuItem_Click);
+			// 
+			// cuentaBancariaToolStripMenuItem
+			// 
+			this->cuentaBancariaToolStripMenuItem->Name = L"cuentaBancariaToolStripMenuItem";
+			this->cuentaBancariaToolStripMenuItem->Size = System::Drawing::Size(163, 22);
+			this->cuentaBancariaToolStripMenuItem->Text = L"Cuenta bancaria";
+			this->cuentaBancariaToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::cuentaBancariaToolStripMenuItem_Click);
 			// 
 			// misVehículosToolStripMenuItem
 			// 
@@ -159,22 +167,15 @@ namespace CarpoolView {
 			// crearViajeToolStripMenuItem
 			// 
 			this->crearViajeToolStripMenuItem->Name = L"crearViajeToolStripMenuItem";
-			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(153, 22);
+			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->crearViajeToolStripMenuItem->Text = L"Crear viaje";
 			this->crearViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::crearViajeToolStripMenuItem_Click);
 			// 
 			// viajesFavoritosToolStripMenuItem
 			// 
 			this->viajesFavoritosToolStripMenuItem->Name = L"viajesFavoritosToolStripMenuItem";
-			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(153, 22);
+			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->viajesFavoritosToolStripMenuItem->Text = L"Viajes favoritos";
-			// 
-			// cuentaBancariaToolStripMenuItem
-			// 
-			this->cuentaBancariaToolStripMenuItem->Name = L"cuentaBancariaToolStripMenuItem";
-			this->cuentaBancariaToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->cuentaBancariaToolStripMenuItem->Text = L"Cuenta bancaria";
-			this->cuentaBancariaToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::cuentaBancariaToolStripMenuItem_Click);
 			// 
 			// frmConductor
 			// 
@@ -219,7 +220,7 @@ private: System::Void datosConductorToolStripMenuItem_Click(System::Object^ send
 	ventanaDatosConductor->Show();
 }
 private: System::Void crearViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes(this->objUsuario);
+	frmMantViajes^ ventanaMantViaje = gcnew frmMantViajes(this->objConductor);
 	ventanaMantViaje->MdiParent = this;
 	ventanaMantViaje->Show();
 }
@@ -231,6 +232,8 @@ private: System::Void frmConductor_Load(System::Object^ sender, System::EventArg
 }
 private: System::Void cuentaBancariaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	//frmCuentaBancaria^ ventanaCuentaBancaria = gcnew frmCuentaBancaria(this-objConductor);
+}
+private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
 }
 };
 }
