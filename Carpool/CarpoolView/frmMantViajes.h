@@ -207,7 +207,7 @@ namespace CarpoolView {
 			this->groupBox1->Size = System::Drawing::Size(505, 190);
 			this->groupBox1->TabIndex = 16;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Viajes";
+			this->groupBox1->Text = L"Mis viajes:";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &frmMantViajes::groupBox1_Enter);
 			// 
 			// dataGridView1
@@ -276,7 +276,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmMantViajes_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->objGestorViaje->LeerViajesDesdeArchivo(objConductor);
+		this->objGestorViaje->LeerViajesDelConductorDesdeArchivo(objConductor);
 		//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 		List<Viaje^>^ listaViajes = this->objGestorViaje->DevolverAllViajes();
 		//Metodo en GestorViaje -> DevolverViajesUsuarioLoqueado
@@ -300,8 +300,10 @@ namespace CarpoolView {
 
 	private: void MostrarGrilla() {
 	this->dataGridView1->Rows->Clear();
+	this->objGestorViaje->LeerViajesDelConductorDesdeArchivo(objConductor);
 	for (int i = 0; i < this->objGestorViaje->ObtenerCantidadViajes(); i++) {
-		Viaje^ objViaje = this->objGestorViaje->ObtenerViajeLista(i);
+		Viaje^ objViaje = gcnew Viaje();
+		objViaje =this->objGestorViaje->ObtenerViajeLista(i);
 		array<String^>^ fila = gcnew array<String^>(4);
 		fila[0] = Convert::ToString(objViaje->codigoViaje);
 		fila[1] = objViaje->HoraSalida;
@@ -313,7 +315,8 @@ namespace CarpoolView {
 
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objGestorViaje, this->objConductor);
+	//Nuevo viaje
+	frmNuevoViaje^ ventanaNuevoViaje = gcnew frmNuevoViaje(this->objConductor);
 	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	ventanaNuevoViaje->ShowDialog();
 	MostrarGrilla();
@@ -336,7 +339,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmMantViajes_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 
-	this->objGestorViaje->EscribirArchivo();
+	//this->objGestorViaje->EscribirArchivo();
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 }

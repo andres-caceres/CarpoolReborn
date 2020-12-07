@@ -148,15 +148,15 @@ namespace CarpoolView {
 			});
 			this->definirViajeToolStripMenuItem->ForeColor = System::Drawing::Color::Blue;
 			this->definirViajeToolStripMenuItem->Name = L"definirViajeToolStripMenuItem";
-			this->definirViajeToolStripMenuItem->Size = System::Drawing::Size(81, 20);
-			this->definirViajeToolStripMenuItem->Text = L"Definir viaje";
+			this->definirViajeToolStripMenuItem->Size = System::Drawing::Size(70, 20);
+			this->definirViajeToolStripMenuItem->Text = L"Mis viajes";
 			this->definirViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::definirViajeToolStripMenuItem_Click);
 			// 
 			// crearViajeToolStripMenuItem
 			// 
 			this->crearViajeToolStripMenuItem->Name = L"crearViajeToolStripMenuItem";
 			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->crearViajeToolStripMenuItem->Text = L"Crear viaje";
+			this->crearViajeToolStripMenuItem->Text = L"Mis viajes";
 			this->crearViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::crearViajeToolStripMenuItem_Click);
 			// 
 			// viajesFavoritosToolStripMenuItem

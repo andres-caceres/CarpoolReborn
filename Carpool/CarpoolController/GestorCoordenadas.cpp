@@ -1,4 +1,5 @@
 #include "GestorCoordenadas.h"
+#include "GestorViaje.h"
 
 using namespace CarpoolController;
 //using namespace CarpoolModel;
@@ -45,6 +46,12 @@ void GestorCoordenadas::saveCoordinatesListAndTripCodeInTxt(int tripCode) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaListasCoordenadas->Count);
 	String^ CadenaDeTexto = nullptr; 
 	String^ CadenaDeTextoAlternative = nullptr;
+	int Contador = 0;
+	GestorViaje^ objGestorViajeProvisional = gcnew GestorViaje();
+	objGestorViajeProvisional->LeerViajesDesdeArchivo();
+	Viaje^ objViajeProvisional = gcnew Viaje();
+
+
 	for (int i = 0; i < this->listaListasCoordenadas->Count; i++) {
 		ListaCoordenadas^ objListaCoordenadasProvisionales = gcnew ListaCoordenadas();
 
@@ -57,9 +64,19 @@ void GestorCoordenadas::saveCoordinatesListAndTripCodeInTxt(int tripCode) {
 			
 		}
 		CadenaDeTexto = "";
+		Contador++;
 
-		lineasArchivo[i] = Convert::ToString(tripCode) + CadenaDeTextoAlternative;
-		
+		if (Contador < this->listaListasCoordenadas->Count) {
+
+			objViajeProvisional = objGestorViajeProvisional->ObtenerViajeLista(i);
+
+			lineasArchivo[i] = objViajeProvisional->codigoViaje + CadenaDeTextoAlternative;
+		}
+		else{
+			
+
+			lineasArchivo[i] = Convert::ToString(tripCode) + CadenaDeTextoAlternative;
+		}
 		//lineasArchivo[i] = objListaCoordenadas->   ConvertirListaCoordenadasEnString or smth
 	}
 	File::WriteAllLines("ListaListasCoordenadas.txt", lineasArchivo);
