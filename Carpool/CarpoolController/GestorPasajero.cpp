@@ -17,9 +17,8 @@ void GestorPasajero::LeerPasajerosDesdeArchivo() {
 
 		int codigousuario = Convert::ToInt32(palabras[0]);
 		int calficacion = Convert::ToInt32(palabras[1]);
-		String^ posicion = palabras[2];
 
-		Pasajero^ objPasajero = gcnew Pasajero(codigousuario, calficacion, posicion);
+		Pasajero^ objPasajero = gcnew Pasajero(codigousuario, calficacion);
 		this->listaPasajeros->Add(objPasajero);
 	}
 }

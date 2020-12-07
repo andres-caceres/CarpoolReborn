@@ -242,7 +242,7 @@ private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender
 
 }
 private: System::Void datosPasajeroToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmDatosPasajero^ ventanaDatosPasajero = gcnew frmDatosPasajero(); //TODO: debe pasarle el gestorPasajero
+	frmDatosPasajero^ ventanaDatosPasajero = gcnew frmDatosPasajero(this->objUsuario); //TODO: debe pasarle el gestorPasajero
 	ventanaDatosPasajero->MdiParent = this;
 	ventanaDatosPasajero->Show();
 }

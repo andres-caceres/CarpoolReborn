@@ -156,6 +156,7 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
+			this->button1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->button1->Location = System::Drawing::Point(312, 544);
 			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
@@ -228,7 +229,7 @@ namespace CarpoolView {
 			// 
 			this->Asientos->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->Asientos->FormattingEnabled = true;
-			this->Asientos->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"4", L"5", L"6", L"7", L"8" });
+			this->Asientos->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"2", L"4", L"5", L"6", L"7", L"8" });
 			this->Asientos->Location = System::Drawing::Point(336, 265);
 			this->Asientos->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Asientos->Name = L"Asientos";
@@ -237,19 +238,23 @@ namespace CarpoolView {
 			// 
 			// RevTec
 			// 
-			this->RevTec->Location = System::Drawing::Point(177, 350);
+			this->RevTec->Location = System::Drawing::Point(177, 355);
 			this->RevTec->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->RevTec->MaxLength = 10;
 			this->RevTec->Name = L"RevTec";
 			this->RevTec->Size = System::Drawing::Size(227, 22);
 			this->RevTec->TabIndex = 18;
+			this->RevTec->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmAgregarVehiculo::RevTec_KeyPress);
 			// 
 			// SOAT
 			// 
-			this->SOAT->Location = System::Drawing::Point(177, 308);
+			this->SOAT->Location = System::Drawing::Point(177, 313);
 			this->SOAT->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->SOAT->MaxLength = 10;
 			this->SOAT->Name = L"SOAT";
 			this->SOAT->Size = System::Drawing::Size(227, 22);
 			this->SOAT->TabIndex = 17;
+			this->SOAT->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmAgregarVehiculo::SOAT_KeyPress);
 			// 
 			// label10
 			// 
@@ -373,7 +378,7 @@ namespace CarpoolView {
 			this->Placa->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
 			this->Placa->Location = System::Drawing::Point(177, 128);
 			this->Placa->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->Placa->MaxLength = 10;
+			this->Placa->MaxLength = 6;
 			this->Placa->Name = L"Placa";
 			this->Placa->Size = System::Drawing::Size(227, 22);
 			this->Placa->TabIndex = 9;
@@ -392,6 +397,7 @@ namespace CarpoolView {
 			// 
 			this->Modelo->Location = System::Drawing::Point(177, 71);
 			this->Modelo->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Modelo->MaxLength = 20;
 			this->Modelo->Name = L"Modelo";
 			this->Modelo->Size = System::Drawing::Size(227, 22);
 			this->Modelo->TabIndex = 8;
@@ -462,10 +468,49 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmAgregarVehiculo_Load(System::Object^ sender, System::EventArgs^ e) {
+
+	this->Propietario->Text = this->objConductor->Nombre;
 }
 private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void tarjetaPropiedad_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+
+	   //VALIDACION DE DATOS DE ENTRADA
+
+	bool IsNumeric(char c) {
+		if ((c >= '0' && c <= '9') || (c == 8))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	bool IsLetter(char c) {
+		if ((c >= 'a' && c <= 'z') || (c == 8) || (c >= 'A' && c <= 'Z'))
+		{
+			return true;
+		}
+		return false;
+
+	}
+private: System::Void SOAT_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+}
+private: System::Void RevTec_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
 }
 };
 }

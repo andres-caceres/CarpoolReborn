@@ -17,11 +17,12 @@ namespace CarpoolView {
 	public ref class frmDatosPasajero : public System::Windows::Forms::Form
 	{
 	public:
-		frmDatosPasajero(void)
+		frmDatosPasajero(Usuario^ objUsuario)
 		{
 			InitializeComponent();
 			this->objGestorPasajero = gcnew GestorPasajero();
 			this->objPasajero = gcnew Pasajero();
+			this->objUsuario = objUsuario;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -78,6 +79,7 @@ namespace CarpoolView {
 	private:
 		GestorPasajero^ objGestorPasajero;
 		Pasajero^ objPasajero;
+		Usuario^ objUsuario;
 
 		/// <summary>
 		/// Required designer variable.
@@ -122,9 +124,9 @@ namespace CarpoolView {
 			// groupBox2
 			// 
 			this->groupBox2->Location = System::Drawing::Point(381, 15);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox2->Size = System::Drawing::Size(372, 402);
 			this->groupBox2->TabIndex = 6;
 			this->groupBox2->TabStop = false;
@@ -137,9 +139,9 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(16, 15);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox1->Size = System::Drawing::Size(357, 402);
 			this->groupBox1->TabIndex = 5;
 			this->groupBox1->TabStop = false;
@@ -148,8 +150,8 @@ namespace CarpoolView {
 			// textBoxNombre
 			// 
 			this->textBoxNombre->Enabled = false;
-			this->textBoxNombre->Location = System::Drawing::Point(156, 110);
-			this->textBoxNombre->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBoxNombre->Location = System::Drawing::Point(143, 110);
+			this->textBoxNombre->Margin = System::Windows::Forms::Padding(4);
 			this->textBoxNombre->Name = L"textBoxNombre";
 			this->textBoxNombre->ReadOnly = true;
 			this->textBoxNombre->Size = System::Drawing::Size(181, 22);
@@ -192,9 +194,11 @@ namespace CarpoolView {
 			this->ClientSize = System::Drawing::Size(771, 430);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmDatosPasajero";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Datos pasajero";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmDatosPasajero::frmDatosPasajero_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
@@ -206,10 +210,9 @@ namespace CarpoolView {
 
 		//this->objGestorPasajero->LeerPasajerosDesdeArchivo();
 		//this->objPasajero = objGestorPasajero->BuscarxUserID(1);
+		this->textBoxNombre->Text = this->objUsuario->Nombre + " "+ this->objUsuario->ApellidoPaterno +" "+ this->objUsuario->ApellidoMaterno;
 		int Calificacion = this->objPasajero->Calificacion;
 		this->lblCalificacion->ImageIndex = Calificacion * 2; //actualiza estrellas basado en calificacion
-
-		this->textBoxNombre->Text = " ";
 
 	}
 };

@@ -3,20 +3,16 @@
 
 using namespace CarpoolModel;
 
-Conductor::Conductor(int CodigoDeUsuario, String^ Nombre, String^ Licencia, String^ Disponibilidad, int Calificacion, String^ Posicion, String^ AsientosDisponibles, Vehiculo^ objVehiculo, int valido) {
+Conductor::Conductor(int CodigoDeUsuario, String^ Nombre, String^ Licencia, int Calificacion, int AsientosDisponibles, Vehiculo^ objVehiculo,String^ CuentaBancaria, int valido) {
 
 	this->CodigoDeUsuario = CodigoDeUsuario;
 	this->Nombre = Nombre;
 	this->NumeroDeLicencia = Licencia;
-	this->Disponibilidad = Disponibilidad;
 	this->CalificacionConductor = Calificacion;
-	this->Posicion = Posicion;
 	this->AsientosDisponibles = AsientosDisponibles;
 	this->objVehiculo = objVehiculo;
 	this->valido = valido;
-	this->objChat = gcnew Chat();
-	
-	//this->objMetodoPago = gcnew MetodoPago();
+	this->CuentaBancaria = CuentaBancaria;
 }
 
 Conductor::Conductor(int CodigoDeUsuario) {
@@ -32,16 +28,4 @@ Conductor::Conductor() {
 	this->valido = 2;
 	this->objChat = gcnew Chat();
 	//this->objMetodoPago = gcnew MetodoPago();
-}
-
-Conductor::Conductor(int CodigoDeUsuario, String^ Nombre, String^ NumeroDeLicencia, String^ Disponibilidad, int CalificacionConductor, String^ Posicion, String^ AsientosDisponibles, int valido) {
-	this->CodigoDeUsuario = CodigoDeUsuario;
-	this->Nombre = Nombre;
-	this->NumeroDeLicencia = NumeroDeLicencia;
-	this->Disponibilidad = Disponibilidad;
-	this->CalificacionConductor = CalificacionConductor;
-	this->Posicion = Posicion;
-	this->AsientosDisponibles = AsientosDisponibles;
-	this->valido = valido;
-
 }
