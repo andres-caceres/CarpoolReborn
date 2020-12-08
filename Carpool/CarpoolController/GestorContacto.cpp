@@ -181,11 +181,11 @@ void GestorContacto::GuardarContactoBD(Contactos^ objContacto) {
 	p1->Value = objContacto->codigoDelAñador;
 	SqlParameter^ p2 = gcnew SqlParameter("@p2", System::Data::SqlDbType::Int);
 	p2->Value = objContacto->codigoDelAñadido;
-	SqlParameter^ p3 = gcnew SqlParameter("@p3", System::Data::SqlDbType::VarChar, 3);
+	SqlParameter^ p3 = gcnew SqlParameter("@p3", System::Data::SqlDbType::VarChar, 20);
 	p3->Value = objContacto->userNameDelAñadido;
-	SqlParameter^ p4 = gcnew SqlParameter("@p4", System::Data::SqlDbType::VarChar, 7);
+	SqlParameter^ p4 = gcnew SqlParameter("@p4", System::Data::SqlDbType::VarChar, 20);
 	p4->Value = objContacto->Apodo;
-	SqlParameter^ p5 = gcnew SqlParameter("@p5", System::Data::SqlDbType::VarChar, 16);
+	SqlParameter^ p5 = gcnew SqlParameter("@p5", System::Data::SqlDbType::VarChar, 20);
 	p5->Value = objContacto->Nombre;
 	objQuery->Parameters->Add(p1);
 	objQuery->Parameters->Add(p2);
@@ -196,7 +196,7 @@ void GestorContacto::GuardarContactoBD(Contactos^ objContacto) {
 	CerrarConexionBD();
 }
 
-void GestorContacto::GrabarEnBD() { /*TODO: es muy lento e ineficiente - AC */
+void GestorContacto::GrabarEnBD() { /*TODO: es muy lento e ineficiente, no se usa - AC */
 
 	for (int i = 0; i < this->listaContactos->Count; i++) {
 		GuardarContactoBD(listaContactos[i]);
