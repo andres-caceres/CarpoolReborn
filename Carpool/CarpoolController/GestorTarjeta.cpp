@@ -1,4 +1,5 @@
 #include "GestorTarjeta.h"
+#include "GlobalSettings.h"
 
 using namespace CarpoolController;
 using namespace CarpoolModel;
@@ -13,9 +14,8 @@ GestorTarjeta::GestorTarjeta() {
 }
 
 void GestorTarjeta::AbrirConexionBD() {
-	/*Datos para la conexión a la BD: servidor, nombreBD,usuarioBD,passBD*/
-	String^ pass = "RAGNAROK";
-	this->objConexion->ConnectionString = "Server=asgard.c5npowpqydq4.us-east-1.rds.amazonaws.com;DataBase=carpool;" + "User ID=ODIN;Password=" + pass + ";";
+	this->objConexion->ConnectionString = "Server=" + ENDPOINT + ";Database=" + DATABASE +
+		";User ID=" + USERNAME + ";Password=" + PASSWORD + ";";
 	this->objConexion->Open();
 }
 

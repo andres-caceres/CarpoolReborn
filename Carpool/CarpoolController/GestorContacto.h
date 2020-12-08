@@ -32,6 +32,7 @@ namespace CarpoolController {
 		void CerrarConexionBD();
 		List<Contactos^>^ BuscarAllBD();
 		void GuardarContactoBD(Contactos^ objContacto);
+		void BorrarContactoBD(Contactos^ objContacto);
 		void GrabarEnBD();
 	};
 }
