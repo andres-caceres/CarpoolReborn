@@ -191,7 +191,8 @@ namespace CarpoolView {
 					else {
 						Contactos^ objContacto = gcnew Contactos(UsuarioLogeado->CodigoDeUsuario, UsuarioPorAñadir->CodigoDeUsuario, UsuarioPorAñadir->userName, Apodo, UsuarioPorAñadir->Nombre);
 
-						this->objGestorContacto->AgregarContacto(objContacto);
+						//this->objGestorContacto->AgregarContacto(objContacto);
+						this->objGestorContacto->GuardarContactoBD(objContacto);
 
 						MessageBox::Show("Contacto agregado exitosamente");
 						this->Close();
