@@ -185,10 +185,14 @@ namespace CarpoolView {
 			// 
 			// dateTimePicker1
 			// 
+			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(265, 160);
+			this->dateTimePicker1->MaxDate = System::DateTime::Now;
+			this->dateTimePicker1->MinDate = System::DateTime(1980, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(261, 22);
+			this->dateTimePicker1->Size = System::Drawing::Size(137, 22);
 			this->dateTimePicker1->TabIndex = 9;
+			this->dateTimePicker1->Value = System::DateTime(2020, 12, 8, 0, 0, 0, 0);
 			// 
 			// label5
 			// 
@@ -222,11 +226,9 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void frmCambiarPassword_Load(System::Object^ sender, System::EventArgs^ e) {
 		Usuario^ objUsuario = this->objUsuario;
-		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 		this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
 
-		String^ DniSeguro = objUsuario->DNI;
-		String^ PreguntaObtenida = this->objGestorSeguridad->ObtenerPregunta(DniSeguro);
+		String^ PreguntaObtenida = this->objGestorSeguridad->ObtenerPregunta(objUsuario->DNI);
 		this->label4->Text = PreguntaObtenida;
 
 	}
@@ -246,11 +248,12 @@ namespace CarpoolView {
 	
 	if (es_valido) {
 		/*CAMBIAR CONTRASEÑA*/
-		this->objGestorUsuario->EliminarUsuarioXDni(DniSeguro);
-		Usuario^ objUsuarioLogeado = this->objUsuario;
-		Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario,objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, objUsuarioLogeado->Correo, objUsuarioLogeado->userName, NuevaPassword, objUsuarioLogeado->tipoUsuario);
+		//this->objGestorUsuario->EliminarUsuarioXDni(DniSeguro);
+		//Usuario^ objUsuarioLogeado = this->objUsuario;
+		//Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario,objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, objUsuarioLogeado->Correo, objUsuarioLogeado->userName, NuevaPassword, objUsuarioLogeado->tipoUsuario);
+		//this->objGestorUsuario->AgregarUsuario(objUsuario);
+		this->objGestorUsuario->ActualizarPassword(objUsuario->DNI, objUsuario->tipoUsuario, NuevaPassword);
 		
-		this->objGestorUsuario->AgregarUsuario(objUsuario);
 		MessageBox::Show("La contraseña ha sido cambiada correctamente");
 		this->Close();
 	}
@@ -263,7 +266,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmCambiarPassword_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	this->objGestorUsuario->EscribirArchivo();
+	//this->objGestorUsuario->EscribirArchivo();
 }
 };
 }

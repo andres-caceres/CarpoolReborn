@@ -252,6 +252,36 @@ int GestorUsuario::UsuarioRepetidoConCodigo(int codigo) {
 	return mismo_codigo;
 }
 
+void GestorUsuario::ActualizarCorreo(String^ dniEditar, int tipoUsuarioEditar, String^ userName) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "UPDATE Usuario SET userName ='" + userName + "' where DNI = '" + dniEditar + "' and tipoUsuario=" + tipoUsuarioEditar + ";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+void GestorUsuario::ActualizarUserName(String^ dniEditar, int tipoUsuarioEditar, String^ correo) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "UPDATE Usuario SET Correo ='" + correo + "' where DNI = '" + dniEditar+ "' and tipoUsuario="+ tipoUsuarioEditar+";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+void GestorUsuario::ActualizarPassword(String^ dniEditar, int tipoUsuarioEditar, String^ contrasenha) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "UPDATE Usuario SET contrasenha ='" + contrasenha + "' where DNI = '" + dniEditar + "' and tipoUsuario=" + tipoUsuarioEditar + ";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+
+
+
+
 
 
 

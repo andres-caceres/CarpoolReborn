@@ -331,21 +331,22 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objUsuarioLogeado = this->objUsuario;
-	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
-	Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxDNIyTipoDeUsuario(objUsuarioLogeado->DNI,objUsuarioLogeado->tipoUsuario);
+	//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+	Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxDNIyTipoDeUsuarioBD(objUsuarioLogeado->DNI,objUsuarioLogeado->tipoUsuario);
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
 	
-	this->lblMensaje->Text  = objUsuario->Nombre;
-	this->lblMensaje2->Text = objUsuario->ApellidoPaterno;
-	this->lblMensaje3->Text = objUsuario->ApellidoMaterno;
-	this->lblMensaje4->Text = objUsuario->DNI;
+	this->lblMensaje->Text  = objUsuarioLogeado->Nombre;
+	this->lblMensaje2->Text = objUsuarioLogeado->ApellidoPaterno;
+	this->lblMensaje3->Text = objUsuarioLogeado->ApellidoMaterno;
+	this->lblMensaje4->Text = objUsuarioLogeado->DNI;
+
 	this->textBox1->Text = objUsuario->Correo;
 	this->textBox2->Text = objUsuario->userName;
 	
-	if (objUsuario->tipoUsuario == 2) {
+	if (objUsuarioLogeado->tipoUsuario == 2) {
 		this->label8->Text = "Pasajero";
 	}
-	if (objUsuario->tipoUsuario == 3) {
+	if (objUsuarioLogeado->tipoUsuario == 3) {
 		this->label8->Text = "Conductor";
 	}
 
@@ -357,36 +358,30 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Falta ver que el nombre de usuario no se repita con UsuarioRepetido.
 	Usuario^ objUsuarioLogeado = this->objUsuario;
-	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
-	int CodigoDeUsuario = objUsuarioLogeado->CodigoDeUsuario;
-	String^ Nombre=this->lblMensaje->Text;
-	String^ ApellidoPaterno = this->lblMensaje2->Text;
-	String^ ApellidoMaterno = this->lblMensaje3->Text;
-	String^ DNI = this->lblMensaje4->Text;
+	//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+
 	String^ Correo = this->textBox1->Text;
 	String^ userName = this->textBox2->Text;
-	int tipoUsuario;
-	if (this->label8->Text == "Pasajero") {
-		tipoUsuario = 2;
-	}
-	if (this->label8->Text == "Conductor") {
-		tipoUsuario = 3;
-	}
 
-	String^ ContrasenhaObtenida = this->objGestorUsuario->ObtenerContrasenha(DNI, tipoUsuario);
+	//Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario, objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, Correo, userName, objUsuarioLogeado->password, objUsuarioLogeado->tipoUsuario);
+	int mismo_userName = this->objGestorUsuario->UsuarioRepetidoBD(userName);
+	if (mismo_userName) {
 
-	Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, ContrasenhaObtenida,tipoUsuario);
-	this->objGestorUsuario->EliminarUsuarioXDni(DNI);
-	this->objGestorUsuario->AgregarUsuario(objUsuario);
-	MessageBox::Show("Sus datos han sido actualizados correctamente");
+		this->objGestorUsuario->ActualizarCorreo(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, userName);
+		this->objGestorUsuario->ActualizarUserName(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, Correo);
+		MessageBox::Show("Sus datos han sido actualizados correctamente");
+	}
 	//this->Close();
+	else {
+		MessageBox::Show("El userName que ha elegido ya está en uso");
+	}
 }
 
 	  
 
 private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	
-	this->objGestorUsuario->EscribirArchivo();
+	//this->objGestorUsuario->EscribirArchivo();
 
 	
 }

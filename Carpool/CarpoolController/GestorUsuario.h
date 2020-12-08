@@ -35,8 +35,9 @@ namespace CarpoolController {
 		int ObtenerTipoDeUsuarioBD(String^ userName);
 		int UsuarioRepetidoConCodigoBD(int codigo);
 		Usuario^ ObtenerUsuarioxDNIyTipoDeUsuarioBD(String^ DNI, int tipoUsuario);
-
-
+		void ActualizarUserName(String^ dniEditar, int tipoUsuarioEditar, String^ correo);
+		void ActualizarCorreo(String^ dniEditar, int tipoUsuarioEditar, String^ correo);
+		void ActualizarPassword(String^ dniEditar, int tipoUsuarioEditar, String^ contrasenha);
 
 
 		void LeerUsuariosDesdeArchivo();
