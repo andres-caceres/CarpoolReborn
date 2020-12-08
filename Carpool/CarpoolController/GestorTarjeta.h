@@ -20,6 +20,7 @@ namespace CarpoolController {
 
 		void AbrirConexionBD();
 		List<Tarjeta^>^ BuscarTarjetasXcodigoBD(int CodigoPropietario);
+		List<Tarjeta^>^ BuscarTarjetasXtipoBD(int CodigoPropietario, String^ tipo);
 		void CerrarConexionBD();
 		void InsertarTarjeta(Tarjeta^ objTarjeta);
 		void BorrarTarjeta(String^ NroTarjeta, int CodigoPropietario);

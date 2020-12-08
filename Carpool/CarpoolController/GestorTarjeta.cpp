@@ -45,6 +45,28 @@ List<Tarjeta^>^ GestorTarjeta::BuscarTarjetasXcodigoBD(int CodigoPropietario) {
 	return listaTarjetasBuscadas;
 }
 
+List<Tarjeta^>^ GestorTarjeta::BuscarTarjetasXtipoBD(int CodigoPropietario, String^ tipo) {
+	List<Tarjeta^>^ listaTarjetasBuscadas = gcnew List<Tarjeta^>;
+	AbrirConexionBD();
+	SqlDataReader^ objData;
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "select * from Tarjeta where CodigoPropietario=" + CodigoPropietario + "and TipoTarjeta='" + tipo + "';";
+	objData = objQuery->ExecuteReader();
+	while (objData->Read()) {
+		int CodigoPropietario = safe_cast<int>(objData[0]);
+		String^ NroTarjeta = safe_cast<String^>(objData[1]);
+		String^ CVV = safe_cast<String^>(objData[2]);
+		String^ FechaExp = safe_cast<String^>(objData[3]);
+		String^ TipoTarjeta = safe_cast<String^>(objData[4]);
+		Tarjeta^ objTarjeta = gcnew Tarjeta(CodigoPropietario, NroTarjeta, CVV, FechaExp, TipoTarjeta);
+		listaTarjetasBuscadas->Add(objTarjeta);
+	}
+	objData->Close();
+	CerrarConexionBD();
+	return listaTarjetasBuscadas;
+}
+
 void GestorTarjeta::InsertarTarjeta(Tarjeta^ objTarjeta) {
 	AbrirConexionBD();
 	SqlCommand^ objQuery = gcnew SqlCommand();
@@ -70,8 +92,12 @@ void GestorTarjeta::InsertarTarjeta(Tarjeta^ objTarjeta) {
 }
 
 void GestorTarjeta::BorrarTarjeta(String^ NroTarjeta, int CodigoPropietario) {
-	/*TE QUEDASTE EN CAMBIAR EL PRIMARY KEY, QUE HAYA TARJETA Y CODIGO USUARIO*/
-	//Falta que se añadan más de 2 tarjetas por persona, porque el primary key es unico
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "delete from Tarjeta where CodigoPropietario ="+CodigoPropietario+ "and NroTarjeta = '"+ NroTarjeta+"';";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();	
 }
 
 void GestorTarjeta::LeerTarjetasDesdeArchivo() {
