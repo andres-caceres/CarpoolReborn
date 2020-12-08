@@ -24,13 +24,12 @@ void GestorTarjeta::CerrarConexion() {
 }
 
 List<Tarjeta^>^ GestorTarjeta::BuscarTarjetasXcodigoBD(int CodigoPropietario) {
-	String^ CodigoString = Convert::ToString(CodigoPropietario);
 	List<Tarjeta^>^ listaTarjetasBuscadas= gcnew List<Tarjeta^>;
 	AbrirConexionBD();
 	SqlDataReader^ objData;
 	SqlCommand^ objQuery = gcnew SqlCommand();
 	objQuery->Connection = this->objConexion;
-	objQuery->CommandText = "select * from Tarjeta where CodigoPropietario="+ CodigoString+";";
+	objQuery->CommandText = "select * from Tarjeta where CodigoPropietario="+ CodigoPropietario +";";
 	objData = objQuery->ExecuteReader();
 	while (objData->Read()) {
 		int CodigoPropietario = safe_cast<int>(objData[0]);
