@@ -176,7 +176,7 @@ namespace CarpoolView {
 		if (CreacionValida) {
 			this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 			Usuario^ UsuarioLogeado = this->objUsuario;
-			Usuario^ UsuarioPorAñadir = this->objGestorUsuario->ObtenerUsuarioxUserName(UserName);
+			Usuario^ UsuarioPorAñadir = this->objGestorUsuario->ObtenerUsuarioxUserNameBD(UserName);
 
 			if (UsuarioPorAñadir == nullptr) {
 				MessageBox::Show("No existe ese userName");

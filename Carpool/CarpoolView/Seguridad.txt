@@ -2,3 +2,6 @@
 70437078;02/12/2020;Ciudad en la que nació;Lima
 12345678;02/12/2020;Ciudad en la que nació;Lima
 12345678;02/12/2020;Ciudad en la que nació;Lima
+12345678;02/12/2020;Ciudad en la que nació;Lima
+45678912;02/12/2020;Ciudad en la que nació;Lima
+78945612;02/12/2020;Ciudad en la que nació;Lima

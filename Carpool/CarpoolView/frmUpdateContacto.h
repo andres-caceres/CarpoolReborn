@@ -308,7 +308,7 @@ private: System::Void frmUpdateContacto_Load(System::Object^ sender, System::Eve
 
 	Usuario^ objUsuarioLogeado = this->objUsuario;
 
-	for (int i = 0; i < objGestorContacto->ObtenerCantidadContactosSegunCodigoDeAñadidor(objUsuarioLogeado->CodigoDeUsuario); i++) {
+	for (int i = 0; i < objGestorContacto->ObtenerCantidadContactos(); i++) {
 		Contactos^ objContacto = objGestorContacto->ObtenerContactoLista(i);
 		if (objContacto->codigoDelAñador == objUsuarioLogeado->CodigoDeUsuario) {
 			array<String^>^ fila = gcnew array<String^>(3);

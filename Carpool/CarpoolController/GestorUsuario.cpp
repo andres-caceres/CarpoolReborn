@@ -221,9 +221,36 @@ int GestorUsuario::ValidarRegistro(String^ Nombre, String^ ApellidoPaterno, Stri
 	return esta_completo;
 }
 
+int GestorUsuario::DarValorAlCodigoDelUsuario() {
+	List<Usuario^>^ listaUsuarios = BuscarAllUsuariosBD();
+	int CodigoDado = 1, CodigoDadoMismo = 1;
 
+	if (listaUsuarios->Count == 0) {
+		CodigoDado = 1;
+	}
+	else {
 
+		while (CodigoDadoMismo) {
+			CodigoDado = CodigoDado + 1;
+			CodigoDadoMismo = UsuarioRepetidoConCodigo(CodigoDado);
+		}
 
+	}
+
+	return CodigoDado;
+}
+
+int GestorUsuario::UsuarioRepetidoConCodigo(int codigo) {
+	List<Usuario^>^ listaUsuarios = BuscarAllUsuariosBD();
+	int mismo_codigo = 0;
+	for (int i = 0; i < listaUsuarios->Count; i++) {
+		if ((listaUsuarios[i]->CodigoDeUsuario == codigo)) {
+			mismo_codigo = 1;
+			break;
+		}
+	}
+	return mismo_codigo;
+}
 
 
 
@@ -426,38 +453,9 @@ int GestorUsuario::ObtenerTipoDeUsuario(String^ userName) {
 
 }
 
-int GestorUsuario::UsuarioRepetidoConCodigo(int codigo) {
-	int mismo_codigo = 0;
-	for (int i = 0; i < this->listaUsuarios->Count; i++) {
-		if ((this->listaUsuarios[i]->CodigoDeUsuario==codigo)) {
-			mismo_codigo = 1;
-			break;
-		}
-	}
-	return mismo_codigo;
-}
 
-int GestorUsuario::DarValorAlCodigoDelUsuario() {
-	int CodigoDado=1, CodigoDadoMismo=1;
-	LeerUsuariosDesdeArchivo();
-	int i = this->listaUsuarios->Count;
-	
-	
 
-	if (this->listaUsuarios->Count == 0) {
-		CodigoDado = 1;
-	}
-	else {
-		
-		while (CodigoDadoMismo){
-			CodigoDado = CodigoDado + 1;
-			CodigoDadoMismo = UsuarioRepetidoConCodigo(CodigoDado);
-		} 
 
-	}
-
-	return CodigoDado;
-}
 
 Usuario^ GestorUsuario::ObtenerUsuarioxDNIyTipoDeUsuario(String^ DNI, int tipoUsuario) {
 	Usuario^ objUsuarioBuscado = nullptr;
