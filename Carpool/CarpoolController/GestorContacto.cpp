@@ -196,6 +196,16 @@ void GestorContacto::GuardarContactoBD(Contactos^ objContacto) {
 	CerrarConexionBD();
 }
 
+void GestorContacto::BorrarContactoBD(Contactos^ objContacto) {
+	AbrirConexionBD();	
+
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "delete from Contacto where codigoDelAñador = " + Convert::ToString(objContacto->codigoDelAñador) + " and codigoDelAñadido = " + Convert::ToString(objContacto->codigoDelAñadido) + ";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
 void GestorContacto::GrabarEnBD() { /*TODO: es muy lento e ineficiente, no se usa - AC */
 
 	for (int i = 0; i < this->listaContactos->Count; i++) {
