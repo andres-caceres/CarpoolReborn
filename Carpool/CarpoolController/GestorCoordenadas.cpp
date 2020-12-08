@@ -124,6 +124,7 @@ ListaCoordenadas^ GestorCoordenadas::obtenerListaCoordenadasConCodigo(int codigo
 	return objListaCoordenadasProvisional;
 }
 
+//void obtenerFiguraAPartirDeCoordenadasConCodigo(int codigoViaje);
 
 
 

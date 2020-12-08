@@ -1,4 +1,6 @@
 #pragma once
+#include "frmReservarViaje.h"
+
 
 namespace CarpoolView {
 
@@ -21,6 +23,20 @@ namespace CarpoolView {
 		frmSelectOrigenFin(void)
 		{
 			InitializeComponent();
+			this->objGestorFigura = gcnew GestorFigura();
+			this->tipoFigura = 1; //Solo usamos lineas
+			this->objColor = Color::Blue;
+			this->flagPrimeraLinea = 1; //iniciamos con el 1er click
+			this->listaFiguras = gcnew List<figura^>();
+			this->listaFiguras->Clear(); //la lista empieza en blanco
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+		frmSelectOrigenFin(Usuario^ objUsuario)
+		{
+			InitializeComponent();
+			this->objUsuario = objUsuario;
 			this->objGestorFigura = gcnew GestorFigura();
 			this->tipoFigura = 1; //Solo usamos lineas
 			this->objColor = Color::Blue;
@@ -60,6 +76,8 @@ namespace CarpoolView {
 	private: int puntoY;
 	private: int flagPrimeraLinea;
 	private: List<figura^>^ listaFiguras;
+	private: Usuario^ objUsuario;
+
 
 
 	private:
@@ -205,6 +223,12 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton Buscar
+
+	frmReservarViaje^ ventanaReservarViaje = gcnew frmReservarViaje(this->objUsuario, this->objGestorFigura);
+	ventanaReservarViaje->ShowDialog();
+
+
+
 
 
 	this->Close();
