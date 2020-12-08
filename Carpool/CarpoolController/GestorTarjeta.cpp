@@ -4,10 +4,49 @@ using namespace CarpoolController;
 using namespace CarpoolModel;
 using namespace System::IO;
 using namespace System::Text;
+using namespace System::Collections::Generic;
+using namespace System;
 
 GestorTarjeta::GestorTarjeta() {
 	this->listaTarjetas = gcnew List<Tarjeta^>();
+	this->objConexion = gcnew SqlConnection();
 }
+
+void GestorTarjeta::AbrirConexionBD() {
+	/*Datos para la conexión a la BD: servidor, nombreBD,usuarioBD,passBD*/
+	String^ pass = "RAGNAROK";
+	this->objConexion->ConnectionString = "Server=asgard.c5npowpqydq4.us-east-1.rds.amazonaws.com;DataBase=carpool;" + "User ID=ODIN;Password=" + pass + ";";
+	this->objConexion->Open();
+}
+
+void GestorTarjeta::CerrarConexion() {
+	this->objConexion->Close();
+}
+
+List<Tarjeta^>^ GestorTarjeta::BuscarTarjetasXcodigoBD(int CodigoPropietario) {
+	String^ CodigoString = Convert::ToString(CodigoPropietario);
+	List<Tarjeta^>^ listaTarjetasBuscadas= gcnew List<Tarjeta^>;
+	AbrirConexionBD();
+	SqlDataReader^ objData;
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "select * from Tarjeta where CodigoPropietario="+ CodigoString+";";
+	objData = objQuery->ExecuteReader();
+	while (objData->Read()) {
+		int CodigoPropietario = safe_cast<int>(objData[0]);
+		String^ NroTarjeta = safe_cast<String^>(objData[1]);
+		String^ CVV = safe_cast<String^>(objData[2]);
+		String ^ FechaExp = safe_cast<String^>(objData[3]);
+		String^ TipoTarjeta = safe_cast<String^>(objData[4]);
+		Tarjeta^ objTarjeta = gcnew Tarjeta(CodigoPropietario, NroTarjeta, CVV, FechaExp, TipoTarjeta);
+		listaTarjetasBuscadas->Add(objTarjeta);
+	}
+	objData->Close();
+	CerrarConexion();
+	return listaTarjetasBuscadas;
+}
+
+
 
 void GestorTarjeta::LeerTarjetasDesdeArchivo() {
 	this->listaTarjetas->Clear();

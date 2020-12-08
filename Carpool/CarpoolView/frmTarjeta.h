@@ -6,6 +6,7 @@ namespace CarpoolView {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -206,30 +207,31 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmTarjeta_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->objGestorTarjeta->LeerTarjetasDesdeArchivo();
-		Usuario^ objUsuarioLogeado = this->objUsuario;
-
-		for (int i = 0; i < objGestorTarjeta->ObtenerCantidadTarjetas(); i++) {
-			Tarjeta^ objTarjeta = objGestorTarjeta->ObtenerTarjetaLista(i);
-			if (objTarjeta->CodigoPropietario == objUsuarioLogeado->CodigoDeUsuario) {
-				array<String^>^ fila = gcnew array<String^>(4);
-				fila[0] = objTarjeta->NroTarjeta;
-				fila[1] = objTarjeta->CVV;
-				fila[2] = objTarjeta->FechaExp;
-				fila[3] = objTarjeta->TipoTarjeta;
-				this->dataGridView1->Rows->Add(fila);
-			}
-		}
-
-
+		//this->objGestorTarjeta->LeerTarjetasDesdeArchivo();
+		List<Tarjeta^>^ listaTarjetas = this->objGestorTarjeta->BuscarTarjetasXcodigoBD(this->objUsuario->CodigoDeUsuario);
+		MostrarGrilla(listaTarjetas);
 	}
+
+private: void MostrarGrilla(List<Tarjeta^>^ listaTarjetas) {
+	this->dataGridView1->Rows->Clear();
+	for (int i = 0; i < listaTarjetas->Count; i++) {
+		Tarjeta^ objTarjeta = listaTarjetas[i];
+		array<String^>^ fila = gcnew array<String^>(4);
+		fila[0] = objTarjeta->NroTarjeta;
+		fila[1] = objTarjeta->CVV;
+		fila[2] = objTarjeta->FechaExp;
+		fila[3] = objTarjeta->TipoTarjeta;
+		this->dataGridView1->Rows->Add(fila);
+	}
+}
+
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objUsuarioLogeado = this->objUsuario;
 	frmNuevaTarjeta^ ventanNuevaTarjeta = gcnew frmNuevaTarjeta(objUsuarioLogeado, objGestorTarjeta);
 	ventanNuevaTarjeta->ShowDialog();
-	this->dataGridView1->Rows->Clear();
 
+	this->dataGridView1->Rows->Clear();
 	for (int i = 0; i < objGestorTarjeta->ObtenerCantidadTarjetas(); i++) {
 		Tarjeta^ objTarjeta = objGestorTarjeta->ObtenerTarjetaLista(i);
 		if (objTarjeta->CodigoPropietario == objUsuarioLogeado->CodigoDeUsuario) {

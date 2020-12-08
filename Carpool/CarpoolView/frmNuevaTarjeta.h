@@ -248,15 +248,15 @@ namespace CarpoolView {
 		String^ AnhoExp = this->comboBox2->Text;
 		String^ TipoTarjeta = this->comboBox3->Text;
 		String^ NumMesExp;
-		if (MesExp == "Enero") { NumMesExp = "1"; }
-		else if (MesExp == "Febrero") { NumMesExp = "2"; }
-		else if (MesExp == "Marzo") { NumMesExp = "3"; }
-		else if (MesExp == "Abril") { NumMesExp = "4"; }
-		else if (MesExp == "Mayo") { NumMesExp = "5"; }
-		else if (MesExp == "Junio") { NumMesExp = "6"; }
-		else if (MesExp == "Julio") { NumMesExp = "7"; }
-		else if (MesExp == "Agosto") { NumMesExp = "8"; }
-		else if (MesExp == "Septiembre") { NumMesExp = "9"; }
+		if (MesExp == "Enero") { NumMesExp = "01"; }
+		else if (MesExp == "Febrero") { NumMesExp = "02"; }
+		else if (MesExp == "Marzo") { NumMesExp = "03"; }
+		else if (MesExp == "Abril") { NumMesExp = "04"; }
+		else if (MesExp == "Mayo") { NumMesExp = "05"; }
+		else if (MesExp == "Junio") { NumMesExp = "06"; }
+		else if (MesExp == "Julio") { NumMesExp = "07"; }
+		else if (MesExp == "Agosto") { NumMesExp = "08"; }
+		else if (MesExp == "Septiembre") { NumMesExp = "09"; }
 		else if (MesExp == "Octubre") { NumMesExp = "10"; }
 		else if (MesExp == "Noviembre") { NumMesExp = "11"; }
 		else if (MesExp == "Diciembre") { NumMesExp = "12"; }
