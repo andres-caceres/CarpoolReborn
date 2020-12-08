@@ -4,6 +4,7 @@
 
 using namespace System::Collections::Generic;
 using namespace CarpoolModel;
+using namespace System::Data::SqlClient; /*Esto es para BD*/
 using namespace System;
 
 namespace CarpoolController {
@@ -12,18 +13,41 @@ namespace CarpoolController {
 
 	private:
 		List<Usuario^>^ listaUsuarios;
+		//Para conectar el visual studio a la base de datos//
+		SqlConnection^ objConexion;
 
 	public:
 		GestorUsuario();
-		void LeerUsuariosDesdeArchivo();
-		int validarUsuario(String^ userName, String^ password);
-		void EscribirArchivo();
-		void AgregarUsuario(Usuario^ objUsuario);
-		//Usuario^ ObtenerUsuarioxuserName(String^ userName);
-		int UsuarioRepetido(String^ userName);
-		int MismosDatos(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno);
-		int MismoTipoUsuario(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, int tipoUsuario);
+
+		void AbrirConexionBD();
+		void CerrarConexionBD();
+		List<Usuario^>^ BuscarAllUsuariosBD();
+		int validarUsuarioBD(String^ userName, String^ password);
+		int UsuarioRepetidoBD(String^ userName);
+		void InsertarUsuario(Usuario^ objUsuario);
+		int MismosDatosBD(String^ DNI, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno);
+		int MismoTipoUsuarioBD(String^ DNI, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, int tipoUsuario);
 		int ValidarRegistro(String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, String^ DNI, String^ Correo, String^ userName, String^ password);
+		Usuario^ ObtenerUsuarioxUserNameBD(String^ userName);
+		void EliminarUsuarioBD(String^ userNameEliminar);
+		void EliminarUsuarioXDniBD(String^ dniEliminar);
+		String^ ObtenerContrasenhaBD(String^ DNI, int tipoUsuario);
+		int ObtenerTipoDeUsuarioBD(String^ userName);
+		int UsuarioRepetidoConCodigoBD(int codigo);
+		Usuario^ ObtenerUsuarioxDNIyTipoDeUsuarioBD(String^ DNI, int tipoUsuario);
+
+
+
+
+		void LeerUsuariosDesdeArchivo();
+		int validarUsuario(String^ userName, String^ password);	//YA
+		void EscribirArchivo();	//YA
+		void AgregarUsuario(Usuario^ objUsuario); //YA
+		//Usuario^ ObtenerUsuarioxuserName(String^ userName);
+		int UsuarioRepetido(String^ userName);//YA
+		int MismosDatos(String^ DNI, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno);//YA
+		int MismoTipoUsuario(String^ DNI, String^ Correo, String^ Nombre, String^ ApellidoPaterno, String^ ApellidoMaterno, int tipoUsuario);//YA
+
 		Usuario^ ObtenerUsuarioxUserName(String^ userName);
 		void EliminarUsuario(String^ userNameEliminar);
 		int ObtenerCantidadUsuarios();//IMP

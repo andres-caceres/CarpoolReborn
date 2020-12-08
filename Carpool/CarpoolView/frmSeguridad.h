@@ -243,7 +243,7 @@ namespace CarpoolView {
 		/*SI COINCIDE SE AGREGA*/
 		if (this->registro_conductor == 0) {
 			if (es_valido) {
-				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorUsuario->InsertarUsuario(objUsuario);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
 			}
@@ -253,7 +253,7 @@ namespace CarpoolView {
 		}
 		if (this->registro_conductor == 1) {
 			if (es_valido) {
-				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorUsuario->InsertarUsuario(objUsuario);
 				this->objGestorConductor->AgregarALista(objConductor);
 				this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
@@ -281,7 +281,7 @@ private: System::Void frmSeguridad_Load(System::Object^ sender, System::EventArg
 private: System::Void frmSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	//GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad(); 
 
-	this->objGestorUsuario->EscribirArchivo();
+	//this->objGestorUsuario->EscribirArchivo();
 	if (this->registro_conductor == 1) {
 		this->objGestorConductor->EscribirArchivo();
 		this->objGestorVehiculo->EscribirArchivo();

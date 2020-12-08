@@ -242,33 +242,29 @@ namespace CarpoolView {
 #pragma endregion
 	
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int es_valido, es_admin, es_pasajero, es_conductor;
+	int es_valido;
 	//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
 	this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	String^ userName = this->textBox1->Text;
 	String^ contrasenha = this->textBox2->Text;
-	es_valido = this->objGestorUsuario->validarUsuario(userName, contrasenha);
+	es_valido = this->objGestorUsuario->validarUsuarioBD(userName, contrasenha);
 	if (es_valido) {
 		/*Puedo ingresar al sistema*/
 	//	this->objGestorUsuario->EscribirArchivoUsuarioLogeado(userName);
-		es_admin = this->objGestorUsuario->VerificarAdmin(userName);
-		es_pasajero = this->objGestorUsuario->VerificarPasajero(userName);
-		es_conductor = this->objGestorUsuario->VerificarConductor(userName);
-
-		Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
 		
+		Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserNameBD(userName);/*Usuario Logeado*/
 
-		if (es_admin) {
+		if (objUsuarioLogeado->tipoUsuario == 1) {
 			frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
 			ventanaAdministrador->Show();
 			this->Hide();
 		}
-		if (es_pasajero) {
+		if (objUsuarioLogeado->tipoUsuario == 2) {
 			frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioLogeado);
 			ventanaPasajero->Show();
 			this->Hide();
 		}
-		if (es_conductor) {
+		if (objUsuarioLogeado->tipoUsuario == 3) {
 			this->objGestorConductor->LeerConductoresDesdeArchivo();
 			Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
 			Vehiculo^ objVehiculoInicial = objConductorLogeado->objVehiculo;
@@ -317,33 +313,29 @@ private: System::Void frmLogin_Load(System::Object^ sender, System::EventArgs^ e
 private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
 	if (e->KeyChar == 13) {
-		int es_valido, es_admin, es_pasajero, es_conductor;
+		int es_valido;
 		//GestorUsuario^ objGestorUsuario = gcnew GestorUsuario();
 		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 		String^ userName = this->textBox1->Text;
 		String^ contrasenha = this->textBox2->Text;
-		es_valido = this->objGestorUsuario->validarUsuario(userName, contrasenha);
+		es_valido = this->objGestorUsuario->validarUsuarioBD(userName, contrasenha);
 		if (es_valido) {
 			/*Puedo ingresar al sistema*/
 		//	this->objGestorUsuario->EscribirArchivoUsuarioLogeado(userName);
-			es_admin = this->objGestorUsuario->VerificarAdmin(userName);
-			es_pasajero = this->objGestorUsuario->VerificarPasajero(userName);
-			es_conductor = this->objGestorUsuario->VerificarConductor(userName);
 
-			Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserName(userName);/*Usuario Logeado*/
+			Usuario^ objUsuarioLogeado = this->objGestorUsuario->ObtenerUsuarioxUserNameBD(userName);/*Usuario Logeado*/
 
-
-			if (es_admin) {
+			if (objUsuarioLogeado->tipoUsuario == 1) {
 				frmAdministrador^ ventanaAdministrador = gcnew frmAdministrador(this->objGestorUsuario, this->objGestorRuta);
 				ventanaAdministrador->Show();
 				this->Hide();
 			}
-			if (es_pasajero) {
+			if (objUsuarioLogeado->tipoUsuario == 2) {
 				frmPasajero^ ventanaPasajero = gcnew frmPasajero(objUsuarioLogeado);
 				ventanaPasajero->Show();
 				this->Hide();
 			}
-			if (es_conductor) {
+			if (objUsuarioLogeado->tipoUsuario == 3) {
 				this->objGestorConductor->LeerConductoresDesdeArchivo();
 				Conductor^ objConductorLogeado = this->objGestorConductor->ObtenerConductorxCodigo(objUsuarioLogeado->CodigoDeUsuario);
 				Vehiculo^ objVehiculoInicial = objConductorLogeado->objVehiculo;

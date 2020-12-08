@@ -243,7 +243,7 @@ namespace CarpoolView {
 			if (esta_lleno) {
 
 				
-				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorUsuario->InsertarUsuario(objUsuario);
 				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
@@ -258,7 +258,7 @@ namespace CarpoolView {
 			if (esta_lleno) {
 
 
-				this->objGestorUsuario->AgregarUsuario(objUsuario);
+				this->objGestorUsuario->InsertarUsuario(objUsuario);
 				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
 				this->objGestorConductor->AgregarALista(objConductor);
 				this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
@@ -279,7 +279,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	this->objGestorSeguridad->EscribirArchivo();
-	this->objGestorUsuario->EscribirArchivo();
+	//this->objGestorUsuario->EscribirArchivo();
 	if (this->registro_conductor == 1) {
 		this->objGestorConductor->EscribirArchivo();
 		this->objGestorVehiculo->EscribirArchivo();

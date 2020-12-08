@@ -408,10 +408,10 @@ namespace CarpoolView {
 		int CodigoDeUsuario=this->objGestorUsuario->DarValorAlCodigoDelUsuario();
 
 		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
-		es_valido = objGestorUsuario->UsuarioRepetido(userName);
-		mismos_datos = objGestorUsuario->MismosDatos(dni, correo, nombres, apellidoPaterno, apellidoMaterno);
+		es_valido = objGestorUsuario->UsuarioRepetidoBD(userName);
+		mismos_datos = objGestorUsuario->MismosDatosBD(dni,nombres, apellidoPaterno, apellidoMaterno);
 		esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
-		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuario(dni, correo, nombres, apellidoPaterno, apellidoMaterno, tipoUsuario);
+		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuarioBD(dni, nombres, apellidoPaterno, apellidoMaterno, tipoUsuario);
 
 		this->objUsuario = objUsuario;
 
@@ -436,10 +436,12 @@ namespace CarpoolView {
 				this->Close();
 			}
 		}
-		else if (objUsuario->tipoUsuario == 3) {
+		else if ((objUsuario->tipoUsuario == 3)&& (dni->Length == 8) && es_valido && esta_completo) {
+			
 			frmRegistroConductor^ ventanaRegistroConductor = gcnew frmRegistroConductor(this->objUsuario, this->objGestorUsuario);
 			ventanaRegistroConductor->Show();
 			this->Close();
+
 		}
 
 		if (dni->Length != 8) {
@@ -454,6 +456,12 @@ namespace CarpoolView {
 			MessageBox::Show("Debe llenar todos los espacios");
 		}
 	}
+
+
+
+
+
+
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }

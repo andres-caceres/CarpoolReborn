@@ -501,13 +501,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		Conductor^ objConductor = gcnew Conductor(objUsuario->CodigoDeUsuario,objUsuario->Nombre + " " +objUsuario->ApellidoPaterno+" "+objUsuario->ApellidoMaterno,Licencia,0,0,objVehiculo,CuentaBancaria,2);
 		
 		int es_valido, mismos_datos, esta_completo, mismo_tipo_usuario;
-		es_valido = objGestorUsuario->UsuarioRepetido(objUsuario->userName);
-		mismos_datos = objGestorUsuario->MismosDatos(objUsuario->DNI, objUsuario->Correo, objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno);
+		es_valido = objGestorUsuario->UsuarioRepetidoBD(objUsuario->userName);
+		mismos_datos = objGestorUsuario->MismosDatosBD(objUsuario->DNI,  objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno);
 		esta_completo = objGestorUsuario->ValidarRegistro(objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->DNI, objUsuario->Correo, objUsuario->userName, objUsuario->password);
-		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuario(objUsuario->DNI, objUsuario->Correo, objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->tipoUsuario);
+		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuarioBD(objUsuario->DNI, objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->tipoUsuario);
 
 		if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
-			frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
+			frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario, objVehiculo, objConductor,this->objGestorConductor, this->objGestorVehiculo);
 			ventanaSeguridad->Show();
 			//this->objGestorConductor->AgregarALista(objConductor);
 			//this->Hide();
