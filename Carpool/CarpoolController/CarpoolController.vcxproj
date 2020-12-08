@@ -124,6 +124,7 @@
     <ClInclude Include="GestorUsuario.h" />
     <ClInclude Include="GestorVehiculo.h" />
     <ClInclude Include="GestorViaje.h" />
+    <ClInclude Include="GlobalSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GestorConductor.cpp" />

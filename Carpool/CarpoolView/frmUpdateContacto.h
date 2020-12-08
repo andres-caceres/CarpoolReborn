@@ -227,7 +227,7 @@ namespace CarpoolView {
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Buscar
 		Usuario^ objUsuarioLogeado = this->objUsuario;
 
 		String^ Apodo = this->textBox1->Text;
@@ -243,7 +243,7 @@ namespace CarpoolView {
 	}
 
 
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //Nuevo
 	Usuario^ objUsuarioLogeado = this->objUsuario;
 	frmNuevoContacto^ ventanNuevoContacto = gcnew frmNuevoContacto(this->objGestorContacto, objUsuarioLogeado);
 	ventanNuevoContacto->ShowDialog();
@@ -260,7 +260,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 }
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //Editar
 	Usuario^ objUsuarioLogeado = this->objUsuario;
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ userNameEditar= (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]
@@ -278,7 +278,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 }
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //Eliminar
 	//SelectedRows[0] devuelve primera fila que se marca
 	//index posicion real
 	Usuario^ objUsuarioLogeado = this->objUsuario;
@@ -300,10 +300,11 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void frmUpdateContacto_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	this->objGestorContacto->GrabarEnArchivo();
+	//this->objGestorContacto->GrabarEnArchivo();
 }
 private: System::Void frmUpdateContacto_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->objGestorContacto->LeerContactosDesdeArchivo();
+	//this->objGestorContacto->LeerContactosDesdeArchivo();
+	this->objGestorContacto->listaContactos = this->objGestorContacto->BuscarAllBD();
 
 	Usuario^ objUsuarioLogeado = this->objUsuario;
 
