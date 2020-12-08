@@ -275,7 +275,8 @@ namespace CarpoolView {
 			
 				Tarjeta^ objTarjeta = gcnew Tarjeta(UsuarioLogeado->CodigoDeUsuario, NroTarjeta, CVV, FechaExp, TipoTarjeta);
 
-				this->objGestorTarjeta->AgregarTarjeta(objTarjeta);
+				//this->objGestorTarjeta->AgregarTarjeta(objTarjeta);
+				this->objGestorTarjeta->InsertarTarjeta(objTarjeta);
 
 				MessageBox::Show("Tarjeta añadida exitosamente");
 				this->Close();

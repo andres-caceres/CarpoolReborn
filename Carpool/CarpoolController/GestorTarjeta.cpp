@@ -19,7 +19,7 @@ void GestorTarjeta::AbrirConexionBD() {
 	this->objConexion->Open();
 }
 
-void GestorTarjeta::CerrarConexion() {
+void GestorTarjeta::CerrarConexionBD() {
 	this->objConexion->Close();
 }
 
@@ -41,11 +41,38 @@ List<Tarjeta^>^ GestorTarjeta::BuscarTarjetasXcodigoBD(int CodigoPropietario) {
 		listaTarjetasBuscadas->Add(objTarjeta);
 	}
 	objData->Close();
-	CerrarConexion();
+	CerrarConexionBD();
 	return listaTarjetasBuscadas;
 }
 
+void GestorTarjeta::InsertarTarjeta(Tarjeta^ objTarjeta) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "insert into Tarjeta values(@p1,@p2,@p3,@p4,@p5);";
+	SqlParameter^ p1 = gcnew SqlParameter("@p1", System::Data::SqlDbType::Int);
+	p1->Value = objTarjeta->CodigoPropietario;
+	SqlParameter^ p2 = gcnew SqlParameter("@p2", System::Data::SqlDbType::VarChar, 16);
+	p2->Value = objTarjeta->NroTarjeta;
+	SqlParameter^ p3 = gcnew SqlParameter("@p3", System::Data::SqlDbType::VarChar, 3);
+	p3->Value = objTarjeta->CVV;
+	SqlParameter^ p4 = gcnew SqlParameter("@p4", System::Data::SqlDbType::VarChar,7);
+	p4->Value = objTarjeta->FechaExp;
+	SqlParameter^ p5 = gcnew SqlParameter("@p5", System::Data::SqlDbType::VarChar,16);
+	p5->Value = objTarjeta->TipoTarjeta;
+	objQuery->Parameters->Add(p1);
+	objQuery->Parameters->Add(p2);
+	objQuery->Parameters->Add(p3);
+	objQuery->Parameters->Add(p4);
+	objQuery->Parameters->Add(p5);
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
 
+void GestorTarjeta::BorrarTarjeta(String^ NroTarjeta, int CodigoPropietario) {
+	/*TE QUEDASTE EN CAMBIAR EL PRIMARY KEY, QUE HAYA TARJETA Y CODIGO USUARIO*/
+	//Falta que se añadan más de 2 tarjetas por persona, porque el primary key es unico
+}
 
 void GestorTarjeta::LeerTarjetasDesdeArchivo() {
 	this->listaTarjetas->Clear();

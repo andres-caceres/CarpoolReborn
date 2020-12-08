@@ -231,18 +231,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	frmNuevaTarjeta^ ventanNuevaTarjeta = gcnew frmNuevaTarjeta(objUsuarioLogeado, objGestorTarjeta);
 	ventanNuevaTarjeta->ShowDialog();
 
-	this->dataGridView1->Rows->Clear();
-	for (int i = 0; i < objGestorTarjeta->ObtenerCantidadTarjetas(); i++) {
-		Tarjeta^ objTarjeta = objGestorTarjeta->ObtenerTarjetaLista(i);
-		if (objTarjeta->CodigoPropietario == objUsuarioLogeado->CodigoDeUsuario) {
-			array<String^>^ fila = gcnew array<String^>(4);
-			fila[0] = objTarjeta->NroTarjeta;
-			fila[1] = objTarjeta->CVV;
-			fila[2] = objTarjeta->FechaExp;
-			fila[3] = objTarjeta->TipoTarjeta;
-			this->dataGridView1->Rows->Add(fila);
-		}
-	}
+	List<Tarjeta^>^ listaTarjetas = this->objGestorTarjeta->BuscarTarjetasXcodigoBD(this->objUsuario->CodigoDeUsuario);
+	MostrarGrilla(listaTarjetas);
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objUsuarioLogeado = this->objUsuario;
@@ -265,7 +255,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void frmTarjeta_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	this->objGestorTarjeta->EscribirArchivo();
+	//this->objGestorTarjeta->EscribirArchivo();
 }
 private: System::Void comboBox1_DropDownClosed(System::Object^ sender, System::EventArgs^ e) {
 
@@ -273,18 +263,8 @@ private: System::Void comboBox1_DropDownClosed(System::Object^ sender, System::E
 	String^ TipoTarjeta = this->comboBox1->Text;
 
 	if (TipoTarjeta == "Sin filtro") {
-		this->dataGridView1->Rows->Clear();
-		for (int i = 0; i < objGestorTarjeta->ObtenerCantidadTarjetas(); i++) {
-			Tarjeta^ objTarjeta = objGestorTarjeta->ObtenerTarjetaLista(i);
-			if (objTarjeta->CodigoPropietario == objUsuarioLogeado->CodigoDeUsuario) {
-				array<String^>^ fila = gcnew array<String^>(4);
-				fila[0] = objTarjeta->NroTarjeta;
-				fila[1] = objTarjeta->CVV;
-				fila[2] = objTarjeta->FechaExp;
-				fila[3] = objTarjeta->TipoTarjeta;
-				this->dataGridView1->Rows->Add(fila);
-			}
-		}
+		List<Tarjeta^>^ listaTarjetas = this->objGestorTarjeta->BuscarTarjetasXcodigoBD(this->objUsuario->CodigoDeUsuario);
+		MostrarGrilla(listaTarjetas);
 	}
 	else {
 		this->dataGridView1->Rows->Clear();
