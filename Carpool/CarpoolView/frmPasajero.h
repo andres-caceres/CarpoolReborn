@@ -204,11 +204,12 @@ namespace CarpoolView {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmPasajero";
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->Text = L"Pasajero";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmPasajero::frmPasajero_FormClosing);
+			this->Load += gcnew System::EventHandler(this, &frmPasajero::frmPasajero_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -234,7 +235,10 @@ private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender
 	//ventanaReservaViaje->MdiParent = this;
 	//ventanaReservaViaje->Show();
 
-	frmSelectOrigenFin^ ventanaSelectOrigenFin = gcnew frmSelectOrigenFin();
+	//
+
+
+	frmSelectOrigenFin^ ventanaSelectOrigenFin = gcnew frmSelectOrigenFin(this->objUsuario);
 	ventanaSelectOrigenFin->ShowDialog();
 	
 	
@@ -259,6 +263,8 @@ private: System::Void paypalToolStripMenuItem_Click(System::Object^ sender, Syst
 	ventanaPaypal->Show();
 }
 private: System::Void elegirViajeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void frmPasajero_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

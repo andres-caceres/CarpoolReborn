@@ -159,6 +159,7 @@
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmRegistroConductor.cpp" />
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
+    <ClCompile Include="frmReservarViaje.cpp" />
     <ClCompile Include="frmRevisarViajes.cpp" />
     <ClCompile Include="frmSeguridad.cpp" />
     <ClCompile Include="frmSelectOrigenFin.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="frmUpdateContacto.cpp" />
     <ClCompile Include="frmValidarConductor.cpp" />
     <ClCompile Include="frmValidarVehiculo.cpp" />
+    <ClCompile Include="frmVerRuta.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +256,9 @@
     <ClInclude Include="frmReporteTiposDeUsuarios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmReservarViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmRevisarViajes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -276,6 +281,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmValidarVehiculo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmVerRuta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -364,6 +372,9 @@
     <EmbeddedResource Include="frmReporteTiposDeUsuarios.resx">
       <DependentUpon>frmReporteTiposDeUsuarios.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReservarViaje.resx">
+      <DependentUpon>frmReservarViaje.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRevisarViajes.resx">
       <DependentUpon>frmRevisarViajes.h</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmValidarVehiculo.resx">
       <DependentUpon>frmValidarVehiculo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerRuta.resx">
+      <DependentUpon>frmVerRuta.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

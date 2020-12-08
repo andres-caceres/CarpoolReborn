@@ -4,7 +4,7 @@ using namespace CarpoolModel;
 
 
 Viaje::Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ Fecha, String^ Estado, int NumeroPasajeros,
-	int AsientosDisponibles, String^ Tarifa, Ruta^ objRuta, Conductor^ objConductor) {
+	int AsientosDisponibles, String^ Tarifa, ListaCoordenadas^ objListaCoordenadas, Conductor^ objConductor) {
 
 	this->codigoViaje = codigoViaje;
 	this->HoraSalida = HoraSalida;
@@ -14,7 +14,15 @@ Viaje::Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ F
 	this->NumeroPasajeros = NumeroPasajeros;
 	this->AsientosDisponibles = AsientosDisponibles;
 	this->Tarifa = Tarifa;
-	this->objRuta = objRuta;
+	//this->objRuta = objRuta;
+	this->objListaCoordenadas = objListaCoordenadas;
 	this->objConductor = objConductor;
 	this->listaPasajeros = gcnew List<Pasajero^>();
+}
+
+Viaje::Viaje() {
+	this->listaPasajeros = gcnew List<Pasajero^>();
+	this->objConductor = gcnew Conductor();
+	this->objListaCoordenadas = gcnew ListaCoordenadas();
+
 }

@@ -35,6 +35,24 @@ namespace CarpoolView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
+		frmTrazarRuta(GestorCoordenadas^ objGestorCoordenadas)
+		{
+			InitializeComponent();
+			this->objGestorFigura = gcnew GestorFigura();
+			this->tipoFigura = 1; //Solo usamos lineas
+			this->objColor = Color::Blue;
+			this->flagPrimeraLinea = 1; //iniciamos con el 1er click
+			this->listaFiguras = gcnew List<figura^>();
+			this->listaFiguras->Clear(); //la lista empieza en blanco
+			this->objGestorRuta = gcnew GestorRuta();
+			//this->objGestorCoordenadas = gcnew GestorCoordenadas();
+			this->objGestorCoordenadas = objGestorCoordenadas;
+			this->numeroPuntosMaximo = 50;
+			this->contadorPuntos = 0;
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -245,10 +263,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	//Boton grabar
 	//Completamos el resto de puntos con el punto final;
 
-
-
-	
-
 	if (contadorPuntos < numeroPuntosMaximo) {
 		for (int i = contadorPuntos; i < numeroPuntosMaximo; i++) {
 
@@ -260,9 +274,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	//objListaCoordenadas = this->objGestorCoordenadas->GiveMeListaCoordenadas();
 	this->objGestorCoordenadas->AgregarListaCoordenadasAListaDeListasCoordenadas(this->objGestorCoordenadas->GiveMeListaCoordenadas()); 
 
-	this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(6);  //ESTOY PONIENDO 6 COMO CODIGO DE VIAJE PROVISIONALMENTE
-
-	
+	//this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(6);  //ESTOY PONIENDO 6 COMO CODIGO DE VIAJE PROVISIONALMENTE
 	this->Close();
 }
 };
