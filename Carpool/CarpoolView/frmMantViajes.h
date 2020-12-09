@@ -1,6 +1,7 @@
 #pragma once
 #include "frmNuevoViaje.h"
 #include "frmModificarViaje.h"
+#include "frmVerViaje.h"
 
 namespace CarpoolView {
 
@@ -333,6 +334,7 @@ private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+	this->objGestorViaje->LeerViajesDelConductorDesdeArchivo(objConductor);
 	this->objGestorViaje->EliminarViaje(codigoEliminar);
 	MessageBox::Show("El Viaje ha sido eliminado correctamente");
 	MostrarGrilla();
@@ -352,7 +354,12 @@ private: System::Void frmMantViajes_FormClosing(System::Object^ sender, System::
 	//this->objGestorViaje->EscribirArchivo();
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+	frmVerViaje^ ventanaVerViaje = gcnew frmVerViaje(this->objGestorViaje, codigoEditar);
+	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	ventanaVerViaje->ShowDialog();
+	MostrarGrilla();
 
 
 }

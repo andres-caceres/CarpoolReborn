@@ -125,7 +125,7 @@ Contactos^ GestorContacto::ObtenerContactoxUserName(String^ UserName, int Codigo
 	Contactos^ objContactoBuscado = nullptr;
 	for (int i = 0; i < listaContactos->Count; i++) {
 		if (listaContactos[i]-> userNameDelAñadido== UserName && listaContactos[i]->codigoDelAñador == CodigoAñador) {
-			objContactoBuscado = this->listaContactos[i];
+			objContactoBuscado = listaContactos[i];
 			break;
 		}
 	}

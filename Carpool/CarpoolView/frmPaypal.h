@@ -130,6 +130,7 @@ namespace CarpoolView {
 			this->Name = L"frmPaypal";
 			this->Text = L"Paypal";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &frmPaypal::frmPaypal_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
@@ -162,6 +163,10 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	this->objGestorPaypal->BorrarPaypal(correo, objUsuarioLogeado->CodigoDeUsuario);
 	MessageBox::Show("Paypal eliminado exitosamente");
 
+	List<Paypal^>^ listaPaypal = this->objGestorPaypal->BuscarPaypalXcodigoBD(this->objUsuario->CodigoDeUsuario);
+	MostrarGrilla(listaPaypal);
+}
+private: System::Void frmPaypal_Load(System::Object^ sender, System::EventArgs^ e) {
 	List<Paypal^>^ listaPaypal = this->objGestorPaypal->BuscarPaypalXcodigoBD(this->objUsuario->CodigoDeUsuario);
 	MostrarGrilla(listaPaypal);
 }
