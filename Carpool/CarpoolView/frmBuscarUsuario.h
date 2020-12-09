@@ -367,12 +367,12 @@ private: void MostrarGrilla(List<Usuario^>^ listaUsuarios) {
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	//SelectedRows[0] devuelve primera fila que se marca
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-	String^ userNameEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]
+	String^ userNameEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[7]->Value->ToString());//acccede codigo Cells[0]
 	String^ dniEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString());//acccede codigo Cells[0]
 	this->objGestorUsuario->EliminarUsuarioBD(userNameEliminar);
 	this->objGestorSeguridad->EliminarSeguridad(dniEliminar);
 
-	MessageBox::Show("Contacto eliminado exitosamente");
+	MessageBox::Show("Usuario eliminado exitosamente");
 
 	List<Usuario^>^ listaUsuarios = this->objGestorUsuario->BuscarAllUsuariosBD();
 	MostrarGrilla(listaUsuarios);

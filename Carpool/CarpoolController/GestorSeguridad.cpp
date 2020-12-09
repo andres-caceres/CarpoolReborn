@@ -1,13 +1,105 @@
 #include "GestorSeguridad.h"
+#include "GlobalSettings.h"
+
 
 using namespace CarpoolController;
 using namespace CarpoolModel;
 using namespace System::IO;
 using namespace System::Text;
+using namespace System::Collections::Generic;
+using namespace System;
 
 GestorSeguridad::GestorSeguridad() {
 	this->listaSeguridad = gcnew List<Seguridad^>();
+	this->objConexion = gcnew SqlConnection();
 }
+
+void GestorSeguridad::AbrirConexionBD() {
+	this->objConexion->ConnectionString = "Server=" + ENDPOINT + ";Database=" + DATABASE +
+		";User ID=" + USERNAME + ";Password=" + PASSWORD + ";";
+	this->objConexion->Open();
+}
+
+void GestorSeguridad::CerrarConexionBD() {
+	this->objConexion->Close();
+}
+
+List<Seguridad^>^ GestorSeguridad::BuscarAllSeguridadBD() {
+	List<Seguridad^>^ listaAllSeguridad = gcnew List<Seguridad^>;
+	AbrirConexionBD();
+	SqlDataReader^ objData;
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "select * from Seguridad;";
+	objData = objQuery->ExecuteReader();
+	while (objData->Read()) {
+		String^ DniSeguro= safe_cast<String^>(objData[0]);
+		String^ EmisionDni = safe_cast<String^>(objData[1]);
+		String^ Pregunta = safe_cast<String^>(objData[2]);
+		String^ Respuesta = safe_cast<String^>(objData[3]);
+
+		Seguridad^ objSeguridad = gcnew Seguridad(DniSeguro,EmisionDni, Pregunta, Respuesta);
+		listaAllSeguridad->Add(objSeguridad);
+	}
+	objData->Close();
+	CerrarConexionBD();
+	return listaAllSeguridad;
+}
+
+void GestorSeguridad::InsertarSeguridad(Seguridad^ objSeguridad) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "insert into Seguridad values(@p1,@p2,@p3,@p4);";
+	SqlParameter^ p1 = gcnew SqlParameter("@p1", System::Data::SqlDbType::VarChar,50);
+	p1->Value = objSeguridad->DniSeguro;
+	SqlParameter^ p2 = gcnew SqlParameter("@p2", System::Data::SqlDbType::VarChar, 50);
+	p2->Value = objSeguridad->EmisionDni;
+	SqlParameter^ p3 = gcnew SqlParameter("@p3", System::Data::SqlDbType::VarChar, 50);
+	p3->Value = objSeguridad->Pregunta;
+	SqlParameter^ p4 = gcnew SqlParameter("@p4", System::Data::SqlDbType::VarChar, 50);
+	p4->Value = objSeguridad->Respuesta;
+	objQuery->Parameters->Add(p1);
+	objQuery->Parameters->Add(p2);
+	objQuery->Parameters->Add(p3);
+	objQuery->Parameters->Add(p4);
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+int GestorSeguridad::validarSeguridad(String^ DniSeguro, String^ EmisionDNI, String^ Respuesta) {
+	List<Seguridad^>^ listaSeguridad = BuscarAllSeguridadBD();
+	int es_valido = 0;
+	for (int i = 0; i <listaSeguridad->Count; i++) {
+		if ((listaSeguridad[i]->DniSeguro == DniSeguro) && (listaSeguridad[i]->EmisionDni == EmisionDNI) && (listaSeguridad[i]->Respuesta == Respuesta)) {
+			es_valido = 1;
+			break;
+		}
+	}
+	return es_valido;
+}
+
+void GestorSeguridad::EliminarSeguridad(String^ dni) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "delete from Seguridad where DniSeguro ='" + dni+ "' ;";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+String^ GestorSeguridad::ObtenerPregunta(String^ DniSeguro) {
+	List<Seguridad^>^ listaSeguridad = BuscarAllSeguridadBD();
+	String^ PreguntaObtenida;
+	for (int i = 0; i < listaSeguridad->Count; i++) {
+		if (listaSeguridad[i]->DniSeguro == DniSeguro) {
+			PreguntaObtenida = listaSeguridad[i]->Pregunta;
+			break;
+		}
+	}
+	return PreguntaObtenida;
+}
+
 
 void GestorSeguridad::LeerSeguridadDesdeArchivo() {
 	this->listaSeguridad->Clear();
@@ -27,38 +119,8 @@ void GestorSeguridad::LeerSeguridadDesdeArchivo() {
 	}
 }
 
-int GestorSeguridad::SeguridadLlena(String^ EmisionDNI, String^ Pregunta, String^ Respuesta) {
-	int esta_completo = 1;
-	if ((EmisionDNI == "") || (Pregunta == "") || (Respuesta == "")) {
-		esta_completo = 0;
-	}
-	return esta_completo;
-}
-
-int GestorSeguridad::validarSeguridad(String^ DniSeguro, String^ EmisionDNI, String^ Respuesta) {
-	int es_valido = 0;
-	for (int i = 0; i < this->listaSeguridad->Count; i++) {
-		if ((this->listaSeguridad[i]->DniSeguro == DniSeguro) && (this->listaSeguridad[i]->EmisionDni == EmisionDNI) && (this->listaSeguridad[i]->Respuesta == Respuesta)) {
-			es_valido = 1;
-			break;
-		}
-	}
-	return es_valido;
-}
-
 void GestorSeguridad::AgregarSeguridad(Seguridad^ objSeguridad) {
 	this->listaSeguridad->Add(objSeguridad);
-}
-
-String^ GestorSeguridad::ObtenerPregunta(String^ DniSeguro) {
-	String^ PreguntaObtenida;
-	for (int i = 0; i < this->listaSeguridad->Count; i++) {
-		if ((this->listaSeguridad[i]->DniSeguro == DniSeguro)) {
-			PreguntaObtenida = listaSeguridad[i]->Pregunta;
-			break;
-		}
-	}
-	return PreguntaObtenida;
 }
 
 void GestorSeguridad::EscribirArchivo() {
@@ -68,14 +130,4 @@ void GestorSeguridad::EscribirArchivo() {
 		lineasArchivo[i] = objSeguridad->DniSeguro + ";" + objSeguridad->EmisionDni + ";" + objSeguridad->Pregunta + ";" + objSeguridad->Respuesta;
 	}
 	File::WriteAllLines("Seguridad.txt", lineasArchivo);
-}
-
-void GestorSeguridad::EliminarSeguridad(String^ dni) {
-	for (int i = 0; i < this->listaSeguridad->Count; i++) {
-		if (this->listaSeguridad[i]->DniSeguro== dni) {
-			/*Encontre al que debo eliminar*/
-			this->listaSeguridad->RemoveAt(i);
-			break;
-		}
-	}
 }

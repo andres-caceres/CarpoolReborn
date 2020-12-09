@@ -5,6 +5,7 @@ namespace CarpoolView {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -174,7 +175,7 @@ namespace CarpoolView {
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(260, 57);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->dateTimePicker1->MaxDate = System::DateTime::Now;
+			this->dateTimePicker1->MaxDate = System::DateTime(2020, 12, 9, 3, 43, 23, 840);
 			this->dateTimePicker1->MinDate = System::DateTime(1980, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(130, 22);
@@ -211,7 +212,7 @@ namespace CarpoolView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(624, 407);
+			this->ClientSize = System::Drawing::Size(624, 384);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox3);
@@ -269,7 +270,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmSeguridad_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
+	//this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
 
 	String^ DniSeguro = this->objUsuario->DNI; /// es lo mismo
 
