@@ -16,7 +16,7 @@ namespace CarpoolModel {
 		String^ HoraSalida;
 		String^ HoraLlegada;
 		String^ Fecha;
-		String^ Estado;
+		String^ Estado; //Estados: "No Iniciado", "Iniciado", "Finalizado"
 		int NumeroPasajeros;
 		int AsientosDisponibles;
 		String^ Tarifa;
@@ -24,8 +24,6 @@ namespace CarpoolModel {
 		ListaCoordenadas^ objListaCoordenadas;
 		Conductor^ objConductor;
 		List<Pasajero^>^ listaPasajeros;
-
-
 
 	public:
 		Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ Fecha, String^ Estado, int NumeroPasajeros,

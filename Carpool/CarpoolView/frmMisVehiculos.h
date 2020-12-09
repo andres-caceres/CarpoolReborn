@@ -64,16 +64,22 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ buttonSelec;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+
+
+
+
+
 
 	private:
 			GestorConductor^ objGestorConductor;
 			GestorVehiculo^ objGestorVehiculo;
 			Conductor^ objConductor;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 
 		/// <summary>
@@ -99,16 +105,16 @@ namespace CarpoolView {
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// buttonEliminar
 			// 
-			this->buttonEliminar->Location = System::Drawing::Point(70, 355);
-			this->buttonEliminar->Margin = System::Windows::Forms::Padding(4);
+			this->buttonEliminar->Location = System::Drawing::Point(52, 288);
 			this->buttonEliminar->Name = L"buttonEliminar";
-			this->buttonEliminar->Size = System::Drawing::Size(117, 32);
+			this->buttonEliminar->Size = System::Drawing::Size(88, 26);
 			this->buttonEliminar->TabIndex = 9;
 			this->buttonEliminar->Text = L"Eliminar";
 			this->buttonEliminar->UseVisualStyleBackColor = true;
@@ -116,10 +122,9 @@ namespace CarpoolView {
 			// 
 			// buttonNuevo
 			// 
-			this->buttonNuevo->Location = System::Drawing::Point(222, 355);
-			this->buttonNuevo->Margin = System::Windows::Forms::Padding(4);
+			this->buttonNuevo->Location = System::Drawing::Point(166, 288);
 			this->buttonNuevo->Name = L"buttonNuevo";
-			this->buttonNuevo->Size = System::Drawing::Size(113, 32);
+			this->buttonNuevo->Size = System::Drawing::Size(85, 26);
 			this->buttonNuevo->TabIndex = 8;
 			this->buttonNuevo->Text = L"Nuevo";
 			this->buttonNuevo->UseVisualStyleBackColor = true;
@@ -127,10 +132,9 @@ namespace CarpoolView {
 			// 
 			// buttonSelec
 			// 
-			this->buttonSelec->Location = System::Drawing::Point(685, 355);
-			this->buttonSelec->Margin = System::Windows::Forms::Padding(4);
+			this->buttonSelec->Location = System::Drawing::Point(514, 288);
 			this->buttonSelec->Name = L"buttonSelec";
-			this->buttonSelec->Size = System::Drawing::Size(111, 32);
+			this->buttonSelec->Size = System::Drawing::Size(83, 26);
 			this->buttonSelec->TabIndex = 7;
 			this->buttonSelec->Text = L"Seleccionar";
 			this->buttonSelec->UseVisualStyleBackColor = true;
@@ -139,11 +143,9 @@ namespace CarpoolView {
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->dataGridView1);
-			this->groupBox1->Location = System::Drawing::Point(30, 33);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox1->Location = System::Drawing::Point(22, 27);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(801, 303);
+			this->groupBox1->Size = System::Drawing::Size(601, 246);
 			this->groupBox1->TabIndex = 6;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Mis Vehiculos";
@@ -152,15 +154,14 @@ namespace CarpoolView {
 			// 
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->Column1,
-					this->Column2, this->Column3, this->Column4, this->Column5
+					this->Column2, this->Column3, this->Column4, this->Column5, this->Column6
 			});
-			this->dataGridView1->Location = System::Drawing::Point(40, 39);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView1->Location = System::Drawing::Point(30, 32);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(725, 240);
+			this->dataGridView1->Size = System::Drawing::Size(544, 195);
 			this->dataGridView1->TabIndex = 1;
 			// 
 			// Column1
@@ -193,16 +194,22 @@ namespace CarpoolView {
 			this->Column5->MinimumWidth = 6;
 			this->Column5->Name = L"Column5";
 			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Estado";
+			this->Column6->Name = L"Column6";
+			// 
 			// frmMisVehiculos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(891, 435);
+			this->ClientSize = System::Drawing::Size(668, 353);
 			this->Controls->Add(this->buttonEliminar);
 			this->Controls->Add(this->buttonNuevo);
 			this->Controls->Add(this->buttonSelec);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"frmMisVehiculos";
 			this->Text = L"Mis Vehiculos";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmMisVehiculos::frmMisVehiculos_FormClosing);
@@ -215,19 +222,31 @@ namespace CarpoolView {
 #pragma endregion
 	private: void LoadGrid() {
 
-		
-
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < objGestorVehiculo->ObtenerCantidadVehiculos(); i++) {
 			Vehiculo^ objVehiculo = objGestorVehiculo->ObtenerVehiculoDeLista(i);
 			if (this->objConductor->CodigoDeUsuario == objVehiculo->IDConductor) { //Filtro de vehiculos de este conductor
 
-				array<String^>^ fila = gcnew array<String^>(5);
+				String^ Estado = "";
+				switch (objVehiculo->valido)
+				{
+				case 1: Estado = "Disponible";
+					break;
+
+				case 2: Estado = "Validando...";
+					break;
+				default:
+						Estado = "Invalido";
+					break;
+				}
+
+				array<String^>^ fila = gcnew array<String^>(6);
 				fila[0] = objVehiculo->Marca;
 				fila[1] = objVehiculo->Modelo;
 				fila[2] = objVehiculo->Placa;
 				fila[3] = objVehiculo->Color;
 				fila[4] = objVehiculo->Tipo;
+				fila[5] = Estado;
 				//Por si se agranda el datagrid:
 				//fila[5] = objVehiculo->NumeroAsientos;
 				//fila[6] = objVehiculo->Propietario;
