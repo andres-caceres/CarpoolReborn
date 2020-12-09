@@ -1,1 +1,1 @@
-Audi;4x4;156198;AMA - Amarillo;Hatchback;6;Junior Barrientos;1561189516;1118918919;6;2
+Alfa Romeo;4x4;191819;AMA - Amarillo;Coupé;7;Juan Guerrero;6519819819;1981919198;11;2

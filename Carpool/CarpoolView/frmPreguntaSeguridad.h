@@ -264,8 +264,8 @@ private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, S
 	//this->objGestorSeguridad->EscribirArchivo();
 	//this->objGestorUsuario->EscribirArchivo();
 	if (this->registro_conductor == 1) {
-		//this->objGestorConductor->EscribirArchivo();
-		//this->objGestorVehiculo->EscribirArchivo();
+		this->objGestorConductor->EscribirArchivo();
+		this->objGestorVehiculo->EscribirArchivo();
 	}
 }
 };
