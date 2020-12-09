@@ -278,10 +278,49 @@ void GestorUsuario::ActualizarPassword(String^ dniEditar, int tipoUsuarioEditar,
 	CerrarConexionBD();
 }
 
+void GestorUsuario::ActualizarAAdmin(String^ userName) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "UPDATE Usuario SET tipoUsuario = 1 where userName = '" + userName+ ";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
 
-
-
-
+List<Usuario^>^ GestorUsuario::BuscarUsuariosBD(String^ userName, String^ tipoUsuarioFiltro) {
+	List<Usuario^>^ listaAllUsuarios = gcnew List<Usuario^>;
+	AbrirConexionBD();
+	SqlDataReader^ objData;
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	if ((tipoUsuarioFiltro == "") || (tipoUsuarioFiltro == "Sin filtro")) {
+		objQuery->CommandText = "select * from Usuario where userName like '" + userName + "%';";
+	}
+	else {
+		int tipoUsuario;
+		if (tipoUsuarioFiltro == "Pasajeros") {tipoUsuario = 2;}
+		else if (tipoUsuarioFiltro == "Conductores") {tipoUsuario = 3;}
+		else if (tipoUsuarioFiltro == "Admins") {tipoUsuario = 1;}
+		objQuery->CommandText = "select * from Usuario where userName like '" + userName + "%' and tipoUsuario="+tipoUsuario+";";
+	}
+	objData = objQuery->ExecuteReader();
+	while (objData->Read()) {
+		int  CodigoDeUsuario = safe_cast<int>(objData[0]);
+		String^ Nombre = safe_cast<String^>(objData[1]);
+		String^ ApellidoPaterno = safe_cast<String^>(objData[2]);
+		String^ ApellidoMaterno = safe_cast<String^>(objData[3]);
+		String^ DNI = safe_cast<String^>(objData[4]);
+		String^ Correo = safe_cast<String^>(objData[5]);
+		String^ userName = safe_cast<String^>(objData[6]);
+		String^ contrasenha = safe_cast<String^>(objData[7]);
+		int tipoUsuario = safe_cast<int>(objData[8]);
+		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario, Nombre, ApellidoPaterno, ApellidoMaterno, DNI, Correo, userName, contrasenha, tipoUsuario);
+		listaAllUsuarios->Add(objUsuario);
+	}
+	objData->Close();
+	CerrarConexionBD();
+	return listaAllUsuarios;
+}
 
 
 

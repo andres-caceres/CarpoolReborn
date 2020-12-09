@@ -38,6 +38,8 @@ namespace CarpoolController {
 		void ActualizarUserName(String^ dniEditar, int tipoUsuarioEditar, String^ correo);
 		void ActualizarCorreo(String^ dniEditar, int tipoUsuarioEditar, String^ correo);
 		void ActualizarPassword(String^ dniEditar, int tipoUsuarioEditar, String^ contrasenha);
+		void ActualizarAAdmin(String^ userName);
+		List<Usuario^>^ BuscarUsuariosBD(String^ userName,  String^ tipoUsuarioFiltro);
 
 
 		void LeerUsuariosDesdeArchivo();
