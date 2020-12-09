@@ -255,7 +255,26 @@ int GestorViaje::obtenerCodigoViaje() {
 }
 
 
+List<Viaje^>^ GestorViaje::BuscarViajesxFecha(String^ fecha) {
+	List<Viaje^>^ listaViajesEncontrados = gcnew List<Viaje^>();
 
+	for (int i = 0; i < this->listaViajes->Count; i++) {
+		Viaje^ objViaje = this->listaViajes[i];
+		if (objViaje->Fecha == fecha) {
+			listaViajesEncontrados->Add(objViaje);
+		}
+	}
+	return listaViajesEncontrados;
+}
+
+void GestorViaje::RechazarPasajero(int codigoEliminar, Viaje^ objViaje) {
+	for (int i = 0; i < objViaje->listaPasajeros->Count; i++) {
+		if (objViaje->listaPasajeros[i]->CodigoDeUsuario == codigoEliminar) {
+			objViaje->listaPasajeros->RemoveAt(i);
+			break;
+		}
+	}
+}
 
 
 
