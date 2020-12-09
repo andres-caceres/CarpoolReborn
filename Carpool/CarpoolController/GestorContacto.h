@@ -30,9 +30,14 @@ namespace CarpoolController {
 
 		void AbrirConexionBD();
 		void CerrarConexionBD();
-		List<Contactos^>^ BuscarAllBD();
+		List<Contactos^>^ BuscarAllBD(int codigoAñador);
 		void GuardarContactoBD(Contactos^ objContacto);
 		void BorrarContactoBD(Contactos^ objContacto);
 		void GrabarEnBD();
+		void ActualizarApodoBD(String^ apodo, int CodigoDelAñador, int CodigoDelAñadido);
+		void EliminarContactoBD(String^ userNameEliminar, int CodigoAñador);
+		List<Contactos^>^ BuscarFiltroBD(int codigoAñador, String^ apodo);
+
+
 	};
 }

@@ -7,6 +7,7 @@ namespace CarpoolView {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -228,69 +229,64 @@ namespace CarpoolView {
 		}
 #pragma endregion
 
-	private: void MostrarGrilla() {
-
-		Usuario^ objUsuarioLogeado = this->objUsuario;
-
-		for (int i = 0; i < objGestorContacto->ObtenerCantidadContactos(); i++) {
-			Contactos^ objContacto = objGestorContacto->ObtenerContactoLista(i);
-			if (objContacto->codigoDelAñador == objUsuarioLogeado->CodigoDeUsuario) {
-				array<String^>^ fila = gcnew array<String^>(3);
-				fila[0] = objContacto->userNameDelAñadido;
-				fila[1] = objContacto->Apodo;
-				fila[2] = objContacto->Nombre;
-				this->dataGridView1->Rows->Add(fila);
-			}
-		}
-	}
-
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Buscar
-		Usuario^ objUsuarioLogeado = this->objUsuario;
-
-		String^ Apodo = this->textBox1->Text;
-		Contactos^ objContacto = this->objGestorContacto->ObtenerContactoxApodo(Apodo,objUsuarioLogeado->CodigoDeUsuario);
+	private: void MostrarGrilla(List<Contactos^>^ listaContactos) {
 		this->dataGridView1->Rows->Clear();
-		if (objContacto->codigoDelAñador == objUsuarioLogeado->CodigoDeUsuario) {
+		for (int i = 0; i < listaContactos->Count; i++) {
+			Contactos^ objContacto = listaContactos[i];
 			array<String^>^ fila = gcnew array<String^>(3);
 			fila[0] = objContacto->userNameDelAñadido;
 			fila[1] = objContacto->Apodo;
 			fila[2] = objContacto->Nombre;
 			this->dataGridView1->Rows->Add(fila);
+			
 		}
+	}
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Buscar
+		Usuario^ objUsuarioLogeado = this->objUsuario;
+		String^ Apodo = this->textBox1->Text;
+		List<Contactos^>^ listaContactos = this->objGestorContacto->BuscarFiltroBD(this->objUsuario->CodigoDeUsuario,Apodo);
+		MostrarGrilla(listaContactos);
+
 	}
 
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //Nuevo
 	frmNuevoContacto^ ventanNuevoContacto = gcnew frmNuevoContacto(this->objGestorContacto, this->objUsuario);
 	ventanNuevoContacto->ShowDialog();
-	this->dataGridView1->Rows->Clear();
-	MostrarGrilla();
+	List<Contactos^>^ listaContactos = this->objGestorContacto->BuscarAllBD(this->objUsuario->CodigoDeUsuario);
+	MostrarGrilla(listaContactos);
 }
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //Editar
-	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-	String^ userNameEditar= (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]
-	frmEditarContacto^ ventanaEditarContacto = gcnew frmEditarContacto(this->objGestorContacto, this->objUsuario);
-	ventanaEditarContacto->ShowDialog();
-	this->dataGridView1->Rows->Clear();
-	MostrarGrilla();
-}
+
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //Editar
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+		String^ userNameEditar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]
+		Usuario^ objUsuarioAñadido = this->objGestorUsuario->ObtenerUsuarioxUserNameBD(userNameEditar);
+		frmEditarContacto^ ventanaEditarContacto = gcnew frmEditarContacto(this->objGestorContacto, this->objUsuario, objUsuarioAñadido);
+		ventanaEditarContacto->ShowDialog();
+
+		List<Contactos^>^ listaContactos = this->objGestorContacto->BuscarAllBD(this->objUsuario->CodigoDeUsuario);
+		MostrarGrilla(listaContactos);
+	}
+
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //Eliminar
 	//SelectedRows[0] devuelve primera fila que se marca
 	//index posicion real
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ userNameEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]		
-	this->objGestorContacto->BorrarContactoBD(this->objGestorContacto->ObtenerContactoxUserName(userNameEliminar, this->objUsuario->CodigoDeUsuario));
-	this->objGestorContacto->EliminarContactoXuserName(userNameEliminar, this->objUsuario->CodigoDeUsuario);
+	this->objGestorContacto->EliminarContactoBD(userNameEliminar, this->objUsuario->CodigoDeUsuario);
 	MessageBox::Show("Contacto eliminado exitosamente");
-	MostrarGrilla();
+
+	List<Contactos^>^ listaContactos = this->objGestorContacto->BuscarAllBD(this->objUsuario->CodigoDeUsuario);
+	MostrarGrilla(listaContactos);
 }
 private: System::Void frmUpdateContacto_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	//this->objGestorContacto->GrabarEnArchivo();
 }
 private: System::Void frmUpdateContacto_Load(System::Object^ sender, System::EventArgs^ e) {
 	//this->objGestorContacto->LeerContactosDesdeArchivo();
-	this->objGestorContacto->listaContactos = this->objGestorContacto->BuscarAllBD();
-	MostrarGrilla();
+	List<Contactos^>^ listaContactos = this->objGestorContacto->BuscarAllBD(this->objUsuario->CodigoDeUsuario);
+	MostrarGrilla(listaContactos);
 }
 };
 }

@@ -121,9 +121,10 @@ int GestorContacto::ObtenerCantidadContactosSegunCodigoDeAñadidor(int codigoAñad
 }
 
 Contactos^ GestorContacto::ObtenerContactoxUserName(String^ UserName, int CodigoAñador) {
+	List<Contactos^>^ listaContactos = BuscarAllBD(CodigoAñador);
 	Contactos^ objContactoBuscado = nullptr;
-	for (int i = 0; i < this->listaContactos->Count; i++) {
-		if (this->listaContactos[i]-> userNameDelAñadido== UserName && this->listaContactos[i]->codigoDelAñador == CodigoAñador) {
+	for (int i = 0; i < listaContactos->Count; i++) {
+		if (listaContactos[i]-> userNameDelAñadido== UserName && listaContactos[i]->codigoDelAñador == CodigoAñador) {
 			objContactoBuscado = this->listaContactos[i];
 			break;
 		}
@@ -151,13 +152,13 @@ void GestorContacto::CerrarConexionBD() {
 	this->objConexion->Close();
 }
 
-List<Contactos^>^ GestorContacto::BuscarAllBD() {
+List<Contactos^>^ GestorContacto::BuscarAllBD(int codigoAñador) {
 	List<Contactos^>^ listaBuscados = gcnew List<Contactos^>;
 	AbrirConexionBD();
 	SqlDataReader^ objData; /*Este objeto va a tener los registros del resultado del query*/
 	SqlCommand^ objQuery = gcnew SqlCommand();
 	objQuery->Connection = this->objConexion;
-	objQuery->CommandText = "select * from Contacto;";
+	objQuery->CommandText = "select * from Contacto where codigoDelAñador="+codigoAñador+";";
 	objData = objQuery->ExecuteReader();
 	while (objData->Read()) {
 		int codigoAñador = safe_cast<int>(objData[0]);
@@ -212,4 +213,44 @@ void GestorContacto::GrabarEnBD() { /*TODO: es muy lento e ineficiente, no se us
 		GuardarContactoBD(listaContactos[i]);
 	}
 
+}
+
+void GestorContacto::ActualizarApodoBD(String^ apodo, int CodigoDelAñador,int CodigoDelAñadido) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "UPDATE Contacto SET apodo ='" + apodo + "' where codigoDelAñador = " + CodigoDelAñador + " and codigoDelAñadido=" + CodigoDelAñadido+ ";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+void GestorContacto::EliminarContactoBD(String^ userNameEliminar, int CodigoAñador) {
+	AbrirConexionBD();
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "delete from Contacto where userNameDelAñadido='" + userNameEliminar +"' and codigoDelAñador="+ CodigoAñador+";";
+	objQuery->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+List<Contactos^>^ GestorContacto::BuscarFiltroBD(int codigoAñador,String^ apodo) {
+	List<Contactos^>^ listaBuscados = gcnew List<Contactos^>;
+	AbrirConexionBD();
+	SqlDataReader^ objData; /*Este objeto va a tener los registros del resultado del query*/
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "select * from Contacto where codigoDelAñador =" + codigoAñador + " and Apodo like '"+ apodo +"%' ;";
+	objData = objQuery->ExecuteReader();
+	while (objData->Read()) {
+		int codigoAñador = safe_cast<int>(objData[0]);
+		int codigoAñadido = safe_cast<int>(objData[1]);
+		String^ username = safe_cast<String^>(objData[2]);
+		String^ Apodo = safe_cast<String^>(objData[3]);
+		String^ Nombre = safe_cast<String^>(objData[4]);
+		Contactos^ objContacto = gcnew Contactos(codigoAñador, codigoAñadido, username, Apodo, Nombre);
+		listaBuscados->Add(objContacto);
+	}
+	objData->Close();
+	CerrarConexionBD();
+	return listaBuscados;
 }
