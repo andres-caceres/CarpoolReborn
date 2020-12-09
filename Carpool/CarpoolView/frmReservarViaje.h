@@ -27,11 +27,11 @@ namespace CarpoolView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		frmReservarViaje(Usuario^ objUsuario, GestorFigura^ objGestorFigura)
+		frmReservarViaje(Usuario^ objUsuario)
 		{
 			InitializeComponent();
 			this->objUsuario = objUsuario;
-			this->objGestorFigura = objGestorFigura;
+			this->objGestorFigura = gcnew GestorFigura();
 			this->objGestorViaje = gcnew GestorViaje();
 				
 
@@ -119,6 +119,7 @@ namespace CarpoolView {
 			this->button2->TabIndex = 28;
 			this->button2->Text = L"Reservar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmReservarViaje::button2_Click);
 			// 
 			// button1
 			// 
@@ -279,6 +280,15 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	ventanaVerRuta->ShowDialog();
 
 
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Boton reservar viaje
+
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	int codigoReservar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+
+	this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
+	this->Close();
 }
 };
 }

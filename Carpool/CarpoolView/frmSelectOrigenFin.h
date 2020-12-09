@@ -224,12 +224,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton Buscar
 
-	frmReservarViaje^ ventanaReservarViaje = gcnew frmReservarViaje(this->objUsuario, this->objGestorFigura);
+	frmReservarViaje^ ventanaReservarViaje = gcnew frmReservarViaje(this->objUsuario);
 	ventanaReservarViaje->ShowDialog();
-
-
-
-
+	
 
 	this->Close();
 }

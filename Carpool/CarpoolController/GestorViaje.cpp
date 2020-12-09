@@ -277,4 +277,29 @@ void GestorViaje::RechazarPasajero(int codigoEliminar, Viaje^ objViaje) {
 }
 
 
+void GestorViaje::AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero) {
+
+
+	int cantPasajerosViaje = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		cantPasajerosViaje = cantPasajerosViaje + this->listaViajes[i]->listaPasajeros->Count;
+	}
+	array<String^>^ lineas = gcnew array<String^>(cantPasajerosViaje + 1);
+	int k = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		Viaje^ objViaje = this->listaViajes[i];
+		for (int j = 0; j < objViaje->listaPasajeros->Count; j++) {
+			lineas[k] = objViaje->codigoViaje + "," + objViaje->listaPasajeros[j]->CodigoDeUsuario;
+			k++;
+		}
+	}
+	lineas[cantPasajerosViaje] = Convert::ToString(codigoViaje) + ";" + Convert::ToString(CodigoPasajero);
+	File::WriteAllLines("pasajerosXviajes.txt", lineas);
+
+}
+
+
+
 
