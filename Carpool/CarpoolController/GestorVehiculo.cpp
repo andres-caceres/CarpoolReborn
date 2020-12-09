@@ -5,7 +5,7 @@ using namespace System;
 using namespace System::IO;
 
 GestorVehiculo::GestorVehiculo() {
-	listaVehiculos = gcnew List<Vehiculo^>();
+	this->listaVehiculos = gcnew List<Vehiculo^>();
 	//listaVehiculosDeConductor = gcnew List<Vehiculo^>();
 }
 

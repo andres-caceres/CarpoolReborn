@@ -174,7 +174,7 @@ namespace CarpoolView {
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(260, 57);
-			this->dateTimePicker1->MaxDate = System::DateTime::Now;
+			this->dateTimePicker1->MaxDate = System::DateTime(2020, 12, 9, 17, 50, 20, 196);
 			this->dateTimePicker1->MinDate = System::DateTime(1980, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(134, 22);
@@ -218,6 +218,7 @@ namespace CarpoolView {
 			this->Name = L"frmPreguntaSeguridad";
 			this->Text = L"Pregunta Seguridad";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmPreguntaSeguridad::frmPreguntaSeguridad_FormClosing);
+			this->Load += gcnew System::EventHandler(this, &frmPreguntaSeguridad::frmPreguntaSeguridad_Load);
 			this->groupBox3->ResumeLayout(false);
 			this->groupBox3->PerformLayout();
 			this->ResumeLayout(false);
@@ -229,6 +230,7 @@ namespace CarpoolView {
 
 		//GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad();
 		List<Seguridad^>^ ListaSeguridad = this->objGestorSeguridad->BuscarAllSeguridadBD();
+
 		String^ emisionDNI = this->dateTimePicker1->Text;
 		String^ Pregunta = this->comboBox1->Text;
 		String^ Respuesta = this->textBox9->Text;
@@ -266,6 +268,12 @@ private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, S
 	if (this->registro_conductor == 1) {
 		this->objGestorConductor->EscribirArchivo();
 		this->objGestorVehiculo->EscribirArchivo();
+	}
+}
+private: System::Void frmPreguntaSeguridad_Load(System::Object^ sender, System::EventArgs^ e) {
+	if (this->registro_conductor == 1) {
+		this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
+		this->objGestorConductor->LeerConductoresDesdeArchivo();
 	}
 }
 };

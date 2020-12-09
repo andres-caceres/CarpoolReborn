@@ -58,7 +58,7 @@ namespace CarpoolView {
 	private: GestorConductor^ objGestorConductor;
 	private: GestorVehiculo^ objGestorVehiculo;
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::LinkLabel^ linkLabel1;
+
 
 	private:
 		/// <summary>
@@ -83,7 +83,6 @@ namespace CarpoolView {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -199,17 +198,6 @@ namespace CarpoolView {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &frmLogin::button3_Click);
 			// 
-			// linkLabel1
-			// 
-			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->BackColor = System::Drawing::Color::Transparent;
-			this->linkLabel1->Location = System::Drawing::Point(130, 274);
-			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(127, 17);
-			this->linkLabel1->TabIndex = 19;
-			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"Reportar problema";
-			// 
 			// frmLogin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -217,7 +205,6 @@ namespace CarpoolView {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(735, 300);
-			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label4);

@@ -277,6 +277,10 @@ private: System::Void frmSeguridad_Load(System::Object^ sender, System::EventArg
 	//GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad();
 	String^ PreguntaObtenida = this->objGestorSeguridad->ObtenerPregunta(DniSeguro);
 	this->label4->Text = PreguntaObtenida;
+	if (this->registro_conductor == 1) {
+		this->objGestorConductor->LeerConductoresDesdeArchivo();
+		this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
+	}
 	/*Si esta esto esta bien*/
 }
 private: System::Void frmSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {

@@ -8,7 +8,7 @@ using namespace System::Text;
 
 GestorConductor::GestorConductor() {
 
-	listaConductores = gcnew List<Conductor^>(); //crea la lista de conductores para usar en el programa
+	this->listaConductores = gcnew List<Conductor^>(); //crea la lista de conductores para usar en el programa
 
 
 }
