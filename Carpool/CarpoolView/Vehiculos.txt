@@ -1,1 +1,1 @@
-Alfa Romeo;ADASD;ASDASD;ANA - Anaranjado;Coupé;2;Andres Caceres;ASDASD;ASDASD;1;1
+Alfa Romeo;4x4;161651;AMA - Amarillo;Sedan;5;Fernando Paz;1651616556;1516516515;5;2
