@@ -386,7 +386,7 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		int es_valido, esta_completo, mismos_datos, mismo_tipo_usuario;
-		
+
 		String^ nombres = this->textBox1->Text;
 		String^ apellidoPaterno = this->textBox2->Text;
 		String^ apellidoMaterno = this->textBox3->Text;
@@ -405,88 +405,69 @@ namespace CarpoolView {
 			MessageBox::Show("Debe seleccionar una opcion");
 		}
 
-		int CodigoDeUsuario=this->objGestorUsuario->DarValorAlCodigoDelUsuario();
+		int CodigoDeUsuario = this->objGestorUsuario->DarValorAlCodigoDelUsuario();
 
-		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario,nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
+		Usuario^ objUsuario = gcnew Usuario(CodigoDeUsuario, nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password, tipoUsuario);
 		es_valido = objGestorUsuario->UsuarioRepetidoBD(userName);
-		mismos_datos = objGestorUsuario->MismosDatosBD(dni,nombres, apellidoPaterno, apellidoMaterno);
+		mismos_datos = objGestorUsuario->MismosDatosBD(dni, nombres, apellidoPaterno, apellidoMaterno);
 		esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
 		mismo_tipo_usuario = objGestorUsuario->MismoTipoUsuarioBD(dni, nombres, apellidoPaterno, apellidoMaterno, tipoUsuario);
 
 		this->objUsuario = objUsuario;
 
-		if ((objUsuario->tipoUsuario == 2)&& (dni->Length==8)) {
-			if (mismos_datos && es_valido && (!mismo_tipo_usuario) && esta_completo) {	//Segunda vez registro
-				frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
-				ventanaSeguridad->Show();
-				//this->Hide();
-				//this->objGestorUsuario->AgregarUsuario(objUsuario);
-				this->Close();
+		if (esta_completo) {
+			if (dni->Length == 8) {
+				if (es_valido) {
+					if (objUsuario->tipoUsuario == 2) {
+						if (es_valido)
+							if (mismos_datos && (!mismo_tipo_usuario)) {	//Segunda vez registro
+								frmSeguridad^ ventanaSeguridad = gcnew frmSeguridad(this->objUsuario, this->objGestorUsuario);
+								ventanaSeguridad->ShowDialog();
+								this->Close();
+							}
+
+							if (mismos_datos && mismo_tipo_usuario) {
+								MessageBox::Show("Ya hay una cuenta con el mismo tipo de usuario y datos");
+							}
+
+							if (!mismos_datos) {	//Primera vez registro
+								frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
+								ventanaPreguntaSeguridad->ShowDialog();
+								this->Close();
+							}
+					}
+					else if (objUsuario->tipoUsuario == 3) {
+						if (mismos_datos && mismo_tipo_usuario) {
+							MessageBox::Show("Ya hay una cuenta con el mismo tipo de usuario y datos");
+						}
+						else {
+							frmRegistroConductor^ ventanaRegistroConductor = gcnew frmRegistroConductor(this->objUsuario, this->objGestorUsuario);
+							ventanaRegistroConductor->ShowDialog();
+							this->Close();
+						}
+
+					}
+				}
+				else {
+					MessageBox::Show("UserName ya existente");
+				}
 			}
+			else {
+				MessageBox::Show("Dni debe tener 8 dígitos");
 
-			if (mismos_datos && es_valido && mismo_tipo_usuario) {
-				MessageBox::Show("Ya hay una cuenta con el mismo tipo de usuario y datos");
-			}
-
-			if (es_valido && esta_completo && (!mismos_datos) && esta_completo) {	//Primera vez registro
-				frmPreguntaSeguridad^ ventanaPreguntaSeguridad = gcnew frmPreguntaSeguridad(this->objUsuario, this->objGestorUsuario);
-				ventanaPreguntaSeguridad->Show();
-				//this->objGestorUsuario->AgregarUsuario(objUsuario);		IMPORTANTE
-				//MessageBox::Show("El usuario ha sido agregado correctamente");
-				this->Close();
 			}
 		}
-		else if ((objUsuario->tipoUsuario == 3)&& (dni->Length == 8) && es_valido && esta_completo) {
-			
-			frmRegistroConductor^ ventanaRegistroConductor = gcnew frmRegistroConductor(this->objUsuario, this->objGestorUsuario);
-			ventanaRegistroConductor->Show();
-			this->Close();
-
-		}
-
-		if (dni->Length != 8) {
-			MessageBox::Show("Dni debe tener 8 dígitos");
-		}
-
-		if (!es_valido) {
-			MessageBox::Show("UserName ya existente");
-		}
-
-		if (!esta_completo) {
+		else {
 			MessageBox::Show("Debe llenar todos los espacios");
+
 		}
 	}
-
-
-
-
 
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void frmRegister_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	//int esta_completo;
-	//String^ nombres = this->textBox1->Text;
-	//String^ apellidoPaterno = this->textBox2->Text;
-	//String^ apellidoMaterno = this->textBox3->Text;
-	//String^ dni = this->textBox4->Text;
-	//String^ correo = this->textBox5->Text + this->comboBox1->Text;
-	//String^ userName = this->textBox6->Text;
-	//String^ password = this->textBox7->Text;
-	//int tipoUsuario;
-	//if (this->radioButton1->Checked == true) {
-	//	tipoUsuario = 2;	// Pasajero
-	//}
-	//if (this->radioButton2->Checked == true) {
-	//	tipoUsuario = 3;	//Conductor
-	//}
-	//Usuario^ objUsuario = gcnew Usuario(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password,tipoUsuario);
-
-	//esta_completo = objGestorUsuario->ValidarRegistro(nombres, apellidoPaterno, apellidoMaterno, dni, correo, userName, password);
-	//if (esta_completo) {
-	//	this->objGestorUsuario->EscribirArchivo();
-	//}
 }
 private: System::Void frmRegister_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	//this->objGestorUsuario->EscribirArchivo();
@@ -501,7 +482,7 @@ bool IsNumeric(char c) {
 }
 
 bool IsLetter(char c) {
-	if ((c >= 'a' && c <= 'z') || (c == 8)|| (c >= 'A' && c <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c == 8)|| (c >= 'A' && c <= 'Z')||(c=='í')||(c=='é')||(c=='á'))
 	{return true;}
 	return false;
 

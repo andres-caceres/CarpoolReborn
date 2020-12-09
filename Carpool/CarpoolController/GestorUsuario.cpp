@@ -252,7 +252,7 @@ int GestorUsuario::UsuarioRepetidoConCodigo(int codigo) {
 	return mismo_codigo;
 }
 
-void GestorUsuario::ActualizarCorreo(String^ dniEditar, int tipoUsuarioEditar, String^ userName) {
+void GestorUsuario::ActualizarUserName(String^ dniEditar, int tipoUsuarioEditar, String^ userName) {
 	AbrirConexionBD();
 	SqlCommand^ objQuery = gcnew SqlCommand();
 	objQuery->Connection = this->objConexion;
@@ -260,7 +260,7 @@ void GestorUsuario::ActualizarCorreo(String^ dniEditar, int tipoUsuarioEditar, S
 	objQuery->ExecuteNonQuery();
 	CerrarConexionBD();
 }
-void GestorUsuario::ActualizarUserName(String^ dniEditar, int tipoUsuarioEditar, String^ correo) {
+void GestorUsuario::ActualizarCorreo(String^ dniEditar, int tipoUsuarioEditar, String^ correo) {
 	AbrirConexionBD();
 	SqlCommand^ objQuery = gcnew SqlCommand();
 	objQuery->Connection = this->objConexion;
@@ -322,7 +322,17 @@ List<Usuario^>^ GestorUsuario::BuscarUsuariosBD(String^ userName, String^ tipoUs
 	return listaAllUsuarios;
 }
 
-
+int GestorUsuario::UsuarioNuevoDatosPersonalesBD(String^ userName, String^ userNameOriginal) {
+	List<Usuario^>^ listaUsuarios = BuscarAllUsuariosBD();
+	int mismo_usuario = 0;
+	for (int i = 0; i < listaUsuarios->Count; i++) {
+		if ((listaUsuarios[i]->userName == userName)) {
+			mismo_usuario = 1;
+			break;
+		}
+	}
+	return mismo_usuario;
+}
 
 
 
@@ -521,9 +531,6 @@ int GestorUsuario::ObtenerTipoDeUsuario(String^ userName) {
 	return tipoDeUsuario;
 
 }
-
-
-
 
 
 Usuario^ GestorUsuario::ObtenerUsuarioxDNIyTipoDeUsuario(String^ DNI, int tipoUsuario) {

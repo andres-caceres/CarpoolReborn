@@ -1,1 +1,1 @@
-Audi;4x4;156198;AMA - Amarillo;Hatchback;6;Junior Barrientos;1561189516;1118918919;7;2
+Audi;4x4;156198;AMA - Amarillo;Hatchback;6;Junior Barrientos;1561189516;1118918919;6;2

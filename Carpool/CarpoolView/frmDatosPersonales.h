@@ -72,6 +72,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
 
 	private:
 		/// <summary>
@@ -106,6 +107,7 @@ namespace CarpoolView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -123,6 +125,7 @@ namespace CarpoolView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->lblMensaje4);
 			this->groupBox1->Controls->Add(this->lblMensaje3);
@@ -135,7 +138,7 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(36, 41);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(481, 296);
+			this->groupBox1->Size = System::Drawing::Size(497, 296);
 			this->groupBox1->TabIndex = 7;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Sus datos personales";
@@ -144,7 +147,7 @@ namespace CarpoolView {
 			// 
 			this->textBox1->Location = System::Drawing::Point(213, 244);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(225, 22);
+			this->textBox1->Size = System::Drawing::Size(132, 22);
 			this->textBox1->TabIndex = 9;
 			// 
 			// lblMensaje4
@@ -235,7 +238,7 @@ namespace CarpoolView {
 			this->groupBox2->Controls->Add(this->textBox2);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->button2);
-			this->groupBox2->Location = System::Drawing::Point(539, 41);
+			this->groupBox2->Location = System::Drawing::Point(555, 41);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(423, 203);
 			this->groupBox2->TabIndex = 9;
@@ -299,6 +302,19 @@ namespace CarpoolView {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &frmDatosPersonales::button3_Click);
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"@pucp.edu.pe", L"@gmail.com", L"@hotmail.com",
+					L"@outlook.es"
+			});
+			this->comboBox1->Location = System::Drawing::Point(351, 244);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(130, 24);
+			this->comboBox1->TabIndex = 10;
+			// 
 			// frmDatosPersonales
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -340,7 +356,14 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 	this->lblMensaje3->Text = objUsuarioLogeado->ApellidoMaterno;
 	this->lblMensaje4->Text = objUsuarioLogeado->DNI;
 
-	this->textBox1->Text = objUsuario->Correo;
+
+	String ^ separador = "@";	
+	array<String^>^ palabras = objUsuario->Correo->Split(separador->ToCharArray());
+	String^ CorreoParte1 = palabras[0];
+	String^ CorreoParte2 = separador + palabras[1];
+
+	this->textBox1->Text = CorreoParte1;
+	this->comboBox1->Text = CorreoParte2;
 	this->textBox2->Text = objUsuario->userName;
 	
 	if (objUsuarioLogeado->tipoUsuario == 2) {
@@ -356,34 +379,38 @@ private: System::Void frmDatosPersonales_Load(System::Object^ sender, System::Ev
 
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	//Falta ver que el nombre de usuario no se repita con UsuarioRepetido.
 	Usuario^ objUsuarioLogeado = this->objUsuario;
-	//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 
-	String^ Correo = this->textBox1->Text;
+	String^ Correo = this->textBox1->Text + this->comboBox1->Text;
 	String^ userName = this->textBox2->Text;
 
-	//Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario, objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, Correo, userName, objUsuarioLogeado->password, objUsuarioLogeado->tipoUsuario);
-	int mismo_userName = this->objGestorUsuario->UsuarioRepetidoBD(userName);
-	if (mismo_userName) {
-
-		this->objGestorUsuario->ActualizarCorreo(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, userName);
-		this->objGestorUsuario->ActualizarUserName(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, Correo);
-		MessageBox::Show("Sus datos han sido actualizados correctamente");
+	if ((Correo != "") && (userName != "")) {
+		if (objUsuarioLogeado->userName != userName) {
+			int mismo_userName = this->objGestorUsuario->UsuarioRepetidoBD(userName);
+			if (mismo_userName) {
+				this->objGestorUsuario->ActualizarCorreo(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, Correo);
+				this->objGestorUsuario->ActualizarUserName(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, userName);
+				MessageBox::Show("Sus datos han sido actualizados correctamente");
+			}
+			//this->Close();
+			else {
+				MessageBox::Show("El userName que ha elegido ya está en uso");
+			}
+		}
+		else {
+			this->objGestorUsuario->ActualizarCorreo(objUsuarioLogeado->DNI, objUsuarioLogeado->tipoUsuario, Correo);
+			MessageBox::Show("Sus datos han sido actualizados correctamente");
+		}
 	}
-	//this->Close();
 	else {
-		MessageBox::Show("El userName que ha elegido ya está en uso");
+		MessageBox::Show("No puede dejar los espacios en blanco");
 	}
 }
 
 	  
 
 private: System::Void frmDatosPersonales_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	
-	//this->objGestorUsuario->EscribirArchivo();
-
-	
+		
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmCambiarPassword^ ventanaCambiarPassword = gcnew frmCambiarPassword(this->objUsuario);
