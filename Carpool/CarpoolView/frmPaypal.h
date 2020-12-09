@@ -6,6 +6,7 @@ namespace CarpoolView {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -134,37 +135,35 @@ namespace CarpoolView {
 
 		}
 #pragma endregion
+
+private: void MostrarGrilla(List<Paypal^>^ listaPaypal) {
+	this->dataGridView1->Rows->Clear();
+	for (int i = 0; i < listaPaypal->Count; i++) {
+		Paypal^ objPaypal = listaPaypal[i];
+		array<String^>^ fila = gcnew array<String^>(1);
+		fila[0] = objPaypal->correo;
+		this->dataGridView1->Rows->Add(fila);
+	}
+}
+
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		Usuario^ objUsuarioLogeado = this->objUsuario;
 		frmAgregarPaypal^ ventanaPaypal = gcnew frmAgregarPaypal(objUsuarioLogeado, objGestorPaypal);
 		ventanaPaypal->ShowDialog();
-		this->dataGridView1->Rows->Clear();
-
-		for (int i = 0; i < objGestorPaypal->ObtenerCantidadPaypal(); i++) {
-			Paypal^ objPaypal = objGestorPaypal->ObtenerPaypalLista(i);
-			if (objPaypal->codigoPropietario == objUsuarioLogeado->CodigoDeUsuario) {
-				array<String^>^ fila = gcnew array<String^>(1);
-				fila[0] = objPaypal->correo;
-				this->dataGridView1->Rows->Add(fila);
-			}
-		}
+		
+		List<Paypal^>^ listaPaypal = this->objGestorPaypal->BuscarPaypalXcodigoBD(this->objUsuario->CodigoDeUsuario);
+		MostrarGrilla(listaPaypal);
 	}
+
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objUsuarioLogeado = this->objUsuario;
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ correo = (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]
-	this->objGestorPaypal->EliminarPaypalXcodigo(correo, objUsuarioLogeado->CodigoDeUsuario);
-	MessageBox::Show("Contacto eliminado exitosamente");
+	this->objGestorPaypal->BorrarPaypal(correo, objUsuarioLogeado->CodigoDeUsuario);
+	MessageBox::Show("Paypal eliminado exitosamente");
 
-	this->dataGridView1->Rows->Clear();
-	for (int i = 0; i < objGestorPaypal->ObtenerCantidadPaypal(); i++) {
-		Paypal^ objPaypal = objGestorPaypal->ObtenerPaypalLista(i);
-		if (objPaypal->codigoPropietario == objUsuarioLogeado->CodigoDeUsuario) {
-			array<String^>^ fila = gcnew array<String^>(1);
-			fila[0] = objPaypal->correo;
-			this->dataGridView1->Rows->Add(fila);
-		}
-	}
+	List<Paypal^>^ listaPaypal = this->objGestorPaypal->BuscarPaypalXcodigoBD(this->objUsuario->CodigoDeUsuario);
+	MostrarGrilla(listaPaypal);
 }
 };
 }

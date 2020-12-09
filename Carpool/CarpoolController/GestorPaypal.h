@@ -2,6 +2,7 @@
 
 using namespace System::Collections::Generic;
 using namespace CarpoolModel;
+using namespace System::Data::SqlClient; /*Esto es para BD*/
 using namespace System;
 
 namespace CarpoolController {
@@ -10,17 +11,15 @@ namespace CarpoolController {
 
 	private:
 		List<Paypal^>^ listaPaypal;
+		SqlConnection^ objConexion;
 
 	public:
 		GestorPaypal();
-		void LeerPaypalDesdeArchivo();
-		void EscribirArchivo();
-		void AgregarPaypal(Paypal^ objPaypal);
-		//void EliminarPaypal(String^ correo);
-		//int ObtenerCantidadTarjetasSegunCodigoDePropietario(int codigoPropietario);
-		Paypal^ ObtenerPaypalLista(int indice);
-		int ObtenerCantidadPaypal();
-		void EliminarPaypalXcodigo(String^ correo, int codigoPropietario);
+		void AbrirConexionBD();
+		void CerrarConexionBD();
+		List<Paypal^>^ GestorPaypal::BuscarPaypalXcodigoBD(int CodigoPropietario);
+		void InsertarPaypal(Paypal^ objPaypal);
+		void BorrarPaypal(String^ correo, int CodigoPropietario);
 		int MismoPaypal(String^ correo, int codigoPropietario);
 	};
 }
