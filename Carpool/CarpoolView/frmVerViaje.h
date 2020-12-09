@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace CarpoolView {
 
 	using namespace System;
@@ -14,12 +13,12 @@ namespace CarpoolView {
 	using namespace System::Collections::Generic;
 
 	/// <summary>
-	/// Summary for frmModificarViaje
+	/// Summary for frmVerViaje
 	/// </summary>
-	public ref class frmModificarViaje : public System::Windows::Forms::Form
+	public ref class frmVerViaje : public System::Windows::Forms::Form
 	{
 	public:
-		frmModificarViaje(void)
+		frmVerViaje(void)
 		{
 			InitializeComponent();
 			//
@@ -27,15 +26,15 @@ namespace CarpoolView {
 			//
 		}
 
-		frmModificarViaje(GestorViaje^ objGestorViaje, int codigoEditar)
+		frmVerViaje(GestorViaje^ objGestorViaje, int codigoEditar)
 		{
-			InitializeComponent();
 			this->objGestorViaje = objGestorViaje;
 			this->codigoEditar = codigoEditar;
 			this->objConductor = gcnew Conductor();
 			this->objGestorRuta = gcnew GestorRuta();
 			this->objRuta = gcnew Ruta();
 			this->listaPasajeros = gcnew List<Pasajero^>();
+			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -45,41 +44,36 @@ namespace CarpoolView {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~frmModificarViaje()
+		~frmVerViaje()
 		{
 			if (components)
 			{
 				delete components;
 			}
 		}
-
+	private: System::Windows::Forms::Button^ button6;
 	protected:
-
-
-
-
 
 	private: System::Windows::Forms::GroupBox^ groupBox3;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-
-
-
-	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 
 	private: System::Windows::Forms::GroupBox^ groupBox2;
-
 	private: System::Windows::Forms::TextBox^ textBox12;
 	private: System::Windows::Forms::TextBox^ textBox11;
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker3;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+
+	private: System::Windows::Forms::TextBox^ textBox7;
+	private: System::Windows::Forms::Label^ label16;
+
+
+
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox3;
-
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
@@ -91,26 +85,22 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-
-	private: System::Windows::Forms::TextBox^ textBox7;
-	private: System::Windows::Forms::Label^ label16;
-	private: System::Windows::Forms::Button^ button6;
-	private: System::Windows::Forms::Button^ button5;
 	private: GestorViaje^ objGestorViaje;
 	private: int codigoEditar;
 	private: Conductor^ objConductor;
 	private: List<Pasajero^>^ listaPasajeros;
 	private: GestorRuta^ objGestorRuta;
 	private: Ruta^ objRuta;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::TextBox^ textBox6;
+	private: System::Windows::Forms::TextBox^ textBox5;
+	private: System::Windows::Forms::TextBox^ textBox2;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -119,22 +109,23 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmModificarViaje::typeid));
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker3 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
@@ -149,28 +140,35 @@ namespace CarpoolView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(500, 1017);
+			this->button6->Margin = System::Windows::Forms::Padding(2);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(478, 64);
+			this->button6->TabIndex = 39;
+			this->button6->Text = L"Cerrar";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &frmVerViaje::button6_Click);
+			// 
 			// groupBox3
 			// 
 			this->groupBox3->Controls->Add(this->dataGridView1);
-			this->groupBox3->Controls->Add(this->button3);
-			this->groupBox3->Location = System::Drawing::Point(136, 586);
+			this->groupBox3->Location = System::Drawing::Point(144, 628);
 			this->groupBox3->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox3->Size = System::Drawing::Size(1220, 360);
-			this->groupBox3->TabIndex = 31;
+			this->groupBox3->TabIndex = 37;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Pasajeros";
+			this->groupBox3->Enter += gcnew System::EventHandler(this, &frmVerViaje::groupBox3_Enter);
 			// 
 			// dataGridView1
 			// 
@@ -180,24 +178,26 @@ namespace CarpoolView {
 				this->Column1,
 					this->Column2
 			});
-			this->dataGridView1->Location = System::Drawing::Point(54, 74);
+			this->dataGridView1->Location = System::Drawing::Point(162, 70);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 102;
 			this->dataGridView1->RowTemplate->Height = 40;
 			this->dataGridView1->Size = System::Drawing::Size(860, 211);
 			this->dataGridView1->TabIndex = 26;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmVerViaje::dataGridView1_CellContentClick);
 			// 
-			// button3
+			// Column1
 			// 
-			this->button3->Location = System::Drawing::Point(978, 167);
-			this->button3->Margin = System::Windows::Forms::Padding(2);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(182, 58);
-			this->button3->TabIndex = 25;
-			this->button3->Text = L"Denegar";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &frmModificarViaje::button3_Click);
+			this->Column1->HeaderText = L"CodigoUsuario";
+			this->Column1->MinimumWidth = 12;
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Calificacion";
+			this->Column2->MinimumWidth = 12;
+			this->Column2->Name = L"Column2";
 			// 
 			// groupBox2
 			// 
@@ -205,12 +205,12 @@ namespace CarpoolView {
 			this->groupBox2->Controls->Add(this->textBox11);
 			this->groupBox2->Controls->Add(this->label12);
 			this->groupBox2->Controls->Add(this->label11);
-			this->groupBox2->Location = System::Drawing::Point(126, 404);
+			this->groupBox2->Location = System::Drawing::Point(134, 446);
 			this->groupBox2->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox2->Size = System::Drawing::Size(1230, 147);
-			this->groupBox2->TabIndex = 30;
+			this->groupBox2->TabIndex = 36;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Conductor";
 			// 
@@ -222,6 +222,7 @@ namespace CarpoolView {
 			this->textBox12->ReadOnly = true;
 			this->textBox12->Size = System::Drawing::Size(222, 38);
 			this->textBox12->TabIndex = 22;
+			this->textBox12->TextChanged += gcnew System::EventHandler(this, &frmVerViaje::textBox12_TextChanged);
 			// 
 			// textBox11
 			// 
@@ -254,12 +255,12 @@ namespace CarpoolView {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->comboBox1);
+			this->groupBox1->Controls->Add(this->textBox8);
+			this->groupBox1->Controls->Add(this->textBox6);
+			this->groupBox1->Controls->Add(this->textBox5);
+			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox7);
 			this->groupBox1->Controls->Add(this->label16);
-			this->groupBox1->Controls->Add(this->dateTimePicker3);
-			this->groupBox1->Controls->Add(this->dateTimePicker2);
-			this->groupBox1->Controls->Add(this->dateTimePicker1);
 			this->groupBox1->Controls->Add(this->label13);
 			this->groupBox1->Controls->Add(this->textBox4);
 			this->groupBox1->Controls->Add(this->textBox3);
@@ -274,29 +275,57 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(126, 43);
+			this->groupBox1->Location = System::Drawing::Point(134, 85);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox1->Size = System::Drawing::Size(1230, 339);
-			this->groupBox1->TabIndex = 29;
+			this->groupBox1->TabIndex = 35;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Datos de Viaje";
 			// 
-			// comboBox1
+			// textBox8
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"No Iniciado", L"Iniciado", L"Finalizado" });
-			this->comboBox1->Location = System::Drawing::Point(366, 117);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(222, 39);
-			this->comboBox1->TabIndex = 36;
+			this->textBox8->Location = System::Drawing::Point(821, 194);
+			this->textBox8->Margin = System::Windows::Forms::Padding(2);
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->ReadOnly = true;
+			this->textBox8->Size = System::Drawing::Size(222, 38);
+			this->textBox8->TabIndex = 39;
+			// 
+			// textBox6
+			// 
+			this->textBox6->Location = System::Drawing::Point(821, 124);
+			this->textBox6->Margin = System::Windows::Forms::Padding(2);
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->ReadOnly = true;
+			this->textBox6->Size = System::Drawing::Size(222, 38);
+			this->textBox6->TabIndex = 38;
+			// 
+			// textBox5
+			// 
+			this->textBox5->Location = System::Drawing::Point(821, 66);
+			this->textBox5->Margin = System::Windows::Forms::Padding(2);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->ReadOnly = true;
+			this->textBox5->Size = System::Drawing::Size(222, 38);
+			this->textBox5->TabIndex = 37;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(366, 124);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->ReadOnly = true;
+			this->textBox2->Size = System::Drawing::Size(222, 38);
+			this->textBox2->TabIndex = 36;
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(830, 277);
+			this->textBox7->Location = System::Drawing::Point(821, 276);
 			this->textBox7->Margin = System::Windows::Forms::Padding(2);
 			this->textBox7->Name = L"textBox7";
+			this->textBox7->ReadOnly = true;
 			this->textBox7->Size = System::Drawing::Size(222, 38);
 			this->textBox7->TabIndex = 35;
 			// 
@@ -309,33 +338,6 @@ namespace CarpoolView {
 			this->label16->Size = System::Drawing::Size(103, 32);
 			this->label16->TabIndex = 34;
 			this->label16->Text = L"Tarifa :";
-			// 
-			// dateTimePicker3
-			// 
-			this->dateTimePicker3->Format = System::Windows::Forms::DateTimePickerFormat::Time;
-			this->dateTimePicker3->Location = System::Drawing::Point(830, 205);
-			this->dateTimePicker3->Margin = System::Windows::Forms::Padding(2);
-			this->dateTimePicker3->Name = L"dateTimePicker3";
-			this->dateTimePicker3->Size = System::Drawing::Size(222, 38);
-			this->dateTimePicker3->TabIndex = 23;
-			// 
-			// dateTimePicker2
-			// 
-			this->dateTimePicker2->Format = System::Windows::Forms::DateTimePickerFormat::Time;
-			this->dateTimePicker2->Location = System::Drawing::Point(830, 122);
-			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(2);
-			this->dateTimePicker2->Name = L"dateTimePicker2";
-			this->dateTimePicker2->Size = System::Drawing::Size(222, 38);
-			this->dateTimePicker2->TabIndex = 22;
-			// 
-			// dateTimePicker1
-			// 
-			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(830, 54);
-			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(2);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(222, 38);
-			this->dateTimePicker1->TabIndex = 21;
 			// 
 			// label13
 			// 
@@ -351,6 +353,7 @@ namespace CarpoolView {
 			this->textBox4->Location = System::Drawing::Point(366, 262);
 			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(222, 38);
 			this->textBox4->TabIndex = 13;
 			// 
@@ -359,6 +362,7 @@ namespace CarpoolView {
 			this->textBox3->Location = System::Drawing::Point(366, 188);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
+			this->textBox3->ReadOnly = true;
 			this->textBox3->Size = System::Drawing::Size(222, 38);
 			this->textBox3->TabIndex = 12;
 			// 
@@ -471,55 +475,18 @@ namespace CarpoolView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Codigo :";
 			// 
-			// button6
-			// 
-			this->button6->Location = System::Drawing::Point(808, 982);
-			this->button6->Margin = System::Windows::Forms::Padding(2);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(478, 64);
-			this->button6->TabIndex = 34;
-			this->button6->Text = L"Cancelar";
-			this->button6->UseVisualStyleBackColor = true;
-			this->button6->Click += gcnew System::EventHandler(this, &frmModificarViaje::button6_Click);
-			// 
-			// button5
-			// 
-			this->button5->Location = System::Drawing::Point(218, 982);
-			this->button5->Margin = System::Windows::Forms::Padding(2);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(478, 64);
-			this->button5->TabIndex = 33;
-			this->button5->Text = L"Grabar";
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &frmModificarViaje::button5_Click);
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"CodigoUsuario";
-			this->Column1->MinimumWidth = 12;
-			this->Column1->Name = L"Column1";
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Calificacion";
-			this->Column2->MinimumWidth = 12;
-			this->Column2->Name = L"Column2";
-			// 
-			// frmModificarViaje
+			// frmVerViaje
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1468, 1225);
+			this->ClientSize = System::Drawing::Size(1499, 1173);
 			this->Controls->Add(this->button6);
-			this->Controls->Add(this->button5);
 			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(2);
-			this->Name = L"frmModificarViaje";
-			this->Text = L"Modificar viaje";
-			this->Load += gcnew System::EventHandler(this, &frmModificarViaje::frmModificarViaje_Load);
+			this->Name = L"frmVerViaje";
+			this->Text = L"frmVerViaje";
+			this->Load += gcnew System::EventHandler(this, &frmVerViaje::frmVerViaje_Load);
 			this->groupBox3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox2->ResumeLayout(false);
@@ -530,32 +497,24 @@ namespace CarpoolView {
 
 		}
 #pragma endregion
-	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
+	private: System::Void frmVerViaje_Load(System::Object^ sender, System::EventArgs^ e) {
+		Viaje^ objViajeModificar = this->objGestorViaje->ObtenerViajeoxCodigo(this->codigoEditar);
+		this->textBox1->Text = Convert::ToString(objViajeModificar->codigoViaje);
+		this->textBox2->Text = objViajeModificar->Estado;
+		this->textBox3->Text = Convert::ToString(objViajeModificar->AsientosDisponibles);
+		this->textBox4->Text = Convert::ToString(objViajeModificar->NumeroPasajeros);
+		this->textBox7->Text = objViajeModificar->Tarifa;
+		this->textBox5->Text = objViajeModificar->Fecha;
+		this->textBox6->Text = objViajeModificar->HoraSalida;
+		this->textBox8->Text = objViajeModificar->HoraLlegada;
+		this->textBox11->Text = objViajeModificar->objConductor->Nombre;
+		this->textBox12->Text = Convert::ToString(objViajeModificar->objConductor->CodigoDeUsuario);
+
+		this->objGestorViaje->CargarPasajerosViajes(objViajeModificar);
+		MostrarGrilla(objViajeModificar->listaPasajeros);
 	}
-	private: System::Void textBox6_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-private: System::Void frmModificarViaje_Load(System::Object^ sender, System::EventArgs^ e) {
-	Viaje^ objViajeModificar = this->objGestorViaje->ObtenerViajeoxCodigo(this->codigoEditar);
-	this->textBox1->Text = Convert::ToString(objViajeModificar->codigoViaje);
-	this->comboBox1->Text = objViajeModificar->Estado;
-	this->textBox3->Text = Convert::ToString(objViajeModificar->AsientosDisponibles);
-	this->textBox4->Text = Convert::ToString(objViajeModificar->NumeroPasajeros);
-	this->textBox7->Text = objViajeModificar->Tarifa;
-	this->dateTimePicker1->Text = objViajeModificar->Fecha; 
-	this->dateTimePicker2->Text = objViajeModificar->HoraSalida;
-	this->dateTimePicker3->Text = objViajeModificar->HoraLlegada;
-	this->textBox11->Text = objViajeModificar->objConductor->Nombre;
-	this->textBox12->Text = Convert::ToString(objViajeModificar->objConductor->CodigoDeUsuario);
 
-	this->objGestorViaje->CargarPasajerosViajes(objViajeModificar);
-	MostrarGrilla(objViajeModificar->listaPasajeros);
-
-}
-
-
-
-private: void MostrarGrilla(List<Pasajero^>^ listaPasajeros) {
+	private: void MostrarGrilla(List<Pasajero^>^ listaPasajeros) {
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < listaPasajeros->Count; i++) {
 			Pasajero^ objPasajero = listaPasajeros[i];
@@ -564,46 +523,19 @@ private: void MostrarGrilla(List<Pasajero^>^ listaPasajeros) {
 			fila[1] = Convert::ToString(objPasajero->Calificacion);
 			this->dataGridView1->Rows->Add(fila);
 		}
+	}
+
+
+
+
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
-
-
-
-private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-	int codigo = Convert::ToInt32(this->textBox1->Text);
-	String^ HoraInicio = this->dateTimePicker2->Text;
-	String^ HoraFin = this->dateTimePicker3->Text;
-	String^ fecha = this->dateTimePicker1->Text;
-	String^ Estado = this->comboBox1->Text;
-	int nroPasajeros = Convert::ToInt32(this->textBox4->Text);
-	int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
-	String^ Tarifa = this->textBox7->Text;
-	int codigoConductor = Convert::ToInt32(this->textBox12->Text); //maybe useless?
-	
-	Viaje^ objViajeModificar = this->objGestorViaje->ObtenerViajeoxCodigo(this->codigoEditar);
-
-
-	Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros, AsientosDisponibles, Tarifa, objViajeModificar->objListaCoordenadas, this->objConductor);
-	//this->objGestorViaje->AgregarViaje(objViaje);
-	//this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(this->objGestorViaje->obtenerCodigoViaje());
-	//this->Close();
-
-	this->objGestorViaje->EliminarViaje(codigo);
-	this->objGestorViaje->AgregarViaje(objViaje);
-	MessageBox::Show("El contacto ha sido actualizado correctamente");
+private: System::Void textBox12_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void groupBox3_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
-
-}
-
-
-
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	Viaje^ objViajeModificar = this->objGestorViaje->ObtenerViajeoxCodigo(this->codigoEditar);
-	this->objGestorViaje->CargarPasajerosViajes(objViajeModificar);
-	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	this->objGestorViaje->RechazarPasajero(codigoEliminar, objViajeModificar);
-	MessageBox::Show("El Pasajero ha sido rechazado");
-	MostrarGrilla(objViajeModificar->listaPasajeros);
 }
 };
 }
