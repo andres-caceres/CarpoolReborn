@@ -18,10 +18,11 @@ namespace CarpoolView {
 	{
 	public:
 
-		frmEditarContacto(GestorContacto^ objGestorContacto, Usuario^ objUsuario)
+		frmEditarContacto(GestorContacto^ objGestorContacto, Usuario^ objUsuarioAñador, Usuario^ objUsuarioAñadido)
 		{	
 			this->objGestorContacto = objGestorContacto;
-			this->objUsuario = objUsuario;
+			this->objUsuarioAñador = objUsuarioAñador;
+			this->objUsuarioAñadido = objUsuarioAñadido;
 			this->objGestorUsuario = gcnew GestorUsuario();
 			InitializeComponent();
 			//
@@ -51,9 +52,9 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label2;
 
 	private: GestorContacto^ objGestorContacto;
-	private: String^ userNameEditar;
 	private: GestorUsuario^ objGestorUsuario;
-	private: Usuario^ objUsuario;
+	private: Usuario^ objUsuarioAñador;
+	private: Usuario^ objUsuarioAñadido;
 	private: System::Windows::Forms::Label^ label1;
 
 	private:
@@ -173,15 +174,13 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Usuario^ objUsuarioLogeado = this->objUsuario;
-		this->objGestorUsuario->LeerUsuariosDesdeArchivo();
+		Usuario^ objUsuarioLogeado = this->objUsuarioAñador;
+		//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 		String^ UserName = this->textBox1->Text;
 		String^ Apodo = this->textBox2->Text;
-		Usuario^ objUsuario = this->objGestorUsuario->ObtenerUsuarioxUserName(UserName);
+		Usuario^ objUsuario = this->objGestorUsuario->ObtenerUsuarioxUserNameBD(UserName);
 
-		Contactos^ objContacto = gcnew Contactos(objUsuarioLogeado->CodigoDeUsuario,objUsuario->CodigoDeUsuario,objUsuario->userName,Apodo,objUsuario->Nombre);
-		this->objGestorContacto->EliminarContactoXuserName(UserName,objUsuarioLogeado->CodigoDeUsuario);
-		this->objGestorContacto->AgregarContacto(objContacto);
+		this->objGestorContacto->ActualizarApodoBD(Apodo, objUsuarioLogeado->CodigoDeUsuario, objUsuario->CodigoDeUsuario);
 		MessageBox::Show("Contacto actualizado exitosamente");
 		this->Close();
 	}
@@ -189,9 +188,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmEditarContacto_Load(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuarioLogeado = this->objUsuario;
+	Usuario^ objUsuarioLogeado = this->objUsuarioAñador;
 
-	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxUserName(userNameEditar,objUsuarioLogeado->CodigoDeUsuario); /*AQUI ESE EL CAMBIO*/
+	Contactos^ objContactoEditar = this->objGestorContacto->ObtenerContactoxUserName(this->objUsuarioAñadido->userName,objUsuarioLogeado->CodigoDeUsuario); /*AQUI ESE EL CAMBIO*/
 	this->textBox1->Text = objContactoEditar->userNameDelAñadido;
 	this->textBox2->Text = objContactoEditar->Apodo;
 }

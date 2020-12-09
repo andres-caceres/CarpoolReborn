@@ -56,7 +56,7 @@ namespace CarpoolView {
 	private: GestorRuta^ objGestorRutas;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ buscarUsuarioToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ buscarVehículosToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ revisarRutasYHorariosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ mantenimientoConductorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ conductorToolStripMenuItem;
@@ -83,7 +83,6 @@ namespace CarpoolView {
 			this->mantenimientoConductorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->conductorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->vehiculosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->buscarVehículosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->revisarRutasYHorariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -93,10 +92,9 @@ namespace CarpoolView {
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->buscarUsuarioToolStripMenuItem,
-					this->mantenimientoConductorToolStripMenuItem, this->buscarVehículosToolStripMenuItem, this->revisarRutasYHorariosToolStripMenuItem,
-					this->reportesToolStripMenuItem
+					this->mantenimientoConductorToolStripMenuItem, this->revisarRutasYHorariosToolStripMenuItem, this->reportesToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -125,22 +123,16 @@ namespace CarpoolView {
 			// conductorToolStripMenuItem
 			// 
 			this->conductorToolStripMenuItem->Name = L"conductorToolStripMenuItem";
-			this->conductorToolStripMenuItem->Size = System::Drawing::Size(175, 26);
+			this->conductorToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->conductorToolStripMenuItem->Text = L"Conductores";
 			this->conductorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::conductorToolStripMenuItem_Click);
 			// 
 			// vehiculosToolStripMenuItem
 			// 
 			this->vehiculosToolStripMenuItem->Name = L"vehiculosToolStripMenuItem";
-			this->vehiculosToolStripMenuItem->Size = System::Drawing::Size(175, 26);
+			this->vehiculosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->vehiculosToolStripMenuItem->Text = L"Vehiculos";
 			this->vehiculosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::vehiculosToolStripMenuItem_Click);
-			// 
-			// buscarVehículosToolStripMenuItem
-			// 
-			this->buscarVehículosToolStripMenuItem->Name = L"buscarVehículosToolStripMenuItem";
-			this->buscarVehículosToolStripMenuItem->Size = System::Drawing::Size(131, 24);
-			this->buscarVehículosToolStripMenuItem->Text = L"Buscar vehículos";
 			// 
 			// revisarRutasYHorariosToolStripMenuItem
 			// 
@@ -160,7 +152,7 @@ namespace CarpoolView {
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(148, 26);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmAdministrador::usuariosToolStripMenuItem_Click);
 			// 

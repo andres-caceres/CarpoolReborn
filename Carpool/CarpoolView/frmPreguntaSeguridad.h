@@ -6,6 +6,7 @@ namespace CarpoolView {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -227,62 +228,44 @@ namespace CarpoolView {
 		int esta_lleno;
 
 		//GestorSeguridad^ objGestorSeguridad = gcnew GestorSeguridad();
-
-		this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
+		List<Seguridad^>^ ListaSeguridad = this->objGestorSeguridad->BuscarAllSeguridadBD();
 		String^ emisionDNI = this->dateTimePicker1->Text;
 		String^ Pregunta = this->comboBox1->Text;
 		String^ Respuesta = this->textBox9->Text;
 
-		String^ DniSeguro = this->objUsuario->DNI; /// es lo mismo
+		String^ DniSeguro = this->objUsuario->DNI; 
 
-		Seguridad^ objSeguridad = gcnew Seguridad(DniSeguro, emisionDNI, Pregunta, Respuesta);
-
-		esta_lleno = this->objGestorSeguridad->SeguridadLlena(emisionDNI, Pregunta, Respuesta);
-		//es_valido = objGestorSeguridad->validarSeguridad(DniSeguro, emisionDNI,Respuesta);
-		if (this->registro_conductor == 0) {
-			if (esta_lleno) {
-
-				
+		if (Pregunta == "" || Respuesta == "") {
+			MessageBox::Show("Debe llenar todos los campos");
+		}
+		else {
+			Seguridad^ objSeguridad = gcnew Seguridad(DniSeguro, emisionDNI, Pregunta, Respuesta);
+			if (this->registro_conductor == 0) {
 				this->objGestorUsuario->InsertarUsuario(objUsuario);
-				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
+				this->objGestorSeguridad->InsertarSeguridad(objSeguridad);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
-
 			}
-
-			if (!esta_lleno) {
-				MessageBox::Show("Debe llenar todos los campos");
-			}
-		}
-		else if (this->registro_conductor==1){
-			if (esta_lleno) {
-
-
+			else if (this->registro_conductor == 1) {
 				this->objGestorUsuario->InsertarUsuario(objUsuario);
-				this->objGestorSeguridad->AgregarSeguridad(objSeguridad);
+				this->objGestorSeguridad->InsertarSeguridad(objSeguridad);
 				this->objGestorConductor->AgregarALista(objConductor);
 				this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
-
-			}
-
-			if (!esta_lleno) {
-				MessageBox::Show("Debe llenar todos los campos");
 			}
 		}
-
 		
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	this->objGestorSeguridad->EscribirArchivo();
+	//this->objGestorSeguridad->EscribirArchivo();
 	//this->objGestorUsuario->EscribirArchivo();
 	if (this->registro_conductor == 1) {
-		this->objGestorConductor->EscribirArchivo();
-		this->objGestorVehiculo->EscribirArchivo();
+		//this->objGestorConductor->EscribirArchivo();
+		//this->objGestorVehiculo->EscribirArchivo();
 	}
 }
 };

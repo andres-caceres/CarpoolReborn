@@ -192,13 +192,13 @@ namespace CarpoolView {
 				Usuario^ UsuarioLogeado = this->objUsuario;
 
 				Paypal^ objPaypal = gcnew Paypal(UsuarioLogeado->CodigoDeUsuario, correo, contrasenha);
-				this->objGestorPaypal->AgregarPaypal(objPaypal);
+				this->objGestorPaypal->InsertarPaypal(objPaypal);
 
 				MessageBox::Show("Paypal añadido exitosamente");
 				this->Close();
 			}
 			else {
-				MessageBox::Show("Ya existe un paypal con ese correo");
+				MessageBox::Show("Ya existe un paypal registrado en su cuenta con ese correo");
 			}
 
 		}

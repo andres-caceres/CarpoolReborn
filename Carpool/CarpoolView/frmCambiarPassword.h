@@ -245,28 +245,27 @@ namespace CarpoolView {
 
 	es_valido = this->objGestorSeguridad->validarSeguridad(DniSeguro, emisionDNI, Respuesta);
 
-	
-	if (es_valido) {
-		/*CAMBIAR CONTRASEÑA*/
-		//this->objGestorUsuario->EliminarUsuarioXDni(DniSeguro);
-		//Usuario^ objUsuarioLogeado = this->objUsuario;
-		//Usuario^ objUsuario = gcnew Usuario(objUsuarioLogeado->CodigoDeUsuario,objUsuarioLogeado->Nombre, objUsuarioLogeado->ApellidoPaterno, objUsuarioLogeado->ApellidoMaterno, objUsuarioLogeado->DNI, objUsuarioLogeado->Correo, objUsuarioLogeado->userName, NuevaPassword, objUsuarioLogeado->tipoUsuario);
-		//this->objGestorUsuario->AgregarUsuario(objUsuario);
-		this->objGestorUsuario->ActualizarPassword(objUsuario->DNI, objUsuario->tipoUsuario, NuevaPassword);
-		
-		MessageBox::Show("La contraseña ha sido cambiada correctamente");
-		this->Close();
-	}
+	if (NuevaPassword != "") {
+		if (es_valido) {
+			/*CAMBIAR CONTRASEÑA*/
+			this->objGestorUsuario->ActualizarPassword(objUsuario->DNI, objUsuario->tipoUsuario, NuevaPassword);
 
-	if (!es_valido) {
-		MessageBox::Show("Datos incorrectos, intente de nuevo.");
+			MessageBox::Show("La contraseña ha sido cambiada correctamente");
+			this->Close();
+		}
+
+		if (!es_valido) {
+			MessageBox::Show("Datos incorrectos, intente de nuevo.");
+		}
+	}
+	else {
+		MessageBox::Show("!Su contraseña no puede estar en blanco!");
 	}
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void frmCambiarPassword_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	//this->objGestorUsuario->EscribirArchivo();
 }
 };
 }
