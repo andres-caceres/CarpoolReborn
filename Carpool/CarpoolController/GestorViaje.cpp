@@ -111,8 +111,6 @@ void GestorViaje::LeerViajesDelConductorDesdeArchivo(Conductor^ objConductor) {
 		//int codigoViajeParaRuta = Convert::ToInt32(palabras[8]);
 		int codigoConductor = Convert::ToInt32(palabras[8]);
 
-		
-
 		GestorCoordenadas^ objGestorCoordenadas = gcnew GestorCoordenadas();
 		objGestorCoordenadas->leerListaDeListasDeCoordenadasFromTxt();
 		ListaCoordenadas^ objListaCoordenadas = gcnew ListaCoordenadas();
@@ -130,6 +128,15 @@ void GestorViaje::LeerViajesDelConductorDesdeArchivo(Conductor^ objConductor) {
 			this->listaViajes->Add(objViaje);
 		}
 	}
+}
+int GestorViaje::ObtenerCantidadViajesDelConductor(int codigoConductor) {
+	int Contador = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++) {
+		if (this->listaViajes[i]->objConductor->CodigoDeUsuario == codigoConductor) {
+			Contador++;
+		}
+	}
+	return Contador;
 }
 
 

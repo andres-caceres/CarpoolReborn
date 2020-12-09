@@ -301,7 +301,7 @@ namespace CarpoolView {
 	private: void MostrarGrilla() {
 	this->dataGridView1->Rows->Clear();
 	this->objGestorViaje->LeerViajesDelConductorDesdeArchivo(objConductor);
-	for (int i = 0; i < this->objGestorViaje->ObtenerCantidadViajes(); i++) {
+	for (int i = 0; i < this->objGestorViaje->ObtenerCantidadViajesDelConductor(this->objConductor->CodigoDeUsuario); i++) {
 		Viaje^ objViaje = gcnew Viaje();
 		objViaje =this->objGestorViaje->ObtenerViajeLista(i);
 		array<String^>^ fila = gcnew array<String^>(4);

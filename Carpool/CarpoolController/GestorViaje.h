@@ -27,6 +27,7 @@ namespace CarpoolController {
 		List<Viaje^>^ DevolverAllViajes();
 		void EscribirPasajerosViajeArchivo();
 		int obtenerCodigoViaje();
+		int ObtenerCantidadViajesDelConductor(int codigoConductor);
 
 	};
 }
