@@ -132,6 +132,9 @@
     <ClCompile Include="frmVerRuta.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="frmVerViaje.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmLogin.h">
@@ -246,6 +249,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmVerRuta.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmVerViaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

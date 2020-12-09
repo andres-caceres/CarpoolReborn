@@ -213,7 +213,7 @@ void GestorViaje::EscribirPasajerosViajeArchivo()
 				k++;
 			}
 		}
-		File::WriteAllLines("pasajerosXviaje.txt", lineas);
+		File::WriteAllLines("pasajerosXviajes.txt", lineas);
 }
 
 

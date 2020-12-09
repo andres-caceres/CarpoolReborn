@@ -169,6 +169,7 @@
     <ClCompile Include="frmValidarConductor.cpp" />
     <ClCompile Include="frmValidarVehiculo.cpp" />
     <ClCompile Include="frmVerRuta.cpp" />
+    <ClCompile Include="frmVerViaje.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +287,9 @@
     <ClInclude Include="frmVerRuta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmVerViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAdministrador.resx">
@@ -401,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerRuta.resx">
       <DependentUpon>frmVerRuta.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerViaje.resx">
+      <DependentUpon>frmVerViaje.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
