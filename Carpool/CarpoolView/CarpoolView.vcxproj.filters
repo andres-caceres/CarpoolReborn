@@ -132,9 +132,6 @@
     <ClCompile Include="frmVerRuta.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmVerViaje.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="frmCalificarPasajeros.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
@@ -147,16 +144,19 @@
     <ClCompile Include="frmPagarPayPal.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmReporteViajesXMes.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="frmReporteViajesxMesConductor.cpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="frmReporteGananciaConductor.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="frmReporteGastoPasajero.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="frmReporteViajesxMesConductor.cpp">
+    <ClCompile Include="frmReporteViajesXMes.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="frmVerViaje.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>

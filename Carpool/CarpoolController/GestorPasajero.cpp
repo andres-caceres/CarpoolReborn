@@ -35,3 +35,16 @@ Pasajero^ GestorPasajero::BuscarxUserID(int UserID)
 	}
 	return objBuscado;
 }
+
+void GestorPasajero::EscribirArchivo() {
+	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaPasajeros->Count);
+	for (int i = 0; i < this->listaPasajeros->Count; i++) {
+		Pasajero^ objPasajero = this->listaPasajeros[i];
+		lineasArchivo[i] = objPasajero->CodigoDeUsuario + ";" + objPasajero->Calificacion ;
+	}
+	File::WriteAllLines("Pasajeros.txt", lineasArchivo);
+}
+
+void GestorPasajero::AgregarPasajero(Pasajero^ objPasajero) {
+	this->listaPasajeros->Add(objPasajero);
+}

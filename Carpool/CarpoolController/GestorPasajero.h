@@ -15,12 +15,14 @@ namespace CarpoolController {
 		GestorPasajero();
 		void LeerPasajerosDesdeArchivo();
 		Pasajero^ BuscarxUserID(int UserID);
+		void EscribirArchivo();	
+		void AgregarPasajero(Pasajero^ objPasajero);
 		//void EscribirArchivo();
 		//int ObtenerCantidadContactos();
 		//Contacto^ ObtenerContactoLista(int indice);
 		//Contacto^ ObtenerContactoxDni(String^ dni);
 		//Contacto^ ObtenerContactoxCodigo(int codigo);
-		//void AgregarContacto(Usuario^ objContacto);
+	
 		//void EliminarContacto(int codigoEliminar);
 	};
 }
