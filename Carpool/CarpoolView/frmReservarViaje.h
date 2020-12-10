@@ -1,5 +1,6 @@
 #pragma once
 #include "frmVerRuta.h"
+#include "frmPagar.h"
 
 
 namespace CarpoolView {
@@ -284,11 +285,18 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton reservar viaje
 
+	
+
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoReservar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 
-	this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
-	this->Close();
+	frmPagar^ ventanaPagar = gcnew frmPagar(codigoReservar, this->objGestorViaje, this->objUsuario);
+	ventanaPagar->ShowDialog();
+
+
+
+	//this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
+	//this->Close();
 }
 };
 }

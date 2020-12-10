@@ -153,6 +153,9 @@
     <ClCompile Include="frmNuevaTarjeta.cpp" />
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmNuevoViaje.cpp" />
+    <ClCompile Include="frmPagar.cpp" />
+    <ClCompile Include="frmPagarPayPal.cpp" />
+    <ClCompile Include="frmPagarTarjeta.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
     <ClCompile Include="frmPaypal.cpp" />
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
@@ -237,6 +240,15 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPagar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPagarPayPal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPagarTarjeta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPasajero.h">
@@ -357,6 +369,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoViaje.resx">
       <DependentUpon>frmNuevoViaje.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagar.resx">
+      <DependentUpon>frmPagar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagarPayPal.resx">
+      <DependentUpon>frmPagarPayPal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagarTarjeta.resx">
+      <DependentUpon>frmPagarTarjeta.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPasajero.resx">
       <DependentUpon>frmPasajero.h</DependentUpon>
