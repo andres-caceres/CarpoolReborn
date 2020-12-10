@@ -415,7 +415,7 @@ namespace CarpoolView {
 
 		this->objUsuario = objUsuario;
 
-		if (esta_completo) {
+		if (esta_completo && (this->textBox5->Text!="") && (this->comboBox1->Text!="")) {
 			if (dni->Length == 8) {
 				if (es_valido) {
 					if (objUsuario->tipoUsuario == 2) {

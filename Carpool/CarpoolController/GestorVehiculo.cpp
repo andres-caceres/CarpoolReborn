@@ -106,3 +106,11 @@ int GestorVehiculo::ObtenerCantidadVehiculosSegunSuValidez(int valido) {
 	}
 	return j;
 }
+
+void GestorVehiculo::EliminarAllVehiculosPorCodigo(int IDConductor) {
+	for (int i = 0; i < this->listaVehiculos->Count; i++) {
+		if (this->listaVehiculos[i]->IDConductor == IDConductor) {
+			this->listaVehiculos->RemoveAt(i);
+		}
+	}
+}
