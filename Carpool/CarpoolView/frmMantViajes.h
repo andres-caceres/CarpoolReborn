@@ -3,6 +3,7 @@
 #include "frmModificarViaje.h"
 #include "frmVerViaje.h"
 #include "frmVerRuta.h"
+#include "frmCalificarPasajeros.h"
 
 namespace CarpoolView {
 
@@ -431,12 +432,16 @@ private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, Syste
 private: System::Void calificar_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-	String^ estado = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
+	int codigo = Convert::ToInt16(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+	String^ estado = this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString();
 
+	frmCalificarPasajeros^ ventanacalificarPasajeros = gcnew frmCalificarPasajeros(this->objGestorViaje->ObtenerViajeoxCodigo(codigo));
 	if(estado == "Finalizado")
 	{
 		//do something
 		MessageBox::Show("Algo ha pasado");
+		
+		//frmCalificarPasajeros^ ventanacalificarPasajeros = gcnew frmCalificarPasajeros(this->objGestorViaje->ObtenerViajeoxCodigo(codigo));
 	}
 	else if(estado == "No Iniciado")
 	{
@@ -446,7 +451,10 @@ private: System::Void calificar_Click(System::Object^ sender, System::EventArgs^
 	{
 		MessageBox::Show("Debe esperar a que el viaje finalice para calificar a los pasajeros", "Error");
 	}
-	/*TODO:falta una condicon??? @fernando */
+	else if (estado == "Cancelado")
+	{
+		MessageBox::Show("No se puede calificar a pasajeros de un viaje cancelado", "Error");
+	}
 }
 };
 }

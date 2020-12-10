@@ -88,7 +88,7 @@ namespace CarpoolView {
 		GestorVehiculo^ objGestorVehiculo; //#profe no tiene por que llamarse
 		Conductor^ objConductor;
 		Vehiculo^ objVehiculoDefault;//#profe
-	private: System::Windows::Forms::CheckBox^ checkBox1;
+
 	private: System::Windows::Forms::Label^ AsientosDisp;
 	private: System::Windows::Forms::ComboBox^ Asientos;
 	private: System::Windows::Forms::TextBox^ NroCta;
@@ -126,7 +126,6 @@ namespace CarpoolView {
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->AsientosDisp = (gcnew System::Windows::Forms::Label());
 			this->Asientos = (gcnew System::Windows::Forms::ComboBox());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->textBoxLicencia = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxNombre = (gcnew System::Windows::Forms::TextBox());
 			this->lblCalificacion = (gcnew System::Windows::Forms::Label());
@@ -155,7 +154,7 @@ namespace CarpoolView {
 			this->groupBox2->Controls->Add(this->label5);
 			this->groupBox2->Location = System::Drawing::Point(353, 24);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(335, 327);
+			this->groupBox2->Size = System::Drawing::Size(335, 349);
 			this->groupBox2->TabIndex = 4;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Vehiculo Actual";
@@ -228,7 +227,6 @@ namespace CarpoolView {
 			// 
 			this->groupBox1->Controls->Add(this->AsientosDisp);
 			this->groupBox1->Controls->Add(this->Asientos);
-			this->groupBox1->Controls->Add(this->checkBox1);
 			this->groupBox1->Controls->Add(this->textBoxLicencia);
 			this->groupBox1->Controls->Add(this->textBoxNombre);
 			this->groupBox1->Controls->Add(this->lblCalificacion);
@@ -237,7 +235,7 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(23, 24);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(324, 271);
+			this->groupBox1->Size = System::Drawing::Size(324, 251);
 			this->groupBox1->TabIndex = 3;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Conductor";
@@ -255,25 +253,15 @@ namespace CarpoolView {
 			// Asientos
 			// 
 			this->Asientos->FormattingEnabled = true;
-			this->Asientos->Location = System::Drawing::Point(26, 233);
+			this->Asientos->Location = System::Drawing::Point(127, 209);
 			this->Asientos->Name = L"Asientos";
 			this->Asientos->Size = System::Drawing::Size(56, 21);
 			this->Asientos->TabIndex = 7;
 			// 
-			// checkBox1
-			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(189, 215);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(102, 17);
-			this->checkBox1->TabIndex = 9;
-			this->checkBox1->Text = L"Estoy disponible";
-			this->checkBox1->UseVisualStyleBackColor = true;
-			// 
 			// textBoxLicencia
 			// 
 			this->textBoxLicencia->Enabled = false;
-			this->textBoxLicencia->Location = System::Drawing::Point(117, 131);
+			this->textBoxLicencia->Location = System::Drawing::Point(126, 131);
 			this->textBoxLicencia->Name = L"textBoxLicencia";
 			this->textBoxLicencia->ReadOnly = true;
 			this->textBoxLicencia->Size = System::Drawing::Size(156, 20);
@@ -282,7 +270,7 @@ namespace CarpoolView {
 			// textBoxNombre
 			// 
 			this->textBoxNombre->Enabled = false;
-			this->textBoxNombre->Location = System::Drawing::Point(117, 89);
+			this->textBoxNombre->Location = System::Drawing::Point(127, 89);
 			this->textBoxNombre->Name = L"textBoxNombre";
 			this->textBoxNombre->ReadOnly = true;
 			this->textBoxNombre->Size = System::Drawing::Size(156, 20);
@@ -317,7 +305,7 @@ namespace CarpoolView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(6, 92);
+			this->label3->Location = System::Drawing::Point(20, 92);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(44, 13);
 			this->label3->TabIndex = 2;
@@ -326,7 +314,7 @@ namespace CarpoolView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 134);
+			this->label2->Location = System::Drawing::Point(18, 134);
 			this->label2->Name = L"label2";
 			this->label2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->label2->Size = System::Drawing::Size(102, 13);
@@ -336,7 +324,7 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(6, 30);
+			this->label1->Location = System::Drawing::Point(20, 40);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(59, 13);
 			this->label1->TabIndex = 0;
@@ -355,9 +343,9 @@ namespace CarpoolView {
 			this->groupBox3->Controls->Add(this->CCI);
 			this->groupBox3->Controls->Add(this->label4);
 			this->groupBox3->Controls->Add(this->NroCta);
-			this->groupBox3->Location = System::Drawing::Point(23, 301);
+			this->groupBox3->Location = System::Drawing::Point(23, 281);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(315, 107);
+			this->groupBox3->Size = System::Drawing::Size(315, 92);
 			this->groupBox3->TabIndex = 6;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Cuenta Bancaria";

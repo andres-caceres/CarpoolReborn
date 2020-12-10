@@ -545,3 +545,16 @@ Usuario^ GestorUsuario::ObtenerUsuarioxDNIyTipoDeUsuario(String^ DNI, int tipoUs
 
 	return objUsuarioBuscado;
 }
+
+Usuario^ GestorUsuario::ObtenerUsuarioxCodigoBD(int codigo) {
+
+	List<Usuario^>^ listaUsuarios = BuscarAllUsuariosBD();
+	Usuario^ objUsuarioBuscado = nullptr;
+	for (int i = 0; i < listaUsuarios->Count; i++) {
+		if (listaUsuarios[i]->CodigoDeUsuario == codigo) {
+			objUsuarioBuscado = listaUsuarios[i];
+			break;
+		}
+	}
+	return objUsuarioBuscado;
+}

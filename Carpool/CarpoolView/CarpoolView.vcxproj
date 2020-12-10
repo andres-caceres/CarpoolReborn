@@ -136,6 +136,7 @@
     <ClCompile Include="frmAgregarPaypal.cpp" />
     <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmBuscarUsuario.cpp" />
+    <ClCompile Include="frmCalificarPasajeros.cpp" />
     <ClCompile Include="frmCambiarPassword.cpp" />
     <ClCompile Include="frmConductor.cpp" />
     <ClCompile Include="frmCreaViaje.cpp" />
@@ -186,6 +187,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmBuscarUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmCalificarPasajeros.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmCambiarPassword.h">
@@ -306,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCalificarPasajeros.resx">
+      <DependentUpon>frmCalificarPasajeros.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarPassword.resx">
       <DependentUpon>frmCambiarPassword.h</DependentUpon>
