@@ -64,7 +64,7 @@ void GestorViaje::LeerViajesDesdeArchivo() { //Le estaba dando todos los viajes 
 		String^ Estado = palabras[4];
 		int nroPasajeros = Convert::ToInt32(palabras[5]);
 		int AsientosDisponibles = Convert::ToInt32(palabras[6]);
-		String^ Tarifa = palabras[7];
+		int Tarifa = Convert::ToInt32(palabras[7]);
 		//int codigoViajeParaRuta = Convert::ToInt32(palabras[8]);
 		int codigoConductor = Convert::ToInt32(palabras[8]);
 
@@ -107,7 +107,7 @@ void GestorViaje::LeerViajesDelConductorDesdeArchivo(Conductor^ objConductor) {
 		String^ Estado = palabras[4];					//descarto estado? :/
 		int nroPasajeros = Convert::ToInt32(palabras[5]);
 		int AsientosDisponibles = Convert::ToInt32(palabras[6]);
-		String^ Tarifa = palabras[7];
+		int Tarifa = Convert::ToInt32(palabras[7]);
 		//int codigoViajeParaRuta = Convert::ToInt32(palabras[8]);
 		int codigoConductor = Convert::ToInt32(palabras[8]);
 
@@ -120,7 +120,7 @@ void GestorViaje::LeerViajesDelConductorDesdeArchivo(Conductor^ objConductor) {
 		if (codigoConductor == objConductor->CodigoDeUsuario) {
 
 
-			Viaje^ objViaje = gcnew Viaje(codigoViaje, HoraSalida, HoraLlegada, Fecha, Estado, nroPasajeros,
+		Viaje^ objViaje = gcnew Viaje(codigoViaje, HoraSalida, HoraLlegada, Fecha, Estado, nroPasajeros,
 				AsientosDisponibles, Tarifa, objListaCoordenadas, objConductor);
 
 			//pasajeros asociados a los viajes 
@@ -195,6 +195,9 @@ void GestorViaje::EscribirArchivo() {
 	EscribirPasajerosViajeArchivo();
 
 }
+
+
+
 
 void GestorViaje::EscribirPasajerosViajeArchivo()
 	{
@@ -300,21 +303,31 @@ void GestorViaje::AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero) {
 
 }
 
-int GestorViaje::ObtenerCodigoViajeXcodigoUsuario(String^ codigoUsuario) {
-	array<String^>^ lineasArchivo = File::ReadAllLines("pasajerosXviajes.txt");
-	String^ separador = ";";
-	for each (String ^ linea in lineasArchivo) {
-		array<String^>^ palabras = linea->Split(separador->ToCharArray());
-		int codigoV = Convert::ToInt32(palabras[0]);
-		int codigoP = Convert::ToInt32(palabras[1]);
 
-		if (objViaje->codigoViaje == codigoV) {
-			GestorPasajero^ objGestorPasajero = gcnew GestorPasajero();
-			objGestorPasajero->LeerPasajerosDesdeArchivo();
-			Pasajero^ objPasajero = objGestorPasajero->BuscarxUserID(codigoP);
-			objViaje->listaPasajeros->Add(objPasajero);
+void GestorViaje::EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int codigoEliminar)
+{
+	int cantPasajerosViaje = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		cantPasajerosViaje = cantPasajerosViaje + this->listaViajes[i]->listaPasajeros->Count;
+	}
+	array<String^>^ lineas = gcnew array<String^>(cantPasajerosViaje);
+	int k = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		Viaje^ objViaje = this->listaViajes[i];
+		for (int j = 0; j < objViaje->listaPasajeros->Count; j++) {
+			if (objViaje->codigoViaje != codigoEliminar) {
+				lineas[k] = objViaje->codigoViaje + ";" + objViaje->listaPasajeros[j]->CodigoDeUsuario;
+			}
+			k++;
 		}
 	}
+	File::WriteAllLines("pasajerosXviajes.txt", lineas);
 }
+
+
+
+
 
 
