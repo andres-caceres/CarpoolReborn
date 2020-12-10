@@ -300,6 +300,21 @@ void GestorViaje::AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero) {
 
 }
 
+int GestorViaje::ObtenerCodigoViajeXcodigoUsuario(String^ codigoUsuario) {
+	array<String^>^ lineasArchivo = File::ReadAllLines("pasajerosXviajes.txt");
+	String^ separador = ";";
+	for each (String ^ linea in lineasArchivo) {
+		array<String^>^ palabras = linea->Split(separador->ToCharArray());
+		int codigoV = Convert::ToInt32(palabras[0]);
+		int codigoP = Convert::ToInt32(palabras[1]);
 
+		if (objViaje->codigoViaje == codigoV) {
+			GestorPasajero^ objGestorPasajero = gcnew GestorPasajero();
+			objGestorPasajero->LeerPasajerosDesdeArchivo();
+			Pasajero^ objPasajero = objGestorPasajero->BuscarxUserID(codigoP);
+			objViaje->listaPasajeros->Add(objPasajero);
+		}
+	}
+}
 
 

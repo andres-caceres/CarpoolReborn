@@ -12,7 +12,7 @@ namespace CarpoolController {
 
 	public:
 		GestorReporteViajesxMes();
-		void GenerarReporte();
+		void GenerarReporte(int CodigoUsuario);
 		int CantidadDetalle();
 		ViajesxMes^ ObtenerDetalleReporte(int i);
 	};
