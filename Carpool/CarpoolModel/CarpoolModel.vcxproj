@@ -130,6 +130,7 @@
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Vehiculo.h" />
     <ClInclude Include="Viaje.h" />
+    <ClInclude Include="ViajesxMes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Administrador.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="Usuario.cpp" />
     <ClCompile Include="Vehiculo.cpp" />
     <ClCompile Include="Viaje.cpp" />
+    <ClCompile Include="ViajesxMes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
