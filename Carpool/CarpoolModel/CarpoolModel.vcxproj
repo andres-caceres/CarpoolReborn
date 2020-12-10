@@ -118,6 +118,7 @@
     <ClInclude Include="Coordenadas.h" />
     <ClInclude Include="DatosMapa.h" />
     <ClInclude Include="Figura.h" />
+    <ClInclude Include="GananciaConductor.h" />
     <ClInclude Include="Horarios.h" />
     <ClInclude Include="ListaCoordenadas.h" />
     <ClInclude Include="MetodoTransferencia.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="Coordenadas.cpp" />
     <ClCompile Include="DatosMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
+    <ClCompile Include="GanaciaConductor.cpp" />
     <ClCompile Include="Horarios.cpp" />
     <ClCompile Include="ListaCoordenadas.cpp" />
     <ClCompile Include="MetodoTransferencia.cpp" />

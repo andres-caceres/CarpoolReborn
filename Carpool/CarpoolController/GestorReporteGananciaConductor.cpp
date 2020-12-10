@@ -5,53 +5,82 @@ using namespace System::IO;
 using namespace System;
 
 GestorReporteGananciaConductor::GestorReporteGananciaConductor() {
-	this->lista = gcnew List<ReporteGananciaConductor^>();
+	this->lista = gcnew List<GananciaConductor^>();
 }
 
-
-String^ GestorReporteGananciaConductor::DevuelveMes(array<String^>^ palabras) {
-	String^ separadores = "/";
-	String^ Mes = palabras[3]->Split(separadores->ToCharArray());
-
-}
-
-
-
-void GestorReporteGananciaConductor::GenerarReporte() {
+void GestorReporteGananciaConductor::GenerarReporte(Conductor^ objConductor) {
+	int codigo = objConductor->CodigoDeUsuario;
 	this->lista->Clear();
+
 	array<String^>^ lineas = File::ReadAllLines("Viajes.txt");
+
 	String^ separadores = ";";
 	int i = 0;
-	int contadorDineroh = 0;
-	String^ MesAnterior = "";
-	for each (String ^ linea in lineas)
-	{
-		array<String^>^ palabras = linea->Split(separadores->ToCharArray());
 
-		if (i == 0) {
-			diaAnterior = palabras[1];
-			i++;
+	int ganancia = 0;
+	String^ separador = "/";
+	String^ mes;
+	String^ mes_anterior = "";
+	int gananciaDia = 0;
+	
+
+	for each (String ^ linea in lineas) {
+		array<String^>^ palabras = linea->Split(separadores->ToCharArray());
+		String^ Fecha = palabras[3];
+		 gananciaDia = Convert::ToInt32(palabras[7]);
+		int codigotxt = Convert::ToInt32(palabras[8]);
+
+		array<String^>^ numeros = Fecha->Split(separador->ToCharArray());
+		int dia_numero = Convert::ToInt32(numeros[1]);
+		int mes_numero = Convert::ToInt32(numeros[0]);
+		int anho_numero = Convert::ToInt32(numeros[2]);
+
+		if (mes_numero == 1) { mes = "Enero"; }
+		else if (mes_numero == 2) { mes = "Febrero"; }
+		else if (mes_numero == 3) { mes = "Marzo"; }
+		else if (mes_numero == 4) { mes = "Abril"; }
+		else if (mes_numero == 5) { mes = "Mayo"; }
+		else if (mes_numero == 6) { mes = "Junio"; }
+		else if (mes_numero == 7) { mes = "Julio"; }
+		else if (mes_numero == 8) { mes = "Agosto"; }
+		else if (mes_numero == 9) { mes = "Septiembre"; }
+		else if (mes_numero == 10) { mes = "Octubre"; }
+		else if (mes_numero == 11) { mes = "Noviembre"; }
+		else if (mes_numero == 12) { mes = "Diciembre"; }
+
+		if (codigo == codigotxt) {
+
+			if (i == 0) {
+				mes_anterior = mes;
+				i++;
+			}
+			if (mes == mes_anterior) {
+				ganancia = ganancia + gananciaDia;
+			}
+			else {
+				GananciaConductor^ objGananciaConductor = gcnew GananciaConductor(mes_anterior, ganancia);
+				this->lista->Add(objGananciaConductor);
+				mes_anterior = mes;
+				ganancia = Convert::ToInt32(palabras[7]);
+			}
+
+			
+				
+			
 		}
-		//palabras[1] ubicacion de fecha en el txt aparcamientos
-		if (palabras[1] == diaAnterior) {
-			contadorAparcamientos++;
-		}
-		else {
-			ReporteAparcamiento^ objReporte = gcnew ReporteAparcamiento(diaAnterior, contadorAparcamientos);
-			this->lista->Add(objReporte);
-			diaAnterior = palabras[1];//update la variable
-			contadorAparcamientos = 1;//updatea la variable
-		}
+
 	}
-	//para cargar el ultimo elemento 
-	ReporteGananciaConductor^ objReporte = gcnew ReporteGananciaConductor(diaAnterior, contadorAparcamientos);
-	this->lista->Add(objReporte);
+
+	GananciaConductor^ objGananciaConductor = gcnew GananciaConductor(mes_anterior, ganancia);
+	this->lista->Add(objGananciaConductor);
+		
+	
 }
 
 int GestorReporteGananciaConductor::CantidadDetalle() {
 	return this->lista->Count;
 }
 
-ReporteGananciaConductor^ GestorReporteGananciaConductor::ObtenerDetalleReporte(int i) {
+GananciaConductor^ GestorReporteGananciaConductor::ObtenerDetalleReporte(int i) {
 	return this->lista[i];
 }

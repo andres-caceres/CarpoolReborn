@@ -8,13 +8,12 @@ namespace CarpoolController {
 	public ref class GestorReporteGananciaConductor {
 	private:
 		//Lista para el Reporte
-		List<ReporteGananciaConductor^>^ lista;
+		List<GananciaConductor^>^ lista;
 
 	public:
 		GestorReporteGananciaConductor();
-		void GenerarReporte();
+		void GenerarReporte(Conductor^ objConductor);
 		int CantidadDetalle();
-		String^DevuelveMes(array<String^>^ palabras);
-		//ViajesxMes^ ObtenerDetalleReporte(int i);
+		GananciaConductor^ ObtenerDetalleReporte(int i);
 	};
 }

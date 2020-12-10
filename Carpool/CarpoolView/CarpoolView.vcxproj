@@ -162,6 +162,7 @@
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmRegistroConductor.cpp" />
+    <ClCompile Include="frmReporteGananciaConductor.cpp" />
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
     <ClCompile Include="frmReporteViajesXMes.cpp" />
     <ClCompile Include="frmReservarViaje.cpp" />
@@ -269,6 +270,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmRegistroConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReporteGananciaConductor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteTiposDeUsuarios.h">
@@ -404,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroConductor.resx">
       <DependentUpon>frmRegistroConductor.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteGananciaConductor.resx">
+      <DependentUpon>frmReporteGananciaConductor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteTiposDeUsuarios.resx">
       <DependentUpon>frmReporteTiposDeUsuarios.h</DependentUpon>
