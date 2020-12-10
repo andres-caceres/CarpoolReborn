@@ -326,13 +326,16 @@ void GestorViaje::EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int cod
 	File::WriteAllLines("pasajerosXviajes.txt", lineas);
 }
 
-String^ GestorViaje::ObtenerFechaXcodigoViaje(int codigoViaje) {
-	String^ Fecha;
-	for (int i = 0; i < this->listaViajes->Count; i++) {
-		if ((this->listaViajes[i]->codigoViaje== codigoViaje)) {
-			Fecha = this->listaViajes[i]->Fecha;
-			break;
-		}
+
+
+int GestorViaje::ValidarAsientosTarifa(String^ AsientosD, String^ tarifa) {
+	int esta_completo = 1;
+	if (AsientosD == "" || tarifa == "") {
+		esta_completo = 0;
 	}
-	return Fecha;
+	return esta_completo;
 }
+
+
+
+

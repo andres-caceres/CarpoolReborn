@@ -131,6 +131,7 @@ namespace CarpoolView {
 			this->button1->TabIndex = 27;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmReservarViaje::button1_Click);
 			// 
 			// dateTimePicker1
 			// 
@@ -297,6 +298,12 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 	//this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
 	//this->Close();
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ fecha = this->dateTimePicker1->Text;
+	this->objGestorViaje->LeerViajesDesdeArchivo();
+	List<Viaje^>^ listaViajes = this->objGestorViaje->BuscarViajesxFecha(fecha);
+	MostrarGrilla(listaViajes);
 }
 };
 }

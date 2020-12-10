@@ -49,6 +49,7 @@ namespace CarpoolView {
 			this->objGestorCoordenadas = objGestorCoordenadas;
 			this->numeroPuntosMaximo = 50;
 			this->contadorPuntos = 0;
+		/*	this->FlagRutaTrazada = FlagRutaTrazada;*/
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -84,6 +85,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Label^ label2;
 	private: GestorRuta^ objGestorRuta;
 	private: GestorCoordenadas^ objGestorCoordenadas;
+	/*private: int *FlagRutaTrazada;*/
 	//private: ListaCoordenadas^ objListaCoordenadas; ////////////////No lo c rick
 	private: int numeroPuntosMaximo;
 	private: int contadorPuntos;
@@ -273,7 +275,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 	//objListaCoordenadas = this->objGestorCoordenadas->GiveMeListaCoordenadas();
 	this->objGestorCoordenadas->AgregarListaCoordenadasAListaDeListasCoordenadas(this->objGestorCoordenadas->GiveMeListaCoordenadas()); 
-
+	this->objGestorCoordenadas->incrementarFlag();
 	//this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(6);  //ESTOY PONIENDO 6 COMO CODIGO DE VIAJE PROVISIONALMENTE
 	this->Close();
 }

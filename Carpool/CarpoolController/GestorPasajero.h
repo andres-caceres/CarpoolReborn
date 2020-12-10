@@ -8,7 +8,7 @@ namespace CarpoolController {
 
 	public ref class GestorPasajero {
 
-	private:
+	public:
 		List<Pasajero^>^ listaPasajeros;
 
 	public:

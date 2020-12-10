@@ -67,6 +67,8 @@ namespace CarpoolController {
 		int UsuarioRepetidoConCodigo(int codigo);
 		Usuario^ ObtenerUsuarioxDNIyTipoDeUsuario(String^ DNI, int tipoUsuario);
 
+		Usuario^ ObtenerUsuarioxCodigoBD(int codigo);
+
 	};
 }
 

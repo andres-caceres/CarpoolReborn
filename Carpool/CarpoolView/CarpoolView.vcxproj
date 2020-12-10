@@ -136,6 +136,7 @@
     <ClCompile Include="frmAgregarPaypal.cpp" />
     <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmBuscarUsuario.cpp" />
+    <ClCompile Include="frmCalificarPasajeros.cpp" />
     <ClCompile Include="frmCambiarPassword.cpp" />
     <ClCompile Include="frmConductor.cpp" />
     <ClCompile Include="frmCreaViaje.cpp" />
@@ -161,6 +162,8 @@
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmRegistroConductor.cpp" />
+    <ClCompile Include="frmReporteGananciaConductor.cpp" />
+    <ClCompile Include="frmReporteGastoPasajero.cpp" />
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
     <ClCompile Include="frmReporteViajesXMes.cpp" />
     <ClCompile Include="frmReservarViaje.cpp" />
@@ -190,6 +193,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmBuscarUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmCalificarPasajeros.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmCambiarPassword.h">
@@ -267,6 +273,12 @@
     <ClInclude Include="frmRegistroConductor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmReporteGananciaConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReporteGastoPasajero.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmReporteTiposDeUsuarios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -322,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCalificarPasajeros.resx">
+      <DependentUpon>frmCalificarPasajeros.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarPassword.resx">
       <DependentUpon>frmCambiarPassword.h</DependentUpon>
@@ -397,6 +412,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroConductor.resx">
       <DependentUpon>frmRegistroConductor.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteGananciaConductor.resx">
+      <DependentUpon>frmReporteGananciaConductor.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteGastoPasajero.resx">
+      <DependentUpon>frmReporteGastoPasajero.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteTiposDeUsuarios.resx">
       <DependentUpon>frmReporteTiposDeUsuarios.h</DependentUpon>
