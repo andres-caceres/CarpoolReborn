@@ -237,10 +237,11 @@ private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender
 
 	//
 
+	/*frmSelectOrigenFin^ ventanaSelectOrigenFin = gcnew frmSelectOrigenFin(this->objUsuario);
+	ventanaSelectOrigenFin->ShowDialog();*/
 
-	frmSelectOrigenFin^ ventanaSelectOrigenFin = gcnew frmSelectOrigenFin(this->objUsuario);
-	ventanaSelectOrigenFin->ShowDialog();
-	
+	frmReservarViaje^ ventanaReservarViaje = gcnew frmReservarViaje(this->objUsuario);
+	ventanaReservarViaje->ShowDialog();
 	
 
 

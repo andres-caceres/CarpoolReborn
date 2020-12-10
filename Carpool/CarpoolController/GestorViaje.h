@@ -30,6 +30,7 @@ namespace CarpoolController {
 		int ObtenerCantidadViajesDelConductor(int codigoConductor);
 		List<Viaje^>^ BuscarViajesxFecha(String^ fecha);
 		void RechazarPasajero(int codigoEliminar, Viaje^ objViaje);
+		void AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero);
 
 	};
 }
