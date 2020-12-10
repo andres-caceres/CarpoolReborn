@@ -95,6 +95,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Button^ button1;
 
 	private:
 		/// <summary>
@@ -140,6 +141,7 @@ namespace CarpoolView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox2->SuspendLayout();
@@ -160,11 +162,11 @@ namespace CarpoolView {
 			// groupBox3
 			// 
 			this->groupBox3->Controls->Add(this->dataGridView1);
-			this->groupBox3->Location = System::Drawing::Point(144, 628);
+			this->groupBox3->Location = System::Drawing::Point(144, 720);
 			this->groupBox3->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox3->Size = System::Drawing::Size(1220, 360);
+			this->groupBox3->Size = System::Drawing::Size(1220, 268);
 			this->groupBox3->TabIndex = 37;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Pasajeros";
@@ -209,7 +211,7 @@ namespace CarpoolView {
 			this->groupBox2->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox2->Size = System::Drawing::Size(1230, 147);
+			this->groupBox2->Size = System::Drawing::Size(1230, 127);
 			this->groupBox2->TabIndex = 36;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Conductor";
@@ -475,11 +477,22 @@ namespace CarpoolView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Codigo :";
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(581, 611);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(255, 78);
+			this->button1->TabIndex = 40;
+			this->button1->Text = L"Ver Ruta";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmVerViaje::button1_Click);
+			// 
 			// frmVerViaje
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1499, 1173);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
@@ -502,8 +515,8 @@ namespace CarpoolView {
 		this->textBox1->Text = Convert::ToString(objViajeModificar->codigoViaje);
 		this->textBox2->Text = objViajeModificar->Estado;
 		this->textBox3->Text = Convert::ToString(objViajeModificar->AsientosDisponibles);
-		this->textBox4->Text = Convert::ToString(objViajeModificar->NumeroPasajeros);
-		this->textBox7->Text = objViajeModificar->Tarifa;
+		this->textBox4->Text = Convert::ToString(objViajeModificar->listaPasajeros->Count);
+		this->textBox7->Text = Convert::ToString(objViajeModificar->Tarifa);
 		this->textBox5->Text = objViajeModificar->Fecha;
 		this->textBox6->Text = objViajeModificar->HoraSalida;
 		this->textBox8->Text = objViajeModificar->HoraLlegada;
@@ -536,6 +549,11 @@ private: System::Void groupBox3_Enter(System::Object^ sender, System::EventArgs^
 }
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//frmVerRuta^ ventanaVerRuta = gcnew frmVerRuta(codigoVer);
+	//ventanaVerRuta->ShowDialog();
+
 }
 };
 }

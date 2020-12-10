@@ -4,7 +4,7 @@ using namespace CarpoolModel;
 
 
 Viaje::Viaje(int codigoViaje, String^ HoraSalida, String^ HoraLlegada, String^ Fecha, String^ Estado, int NumeroPasajeros,
-	int AsientosDisponibles, String^ Tarifa, ListaCoordenadas^ objListaCoordenadas, Conductor^ objConductor) {
+	int AsientosDisponibles, int Tarifa, ListaCoordenadas^ objListaCoordenadas, Conductor^ objConductor) {
 
 	this->codigoViaje = codigoViaje;
 	this->HoraSalida = HoraSalida;
