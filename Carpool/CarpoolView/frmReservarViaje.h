@@ -110,6 +110,7 @@ namespace CarpoolView {
 			this->button4->TabIndex = 30;
 			this->button4->Text = L"Cancelar";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmReservarViaje::button4_Click);
 			// 
 			// button2
 			// 
@@ -304,6 +305,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->objGestorViaje->LeerViajesDesdeArchivo();
 	List<Viaje^>^ listaViajes = this->objGestorViaje->BuscarViajesxFecha(fecha);
 	MostrarGrilla(listaViajes);
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }
