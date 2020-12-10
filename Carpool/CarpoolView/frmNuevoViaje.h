@@ -74,6 +74,7 @@ namespace CarpoolView {
 			this->objGestorUsuario = gcnew GestorUsuario();
 			this->objGestorCoordenadas = gcnew GestorCoordenadas();
 			this->objConductor = objConductor;
+			this->FlagRutaTrazada = 0;
 			
 			//
 			//TODO: Add the constructor code here
@@ -128,6 +129,7 @@ namespace CarpoolView {
 	private: GestorConductor^ objGestorConductor;
 	private: Usuario^ objUsuario;
 	private: GestorCoordenadas^ objGestorCoordenadas;
+	private: int FlagRutaTrazada;
 	//private: ListaCoordenadas^ objListaCoordenadas;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
@@ -518,12 +520,17 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmTrazarRuta^ ventanaMapa = gcnew frmTrazarRuta(this->objGestorCoordenadas); //pasar tambien el codigo viaje
-		ventanaMapa->ShowDialog();
-		/*this->textBox6->Text = this->objRuta->Origen;
-		this->textBox5->Text = this->objRuta->Destino;
-		this->textBox8->Text = Convert::ToString(this->objRuta->CodigoViaje);*/
+		if (this->FlagRutaTrazada == 1) {
+			MessageBox::Show("No puede grabar dos rutas en un mismo viaje");
 
+		}
+		else {
+			frmTrazarRuta^ ventanaMapa = gcnew frmTrazarRuta(this->objGestorCoordenadas, this->FlagRutaTrazada); //pasar tambien el codigo viaje
+			ventanaMapa->ShowDialog();
+			/*this->textBox6->Text = this->objRuta->Origen;
+			this->textBox5->Text = this->objRuta->Destino;
+			this->textBox8->Text = Convert::ToString(this->objRuta->CodigoViaje);*/
+		}
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
@@ -535,28 +542,37 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton grabar
 
-	int codigo = Convert::ToInt32(this->textBox1->Text);
-	String^ HoraInicio = this->dateTimePicker2->Text;
-	String^ HoraFin = this->dateTimePicker3->Text;
-	String^ fecha = this->dateTimePicker1->Text;
-	String^ Estado = this->textBox2->Text;
-	int nroPasajeros = Convert::ToInt32(this->textBox4->Text);
-	int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
-	int Tarifa = Convert::ToInt32(this->textBox7->Text);
-	int codigoConductor = Convert::ToInt32(this->textBox12->Text); //maybe useless?
+	if (this->FlagRutaTrazada==0){
+		MessageBox::Show("Por favor, defina una ruta");	
+	}
+	else {
+		int codigo = Convert::ToInt32(this->textBox1->Text);
+		String^ HoraInicio = this->dateTimePicker2->Text;
+		String^ HoraFin = this->dateTimePicker3->Text;
+		String^ fecha = this->dateTimePicker1->Text;
+		String^ Estado = this->textBox2->Text;
+		int nroPasajeros = Convert::ToInt32(this->textBox4->Text);
+		int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
+		int Tarifa = Convert::ToInt32(this->textBox7->Text);
+		int codigoConductor = Convert::ToInt32(this->textBox12->Text); //maybe useless?
 
 
-	//int codigoRuta = Convert::ToInt32(this->textBox8->Text);
-	/*Usuario^ objUsuarioLogeado = this->objUsuario;
-	Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);*/
-	//Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
+		//int codigoRuta = Convert::ToInt32(this->textBox8->Text);
+		/*Usuario^ objUsuarioLogeado = this->objUsuario;
+		Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);*/
+		//Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
 
-	Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros,	AsientosDisponibles, Tarifa, this->objGestorCoordenadas->GiveMeListaCoordenadas(), this->objConductor);
+		Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros,	AsientosDisponibles, Tarifa, this->objGestorCoordenadas->GiveMeListaCoordenadas(), this->objConductor);
 
-	this->objGestorViaje->AgregarViaje(objViaje);
-	this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(this->objGestorViaje->obtenerCodigoViaje());
+		this->objGestorViaje->AgregarViaje(objViaje);
+		this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(this->objGestorViaje->obtenerCodigoViaje());
+		
 
-	this->Close();
+		this->Close();
+
+	}
+
+	
 }
 private: System::Void frmNuevoViaje_Load(System::Object^ sender, System::EventArgs^ e) {
 	//Usuario^ objUsuarioLogeado = this->objUsuario;
