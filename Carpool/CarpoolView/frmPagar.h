@@ -106,6 +106,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->label1);
 			this->Name = L"frmPagar";
 			this->Text = L"frmPagar";
+			this->Load += gcnew System::EventHandler(this, &frmPagar::frmPagar_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -123,6 +124,8 @@ namespace CarpoolView {
 		ventanaPagarPayPal->ShowDialog();
 		this->Close();
 	}
-	};
+	private: System::Void frmPagar_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
 
