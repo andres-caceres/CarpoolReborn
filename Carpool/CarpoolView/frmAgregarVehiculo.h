@@ -453,13 +453,18 @@ namespace CarpoolView {
 
 			if (validar_entradas(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec)) {
 
-			Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec, IDConductor, valido);
-			this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
-			this->objGestorVehiculo->EscribirArchivo();
+				if(this->objGestorVehiculo->ValidarVehiculoxPlaca(Placa)){
 
-			MessageBox::Show("Los datos han sido enviados para verificación y aprobación, se le notificará cuando esté disponible para su uso", "Vehiculo Agregado");
-
-			this->Close();
+					Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec, IDConductor, valido);
+					this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
+					this->objGestorVehiculo->EscribirArchivo();
+					MessageBox::Show("Los datos han sido enviados para verificación y aprobación, se le notificará cuando esté disponible para su uso", "Vehiculo Agregado");
+					this->Close();
+				}
+				else
+				{
+					MessageBox::Show("Ya existe un vehiculo registrado con la misma placa", "Error");
+				}
 			}
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
