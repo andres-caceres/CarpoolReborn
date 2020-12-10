@@ -154,12 +154,16 @@
     <ClCompile Include="frmNuevaTarjeta.cpp" />
     <ClCompile Include="frmNuevoContacto.cpp" />
     <ClCompile Include="frmNuevoViaje.cpp" />
+    <ClCompile Include="frmPagar.cpp" />
+    <ClCompile Include="frmPagarPayPal.cpp" />
+    <ClCompile Include="frmPagarTarjeta.cpp" />
     <ClCompile Include="frmPasajero.cpp" />
     <ClCompile Include="frmPaypal.cpp" />
     <ClCompile Include="frmPreguntaSeguridad.cpp" />
     <ClCompile Include="frmRegister.cpp" />
     <ClCompile Include="frmRegistroConductor.cpp" />
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
+    <ClCompile Include="frmReporteViajesXMes.cpp" />
     <ClCompile Include="frmReservarViaje.cpp" />
     <ClCompile Include="frmRevisarViajes.cpp" />
     <ClCompile Include="frmSeguridad.cpp" />
@@ -243,6 +247,15 @@
     <ClInclude Include="frmNuevoViaje.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmPagar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPagarPayPal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPagarTarjeta.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmPasajero.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -259,6 +272,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteTiposDeUsuarios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReporteViajesXMes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReservarViaje.h">
@@ -365,6 +381,15 @@
     <EmbeddedResource Include="frmNuevoViaje.resx">
       <DependentUpon>frmNuevoViaje.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPagar.resx">
+      <DependentUpon>frmPagar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagarPayPal.resx">
+      <DependentUpon>frmPagarPayPal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagarTarjeta.resx">
+      <DependentUpon>frmPagarTarjeta.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPasajero.resx">
       <DependentUpon>frmPasajero.h</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteTiposDeUsuarios.resx">
       <DependentUpon>frmReporteTiposDeUsuarios.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteViajesXMes.resx">
+      <DependentUpon>frmReporteViajesXMes.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReservarViaje.resx">
       <DependentUpon>frmReservarViaje.h</DependentUpon>
