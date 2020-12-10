@@ -328,6 +328,14 @@ void GestorViaje::EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int cod
 
 
 
+int GestorViaje::ValidarAsientosTarifa(String^ AsientosD, String^ tarifa) {
+	int esta_completo = 1;
+	if (AsientosD == "" || tarifa == "") {
+		esta_completo = 0;
+	}
+	return esta_completo;
+}
+
 
 
 
