@@ -29,7 +29,9 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 			this->objGestorUsuario = objGestorUsuario;
+			this->objGestorConductor = gcnew GestorConductor();
 			this->objGestorSeguridad = gcnew GestorSeguridad();
+			this->objGestorVehiculo = gcnew GestorVehiculo();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -50,13 +52,8 @@ namespace CarpoolView {
 	protected:
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
-
-
-
-
-
-
-
+	private: GestorConductor^ objGestorConductor;
+	private: GestorVehiculo^ objGestorVehiculo;
 
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
@@ -76,36 +73,6 @@ namespace CarpoolView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private:
 		/// <summary>
@@ -369,8 +336,15 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	String^ userNameEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[7]->Value->ToString());//acccede codigo Cells[0]
 	String^ dniEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString());//acccede codigo Cells[0]
-	this->objGestorUsuario->EliminarUsuarioBD(userNameEliminar);
+	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());//acccede codigo Cells[0]
+	String^ tipoUsuario = (this->dataGridView1->Rows[filaSeleccionada]->Cells[8]->Value->ToString());//acccede codigo Cells[0]
 	this->objGestorSeguridad->EliminarSeguridad(dniEliminar);
+	
+	if (tipoUsuario=="Conductor") {
+		this->objGestorConductor->EliminarConductorxCodigo(codigoEliminar);
+		this->objGestorVehiculo->EliminarAllVehiculosPorCodigo(codigoEliminar);
+	}
+	this->objGestorUsuario->EliminarUsuarioBD(userNameEliminar);
 
 	MessageBox::Show("Usuario eliminado exitosamente");
 
@@ -378,27 +352,16 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	MostrarGrilla(listaUsuarios);
 }
 private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
-	//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
 	List<Usuario^>^ listaUsuarios = this->objGestorUsuario->BuscarAllUsuariosBD();
-	this->objGestorSeguridad->LeerSeguridadDesdeArchivo();
-
+	this->objGestorConductor->LeerConductoresDesdeArchivo();
+	this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
 	MostrarGrilla(listaUsuarios);
 }
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		//this->objGestorUsuario->LeerUsuariosDesdeArchivo();
-		
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 		
 		String^ userNameEditar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[8]->Value->ToString());
-		//String^ dniEliminar = (this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString());//acccede codigo Cells[0]
-		
-		//Usuario^ objUsuario = objGestorUsuario->ObtenerUsuarioxUserName(userNameEditar);
-		//this->objGestorUsuario->EliminarUsuarioXDni(dniEliminar);
-		//Usuario^ objUsuarioAdmin = gcnew Usuario(objUsuario->CodigoDeUsuario ,objUsuario->Nombre, objUsuario->ApellidoPaterno, objUsuario->ApellidoMaterno, objUsuario->DNI, objUsuario->Correo, objUsuario->userName, objUsuario->password, 1);
-
-		//this->objGestorUsuario->AgregarUsuario(objUsuarioAdmin);
-
 		this->objGestorUsuario->ActualizarAAdmin(userNameEditar);
 
 		List<Usuario^>^ listaUsuarios = this->objGestorUsuario->BuscarAllUsuariosBD();
@@ -406,8 +369,9 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 		MessageBox::Show("Usuario seleccionado ahora es admin");
 	}
 private: System::Void frmBuscarUsuario_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	//this->objGestorUsuario->EscribirArchivo();
-	this->objGestorSeguridad->EscribirArchivo();
+	this->objGestorConductor->EscribirArchivo();
+	this->objGestorVehiculo->EscribirArchivo();
+	
 }
 };
 }

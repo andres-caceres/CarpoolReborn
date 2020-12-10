@@ -106,3 +106,24 @@ int GestorVehiculo::ObtenerCantidadVehiculosSegunSuValidez(int valido) {
 	}
 	return j;
 }
+
+bool GestorVehiculo::ValidarVehiculoxPlaca(String^ placa){
+	for (int i = 0; i < this->listaVehiculos->Count; i++) {
+		if (this->listaVehiculos[i]->Placa == placa) {
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+}
+
+
+void GestorVehiculo::EliminarAllVehiculosPorCodigo(int IDConductor) {
+	for (int i = 0; i < this->listaVehiculos->Count; i++) {
+		if (this->listaVehiculos[i]->IDConductor == IDConductor) {
+			this->listaVehiculos->RemoveAt(i);
+		}
+	}
+}

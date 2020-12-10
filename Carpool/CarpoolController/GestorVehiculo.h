@@ -22,5 +22,7 @@ namespace CarpoolController {
 		void EliminarVehiculo(String^ Placa);
 		void EscribirArchivo();
 		int ObtenerCantidadVehiculosSegunSuValidez(int valido);
+		void EliminarAllVehiculosPorCodigo(int IDConductor);
+		bool ValidarVehiculoxPlaca(String^ placa);
 	};
 }
