@@ -209,7 +209,7 @@ void GestorViaje::EscribirPasajerosViajeArchivo()
 		{
 			Viaje^ objViaje = this->listaViajes[i];
 			for (int j = 0; j < objViaje->listaPasajeros->Count; j++) {
-				lineas[k] = objViaje->codigoViaje + "," + objViaje->listaPasajeros[j]->CodigoDeUsuario;
+				lineas[k] = objViaje->codigoViaje + ";" + objViaje->listaPasajeros[j]->CodigoDeUsuario;
 				k++;
 			}
 		}
@@ -291,7 +291,7 @@ void GestorViaje::AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero) {
 	{
 		Viaje^ objViaje = this->listaViajes[i];
 		for (int j = 0; j < objViaje->listaPasajeros->Count; j++) {
-			lineas[k] = objViaje->codigoViaje + "," + objViaje->listaPasajeros[j]->CodigoDeUsuario;
+			lineas[k] = objViaje->codigoViaje + ";" + objViaje->listaPasajeros[j]->CodigoDeUsuario;
 			k++;
 		}
 	}
