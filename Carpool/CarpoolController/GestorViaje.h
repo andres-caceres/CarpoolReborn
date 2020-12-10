@@ -32,7 +32,8 @@ namespace CarpoolController {
 		void RechazarPasajero(int codigoEliminar, Viaje^ objViaje);
 		void AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero);
 		void EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int codigoEliminar);
-		
+		String^ ObtenerFechaXcodigoViaje(int codigoViaje);
+
 
 	};
 }

@@ -326,8 +326,13 @@ void GestorViaje::EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int cod
 	File::WriteAllLines("pasajerosXviajes.txt", lineas);
 }
 
-
-
-
-
-
+String^ GestorViaje::ObtenerFechaXcodigoViaje(int codigoViaje) {
+	String^ Fecha;
+	for (int i = 0; i < this->listaViajes->Count; i++) {
+		if ((this->listaViajes[i]->codigoViaje== codigoViaje)) {
+			Fecha = this->listaViajes[i]->Fecha;
+			break;
+		}
+	}
+	return Fecha;
+}

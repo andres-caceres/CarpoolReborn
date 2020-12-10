@@ -1,4 +1,5 @@
 #include "GestorReporteUsuarios.h"
+#include "GlobalSettings.h"
 
 using namespace CarpoolController;
 using namespace System::IO;
@@ -6,6 +7,36 @@ using namespace System;
 
 GestorReporteUsuarios::GestorReporteUsuarios() {
 	this->lista = gcnew List<ReporteUsuarios^>();
+	this->objConexion = gcnew SqlConnection();
+}
+
+void GestorReporteUsuarios::AbrirConexionBD() {
+	this->objConexion->ConnectionString = "Server=" + ENDPOINT + ";Database=" + DATABASE +
+		";User ID=" + USERNAME + ";Password=" + PASSWORD + ";";
+	this->objConexion->Open();
+}
+
+void GestorReporteUsuarios::CerrarConexionBD() {
+	this->objConexion->Close();
+}
+
+int GestorReporteUsuarios::ObtenerNumeroDeUsuariosPorTipo(int tipoUsuario) {
+	List<int>^ listaCodigos;
+	listaCodigos = gcnew List<int>();
+
+	AbrirConexionBD();
+	SqlDataReader^ objData;
+	SqlCommand^ objQuery = gcnew SqlCommand();
+	objQuery->Connection = this->objConexion;
+	objQuery->CommandText = "select * from Usuario where tipoUsuario=" + tipoUsuario + ";";
+	objData = objQuery->ExecuteReader();
+	while (objData->Read()) {
+		int  CodigoDeUsuario = safe_cast<int>(objData[0]);
+		listaCodigos->Add(CodigoDeUsuario);
+	}
+	int numero = listaCodigos->Count;
+	CerrarConexionBD();
+	return numero;
 }
 
 void GestorReporteUsuarios::GenerarReporte() {
@@ -14,26 +45,9 @@ void GestorReporteUsuarios::GenerarReporte() {
 	String^ separadores = ";";
 
 
-	int contadorPasajeros = 0;
-	int contadorConductores = 0;
+	int contadorPasajeros = ObtenerNumeroDeUsuariosPorTipo(2);
+	int contadorConductores = ObtenerNumeroDeUsuariosPorTipo(3);
 	
-	for each (String ^ linea in lineas)
-	{
-		array<String^>^ palabras = linea->Split(separadores->ToCharArray());
-
-		if (Convert::ToInt32(palabras[8]) == 2) {
-			contadorPasajeros++;
-		}
-		if (Convert::ToInt32(palabras[8]) == 3) {
-			contadorConductores++;
-		}
-		//else {
-		//	ReporteUsuarios^ objReporte = gcnew ReporteUsuarios(tipoUsuario, contadorPasajeros);
-		//	this->lista->Add(objReporte);
-		//	diaAnterior = palabras[1];
-		//	contadorAparcamientos = 1;
-		//}
-	}
 	ReporteUsuarios^ objReporteConductores = gcnew ReporteUsuarios(2, contadorConductores);
 	ReporteUsuarios^ objReportePasajeros= gcnew ReporteUsuarios(3, contadorPasajeros);
 	this->lista->Add(objReporteConductores);
