@@ -27,6 +27,7 @@ namespace CarpoolView {
 			this->objGestorViaje = objGestorViaje;
 			this->objGestorPaypal = gcnew GestorPaypal();
 			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objUsuario = objUsuario;
 			//
 			//TODO: agregar código de constructor aquí
 			//
