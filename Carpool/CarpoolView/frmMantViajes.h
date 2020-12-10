@@ -2,6 +2,7 @@
 #include "frmNuevoViaje.h"
 #include "frmModificarViaje.h"
 #include "frmVerViaje.h"
+#include "frmVerRuta.h"
 
 namespace CarpoolView {
 
@@ -49,7 +50,7 @@ namespace CarpoolView {
 			InitializeComponent();
 			this->objGestorViaje = gcnew GestorViaje();
 			this->objConductor = objConductor;
-
+			this->objGestorCoordenadas = gcnew GestorCoordenadas();
 
 			//this->objGestorUsuario = gcnew GestorUsuario();
 			//
@@ -89,6 +90,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: Usuario^ objUsuario;
 	private: Conductor^ objConductor;
+	private: GestorCoordenadas^ objGestorCoordenadas;
 
 
 
@@ -336,8 +338,25 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 	this->objGestorViaje->LeerViajesDesdeArchivo();
-	this->objGestorViaje->EliminarViaje(codigoEliminar);
+	
+	//this->objGestorCoordenadas->leerListaDeListasDeCoordenadasFromTxt();
+	//this->objGestorCoordenadas->EliminarLineaDeListaListasCoordenadas(codigoEliminar);
+	
+
+	this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Cancelado";
+	
+
+
+	//this->objGestorViaje->EliminarViaje(codigoEliminar);
 	this->objGestorViaje->EscribirArchivo();
+	
+	
+	//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
+	
+	
+
+
+	
 
 	MessageBox::Show("El Viaje ha sido eliminado correctamente");
 	MostrarGrilla();
@@ -358,12 +377,20 @@ private: System::Void frmMantViajes_FormClosing(System::Object^ sender, System::
 	//this->objGestorViaje->EscribirArchivo();
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	//int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	//int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+	//
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-	int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	frmVerViaje^ ventanaVerViaje = gcnew frmVerViaje(this->objGestorViaje, codigoEditar);
-	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
-	ventanaVerViaje->ShowDialog();
-	MostrarGrilla();
+	int codigoVer = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+	frmVerRuta^ ventanaVerRuta = gcnew frmVerRuta(codigoVer);
+	ventanaVerRuta->ShowDialog();
+
+	
+	//
+	//frmVerViaje^ ventanaVerViaje = gcnew frmVerViaje(this->objGestorViaje, codigoEditar);
+	////Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+	//ventanaVerViaje->ShowDialog();
+	//MostrarGrilla();
 
 
 }

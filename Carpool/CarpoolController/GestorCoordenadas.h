@@ -23,6 +23,7 @@ namespace CarpoolController {
 		void saveCoordinatesListAndTripCodeInTxt(int tripCode);
 		void leerListaDeListasDeCoordenadasFromTxt();
 		ListaCoordenadas^ obtenerListaCoordenadasConCodigo(int codigoViaje);
+		//void EliminarLineaDeListaListasCoordenadas(int codigoEliminar);
 		//void obtenerFiguraAPartirDeCoordenadasConCodigo(int codigoViaje);
 
 

@@ -124,6 +124,43 @@ ListaCoordenadas^ GestorCoordenadas::obtenerListaCoordenadasConCodigo(int codigo
 	return objListaCoordenadasProvisional;
 }
 
+//void GestorCoordenadas::EliminarLineaDeListaListasCoordenadas(int codigoEliminar) {
+//	array<String^>^ lineasArchivo = gcnew array<String^>(this->listaListasCoordenadas->Count);
+//	String^ CadenaDeTexto = nullptr;
+//	String^ CadenaDeTextoAlternative = nullptr;
+//	int Contador = 0;
+//	GestorViaje^ objGestorViajeProvisional = gcnew GestorViaje();
+//	objGestorViajeProvisional->LeerViajesDesdeArchivo();
+//	Viaje^ objViajeProvisional = gcnew Viaje();
+//
+//
+//	for (int i = 0; i < this->listaListasCoordenadas->Count; i++) {
+//		ListaCoordenadas^ objListaCoordenadasProvisionales = gcnew ListaCoordenadas();
+//
+//		objListaCoordenadasProvisionales = this->listaListasCoordenadas[i];
+//		//Convertimos la lista de coordenadas en una cadena de texto
+//		for (int i = 0; i < 25; i++) {
+//			Coordenadas^ objCoordenadasProvisionales = objListaCoordenadasProvisionales->objListaCoordenadas[i];
+//			CadenaDeTexto = CadenaDeTexto + ";" + objCoordenadasProvisionales->posicionX + ";" + objCoordenadasProvisionales->posicionY;
+//			CadenaDeTextoAlternative = CadenaDeTexto;
+//
+//		}
+//		CadenaDeTexto = "";
+//		
+//		objViajeProvisional = objGestorViajeProvisional->ObtenerViajeLista(i);
+//
+//		if (objViajeProvisional->codigoViaje != codigoEliminar) {
+//
+//			lineasArchivo[i] = objViajeProvisional->codigoViaje + CadenaDeTextoAlternative;
+//
+//		}
+//		
+//		//lineasArchivo[i] = objListaCoordenadas->   ConvertirListaCoordenadasEnString or smth
+//	}
+//	File::WriteAllLines("ListaListasCoordenadas.txt", lineasArchivo);
+//}
+
+
 //void obtenerFiguraAPartirDeCoordenadasConCodigo(int codigoViaje);
 
 

@@ -301,5 +301,30 @@ void GestorViaje::AgregarPasajeroAlViaje(int codigoViaje, int CodigoPasajero) {
 }
 
 
+void GestorViaje::EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int codigoEliminar)
+{
+	int cantPasajerosViaje = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		cantPasajerosViaje = cantPasajerosViaje + this->listaViajes[i]->listaPasajeros->Count;
+	}
+	array<String^>^ lineas = gcnew array<String^>(cantPasajerosViaje);
+	int k = 0;
+	for (int i = 0; i < this->listaViajes->Count; i++)
+	{
+		Viaje^ objViaje = this->listaViajes[i];
+		for (int j = 0; j < objViaje->listaPasajeros->Count; j++) {
+			if (objViaje->codigoViaje != codigoEliminar) {
+				lineas[k] = objViaje->codigoViaje + ";" + objViaje->listaPasajeros[j]->CodigoDeUsuario;
+			}
+			k++;
+		}
+	}
+	File::WriteAllLines("pasajerosXviajes.txt", lineas);
+}
+
+
+
+
 
 
