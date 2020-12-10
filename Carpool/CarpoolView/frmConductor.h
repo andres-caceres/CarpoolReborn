@@ -63,7 +63,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::ToolStripMenuItem^ misVehículosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ definirViajeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ crearViajeToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ viajesFavoritosToolStripMenuItem;
+
 
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPersonalesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ datosConductorToolStripMenuItem;
@@ -100,7 +100,6 @@ namespace CarpoolView {
 			this->misVehículosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->definirViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->crearViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viajesFavoritosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->gananciasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viajesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -109,7 +108,6 @@ namespace CarpoolView {
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->misDatosToolStripMenuItem,
@@ -117,8 +115,8 @@ namespace CarpoolView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(11, 5, 0, 5);
-			this->menuStrip1->Size = System::Drawing::Size(2077, 58);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(512, 24);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &frmConductor::menuStrip1_ItemClicked);
@@ -130,53 +128,44 @@ namespace CarpoolView {
 					this->datosConductorToolStripMenuItem
 			});
 			this->misDatosToolStripMenuItem->Name = L"misDatosToolStripMenuItem";
-			this->misDatosToolStripMenuItem->Size = System::Drawing::Size(171, 48);
+			this->misDatosToolStripMenuItem->Size = System::Drawing::Size(70, 20);
 			this->misDatosToolStripMenuItem->Text = L"Mis datos";
 			// 
 			// datosPersonalesToolStripMenuItem
 			// 
 			this->datosPersonalesToolStripMenuItem->Name = L"datosPersonalesToolStripMenuItem";
-			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(412, 54);
+			this->datosPersonalesToolStripMenuItem->Size = System::Drawing::Size(163, 22);
 			this->datosPersonalesToolStripMenuItem->Text = L"Datos personales";
 			this->datosPersonalesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::datosPersonalesToolStripMenuItem_Click);
 			// 
 			// datosConductorToolStripMenuItem
 			// 
 			this->datosConductorToolStripMenuItem->Name = L"datosConductorToolStripMenuItem";
-			this->datosConductorToolStripMenuItem->Size = System::Drawing::Size(412, 54);
+			this->datosConductorToolStripMenuItem->Size = System::Drawing::Size(163, 22);
 			this->datosConductorToolStripMenuItem->Text = L"Datos conductor";
 			this->datosConductorToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::datosConductorToolStripMenuItem_Click);
 			// 
 			// misVehículosToolStripMenuItem
 			// 
 			this->misVehículosToolStripMenuItem->Name = L"misVehículosToolStripMenuItem";
-			this->misVehículosToolStripMenuItem->Size = System::Drawing::Size(220, 48);
+			this->misVehículosToolStripMenuItem->Size = System::Drawing::Size(91, 20);
 			this->misVehículosToolStripMenuItem->Text = L"Mis vehículos";
 			this->misVehículosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::misVehículosToolStripMenuItem_Click);
 			// 
 			// definirViajeToolStripMenuItem
 			// 
-			this->definirViajeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->crearViajeToolStripMenuItem,
-					this->viajesFavoritosToolStripMenuItem
-			});
+			this->definirViajeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->crearViajeToolStripMenuItem });
 			this->definirViajeToolStripMenuItem->ForeColor = System::Drawing::Color::Blue;
 			this->definirViajeToolStripMenuItem->Name = L"definirViajeToolStripMenuItem";
-			this->definirViajeToolStripMenuItem->Size = System::Drawing::Size(196, 48);
+			this->definirViajeToolStripMenuItem->Size = System::Drawing::Size(81, 20);
 			this->definirViajeToolStripMenuItem->Text = L"Definir viaje";
 			// 
 			// crearViajeToolStripMenuItem
 			// 
 			this->crearViajeToolStripMenuItem->Name = L"crearViajeToolStripMenuItem";
-			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(383, 54);
+			this->crearViajeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->crearViajeToolStripMenuItem->Text = L"Crear viaje";
 			this->crearViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::crearViajeToolStripMenuItem_Click);
-			// 
-			// viajesFavoritosToolStripMenuItem
-			// 
-			this->viajesFavoritosToolStripMenuItem->Name = L"viajesFavoritosToolStripMenuItem";
-			this->viajesFavoritosToolStripMenuItem->Size = System::Drawing::Size(383, 54);
-			this->viajesFavoritosToolStripMenuItem->Text = L"Viajes favoritos";
 			// 
 			// reportesToolStripMenuItem
 			// 
@@ -185,33 +174,33 @@ namespace CarpoolView {
 					this->viajesToolStripMenuItem
 			});
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(160, 48);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(65, 20);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// gananciasToolStripMenuItem
 			// 
 			this->gananciasToolStripMenuItem->Name = L"gananciasToolStripMenuItem";
-			this->gananciasToolStripMenuItem->Size = System::Drawing::Size(448, 54);
+			this->gananciasToolStripMenuItem->Size = System::Drawing::Size(128, 22);
 			this->gananciasToolStripMenuItem->Text = L"Ganancias";
 			this->gananciasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::gananciasToolStripMenuItem_Click);
 			// 
 			// viajesToolStripMenuItem
 			// 
 			this->viajesToolStripMenuItem->Name = L"viajesToolStripMenuItem";
-			this->viajesToolStripMenuItem->Size = System::Drawing::Size(448, 54);
+			this->viajesToolStripMenuItem->Size = System::Drawing::Size(128, 22);
 			this->viajesToolStripMenuItem->Text = L"Viajes";
 			this->viajesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmConductor::viajesToolStripMenuItem_Click);
 			// 
 			// frmConductor
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(2077, 1085);
+			this->ClientSize = System::Drawing::Size(512, 314);
 			this->Controls->Add(this->menuStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(5);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"frmConductor";
 			this->Text = L"Conductor";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmConductor::frmConductor_FormClosing);

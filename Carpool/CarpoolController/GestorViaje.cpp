@@ -335,7 +335,29 @@ int GestorViaje::ValidarAsientosTarifa(String^ AsientosD, String^ tarifa) {
 	}
 	return esta_completo;
 }
-
+//
+//void GestorViaje::ActualizarNroPasajerosEnViajesTXT() {
+//	this->listaViajes->Clear();
+//	LeerViajesDesdeArchivo();
+//
+//	array<String^>^ lineas = File::ReadAllLines("Viajes.txt");
+//	String^ separadores = ";";
+//	Viaje^ objViajeProvisional;
+//
+//	for each (String ^ lineaViaje in lineas) {
+//		
+//
+//
+//	
+//
+//	}
+//
+//
+//
+//
+//
+//
+//}
 
 
 
