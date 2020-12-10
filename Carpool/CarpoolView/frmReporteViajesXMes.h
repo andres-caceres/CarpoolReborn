@@ -91,7 +91,7 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmReporteViajesXMes_Load(System::Object^ sender, System::EventArgs^ e) {
-		Ge
+		GestorReporteViajesxMes^ objGestorReporte = gcnew GestorReporteViajesxMes();
 	}
 	};
 }
