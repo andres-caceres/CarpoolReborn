@@ -12,10 +12,14 @@ namespace CarpoolController {
 		ListaCoordenadas^ listaCoordenadas;
 
 		List<ListaCoordenadas^>^ listaListasCoordenadas;
+		int Flag;
 
 
 	public:
 		GestorCoordenadas();
+		GestorCoordenadas(int flag);
+		int GetFlag();
+		void incrementarFlag();
 		void AgregarParDeCoordenadasAListaCoordenadas(int coordenadaX, int CoordenadaY);
 		void AgregarListaCoordenadasAListaDeListasCoordenadas(ListaCoordenadas^ listaCoordenadas);
 		ListaCoordenadas^ GiveMeListaCoordenadas();

@@ -72,9 +72,10 @@ namespace CarpoolView {
 			//this->objGestorRuta = gcnew GestorRuta();
 			this->listaPasajeros = gcnew List<Pasajero^>();
 			this->objGestorUsuario = gcnew GestorUsuario();
-			this->objGestorCoordenadas = gcnew GestorCoordenadas();
+			this->objGestorCoordenadas = gcnew GestorCoordenadas(0);
 			this->objConductor = objConductor;
-			this->FlagRutaTrazada = 0;
+			//*this->FlagRutaTrazada = 0;
+			this->FlagRutaTrazadaNoPuntero = 0;
 			
 			//
 			//TODO: Add the constructor code here
@@ -129,7 +130,8 @@ namespace CarpoolView {
 	private: GestorConductor^ objGestorConductor;
 	private: Usuario^ objUsuario;
 	private: GestorCoordenadas^ objGestorCoordenadas;
-	private: int FlagRutaTrazada;
+	private: int *FlagRutaTrazada;
+	private: int FlagRutaTrazadaNoPuntero;
 	//private: ListaCoordenadas^ objListaCoordenadas;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
@@ -520,12 +522,12 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->FlagRutaTrazada == 1) {
+		/*this->FlagRutaTrazadaNoPuntero = *this->FlagRutaTrazada;*/
+		if (this->objGestorCoordenadas->GetFlag() == 1) {
 			MessageBox::Show("No puede grabar dos rutas en un mismo viaje");
-
 		}
 		else {
-			frmTrazarRuta^ ventanaMapa = gcnew frmTrazarRuta(this->objGestorCoordenadas, this->FlagRutaTrazada); //pasar tambien el codigo viaje
+			frmTrazarRuta^ ventanaMapa = gcnew frmTrazarRuta(this->objGestorCoordenadas); //pasar tambien el codigo viaje
 			ventanaMapa->ShowDialog();
 			/*this->textBox6->Text = this->objRuta->Origen;
 			this->textBox5->Text = this->objRuta->Destino;
@@ -542,7 +544,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton grabar
 
-	if (this->FlagRutaTrazada==0){
+	if (this->objGestorCoordenadas->GetFlag() ==0){
 		MessageBox::Show("Por favor, defina una ruta");	
 	}
 	else {

@@ -12,6 +12,20 @@ GestorCoordenadas::GestorCoordenadas() {
 	listaListasCoordenadas = gcnew List<ListaCoordenadas^>();
 
 }
+GestorCoordenadas::GestorCoordenadas(int flag) {
+
+	listaCoordenadas = gcnew ListaCoordenadas();
+	listaListasCoordenadas = gcnew List<ListaCoordenadas^>();
+	this->Flag = flag;
+}
+int GestorCoordenadas::GetFlag() {
+	return this->Flag;
+
+}
+
+void GestorCoordenadas::incrementarFlag() {
+	this->Flag++;
+}
 
 
 
