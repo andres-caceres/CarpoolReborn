@@ -515,8 +515,8 @@ namespace CarpoolView {
 		this->textBox1->Text = Convert::ToString(objViajeModificar->codigoViaje);
 		this->textBox2->Text = objViajeModificar->Estado;
 		this->textBox3->Text = Convert::ToString(objViajeModificar->AsientosDisponibles);
-		this->textBox4->Text = Convert::ToString(objViajeModificar->NumeroPasajeros);
-		this->textBox7->Text = objViajeModificar->Tarifa;
+		this->textBox4->Text = Convert::ToString(objViajeModificar->listaPasajeros->Count);
+		this->textBox7->Text = Convert::ToString(objViajeModificar->Tarifa);
 		this->textBox5->Text = objViajeModificar->Fecha;
 		this->textBox6->Text = objViajeModificar->HoraSalida;
 		this->textBox8->Text = objViajeModificar->HoraLlegada;

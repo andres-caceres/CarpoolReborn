@@ -64,7 +64,7 @@ void GestorViaje::LeerViajesDesdeArchivo() { //Le estaba dando todos los viajes 
 		String^ Estado = palabras[4];
 		int nroPasajeros = Convert::ToInt32(palabras[5]);
 		int AsientosDisponibles = Convert::ToInt32(palabras[6]);
-		String^ Tarifa = palabras[7];
+		int Tarifa = Convert::ToInt32(palabras[7]);
 		//int codigoViajeParaRuta = Convert::ToInt32(palabras[8]);
 		int codigoConductor = Convert::ToInt32(palabras[8]);
 
@@ -107,7 +107,7 @@ void GestorViaje::LeerViajesDelConductorDesdeArchivo(Conductor^ objConductor) {
 		String^ Estado = palabras[4];					//descarto estado? :/
 		int nroPasajeros = Convert::ToInt32(palabras[5]);
 		int AsientosDisponibles = Convert::ToInt32(palabras[6]);
-		String^ Tarifa = palabras[7];
+		int Tarifa = Convert::ToInt32(palabras[7]);
 		//int codigoViajeParaRuta = Convert::ToInt32(palabras[8]);
 		int codigoConductor = Convert::ToInt32(palabras[8]);
 
@@ -120,7 +120,7 @@ void GestorViaje::LeerViajesDelConductorDesdeArchivo(Conductor^ objConductor) {
 		if (codigoConductor == objConductor->CodigoDeUsuario) {
 
 
-			Viaje^ objViaje = gcnew Viaje(codigoViaje, HoraSalida, HoraLlegada, Fecha, Estado, nroPasajeros,
+		Viaje^ objViaje = gcnew Viaje(codigoViaje, HoraSalida, HoraLlegada, Fecha, Estado, nroPasajeros,
 				AsientosDisponibles, Tarifa, objListaCoordenadas, objConductor);
 
 			//pasajeros asociados a los viajes 

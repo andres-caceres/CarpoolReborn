@@ -509,7 +509,7 @@ private: System::Void frmModificarViaje_Load(System::Object^ sender, System::Eve
 	this->comboBox1->Text = objViajeModificar->Estado;
 	this->textBox3->Text = Convert::ToString(objViajeModificar->AsientosDisponibles);
 	//this->textBox4->Text = Convert::ToString(objViajeModificar->NumeroPasajeros);
-	this->textBox7->Text = objViajeModificar->Tarifa;
+	this->textBox7->Text = Convert::ToString(objViajeModificar->Tarifa);
 	this->dateTimePicker1->Text = objViajeModificar->Fecha; 
 	this->dateTimePicker2->Text = objViajeModificar->HoraSalida;
 	this->dateTimePicker3->Text = objViajeModificar->HoraLlegada;
@@ -544,7 +544,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Estado = this->comboBox1->Text;
 	int nroPasajeros = Convert::ToInt32(this->textBox3->Text);
 	int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
-	String^ Tarifa = this->textBox7->Text;
+	int Tarifa = Convert::ToInt32(this->textBox7->Text);
 	int codigoConductor = Convert::ToInt32(this->textBox12->Text); //maybe useless?
 	
 	Viaje^ objViajeModificar = this->objGestorViaje->ObtenerViajeoxCodigo(this->codigoEditar);
