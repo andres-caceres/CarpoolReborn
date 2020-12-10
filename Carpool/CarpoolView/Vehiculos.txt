@@ -1,2 +1,1 @@
-Alfa Romeo;4x4;191819;AMA - Amarillo;Coupé;7;Juan Guerrero;6519819819;1981919198;11;2
-Alfa Romeo;1asd1a8sd1;898989;AMA - Amarillo;Arenero;2;a1sd98a1s9d81a8d;adas98d1a9;19as198d18;14;2
+Alfa Romeo;4x4;161651;AMA - Amarillo;Sedan;5;Fernando Paz;1651616556;1516516515;5;1
