@@ -196,6 +196,9 @@ void GestorViaje::EscribirArchivo() {
 
 }
 
+
+
+
 void GestorViaje::EscribirPasajerosViajeArchivo()
 	{
 		int cantPasajerosViaje = 0;

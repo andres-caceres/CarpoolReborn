@@ -393,7 +393,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	frmModificarViaje^ ventanaModificarViaje = gcnew frmModificarViaje(this->objGestorViaje, codigoEditar);
+	frmModificarViaje^ ventanaModificarViaje = gcnew frmModificarViaje(this->objGestorViaje, codigoEditar, this->objConductor);
 	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 	ventanaModificarViaje->ShowDialog();
 	MostrarGrilla();

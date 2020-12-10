@@ -27,12 +27,12 @@ namespace CarpoolView {
 			//
 		}
 
-		frmModificarViaje(GestorViaje^ objGestorViaje, int codigoEditar)
+		frmModificarViaje(GestorViaje^ objGestorViaje, int codigoEditar,Conductor^ objConductor)
 		{
 			InitializeComponent();
 			this->objGestorViaje = objGestorViaje;
 			this->codigoEditar = codigoEditar;
-			this->objConductor = gcnew Conductor();
+			this->objConductor = objConductor;
 			this->objGestorRuta = gcnew GestorRuta();
 			this->objRuta = gcnew Ruta();
 			this->listaPasajeros = gcnew List<Pasajero^>();
@@ -588,12 +588,9 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	//this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(this->objGestorViaje->obtenerCodigoViaje());
 	//this->Close();
 
-	this->objGestorViaje->EliminarViaje(codigo);
 	this->objGestorViaje->AgregarViaje(objViaje);
-	this->objGestorViaje->EscribirArchivo();
-	this->objGestorViaje->EscribirPasajerosViajeArchivo();
-
-
+	this->objGestorViaje->EliminarViaje(codigo);
+	
 	MessageBox::Show("El contacto ha sido actualizado correctamente");
 	this->Close();
 
@@ -607,7 +604,10 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 	this->objGestorViaje->RechazarPasajero(codigoEliminar, objViajeModificar);
+	this->objGestorViaje->EscribirPasajerosViajeArchivo();
+
 	MessageBox::Show("El Pasajero ha sido rechazado");
+
 	MostrarGrilla(objViajeModificar->listaPasajeros);
 }
 };
