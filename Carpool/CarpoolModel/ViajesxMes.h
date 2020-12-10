@@ -11,11 +11,9 @@ namespace CarpoolModel {
 	public:
 		String^ mes;
 		int cantidad;
-		int codigo;
 
 	public:
-		ViajesxMes();
-		ViajesxMes(String^ mes, int cantidad, int codigo);
+		ViajesxMes(String^ mes, int cantidad);
 	};
 
 }

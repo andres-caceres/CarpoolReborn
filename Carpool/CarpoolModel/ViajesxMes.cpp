@@ -2,14 +2,8 @@
 
 using namespace CarpoolModel;
 
-ViajesxMes::ViajesxMes() {
-
-}
-
-ViajesxMes::ViajesxMes(String^ mes, int cantidad, int codigo) {
-
+ViajesxMes::ViajesxMes(String^ mes, int cantidad) {
 	this->cantidad = cantidad;
-	this->codigo = codigo;
 	this->mes = mes;
 }
 
