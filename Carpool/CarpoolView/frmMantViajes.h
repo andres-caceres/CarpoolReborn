@@ -439,6 +439,7 @@ private: System::Void calificar_Click(System::Object^ sender, System::EventArgs^
 	String^ estado = this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString();
 
 	frmCalificarPasajeros^ ventanacalificarPasajeros = gcnew frmCalificarPasajeros(this->objGestorViaje->ObtenerViajeoxCodigo(codigo));
+	ventanacalificarPasajeros->ShowDialog();
 	if(estado == "Finalizado")
 	{
 		//do something

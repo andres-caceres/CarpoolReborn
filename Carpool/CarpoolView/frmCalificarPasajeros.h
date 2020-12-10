@@ -33,6 +33,9 @@ namespace CarpoolView {
 			this->objPasajero = gcnew Pasajero();
 			this->objUsuario = gcnew Usuario();
 			this->objGestorPasajero = gcnew GestorPasajero();
+			this->objGestorUsuario = gcnew GestorUsuario();
+			this->objGestorPasajeroREAL = gcnew GestorPasajero();
+
 			//
 			//TODO: Add the constructor code here
 			//
@@ -76,6 +79,7 @@ namespace CarpoolView {
 
 		   GestorUsuario^ objGestorUsuario;
 		   GestorPasajero^ objGestorPasajero;
+		   GestorPasajero^ objGestorPasajeroREAL;
 		   Pasajero^ objPasajero;
 		   Usuario^ objUsuario;
 
@@ -211,6 +215,7 @@ namespace CarpoolView {
 			this->aceptar->TabIndex = 1;
 			this->aceptar->Text = L"Aceptar";
 			this->aceptar->UseVisualStyleBackColor = true;
+			this->aceptar->Click += gcnew System::EventHandler(this, &frmCalificarPasajeros::aceptar_Click);
 			// 
 			// cancelar
 			// 
@@ -244,7 +249,7 @@ namespace CarpoolView {
 		int numPasajeros = this->objViaje->listaPasajeros->Count;
 
 
-		for (int i = 0; i = numPasajeros; i++) {
+		for (int i = 0; i < numPasajeros; i++) {
 			objPasajero = this->objViaje->listaPasajeros[i];
 			objUsuario = objGestorUsuario->ObtenerUsuarioxCodigoBD(objPasajero->CodigoDeUsuario);
 			this->pasajeros->Items->Add(objUsuario->Nombre);
@@ -262,7 +267,18 @@ private: System::Void pasajeros_SelectedIndexChanged(System::Object^ sender, Sys
 }
 private: System::Void calificacion_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	int index = this->pasajeros->SelectedIndex;
-	this->objGestorPasajero->listaPasajeros[index]->Calificacion = this->calificacion->SelectedIndex;
+	int selectedIndex = 0;
+	selectedIndex = this->calificacion->SelectedIndex;
+	if (selectedIndex >= 0) {
+		this->objGestorPasajero->listaPasajeros[index]->Calificacion = selectedIndex;
+		this->lblCalificacion->ImageIndex = selectedIndex * 2;
+	}
+	
+}
+private: System::Void aceptar_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	this->objGestorPasajeroREAL->LeerPasajerosDesdeArchivo();
+
 }
 };
 }
