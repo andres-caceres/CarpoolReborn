@@ -119,6 +119,7 @@
     <ClInclude Include="DatosMapa.h" />
     <ClInclude Include="Figura.h" />
     <ClInclude Include="GananciaConductor.h" />
+    <ClInclude Include="GastoPasajero.h" />
     <ClInclude Include="Horarios.h" />
     <ClInclude Include="ListaCoordenadas.h" />
     <ClInclude Include="MetodoTransferencia.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="DatosMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="GanaciaConductor.cpp" />
+    <ClCompile Include="GastoPasajero.cpp" />
     <ClCompile Include="Horarios.cpp" />
     <ClCompile Include="ListaCoordenadas.cpp" />
     <ClCompile Include="MetodoTransferencia.cpp" />

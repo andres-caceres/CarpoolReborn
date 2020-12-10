@@ -118,6 +118,7 @@
     <ClInclude Include="GestorPasajero.h" />
     <ClInclude Include="GestorPaypal.h" />
     <ClInclude Include="GestorReporteGananciaConductor.h" />
+    <ClInclude Include="GestorReporteGastoPasajero.h" />
     <ClInclude Include="GestorReporteUsuarios.h" />
     <ClInclude Include="GestorReporteViajesxMes.h" />
     <ClInclude Include="GestorRuta.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="GestorPasajero.cpp" />
     <ClCompile Include="GestorPaypal.cpp" />
     <ClCompile Include="GestorReporteGananciaConductor.cpp" />
+    <ClCompile Include="GestorReporteGastoPasajero.cpp" />
     <ClCompile Include="GestorReporteUsuarios.cpp" />
     <ClCompile Include="GestorReporteViajesxMes.cpp" />
     <ClCompile Include="GestorRuta.cpp" />
