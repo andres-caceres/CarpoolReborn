@@ -121,6 +121,7 @@
     <ClInclude Include="GestorReporteGastoPasajero.h" />
     <ClInclude Include="GestorReporteUsuarios.h" />
     <ClInclude Include="GestorReporteViajesxMes.h" />
+    <ClInclude Include="GestorReporteViajesxMesConductor.h" />
     <ClInclude Include="GestorRuta.h" />
     <ClInclude Include="GestorSeguridad.h" />
     <ClInclude Include="GestorTarjeta.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="GestorReporteGastoPasajero.cpp" />
     <ClCompile Include="GestorReporteUsuarios.cpp" />
     <ClCompile Include="GestorReporteViajesxMes.cpp" />
+    <ClCompile Include="GestorReporteViajesxMesConductor.cpp" />
     <ClCompile Include="GestorRuta.cpp" />
     <ClCompile Include="GestorSeguridad.cpp" />
     <ClCompile Include="GestorTarjeta.cpp" />

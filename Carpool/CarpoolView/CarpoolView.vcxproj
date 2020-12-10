@@ -166,6 +166,7 @@
     <ClCompile Include="frmReporteGastoPasajero.cpp" />
     <ClCompile Include="frmReporteTiposDeUsuarios.cpp" />
     <ClCompile Include="frmReporteViajesXMes.cpp" />
+    <ClCompile Include="frmReporteViajesxMesConductor.cpp" />
     <ClCompile Include="frmReservarViaje.cpp" />
     <ClCompile Include="frmRevisarViajes.cpp" />
     <ClCompile Include="frmSeguridad.cpp" />
@@ -283,6 +284,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteViajesXMes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReporteViajesxMesConductor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReservarViaje.h">
@@ -424,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteViajesXMes.resx">
       <DependentUpon>frmReporteViajesXMes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteViajesxMesConductor.resx">
+      <DependentUpon>frmReporteViajesxMesConductor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReservarViaje.resx">
       <DependentUpon>frmReservarViaje.h</DependentUpon>

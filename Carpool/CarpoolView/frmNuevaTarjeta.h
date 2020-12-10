@@ -175,6 +175,7 @@ namespace CarpoolView {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 22);
 			this->textBox2->TabIndex = 3;
+			this->textBox2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmNuevaTarjeta::textBox2_KeyPress);
 			// 
 			// label2
 			// 
@@ -201,6 +202,7 @@ namespace CarpoolView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(262, 22);
 			this->textBox1->TabIndex = 0;
+			this->textBox1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmNuevaTarjeta::textBox1_KeyPress);
 			// 
 			// button1
 			// 
@@ -263,7 +265,7 @@ namespace CarpoolView {
 
 		int misma_tarjeta = this->objGestorTarjeta->MismaTarjeta(NroTarjeta, this->objUsuario->CodigoDeUsuario,TipoTarjeta);
 
-		if ((MesExp == "") || (AnhoExp == "")||(CVV=="")||(NroTarjeta=="")||(TipoTarjeta=="")) {
+		if ((MesExp == "") || (AnhoExp == "")||(CVV=="")||(NroTarjeta=="")||(TipoTarjeta=="")||(NroTarjeta->Length!=16)||(CVV->Length!=3)) {
 			MessageBox::Show("Debe completar todos los datos");
 		}
 		else {
@@ -290,14 +292,6 @@ namespace CarpoolView {
 		
 	}
 
-	bool IsNumericAndBar(char c) {
-	   if ((c >= '0' && c <= '9') || (c == 8) || (c == '-'))
-	   {
-		   return true;
-	   }
-		   return false;
-   }
-
    bool IsNumeric(char c) {
 	   if ((c >= '0' && c <= '9') || (c == 8))
 	   {
@@ -310,6 +304,22 @@ namespace CarpoolView {
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+}
+private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
 }
 };
 }

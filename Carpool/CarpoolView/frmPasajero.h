@@ -58,7 +58,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::ToolStripMenuItem^ misContactosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ elegirViajeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ buscarViajesToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ rutasYHorariosFavoritosToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPersonalesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ datosPasajeroToolStripMenuItem;
 	private: Usuario^ objUsuario;
@@ -91,11 +91,10 @@ namespace CarpoolView {
 			this->metodosDePagoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tarjetaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->paypalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->elegirViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->buscarViajesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->rutasYHorariosFavoritosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viajesPorMesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->elegirViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->buscarViajesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -176,31 +175,6 @@ namespace CarpoolView {
 			this->paypalToolStripMenuItem->Text = L"Paypal";
 			this->paypalToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::paypalToolStripMenuItem_Click);
 			// 
-			// elegirViajeToolStripMenuItem
-			// 
-			this->elegirViajeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->buscarViajesToolStripMenuItem,
-					this->rutasYHorariosFavoritosToolStripMenuItem
-			});
-			this->elegirViajeToolStripMenuItem->ForeColor = System::Drawing::Color::Red;
-			this->elegirViajeToolStripMenuItem->Name = L"elegirViajeToolStripMenuItem";
-			this->elegirViajeToolStripMenuItem->Size = System::Drawing::Size(98, 24);
-			this->elegirViajeToolStripMenuItem->Text = L"Elegir Viaje";
-			this->elegirViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::elegirViajeToolStripMenuItem_Click);
-			// 
-			// buscarViajesToolStripMenuItem
-			// 
-			this->buscarViajesToolStripMenuItem->Name = L"buscarViajesToolStripMenuItem";
-			this->buscarViajesToolStripMenuItem->Size = System::Drawing::Size(259, 26);
-			this->buscarViajesToolStripMenuItem->Text = L"Buscar Viajes";
-			this->buscarViajesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::buscarViajesToolStripMenuItem_Click);
-			// 
-			// rutasYHorariosFavoritosToolStripMenuItem
-			// 
-			this->rutasYHorariosFavoritosToolStripMenuItem->Name = L"rutasYHorariosFavoritosToolStripMenuItem";
-			this->rutasYHorariosFavoritosToolStripMenuItem->Size = System::Drawing::Size(259, 26);
-			this->rutasYHorariosFavoritosToolStripMenuItem->Text = L"Rutas y horarios favoritos";
-			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->viajesPorMesToolStripMenuItem });
@@ -211,9 +185,25 @@ namespace CarpoolView {
 			// viajesPorMesToolStripMenuItem
 			// 
 			this->viajesPorMesToolStripMenuItem->Name = L"viajesPorMesToolStripMenuItem";
-			this->viajesPorMesToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->viajesPorMesToolStripMenuItem->Size = System::Drawing::Size(189, 26);
 			this->viajesPorMesToolStripMenuItem->Text = L"Viajes por mes";
 			this->viajesPorMesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::viajesPorMesToolStripMenuItem_Click);
+			// 
+			// elegirViajeToolStripMenuItem
+			// 
+			this->elegirViajeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->buscarViajesToolStripMenuItem });
+			this->elegirViajeToolStripMenuItem->ForeColor = System::Drawing::Color::Red;
+			this->elegirViajeToolStripMenuItem->Name = L"elegirViajeToolStripMenuItem";
+			this->elegirViajeToolStripMenuItem->Size = System::Drawing::Size(98, 24);
+			this->elegirViajeToolStripMenuItem->Text = L"Elegir Viaje";
+			this->elegirViajeToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::elegirViajeToolStripMenuItem_Click);
+			// 
+			// buscarViajesToolStripMenuItem
+			// 
+			this->buscarViajesToolStripMenuItem->Name = L"buscarViajesToolStripMenuItem";
+			this->buscarViajesToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->buscarViajesToolStripMenuItem->Text = L"Buscar Viajes";
+			this->buscarViajesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::buscarViajesToolStripMenuItem_Click);
 			// 
 			// frmPasajero
 			// 

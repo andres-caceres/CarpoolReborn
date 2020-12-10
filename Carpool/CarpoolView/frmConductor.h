@@ -5,7 +5,7 @@
 #include "frmMantViajes.h"
 #include "frmRegistroConductor.h"
 #include "frmReporteGananciaConductor.h"
-#include "frmReporteViajesXMes.h"
+#include "frmReporteViajesxMesConductor.h"
 
 namespace CarpoolView {
 
@@ -265,9 +265,9 @@ private: System::Void gananciasToolStripMenuItem_Click(System::Object^ sender, S
 	ventanaReporteGananciaConductor->Show();
 }
 private: System::Void viajesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	//frmReporteViajesXMes^ ventanafrmReporteViajesXMes = gcnew frmReporteViajesXMes();
-	//ventanafrmReporteViajesXMes->MdiParent = this;
-	//ventanafrmReporteViajesXMes->Show();
+	frmReporteViajesxMesConductor^ ventanafrmReporteViajesXMes = gcnew frmReporteViajesxMesConductor(this->objUsuario);
+	ventanafrmReporteViajesXMes->MdiParent = this;
+	ventanafrmReporteViajesXMes->Show();
 }
 };
 }
