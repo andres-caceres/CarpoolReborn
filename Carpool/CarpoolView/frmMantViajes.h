@@ -138,7 +138,7 @@ namespace CarpoolView {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(1085, 823);
+			this->button5->Location = System::Drawing::Point(1042, 823);
 			this->button5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(181, 88);
@@ -149,29 +149,29 @@ namespace CarpoolView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(819, 823);
+			this->button4->Location = System::Drawing::Point(782, 823);
 			this->button4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(181, 88);
 			this->button4->TabIndex = 22;
-			this->button4->Text = L"Cancelar";
+			this->button4->Text = L"Cancelar Viaje";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &frmMantViajes::button4_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(560, 823);
+			this->button3->Location = System::Drawing::Point(481, 823);
 			this->button3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(181, 88);
 			this->button3->TabIndex = 21;
-			this->button3->Text = L"Modificar";
+			this->button3->Text = L"Agregar Pasajeros";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &frmMantViajes::button3_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(304, 823);
+			this->button2->Location = System::Drawing::Point(198, 823);
 			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(181, 88);
@@ -271,7 +271,7 @@ namespace CarpoolView {
 			// 
 			// calificar
 			// 
-			this->calificar->Location = System::Drawing::Point(1366, 823);
+			this->calificar->Location = System::Drawing::Point(1348, 823);
 			this->calificar->Margin = System::Windows::Forms::Padding(8, 7, 8, 7);
 			this->calificar->Name = L"calificar";
 			this->calificar->Size = System::Drawing::Size(245, 88);
@@ -395,10 +395,28 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	frmModificarViaje^ ventanaModificarViaje = gcnew frmModificarViaje(this->objGestorViaje, codigoEditar, this->objConductor);
-	//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
-	ventanaModificarViaje->ShowDialog();
-	MostrarGrilla();
+	String^ estado = this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString();
+	
+	if (estado == "No Iniciado") {
+		frmModificarViaje^ ventanaModificarViaje = gcnew frmModificarViaje(this->objGestorViaje, codigoEditar, this->objConductor);
+		//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
+		ventanaModificarViaje->ShowDialog();
+		MostrarGrilla();
+	}
+	else if (estado == "Finalizado") {
+		MessageBox::Show("No se puede agregar pasajeros el viaje finalizo", "Error");
+	}
+
+	else if (estado == "Iniciado") {
+		MessageBox::Show("No se puede agregar pasajeros el viaje ya Inicio", "Error");
+	}
+
+	else if (estado == "Cancelado") {
+		MessageBox::Show("No se puede agregar pasajeros el viaje fue cancelado", "Error");
+	}
+
+
+
 }
 private: System::Void frmMantViajes_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 
@@ -407,6 +425,7 @@ private: System::Void frmMantViajes_FormClosing(System::Object^ sender, System::
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+
 	//
 	//int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	//int codigoVer = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
@@ -460,5 +479,10 @@ private: System::Void calificar_Click(System::Object^ sender, System::EventArgs^
 		MessageBox::Show("No se puede calificar a pasajeros de un viaje cancelado", "Error");
 	}
 }
+
+
+
+
+
 };
 }

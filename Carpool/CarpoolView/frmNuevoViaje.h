@@ -281,10 +281,11 @@ namespace CarpoolView {
 			// 
 			this->textBox7->Location = System::Drawing::Point(741, 272);
 			this->textBox7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBox7->MaxLength = 4;
+			this->textBox7->MaxLength = 3;
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(223, 38);
 			this->textBox7->TabIndex = 25;
+			this->textBox7->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmNuevoViaje::textBox7_KeyPress);
 			// 
 			// label16
 			// 
@@ -347,6 +348,7 @@ namespace CarpoolView {
 			this->textBox3->Size = System::Drawing::Size(223, 38);
 			this->textBox3->TabIndex = 12;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &frmNuevoViaje::textBox3_TextChanged);
+			this->textBox3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmNuevoViaje::textBox3_KeyPress);
 			// 
 			// textBox2
 			// 
@@ -565,7 +567,55 @@ private: System::Void textBox2_TextChanged(System::Object^ sender, System::Event
 private: System::Void frmNuevoViaje_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	this->objGestorViaje->EscribirArchivo();
 }
+
+	   bool IsNumeric(char c) {
+		   if ((c >= '0' && c <= '9') || (c == 8))
+		   {
+			   return true;
+		   }
+		   return false;
+	   }
+
+	   bool IsLetter(char c) {
+		   if ((c >= 'a' && c <= 'z') || (c == 8) || (c >= 'A' && c <= 'Z') || (c == 'í') || (c == 'é') || (c == 'á'))
+		   {
+			   return true;
+		   }
+		   return false;
+
+	   }
+
+
+
+
+
 private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	
+
+}
+
+
+
+private: System::Void textBox7_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+
+
+}
+private: System::Void textBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+
+	if (IsNumeric(e->KeyChar)) {
+		e->Handled = false;
+	}
+	else {
+		e->Handled = true;
+	}
+
 }
 };
 }
