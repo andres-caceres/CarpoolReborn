@@ -438,14 +438,14 @@ private: System::Void calificar_Click(System::Object^ sender, System::EventArgs^
 	int codigo = Convert::ToInt16(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 	String^ estado = this->dataGridView1->Rows[filaSeleccionada]->Cells[4]->Value->ToString();
 
-	frmCalificarPasajeros^ ventanacalificarPasajeros = gcnew frmCalificarPasajeros(this->objGestorViaje->ObtenerViajeoxCodigo(codigo));
-	ventanacalificarPasajeros->ShowDialog();
+	
 	if(estado == "Finalizado")
 	{
 		//do something
-		MessageBox::Show("Algo ha pasado");
+		//MessageBox::Show("Algo ha pasado", "Al parecer..."); //TODO: <-ELIMINAR ESTO 
 		
-		//frmCalificarPasajeros^ ventanacalificarPasajeros = gcnew frmCalificarPasajeros(this->objGestorViaje->ObtenerViajeoxCodigo(codigo));
+		frmCalificarPasajeros^ ventanacalificarPasajeros = gcnew frmCalificarPasajeros(this->objGestorViaje->ObtenerViajeoxCodigo(codigo));
+		ventanacalificarPasajeros->ShowDialog();
 	}
 	else if(estado == "No Iniciado")
 	{
