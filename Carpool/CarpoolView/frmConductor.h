@@ -265,9 +265,9 @@ private: System::Void gananciasToolStripMenuItem_Click(System::Object^ sender, S
 	ventanaReporteGananciaConductor->Show();
 }
 private: System::Void viajesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmReporteViajesXMes^ ventanafrmReporteViajesXMes = gcnew frmReporteViajesXMes();
-	ventanafrmReporteViajesXMes->MdiParent = this;
-	ventanafrmReporteViajesXMes->Show();
+	//frmReporteViajesXMes^ ventanafrmReporteViajesXMes = gcnew frmReporteViajesXMes();
+	//ventanafrmReporteViajesXMes->MdiParent = this;
+	//ventanafrmReporteViajesXMes->Show();
 }
 };
 }
