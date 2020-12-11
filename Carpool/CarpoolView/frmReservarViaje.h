@@ -246,6 +246,7 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void frmReservarViaje_Load(System::Object^ sender, System::EventArgs^ e) { //Falta que se vean solo los viajes cercanos
 		this->objGestorViaje->LeerViajesDesdeArchivo();
+		
 		//Usuario^ objUsuarioLogeado = this->objGestorUsuario->LeerUsuarioLogeadoDesdeArchivo();
 		List<Viaje^>^ listaViajes = this->objGestorViaje->DevolverAllViajes();
 		//Metodo en GestorViaje -> DevolverViajesUsuarioLoqueado
@@ -258,14 +259,17 @@ namespace CarpoolView {
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < listaViajes->Count; i++) {
 			Viaje^ objViaje = listaViajes[i];
+			this->objGestorViaje->CargarPasajerosViajes(objViaje);
 			if (objViaje->Estado == "No Iniciado") {
+				if (objViaje->listaPasajeros->Count < objViaje->AsientosDisponibles) {
 
-				array<String^>^ fila = gcnew array<String^>(4);
-				fila[0] = Convert::ToString(objViaje->codigoViaje);
-				fila[1] = objViaje->HoraSalida;
-				fila[2] = objViaje->HoraLlegada;
-				fila[3] = objViaje->Fecha;
-				this->dataGridView1->Rows->Add(fila);
+					array<String^>^ fila = gcnew array<String^>(4);
+					fila[0] = Convert::ToString(objViaje->codigoViaje);
+					fila[1] = objViaje->HoraSalida;
+					fila[2] = objViaje->HoraLlegada;
+					fila[3] = objViaje->Fecha;
+					this->dataGridView1->Rows->Add(fila);
+				}
 			}
 		}
 	}
@@ -276,13 +280,16 @@ namespace CarpoolView {
 		for (int i = 0; i < this->objGestorViaje->ObtenerCantidadViajes(); i++) {
 			Viaje^ objViaje = gcnew Viaje();
 			objViaje = this->objGestorViaje->ObtenerViajeLista(i);
+			this->objGestorViaje->CargarPasajerosViajes(objViaje);
 			if (objViaje->Estado == "No Iniciado") {
-				array<String^>^ fila = gcnew array<String^>(4);
-				fila[0] = Convert::ToString(objViaje->codigoViaje);
-				fila[1] = objViaje->HoraSalida;
-				fila[2] = objViaje->HoraLlegada;
-				fila[3] = objViaje->Fecha;
-				this->dataGridView1->Rows->Add(fila);
+				if (objViaje->listaPasajeros->Count < objViaje->AsientosDisponibles) {
+					array<String^>^ fila = gcnew array<String^>(4);
+					fila[0] = Convert::ToString(objViaje->codigoViaje);
+					fila[1] = objViaje->HoraSalida;
+					fila[2] = objViaje->HoraLlegada;
+					fila[3] = objViaje->Fecha;
+					this->dataGridView1->Rows->Add(fila);
+				}
 			}
 		}
 	}
