@@ -13,12 +13,12 @@ namespace CarpoolView {
 	using namespace CarpoolController;
 
 	/// <summary>
-	/// Resumen de frmReporteViajesXMes
+	/// Resumen de frmReporteViajesxMesConductor
 	/// </summary>
-	public ref class frmReporteViajesXMes : public System::Windows::Forms::Form
+	public ref class frmReporteViajesxMesConductor : public System::Windows::Forms::Form
 	{
 	public:
-		frmReporteViajesXMes(Usuario^ objUsuario)
+		frmReporteViajesxMesConductor(Usuario^ objUsuario)
 		{
 			InitializeComponent();
 			this->objUsuario = objUsuario;
@@ -31,7 +31,7 @@ namespace CarpoolView {
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
-		~frmReporteViajesXMes()
+		~frmReporteViajesxMesConductor()
 		{
 			if (components)
 			{
@@ -40,12 +40,9 @@ namespace CarpoolView {
 		}
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
 	protected:
-
+	private: Usuario^ objUsuario;
 	private:
-		Usuario^ objUsuario;
-
-
-		   /// <summary>
+		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
@@ -70,34 +67,34 @@ namespace CarpoolView {
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(44, 68);
+			this->chart1->Location = System::Drawing::Point(68, 96);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->Legend = L"Legend1";
 			series1->Name = L"Series1";
 			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(1020, 537);
+			this->chart1->Size = System::Drawing::Size(767, 437);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			// 
-			// frmReporteViajesXMes
+			// frmReporteViajesxMesConductor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1147, 763);
+			this->ClientSize = System::Drawing::Size(931, 615);
 			this->Controls->Add(this->chart1);
-			this->Name = L"frmReporteViajesXMes";
-			this->Text = L"Reporte de viajes por mes";
-			this->Load += gcnew System::EventHandler(this, &frmReporteViajesXMes::frmReporteViajesXMes_Load);
+			this->Name = L"frmReporteViajesxMesConductor";
+			this->Text = L"Reporte viajes por mes";
+			this->Load += gcnew System::EventHandler(this, &frmReporteViajesxMesConductor::frmReporteViajesxMesConductor_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void frmReporteViajesXMes_Load(System::Object^ sender, System::EventArgs^ e) {
-		GestorReporteViajesxMes^ objGestorReporte = gcnew GestorReporteViajesxMes();
+	private: System::Void frmReporteViajesxMesConductor_Load(System::Object^ sender, System::EventArgs^ e) {
+		GestorReporteViajesxMesConductor^ objGestorReporte = gcnew GestorReporteViajesxMesConductor();
 		objGestorReporte->GenerarReporte(this->objUsuario->CodigoDeUsuario);
-	
+
 		for (int i = 0; i < objGestorReporte->CantidadDetalle(); i++) {
 			this->chart1->Series["Series1"]->Points->Add(objGestorReporte->ObtenerDetalleReporte(i)->cantidad);
 			/*Esto es estética*/
@@ -106,29 +103,6 @@ namespace CarpoolView {
 			this->chart1->Series["Series1"]->Points[i]->LegendText = objGestorReporte->ObtenerDetalleReporte(i)->mes;
 			this->chart1->Series["Series1"]->Points[i]->Label = "" + objGestorReporte->ObtenerDetalleReporte(i)->cantidad;
 		}
-
 	}
-	private: System::Void comboBox1_DropDownClosed(System::Object^ sender, System::EventArgs^ e) {
-		//System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-		//String^ tipoGrafico = this->comboBox1->Text;
-		//if (tipoGrafico == "Line") {
-	//		series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-//		}
-	//	else if (tipoGrafico == "Column") {
-		//	series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Column;
-		//}
-		
-		//GestorReporteViajesxMes^ objGestorReporte = gcnew GestorReporteViajesxMes();
-		//objGestorReporte->GenerarReporte(this->objUsuario->CodigoDeUsuario);
-
-//		for (int i = 0; i < objGestorReporte->CantidadDetalle(); i++) {
-//			this->chart1->Series["Series1"]->Points->Add(objGestorReporte->ObtenerDetalleReporte(i)->cantidad);
-//			/*Esto es estética*/
-	//		this->chart1->Series["Series1"]->Points[i]->Color = Color::Blue;
-	//		this->chart1->Series["Series1"]->Points[i]->AxisLabel = objGestorReporte->ObtenerDetalleReporte(i)->mes;
-	//		this->chart1->Series["Series1"]->Points[i]->LegendText = objGestorReporte->ObtenerDetalleReporte(i)->mes;
-	//		this->chart1->Series["Series1"]->Points[i]->Label = "" + objGestorReporte->ObtenerDetalleReporte(i)->cantidad;
-	//	}
-	}
-};
+	};
 }

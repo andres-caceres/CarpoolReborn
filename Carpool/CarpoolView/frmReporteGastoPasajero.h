@@ -18,13 +18,6 @@ namespace CarpoolView {
 	public ref class frmReporteGastoPasajero : public System::Windows::Forms::Form
 	{
 	public:
-		frmReporteGastoPasajero(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
 		frmReporteGastoPasajero(Usuario^ objUsuario)
 		{
 			InitializeComponent();
@@ -75,24 +68,26 @@ namespace CarpoolView {
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(116, 63);
+			this->chart1->Location = System::Drawing::Point(58, 33);
+			this->chart1->Margin = System::Windows::Forms::Padding(2);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->Legend = L"Legend1";
 			series1->Name = L"Gasto";
 			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(1097, 907);
+			this->chart1->Size = System::Drawing::Size(710, 451);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			// 
 			// frmReporteGastoPasajero
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1376, 1089);
+			this->ClientSize = System::Drawing::Size(812, 535);
 			this->Controls->Add(this->chart1);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmReporteGastoPasajero";
-			this->Text = L"frmReporteGastoPasajero";
+			this->Text = L"Reporte de gasto del pasajero";
 			this->Load += gcnew System::EventHandler(this, &frmReporteGastoPasajero::frmReporteGastoPasajero_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);

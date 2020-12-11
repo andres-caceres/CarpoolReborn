@@ -66,6 +66,9 @@
     <ClInclude Include="GestorReporteGastoPasajero.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="GestorReporteViajesxMesConductor.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GestorUsuario.cpp">
@@ -114,6 +117,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="GestorReporteGastoPasajero.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorReporteViajesxMesConductor.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

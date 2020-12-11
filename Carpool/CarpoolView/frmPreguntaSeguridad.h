@@ -33,7 +33,7 @@ namespace CarpoolView {
 			this->objUsuario = objUsuario;
 			this->objGestorUsuario = objGestorUsuario;
 			this->objGestorSeguridad = gcnew GestorSeguridad();
-
+			this->objGestorPasajero = gcnew GestorPasajero();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -69,6 +69,7 @@ namespace CarpoolView {
 		}
 	private: System::Windows::Forms::Button^ button2;
 	protected:
+	private: GestorPasajero^ objGestorPasajero;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::GroupBox^ groupBox3;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
@@ -174,7 +175,7 @@ namespace CarpoolView {
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(260, 57);
-			this->dateTimePicker1->MaxDate = System::DateTime(2020, 12, 9, 17, 50, 20, 196);
+			this->dateTimePicker1->MaxDate = System::DateTime::Now;
 			this->dateTimePicker1->MinDate = System::DateTime(1980, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(134, 22);
@@ -245,6 +246,8 @@ namespace CarpoolView {
 			if (this->registro_conductor == 0) {
 				this->objGestorUsuario->InsertarUsuario(objUsuario);
 				this->objGestorSeguridad->InsertarSeguridad(objSeguridad);
+				Pasajero^ objPasajero = gcnew Pasajero(this->objUsuario->CodigoDeUsuario, 0);
+				this->objGestorPasajero->AgregarPasajero(objPasajero);
 				MessageBox::Show("El usuario ha sido agregado correctamente");
 				this->Close();
 			}
@@ -263,17 +266,22 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void frmPreguntaSeguridad_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
-	//this->objGestorSeguridad->EscribirArchivo();
-	//this->objGestorUsuario->EscribirArchivo();
+
 	if (this->registro_conductor == 1) {
 		this->objGestorConductor->EscribirArchivo();
 		this->objGestorVehiculo->EscribirArchivo();
+	}
+	else {
+		this->objGestorPasajero->EscribirArchivo();
 	}
 }
 private: System::Void frmPreguntaSeguridad_Load(System::Object^ sender, System::EventArgs^ e) {
 	if (this->registro_conductor == 1) {
 		this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
 		this->objGestorConductor->LeerConductoresDesdeArchivo();
+	}
+	else {
+		this->objGestorPasajero->LeerPasajerosDesdeArchivo();
 	}
 }
 };

@@ -27,50 +27,25 @@ void GestorReporteViajesxMes::GenerarReporte(int CodigoUsuario) {
 	String^ mes_anterior = "";
 	List<int>^ listaCodigos;
 	listaCodigos = gcnew List<int>();
+	List<int>^ listaCodigosViajes;
+	listaCodigosViajes = gcnew List<int>();
 
 	for each (String ^ linea2 in lineaPasajeroViajes)
 	{
 		array<String^>^ palabrasPxV = linea2->Split(separadores->ToCharArray());
 		int codigoViaje = Convert::ToInt32(palabrasPxV[0]);
 		int codigoPasajero = Convert::ToInt32(palabrasPxV[1]);
-		
-		listaCodigos->Add(codigoPasajero);
-	}
 
 		for each (String ^ linea in lineas)
 		{
-			j++;
-			if (listaCodigos[j] == CodigoUsuario) {
-			array<String^>^ palabras = linea->Split(separadores->ToCharArray());
-			String^ Fecha = palabras[3];
-			array<String^>^ numeros = Fecha->Split(separador->ToCharArray());
-			int dia_numero = Convert::ToInt32(numeros[1]);
-			int mes_numero = Convert::ToInt32(numeros[0]);
-			int anho_numero = Convert::ToInt32(numeros[2]);
-			if (mes_numero == 1) { mes = "Enero"; }
-			else if (mes_numero == 2) { mes = "Febrero"; }
-			else if (mes_numero == 3) { mes = "Marzo"; }
-			else if (mes_numero == 4) { mes = "Abril"; }
-			else if (mes_numero == 5) { mes = "Mayo"; }
-			else if (mes_numero == 6) { mes = "Junio"; }
-			else if (mes_numero == 7) { mes = "Julio"; }
-			else if (mes_numero == 8) { mes = "Agosto"; }
-			else if (mes_numero == 9) { mes = "Septiembre"; }
-			else if (mes_numero == 10) { mes = "Octubre"; }
-			else if (mes_numero == 11) { mes = "Noviembre"; }
-			else if (mes_numero == 12) { mes = "Diciembre"; }
-
-			if (i == 0) {
-				mes_anterior = mes;
-				i++;
-			}
-			if (mes == mes_anterior) {
-				contadorViajes++;
-			}
-			else {
-				ViajesxMes^ objViajexMes = gcnew ViajesxMes(mes_anterior, contadorViajes);
-				this->lista->Add(objViajexMes);
-				int mes_numero_anterior = Convert::ToInt32(numeros[0]);
+			if (codigoPasajero == CodigoUsuario) {
+				array<String^>^ palabras = linea->Split(separadores->ToCharArray());
+				int codigo_viaje = Convert::ToInt32(palabras[0]);
+				String^ Fecha = palabras[3];
+				array<String^>^ numeros = Fecha->Split(separador->ToCharArray());
+				int dia_numero = Convert::ToInt32(numeros[1]);
+				int mes_numero = Convert::ToInt32(numeros[0]);
+				int anho_numero = Convert::ToInt32(numeros[2]);
 				if (mes_numero == 1) { mes = "Enero"; }
 				else if (mes_numero == 2) { mes = "Febrero"; }
 				else if (mes_numero == 3) { mes = "Marzo"; }
@@ -83,15 +58,46 @@ void GestorReporteViajesxMes::GenerarReporte(int CodigoUsuario) {
 				else if (mes_numero == 10) { mes = "Octubre"; }
 				else if (mes_numero == 11) { mes = "Noviembre"; }
 				else if (mes_numero == 12) { mes = "Diciembre"; }
-				mes_anterior = mes;
 
-				contadorViajes = 1;
-			}
+				if (codigo_viaje == codigoViaje) {
+
+					if (i == 0) {
+						mes_anterior = mes;
+						i++;
+					}
+					if (mes == mes_anterior) {
+						contadorViajes++;
+					}
+					else {
+						ViajesxMes^ objViajexMes = gcnew ViajesxMes(mes_anterior, contadorViajes);
+						this->lista->Add(objViajexMes);
+						int mes_numero_anterior = Convert::ToInt32(numeros[0]);
+						if (mes_numero == 1) { mes = "Enero"; }
+						else if (mes_numero == 2) { mes = "Febrero"; }
+						else if (mes_numero == 3) { mes = "Marzo"; }
+						else if (mes_numero == 4) { mes = "Abril"; }
+						else if (mes_numero == 5) { mes = "Mayo"; }
+						else if (mes_numero == 6) { mes = "Junio"; }
+						else if (mes_numero == 7) { mes = "Julio"; }
+						else if (mes_numero == 8) { mes = "Agosto"; }
+						else if (mes_numero == 9) { mes = "Septiembre"; }
+						else if (mes_numero == 10) { mes = "Octubre"; }
+						else if (mes_numero == 11) { mes = "Noviembre"; }
+						else if (mes_numero == 12) { mes = "Diciembre"; }
+						mes_anterior = mes;
+
+						contadorViajes = 1;
+					}
+				ViajesxMes^ objViajexMes = gcnew ViajesxMes(mes_anterior, contadorViajes);
+				this->lista->Add(objViajexMes);
+				}
 			
 			}
+			
+
 		}
-		ViajesxMes^ objViajexMes = gcnew ViajesxMes(mes_anterior, contadorViajes);
-		this->lista->Add(objViajexMes);
+		
+	}
 }
 
 int GestorReporteViajesxMes::CantidadDetalle() {

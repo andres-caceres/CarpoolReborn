@@ -100,6 +100,20 @@ void GestorTarjeta::BorrarTarjeta(String^ NroTarjeta, int CodigoPropietario) {
 	CerrarConexionBD();	
 }
 
+int GestorTarjeta::MismaTarjeta(String^ NroTarjeta, int codigoPropietario, String^ TipoTarjeta) {
+	List<Tarjeta^>^ listaTarjetas = BuscarTarjetasXcodigoBD(codigoPropietario);
+	int misma_tarjeta = 0;
+	for (int i = 0; i < listaTarjetas->Count; i++) {
+		if (listaTarjetas[i]->CodigoPropietario == codigoPropietario && listaTarjetas[i]->NroTarjeta == NroTarjeta && listaTarjetas[i]->TipoTarjeta) {
+			misma_tarjeta = 1;
+			break;
+		}
+	}
+	return misma_tarjeta;
+}
+
+
+
 void GestorTarjeta::LeerTarjetasDesdeArchivo() {
 	this->listaTarjetas->Clear();
 	array<String^>^ lineas = File::ReadAllLines("Tarjetas.txt");
@@ -178,15 +192,4 @@ void GestorTarjeta::EliminarTarjetaXcodigo(String^ NroTarjeta, int codigoPropiet
 			break;
 		}
 	}
-}
-
-int GestorTarjeta::MismaTarjeta(String^ NroTarjeta, int codigoPropietario, String^ TipoTarjeta) {
-	int misma_tarjeta = 0;
-	for (int i = 0; i < this->listaTarjetas->Count; i++) {
-		if (this->listaTarjetas[i]->CodigoPropietario == codigoPropietario && this->listaTarjetas[i]->NroTarjeta == NroTarjeta && this->listaTarjetas[i]->TipoTarjeta) {
-			misma_tarjeta = 1;
-			break;
-		}
-	}
-	return misma_tarjeta;
 }

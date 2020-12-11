@@ -110,6 +110,7 @@ namespace CarpoolView {
 			this->button4->TabIndex = 30;
 			this->button4->Text = L"Cancelar";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmReservarViaje::button4_Click);
 			// 
 			// button2
 			// 
@@ -285,15 +286,31 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton reservar viaje
-
-	
+	int FlagValido = 1;	//empieza siendo valido
 
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoReservar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 
+	Viaje^ objViajeProvisional = this->objGestorViaje->ObtenerViajeoxCodigo(codigoReservar);
+
+	this->objGestorViaje->CargarPasajerosViajes(objViajeProvisional);
+
+	for (int i = 0; i < objViajeProvisional->listaPasajeros->Count; i++) {
+		if (objViajeProvisional->listaPasajeros[i]->CodigoDeUsuario == this->objUsuario->CodigoDeUsuario) {
+
+			FlagValido = 0; //Invalidar
+		}
+	}
+
+	if (FlagValido == 1) {
+
 	frmPagar^ ventanaPagar = gcnew frmPagar(codigoReservar, this->objGestorViaje, this->objUsuario);
 	ventanaPagar->ShowDialog();
 
+	}
+	else {
+		MessageBox::Show("Ya se ha registrado en este viaje");
+	}
 
 
 	//this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
@@ -304,6 +321,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->objGestorViaje->LeerViajesDesdeArchivo();
 	List<Viaje^>^ listaViajes = this->objGestorViaje->BuscarViajesxFecha(fecha);
 	MostrarGrilla(listaViajes);
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }
