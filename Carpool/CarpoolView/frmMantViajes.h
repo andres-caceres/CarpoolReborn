@@ -341,6 +341,7 @@ namespace CarpoolView {
 			this->Margin = System::Windows::Forms::Padding(1);
 			this->Name = L"frmMantViajes";
 			this->Text = L"Mantenimiento de viajes";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmMantViajes::frmMantViajes_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &frmMantViajes::frmMantViajes_Load);
 			this->groupBox1->ResumeLayout(false);
