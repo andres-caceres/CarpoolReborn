@@ -337,5 +337,34 @@ int GestorViaje::ValidarAsientosTarifa(String^ AsientosD, String^ tarifa) {
 }
 
 
+int GestorViaje::ValidaHoraViaje(String^ HoraInicio, String^HoraLlegada) {
+	int gud = 1;
+	String^ separadores = ":";
+	array<String^>^ dHoraInicio = HoraInicio->Split(separadores->ToCharArray());
+	array<String^>^ dHoraLlegada = HoraLlegada->Split(separadores->ToCharArray());
+	if (Convert::ToInt32(HoraInicio[0]) > Convert::ToInt32(dHoraLlegada [0])){
+		gud = 0;
+	}
+	else {
+		if (Convert::ToInt32(HoraInicio[1]) >= Convert::ToInt32(dHoraLlegada[1]) && Convert::ToInt32(HoraInicio[0]) == Convert::ToInt32(dHoraLlegada[0])) {
+			gud = 0;
+		}
+		else {
+			if (Convert::ToInt32(HoraInicio[2]) >= Convert::ToInt32(dHoraLlegada[2]) &&Convert::ToInt32(HoraInicio[1]) == Convert::ToInt32(dHoraLlegada[1]) && Convert::ToInt32(HoraInicio[0]) == Convert::ToInt32(dHoraLlegada[0])) {
+				gud = 0;
+			}
+		}
 
+	}
+	return gud;
+
+}
+
+int GestorViaje::ValidarIngresoHora(String^ c1, String^ c2, String^ c3, String^ c4, String^ c5, String^ c6) {
+	int gud=1;
+	if (c1 == "" || c2 == "" || c3 == "" || c4 == "" || c5 == "" || c6 == "") {
+		gud = 0;
+	}
+	return gud;
+}
 
