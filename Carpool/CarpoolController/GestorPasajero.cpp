@@ -63,3 +63,13 @@ void GestorPasajero::ActualizarCalificacionPasajeros(List<Pasajero^>^ listaQueAc
 		}
 	}
 }
+
+void GestorPasajero::EliminarPasajero(int codigo) {
+	for (int i = 0; i < this->listaPasajeros->Count; i++) {
+		if (this->listaPasajeros[i]->CodigoDeUsuario == codigo) {
+			/*Encontre al que debo eliminar*/
+			this->listaPasajeros->RemoveAt(i);
+			break;
+		}
+	}
+}

@@ -32,6 +32,7 @@ namespace CarpoolView {
 			this->objGestorConductor = gcnew GestorConductor();
 			this->objGestorSeguridad = gcnew GestorSeguridad();
 			this->objGestorVehiculo = gcnew GestorVehiculo();
+			this->objGestorPasajero = gcnew GestorPasajero();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -54,7 +55,7 @@ namespace CarpoolView {
 
 	private: GestorConductor^ objGestorConductor;
 	private: GestorVehiculo^ objGestorVehiculo;
-
+	private: GestorPasajero^ objGestorPasajero;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: GestorUsuario^ objGestorUsuario;
@@ -344,6 +345,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		this->objGestorConductor->EliminarConductorxCodigo(codigoEliminar);
 		this->objGestorVehiculo->EliminarAllVehiculosPorCodigo(codigoEliminar);
 	}
+	if (tipoUsuario == "Pasajero") {
+		this->objGestorPasajero->EliminarPasajero(codigoEliminar);
+	}
 	this->objGestorUsuario->EliminarUsuarioBD(userNameEliminar);
 
 	MessageBox::Show("Usuario eliminado exitosamente");
@@ -355,6 +359,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 	List<Usuario^>^ listaUsuarios = this->objGestorUsuario->BuscarAllUsuariosBD();
 	this->objGestorConductor->LeerConductoresDesdeArchivo();
 	this->objGestorVehiculo->LeerVehiculosDesdeArchivo();
+	this->objGestorPasajero->LeerPasajerosDesdeArchivo();
 	MostrarGrilla(listaUsuarios);
 }
 
@@ -371,7 +376,7 @@ private: System::Void frmBuscarUsuario_Load(System::Object^ sender, System::Even
 private: System::Void frmBuscarUsuario_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	this->objGestorConductor->EscribirArchivo();
 	this->objGestorVehiculo->EscribirArchivo();
-	
+	this->objGestorPasajero->EscribirArchivo();
 }
 };
 }
