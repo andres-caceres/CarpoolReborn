@@ -245,11 +245,19 @@ namespace CarpoolView {
 #pragma endregion
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Boton pagar
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+		//int codigoPagar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 
-		this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
-		MessageBox::Show("Se ha registrado correctamente");
-		this->Close();
+		if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value == nullptr) {
+			MessageBox::Show("Por favor, seleccione una tarjeta");
 
+		}
+		else
+		{
+			this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
+			MessageBox::Show("Se ha registrado correctamente");
+			this->Close();
+		}
 
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
