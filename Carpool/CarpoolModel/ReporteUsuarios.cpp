@@ -2,7 +2,7 @@
 
 using namespace CarpoolModel;
 
-ReporteUsuarios::ReporteUsuarios(int TipoDeUsuario, int cantidadUsuarios) {
+ReporteUsuarios::ReporteUsuarios(String^ TipoDeUsuario, int cantidadUsuarios) {
 	this->TipoDeUsuario = TipoDeUsuario;
 	this->cantidadUsuarios = cantidadUsuarios;
 }

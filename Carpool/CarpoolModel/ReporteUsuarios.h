@@ -6,10 +6,10 @@ namespace CarpoolModel {
 
 	public ref class ReporteUsuarios {
 	public:
-		int TipoDeUsuario;
+		String^ TipoDeUsuario;
 		int cantidadUsuarios;
 
 	public:
-		ReporteUsuarios(int TipoDeUsuario, int cantidadUsuarios);
+		ReporteUsuarios(String^ TipoDeUsuario, int cantidadUsuarios);
 	};
 }

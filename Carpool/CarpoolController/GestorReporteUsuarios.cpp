@@ -48,8 +48,8 @@ void GestorReporteUsuarios::GenerarReporte() {
 	int contadorPasajeros = ObtenerNumeroDeUsuariosPorTipo(2);
 	int contadorConductores = ObtenerNumeroDeUsuariosPorTipo(3);
 	
-	ReporteUsuarios^ objReporteConductores = gcnew ReporteUsuarios(2, contadorConductores);
-	ReporteUsuarios^ objReportePasajeros= gcnew ReporteUsuarios(3, contadorPasajeros);
+	ReporteUsuarios^ objReporteConductores = gcnew ReporteUsuarios("Conductores", contadorConductores);
+	ReporteUsuarios^ objReportePasajeros= gcnew ReporteUsuarios("Pasajeros", contadorPasajeros);
 	this->lista->Add(objReporteConductores);
 	this->lista->Add(objReportePasajeros);
 }
