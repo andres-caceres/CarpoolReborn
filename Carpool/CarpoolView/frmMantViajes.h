@@ -428,6 +428,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	else if (estado == "Cancelado") {
 		MessageBox::Show("No se puede agregar pasajeros el viaje fue cancelado", "Error");
 	}
+	else {
+		MessageBox::Show("No se puede agregar pasajeros", "Error");
+	}
 
 
 
@@ -492,12 +495,13 @@ private: System::Void calificar_Click(System::Object^ sender, System::EventArgs^
 	{
 		MessageBox::Show("No se puede calificar a pasajeros de un viaje cancelado", "Error");
 	}
+	else if (estado == "Calificado")
+	{
+		MessageBox::Show("Los pasajeros de este viaje ya han sido calificados", "Error");
+	}
+	this->objGestorViaje->LeerViajesDelConductorDesdeArchivo(objConductor);
+	MostrarGrilla();
 }
-
-
-
-
-
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
@@ -543,15 +547,14 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 
 
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	this->objGestorViaje->LeerViajesDesdeArchivo();
-	this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Finalizado";
-	this->objGestorViaje->EscribirArchivo();
-	MessageBox::Show("El Viaje ha sido Finalizado correctamente");
-	MostrarGrilla();
-
+	this->objGestorViaje->LeerViajesDesdeArchivo();	
+		this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Finalizado";
+		this->objGestorViaje->EscribirArchivo();
+		MessageBox::Show("El Viaje ha sido Finalizado correctamente");
+		MostrarGrilla();
 }
 };
 }

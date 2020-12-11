@@ -29,6 +29,7 @@ namespace CarpoolView {
 		{
 			InitializeComponent();
 
+			this->objGestorViaje = gcnew GestorViaje();;
 			this->objViaje = objViaje;
 			this->objPasajero = gcnew Pasajero();
 			this->objUsuario = gcnew Usuario();
@@ -82,6 +83,7 @@ namespace CarpoolView {
 		   GestorPasajero^ objGestorPasajeroREAL;
 		   Pasajero^ objPasajero;
 		   Usuario^ objUsuario;
+		   GestorViaje^ objGestorViaje;
 
 		/// <summary>
 		/// Required designer variable.
@@ -122,7 +124,7 @@ namespace CarpoolView {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(26, 24);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(508, 154);
+			this->groupBox1->Size = System::Drawing::Size(508, 121);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calificar Pasajeros";
@@ -131,7 +133,7 @@ namespace CarpoolView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(291, 16);
+			this->label3->Location = System::Drawing::Point(307, 16);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(47, 13);
 			this->label3->TabIndex = 8;
@@ -140,7 +142,7 @@ namespace CarpoolView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(35, 70);
+			this->label2->Location = System::Drawing::Point(17, 70);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(48, 13);
 			this->label2->TabIndex = 7;
@@ -150,7 +152,7 @@ namespace CarpoolView {
 			// 
 			this->lblCalificacion->ImageIndex = 7;
 			this->lblCalificacion->ImageList = this->imageList1;
-			this->lblCalificacion->Location = System::Drawing::Point(291, 32);
+			this->lblCalificacion->Location = System::Drawing::Point(307, 32);
 			this->lblCalificacion->Name = L"lblCalificacion";
 			this->lblCalificacion->Size = System::Drawing::Size(128, 32);
 			this->lblCalificacion->TabIndex = 6;
@@ -175,7 +177,7 @@ namespace CarpoolView {
 			// 
 			this->calificacion->FormattingEnabled = true;
 			this->calificacion->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"0", L"1", L"2", L"3", L"4", L"5" });
-			this->calificacion->Location = System::Drawing::Point(294, 67);
+			this->calificacion->Location = System::Drawing::Point(314, 67);
 			this->calificacion->Name = L"calificacion";
 			this->calificacion->Size = System::Drawing::Size(121, 21);
 			this->calificacion->TabIndex = 5;
@@ -183,7 +185,7 @@ namespace CarpoolView {
 			// 
 			// viaje
 			// 
-			this->viaje->Location = System::Drawing::Point(94, 29);
+			this->viaje->Location = System::Drawing::Point(81, 29);
 			this->viaje->Name = L"viaje";
 			this->viaje->ReadOnly = true;
 			this->viaje->Size = System::Drawing::Size(100, 20);
@@ -192,16 +194,16 @@ namespace CarpoolView {
 			// pasajeros
 			// 
 			this->pasajeros->FormattingEnabled = true;
-			this->pasajeros->Location = System::Drawing::Point(94, 67);
+			this->pasajeros->Location = System::Drawing::Point(81, 67);
 			this->pasajeros->Name = L"pasajeros";
-			this->pasajeros->Size = System::Drawing::Size(141, 21);
+			this->pasajeros->Size = System::Drawing::Size(180, 21);
 			this->pasajeros->TabIndex = 2;
 			this->pasajeros->SelectedIndexChanged += gcnew System::EventHandler(this, &frmCalificarPasajeros::pasajeros_SelectedIndexChanged);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(35, 32);
+			this->label1->Location = System::Drawing::Point(17, 32);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(30, 13);
 			this->label1->TabIndex = 1;
@@ -209,7 +211,7 @@ namespace CarpoolView {
 			// 
 			// aceptar
 			// 
-			this->aceptar->Location = System::Drawing::Point(407, 193);
+			this->aceptar->Location = System::Drawing::Point(407, 160);
 			this->aceptar->Name = L"aceptar";
 			this->aceptar->Size = System::Drawing::Size(99, 28);
 			this->aceptar->TabIndex = 1;
@@ -219,18 +221,19 @@ namespace CarpoolView {
 			// 
 			// cancelar
 			// 
-			this->cancelar->Location = System::Drawing::Point(279, 193);
+			this->cancelar->Location = System::Drawing::Point(285, 160);
 			this->cancelar->Name = L"cancelar";
 			this->cancelar->Size = System::Drawing::Size(95, 29);
 			this->cancelar->TabIndex = 2;
 			this->cancelar->Text = L"Cancelar";
 			this->cancelar->UseVisualStyleBackColor = true;
+			this->cancelar->Click += gcnew System::EventHandler(this, &frmCalificarPasajeros::cancelar_Click);
 			// 
 			// frmCalificarPasajeros
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(564, 239);
+			this->ClientSize = System::Drawing::Size(564, 215);
 			this->Controls->Add(this->cancelar);
 			this->Controls->Add(this->aceptar);
 			this->Controls->Add(this->groupBox1);
@@ -244,19 +247,26 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmCalificarPasajeros_Load(System::Object^ sender, System::EventArgs^ e) {
+		
 
 		this->viaje->Text=Convert::ToString(this->objViaje->codigoViaje);
 		int numPasajeros = this->objViaje->listaPasajeros->Count;
 
-
-		for (int i = 0; i < numPasajeros; i++) {
-			objPasajero = this->objViaje->listaPasajeros[i];
-			objUsuario = objGestorUsuario->ObtenerUsuarioxCodigoBD(objPasajero->CodigoDeUsuario);
-			this->pasajeros->Items->Add(objUsuario->Nombre);
-			this->objGestorPasajero->listaPasajeros->Add(objPasajero); //agregar pasajero a lista de gestor
+		if(numPasajeros>0){
+			for (int i = 0; i < numPasajeros; i++) {
+				objPasajero = this->objViaje->listaPasajeros[i];
+				objUsuario = objGestorUsuario->ObtenerUsuarioxCodigoBD(objPasajero->CodigoDeUsuario);
+				this->pasajeros->Items->Add(objUsuario->Nombre);
+				this->objGestorPasajero->listaPasajeros->Add(objPasajero); //agregar pasajero a lista de gestor
+			}
 		}
-		
-		
+		else
+		{
+			MessageBox::Show("No hay pasajeros para calificar", "Error");
+			this->Close();
+		}
+	
+		this->pasajeros->SelectedIndex = 0;
 	}
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -281,6 +291,15 @@ private: System::Void aceptar_Click(System::Object^ sender, System::EventArgs^ e
 	this->objGestorPasajeroREAL->ActualizarCalificacionPasajeros(this->objGestorPasajero->listaPasajeros);
 	this->objGestorPasajeroREAL->EscribirArchivo();
 
+	this->objGestorViaje->LeerViajesDesdeArchivo();
+	this->objGestorViaje->ObtenerViajeoxCodigo(this->objViaje->codigoViaje)->Estado = "Calificado";
+	this->objGestorViaje->EscribirArchivo();
+
+	this->Close();
+
+}
+private: System::Void cancelar_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }
