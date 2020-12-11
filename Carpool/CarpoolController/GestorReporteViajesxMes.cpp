@@ -88,11 +88,13 @@ void GestorReporteViajesxMes::GenerarReporte(int CodigoUsuario) {
 
 						contadorViajes = 1;
 					}
+				ViajesxMes^ objViajexMes = gcnew ViajesxMes(mes_anterior, contadorViajes);
+				this->lista->Add(objViajexMes);
 				}
+			
 			}
 			
-	//	ViajesxMes^ objViajexMes = gcnew ViajesxMes(mes_anterior, contadorViajes);
-	//	this->lista->Add(objViajexMes);
+
 		}
 		
 	}
