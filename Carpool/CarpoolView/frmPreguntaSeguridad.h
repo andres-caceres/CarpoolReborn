@@ -256,7 +256,7 @@ namespace CarpoolView {
 				this->objGestorSeguridad->InsertarSeguridad(objSeguridad);
 				this->objGestorConductor->AgregarALista(objConductor);
 				this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
-				MessageBox::Show("El usuario ha sido agregado correctamente");
+				MessageBox::Show("Los datos han sido enviados para verificación y aprobación, se le notificará cuando esté aprobado", "Registro Correcto");
 				this->Close();
 			}
 		}

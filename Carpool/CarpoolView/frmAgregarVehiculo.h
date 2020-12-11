@@ -458,7 +458,7 @@ namespace CarpoolView {
 					Vehiculo^ objVehiculo = gcnew Vehiculo(Marca, Modelo, Placa, Color, Tipo, Asientos, Propietario, SOAT, RevTec, IDConductor, valido);
 					this->objGestorVehiculo->AgregarVehiculo(objVehiculo);
 					this->objGestorVehiculo->EscribirArchivo();
-					MessageBox::Show("Los datos han sido enviados para verificación y aprobación, se le notificará cuando esté disponible para su uso", "Vehiculo Agregado");
+					MessageBox::Show("Los datos han sido enviados para su verificación y aprobación, se le notificará cuando esté disponible para su uso", "Vehiculo Agregado");
 					this->Close();
 				}
 				else

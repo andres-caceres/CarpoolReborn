@@ -103,10 +103,10 @@ namespace CarpoolView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(425, 295);
+			this->button4->Location = System::Drawing::Point(567, 363);
 			this->button4->Margin = System::Windows::Forms::Padding(1);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(68, 37);
+			this->button4->Size = System::Drawing::Size(91, 46);
 			this->button4->TabIndex = 30;
 			this->button4->Text = L"Cancelar";
 			this->button4->UseVisualStyleBackColor = true;
@@ -114,10 +114,10 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(92, 295);
+			this->button2->Location = System::Drawing::Point(123, 363);
 			this->button2->Margin = System::Windows::Forms::Padding(1);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(68, 37);
+			this->button2->Size = System::Drawing::Size(91, 46);
 			this->button2->TabIndex = 28;
 			this->button2->Text = L"Reservar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -125,10 +125,10 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(353, 26);
+			this->button1->Location = System::Drawing::Point(473, 47);
 			this->button1->Margin = System::Windows::Forms::Padding(1);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(66, 31);
+			this->button1->Size = System::Drawing::Size(88, 38);
 			this->button1->TabIndex = 27;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -137,30 +137,32 @@ namespace CarpoolView {
 			// dateTimePicker1
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(223, 33);
+			this->dateTimePicker1->Location = System::Drawing::Point(299, 56);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(1);
+			this->dateTimePicker1->MaxDate = System::DateTime(2100, 1, 1, 0, 0, 0, 0);
+			this->dateTimePicker1->MinDate = System::DateTime::Now;
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(91, 20);
+			this->dateTimePicker1->Size = System::Drawing::Size(120, 22);
 			this->dateTimePicker1->TabIndex = 26;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(149, 36);
+			this->label1->Location = System::Drawing::Point(201, 59);
 			this->label1->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(43, 13);
+			this->label1->Size = System::Drawing::Size(55, 17);
 			this->label1->TabIndex = 25;
 			this->label1->Text = L"Fecha :";
 			// 
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->dataGridView1);
-			this->groupBox1->Location = System::Drawing::Point(41, 87);
+			this->groupBox1->Location = System::Drawing::Point(55, 107);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(1);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(1);
-			this->groupBox1->Size = System::Drawing::Size(505, 190);
+			this->groupBox1->Size = System::Drawing::Size(673, 234);
 			this->groupBox1->TabIndex = 24;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Viajes disponibles: ";
@@ -173,12 +175,12 @@ namespace CarpoolView {
 				this->Column1,
 					this->Column2, this->Column3, this->Column4
 			});
-			this->dataGridView1->Location = System::Drawing::Point(19, 32);
+			this->dataGridView1->Location = System::Drawing::Point(25, 39);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(1);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 30;
 			this->dataGridView1->RowTemplate->Height = 40;
-			this->dataGridView1->Size = System::Drawing::Size(466, 143);
+			this->dataGridView1->Size = System::Drawing::Size(621, 176);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// Column1
@@ -207,10 +209,10 @@ namespace CarpoolView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(268, 295);
+			this->button3->Location = System::Drawing::Point(345, 363);
 			this->button3->Margin = System::Windows::Forms::Padding(1);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(68, 37);
+			this->button3->Size = System::Drawing::Size(91, 46);
 			this->button3->TabIndex = 29;
 			this->button3->Text = L"Ver ruta";
 			this->button3->UseVisualStyleBackColor = true;
@@ -218,9 +220,9 @@ namespace CarpoolView {
 			// 
 			// frmReservarViaje
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(600, 375);
+			this->ClientSize = System::Drawing::Size(800, 462);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -228,6 +230,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmReservarViaje";
 			this->Text = L"frmReservarViaje";
 			this->Load += gcnew System::EventHandler(this, &frmReservarViaje::frmReservarViaje_Load);
