@@ -60,6 +60,7 @@ namespace CarpoolView {
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmReporteViajesXMes::typeid));
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
@@ -86,6 +87,7 @@ namespace CarpoolView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1147, 763);
 			this->Controls->Add(this->chart1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmReporteViajesXMes";
 			this->Text = L"Reporte de viajes por mes";
 			this->Load += gcnew System::EventHandler(this, &frmReporteViajesXMes::frmReporteViajesXMes_Load);

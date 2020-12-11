@@ -416,3 +416,95 @@ int GestorViaje::ValidaHoraInicioViaje(int h1, int m1, int s1, int h2, int m2, i
 	}
 	return gud;
 }
+
+List<Viaje^>^ GestorViaje::ListaDeViajesDeUnPasajero(int codigo_Pasajero) {
+	List<Viaje^>^ listaViajesDePasajero = gcnew List<Viaje^>();
+	array<String^>^ lineaPasajeroViajes = File::ReadAllLines("pasajerosXviajes.txt");
+	array<String^>^ lineas = File::ReadAllLines("Viajes.txt");
+	String^ separadores = ";";
+	for each (String ^ linea2 in lineaPasajeroViajes)
+	{
+		array<String^>^ palabrasPxV = linea2->Split(separadores->ToCharArray());
+		int codigoViaje = Convert::ToInt32(palabrasPxV[0]);
+		int codigoPasajero = Convert::ToInt32(palabrasPxV[1]);
+
+		for each (String ^ lineaviaje in lineas) {
+
+			if (codigoPasajero == codigo_Pasajero) {
+				array<String^>^ palabras = lineaviaje->Split(separadores->ToCharArray());
+				int codigo_viaje = Convert::ToInt32(palabras[0]);
+				String^ HoraSalida = palabras[1];
+				String^ HoraLlegada = palabras[2];
+				String^ Fecha = palabras[3];
+				String^ Estado = palabras[4];			
+				int nroPasajeros = Convert::ToInt32(palabras[5]);
+				int AsientosDisponibles = Convert::ToInt32(palabras[6]);
+				int Tarifa = Convert::ToInt32(palabras[7]);
+				int codigoConductor = Convert::ToInt32(palabras[8]);
+
+				GestorConductor^ objGestorConductor = gcnew GestorConductor();
+				objGestorConductor->LeerConductoresDesdeArchivo();
+				Conductor^ objConductor = gcnew Conductor();
+				objConductor = objGestorConductor->BuscarConductorxUserID(codigoConductor);
+
+				GestorCoordenadas^ objGestorCoordenadas = gcnew GestorCoordenadas();
+				objGestorCoordenadas->leerListaDeListasDeCoordenadasFromTxt();
+				ListaCoordenadas^ objListaCoordenadas = gcnew ListaCoordenadas();
+				objListaCoordenadas = objGestorCoordenadas->obtenerListaCoordenadasConCodigo(codigoViaje);
+
+				if (codigoViaje == codigo_viaje) {
+					Viaje^ ViajePasajero = gcnew Viaje(codigoViaje, HoraSalida, HoraLlegada, Fecha, Estado, nroPasajeros,
+						AsientosDisponibles, Tarifa, objListaCoordenadas, objConductor);
+					listaViajesDePasajero->Add(ViajePasajero);
+				}
+			}
+		}
+	}
+	return listaViajesDePasajero;
+}
+
+List<Viaje^>^ GestorViaje::ListaDeViajesDeUnPasajeroConFecha(int codigo_Pasajero, String^ Fecha_buscar) {
+	List<Viaje^>^ listaViajesDePasajero = gcnew List<Viaje^>();
+	array<String^>^ lineaPasajeroViajes = File::ReadAllLines("pasajerosXviajes.txt");
+	array<String^>^ lineas = File::ReadAllLines("Viajes.txt");
+	String^ separadores = ";";
+	for each (String ^ linea2 in lineaPasajeroViajes)
+	{
+		array<String^>^ palabrasPxV = linea2->Split(separadores->ToCharArray());
+		int codigoViaje = Convert::ToInt32(palabrasPxV[0]);
+		int codigoPasajero = Convert::ToInt32(palabrasPxV[1]);
+
+		for each (String ^ lineaviaje in lineas) {
+
+			if (codigoPasajero == codigo_Pasajero) {
+				array<String^>^ palabras = lineaviaje->Split(separadores->ToCharArray());
+				int codigo_viaje = Convert::ToInt32(palabras[0]);
+				String^ HoraSalida = palabras[1];
+				String^ HoraLlegada = palabras[2];
+				String^ Fecha = palabras[3];
+				String^ Estado = palabras[4];
+				int nroPasajeros = Convert::ToInt32(palabras[5]);
+				int AsientosDisponibles = Convert::ToInt32(palabras[6]);
+				int Tarifa = Convert::ToInt32(palabras[7]);
+				int codigoConductor = Convert::ToInt32(palabras[8]);
+
+				GestorConductor^ objGestorConductor = gcnew GestorConductor();
+				objGestorConductor->LeerConductoresDesdeArchivo();
+				Conductor^ objConductor = gcnew Conductor();
+				objConductor = objGestorConductor->BuscarConductorxUserID(codigoConductor);
+
+				GestorCoordenadas^ objGestorCoordenadas = gcnew GestorCoordenadas();
+				objGestorCoordenadas->leerListaDeListasDeCoordenadasFromTxt();
+				ListaCoordenadas^ objListaCoordenadas = gcnew ListaCoordenadas();
+				objListaCoordenadas = objGestorCoordenadas->obtenerListaCoordenadasConCodigo(codigoViaje);
+
+				if ((codigoViaje == codigo_viaje)&&(Fecha== Fecha_buscar)) {
+					Viaje^ ViajePasajero = gcnew Viaje(codigoViaje, HoraSalida, HoraLlegada, Fecha, Estado, nroPasajeros,
+						AsientosDisponibles, Tarifa, objListaCoordenadas, objConductor);
+					listaViajesDePasajero->Add(ViajePasajero);
+				}
+			}
+		}
+	}
+	return listaViajesDePasajero;
+}

@@ -8,6 +8,7 @@
 #include "frmPaypal.h"
 #include "frmReporteViajesXMes.h"
 #include "frmReporteGastoPasajero.h"
+#include "frmHistorialViajes.h"
 
 namespace CarpoolView {
 
@@ -95,9 +96,9 @@ namespace CarpoolView {
 			this->paypalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->viajesPorMesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->gastosPorMesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->elegirViajeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarViajesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->gastosPorMesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -112,7 +113,7 @@ namespace CarpoolView {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(979, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1255, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &frmPasajero::menuStrip1_ItemClicked);
@@ -146,6 +147,7 @@ namespace CarpoolView {
 			this->misViajesToolStripMenuItem->Name = L"misViajesToolStripMenuItem";
 			this->misViajesToolStripMenuItem->Size = System::Drawing::Size(87, 24);
 			this->misViajesToolStripMenuItem->Text = L"Mis viajes";
+			this->misViajesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::misViajesToolStripMenuItem_Click);
 			// 
 			// misContactosToolStripMenuItem
 			// 
@@ -191,9 +193,16 @@ namespace CarpoolView {
 			// viajesPorMesToolStripMenuItem
 			// 
 			this->viajesPorMesToolStripMenuItem->Name = L"viajesPorMesToolStripMenuItem";
-			this->viajesPorMesToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->viajesPorMesToolStripMenuItem->Size = System::Drawing::Size(194, 26);
 			this->viajesPorMesToolStripMenuItem->Text = L"Viajes por mes";
 			this->viajesPorMesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::viajesPorMesToolStripMenuItem_Click);
+			// 
+			// gastosPorMesToolStripMenuItem
+			// 
+			this->gastosPorMesToolStripMenuItem->Name = L"gastosPorMesToolStripMenuItem";
+			this->gastosPorMesToolStripMenuItem->Size = System::Drawing::Size(194, 26);
+			this->gastosPorMesToolStripMenuItem->Text = L"Gastos por mes";
+			this->gastosPorMesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::gastosPorMesToolStripMenuItem_Click);
 			// 
 			// elegirViajeToolStripMenuItem
 			// 
@@ -211,18 +220,11 @@ namespace CarpoolView {
 			this->buscarViajesToolStripMenuItem->Text = L"Buscar Viajes";
 			this->buscarViajesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::buscarViajesToolStripMenuItem_Click);
 			// 
-			// gastosPorMesToolStripMenuItem
-			// 
-			this->gastosPorMesToolStripMenuItem->Name = L"gastosPorMesToolStripMenuItem";
-			this->gastosPorMesToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->gastosPorMesToolStripMenuItem->Text = L"Gastos por mes";
-			this->gastosPorMesToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPasajero::gastosPorMesToolStripMenuItem_Click);
-			// 
 			// frmPasajero
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(979, 658);
+			this->ClientSize = System::Drawing::Size(1255, 769);
 			this->Controls->Add(this->menuStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
@@ -299,6 +301,11 @@ private: System::Void gastosPorMesToolStripMenuItem_Click(System::Object^ sender
 	frmReporteGastoPasajero^ ventanaGasto = gcnew frmReporteGastoPasajero(this->objUsuario);
 	ventanaGasto->MdiParent = this;
 	ventanaGasto->Show();
+}
+private: System::Void misViajesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmHistorialViajes^ ventanaHistorial = gcnew frmHistorialViajes(this->objUsuario);
+	ventanaHistorial->MdiParent = this;
+	ventanaHistorial->Show();
 }
 };
 }
