@@ -236,6 +236,7 @@ namespace CarpoolView {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmReservarViaje";
 			this->Text = L"Reservar viaje";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmReservarViaje::frmReservarViaje_Load);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

@@ -266,7 +266,8 @@ private: System::Void buscarViajesToolStripMenuItem_Click(System::Object^ sender
 	ventanaSelectOrigenFin->ShowDialog();*/
 
 	frmReservarViaje^ ventanaReservarViaje = gcnew frmReservarViaje(this->objUsuario);
-	ventanaReservarViaje->ShowDialog();
+	ventanaReservarViaje->MdiParent= this;
+	ventanaReservarViaje->Show();
 	
 
 
