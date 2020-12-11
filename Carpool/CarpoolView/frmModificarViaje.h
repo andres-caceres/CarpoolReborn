@@ -580,7 +580,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 
 }
 
-
+	 //int numpasajeros = 0;
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	Viaje^ objViajeModificar = this->objGestorViaje->ObtenerViajeoxCodigo(this->codigoEditar);

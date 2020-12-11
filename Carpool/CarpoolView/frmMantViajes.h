@@ -392,17 +392,26 @@ private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^
 
 
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 	this->objGestorViaje->LeerViajesDesdeArchivo();
 	//this->objGestorCoordenadas->leerListaDeListasDeCoordenadasFromTxt();
 	//this->objGestorCoordenadas->EliminarLineaDeListaListasCoordenadas(codigoEliminar);
-	this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Cancelado";
-	//this->objGestorViaje->EliminarViaje(codigoEliminar);
-	this->objGestorViaje->EscribirArchivo();
-	//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
-	MessageBox::Show("El Viaje ha sido cancelado correctamente");
-	MostrarGrilla();
+
+	if (this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado  == "No Iniciado") {
+
+		this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Cancelado";
+		//this->objGestorViaje->EliminarViaje(codigoEliminar);
+		this->objGestorViaje->EscribirArchivo();
+		//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
+		MessageBox::Show("El Viaje ha sido cancelado correctamente");
+		MostrarGrilla();
+	}
+	else {
+		MessageBox::Show("Solo puede cancelar un viaje no Iniciado.");
+	}
 
 }
 
@@ -525,13 +534,13 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	int mes1 = Convert::ToInt32(fecha1[0]);
 	int dia1 = Convert::ToInt32(fecha1[1]);
 	int ano1 = Convert::ToInt32(fecha1[2]);
-
+	int numPasajeros = this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->listaPasajeros->Count;
 
 	if (this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado == "No Iniciado") {
 
 		if (!(this->objGestorViaje->VerificaFecha(ano1,mes1,dia1,anoActual,mesActual,diaActual))) {
 			int i = 0;
-			MessageBox::Show("No puede Iniciar este viaje.");
+			MessageBox::Show("No puede iniciar este viaje, revisar fecha de inicio.");
 		}
 		else {
 			if (!(this->objGestorViaje->ValidaHoraInicioViaje(horaActual, minutoActual, segundoActual, hora1, minuto1, segundo1))) {
@@ -540,14 +549,21 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 				MessageBox::Show("Solo tiene 15 minutos de tolerancia, ya no puede iniciar su viaje, sera cancelado.");
 				MostrarGrilla();
 			}
+
 			else {
 
-				this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Iniciado";
-				//this->objGestorViaje->EliminarViaje(codigoEliminar);
-				this->objGestorViaje->EscribirArchivo();
-				//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
-				MessageBox::Show("El Viaje ha sido Iniciado");
-				MostrarGrilla();
+				if (numPasajeros == 0) {
+					MessageBox::Show("No puede Iniciar este viaje, acepte al menos un pasajero.");
+
+				}
+				else {
+					this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Iniciado";
+					//this->objGestorViaje->EliminarViaje(codigoEliminar);
+					this->objGestorViaje->EscribirArchivo();
+					//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
+					MessageBox::Show("El Viaje ha sido Iniciado");
+					MostrarGrilla();
+				}
 
 			}
 		}
