@@ -37,6 +37,9 @@ namespace CarpoolController {
 		int ValidaHoraViaje(int h1, int m1, int s1, int h2, int m2, int s2);
 		int ValidaHoraActual(int h1, int m1, int s1, int h2, int m2, int s2);
 		int ValidaHoraInicioViaje(int h1, int m1, int s1, int h2, int m2, int s2);
+		int VerificaFecha(int a1, int m1, int d1, int a2, int m2, int d2);
+
+
 
 	};
 }

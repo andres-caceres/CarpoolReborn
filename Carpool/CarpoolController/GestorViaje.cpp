@@ -416,3 +416,21 @@ int GestorViaje::ValidaHoraInicioViaje(int h1, int m1, int s1, int h2, int m2, i
 	}
 	return gud;
 }
+
+
+int GestorViaje::VerificaFecha(int a1, int m1, int d1, int a2, int m2, int d2) {
+	int gud = 1;
+	int ano1 = a1 * 480;
+	int mes1 = m1 * 40;
+	int tiempototAno1 = ano1 + mes1 + d1;
+	//int gud = 1;
+	int ano2 = a1 * 480;
+	int mes2 = m1 * 40; 
+	int tiempototAno2 = ano2 + mes2 + d2;
+
+		//para boton inicio y finaliza de viaje
+		if (tiempototAno1 != tiempototAno2) {
+			gud = 0;
+		}
+		return gud;
+}

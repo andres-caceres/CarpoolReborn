@@ -507,50 +507,73 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	int horaActual = FechaActual.Hour;
 	int minutoActual = FechaActual.Minute;
 	int segundoActual = FechaActual.Second;
+	int anoActual = FechaActual.Year;
+	int mesActual = FechaActual.Month;
+	int diaActual = FechaActual.Day;
 
 	String^ separadores = ":";
-
+	String^ separav = "/";
 	String^ HoraSalidaE = this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->HoraSalida;
 	array<String^>^ tiempo1 = HoraSalidaE->Split(separadores->ToCharArray());
 	int hora1 = Convert::ToInt32(tiempo1[0]);
 	int minuto1 = Convert::ToInt32(tiempo1[1]);
 	int segundo1 = Convert::ToInt32(tiempo1[2]);
 
-	if (this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Iniciado" ) {
+	String^ FechaViaje = this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Fecha;
+	array<String^>^ fecha1 = FechaViaje->Split(separav->ToCharArray());
+	int mes1 = Convert::ToInt32(fecha1[0]);
+	int dia1 = Convert::ToInt32(fecha1[1]);
+	int ano1 = Convert::ToInt32(fecha1[2]);
 
-		if (!(this->objGestorViaje->ValidaHoraInicioViaje(horaActual, minutoActual, segundoActual, hora1, minuto1, segundo1))) {
-			this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Cancelado";
-			this->objGestorViaje->EscribirArchivo();
-			MessageBox::Show("Solo tiene 15 minutos de tolerancia, ya no puede iniciar su viaje, sera cancelado.");
-			MostrarGrilla();
+
+	if (this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado == "No Iniciado") {
+
+		if (!(this->objGestorViaje->VerificaFecha(ano1,mes1,dia1,anoActual,mesActual,diaActual))) {
+			int i = 0;
+			MessageBox::Show("No puede Iniciar este viaje.");
 		}
 		else {
+			if (!(this->objGestorViaje->ValidaHoraInicioViaje(horaActual, minutoActual, segundoActual, hora1, minuto1, segundo1))) {
+				this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Cancelado";
+				this->objGestorViaje->EscribirArchivo();
+				MessageBox::Show("Solo tiene 15 minutos de tolerancia, ya no puede iniciar su viaje, sera cancelado.");
+				MostrarGrilla();
+			}
+			else {
 
-			this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Iniciado";
-			//this->objGestorViaje->EliminarViaje(codigoEliminar);
-			this->objGestorViaje->EscribirArchivo();
-			//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
-			MessageBox::Show("El Viaje ha sido Iniciado");
-			MostrarGrilla();
+				this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Iniciado";
+				//this->objGestorViaje->EliminarViaje(codigoEliminar);
+				this->objGestorViaje->EscribirArchivo();
+				//this->objGestorViaje->EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(codigoEliminar);
+				MessageBox::Show("El Viaje ha sido Iniciado");
+				MostrarGrilla();
 
+			}
 		}
 	}
 
 	else {
-		MessageBox::Show("No puedo Modificar los estados de estos vaijes");
+		MessageBox::Show("No puedo Modificar el estado de estos viaje");
 	}
 }
 
 
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 	int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-	this->objGestorViaje->LeerViajesDesdeArchivo();
-	this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Finalizado";
-	this->objGestorViaje->EscribirArchivo();
-	MessageBox::Show("El Viaje ha sido Finalizado correctamente");
-	MostrarGrilla();
+
+	if(this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado != "Iniciado") {
+		MessageBox::Show("No puede finalizar un viaje no iniciado.");
+	}
+	else {
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+		int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		this->objGestorViaje->LeerViajesDesdeArchivo();
+		this->objGestorViaje->ObtenerViajeoxCodigo(codigoEliminar)->Estado = "Finalizado";
+		this->objGestorViaje->EscribirArchivo();
+		MessageBox::Show("El Viaje ha sido Finalizado correctamente, no se olvide de calificar a su pasajeros.");
+		MostrarGrilla();
+	}
 
 }
 };
