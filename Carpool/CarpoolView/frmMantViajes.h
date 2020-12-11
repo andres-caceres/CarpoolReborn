@@ -119,6 +119,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmMantViajes::typeid));
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -277,7 +278,7 @@ namespace CarpoolView {
 			// calificar
 			// 
 			this->calificar->Location = System::Drawing::Point(739, 425);
-			this->calificar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->calificar->Margin = System::Windows::Forms::Padding(4);
 			this->calificar->Name = L"calificar";
 			this->calificar->Size = System::Drawing::Size(123, 46);
 			this->calificar->TabIndex = 24;
@@ -323,6 +324,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(1);
 			this->Name = L"frmMantViajes";
 			this->Text = L"Mantenimiento de viajes";
