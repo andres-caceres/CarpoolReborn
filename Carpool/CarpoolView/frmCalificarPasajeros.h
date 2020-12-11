@@ -263,14 +263,14 @@ private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^
 private: System::Void pasajeros_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	int index = this->pasajeros->SelectedIndex;
 	this->calificacion->SelectedIndex = this->objGestorPasajero->listaPasajeros[index]->Calificacion;	
-	this->lblCalificacion->ImageIndex = (this->objGestorPasajero->listaPasajeros[index]->Calificacion) *2;
+	this->lblCalificacion->ImageIndex = (this->objGestorPasajero->listaPasajeros[index]->Calificacion)*2;
 }
 private: System::Void calificacion_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	int index = this->pasajeros->SelectedIndex;
 	int selectedIndex = 0;
 	selectedIndex = this->calificacion->SelectedIndex;
 	if (selectedIndex >= 0) {
-		this->objGestorPasajero->listaPasajeros[index]->Calificacion = selectedIndex;
+		this->objGestorPasajero->listaPasajeros[index]->Calificacion = selectedIndex ;
 		this->lblCalificacion->ImageIndex = selectedIndex * 2;
 	}
 	
@@ -278,6 +278,8 @@ private: System::Void calificacion_SelectedIndexChanged(System::Object^ sender, 
 private: System::Void aceptar_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	this->objGestorPasajeroREAL->LeerPasajerosDesdeArchivo();
+	this->objGestorPasajeroREAL->ActualizarCalificacionPasajeros(this->objGestorPasajero->listaPasajeros);
+	this->objGestorPasajeroREAL->EscribirArchivo();
 
 }
 };

@@ -48,3 +48,18 @@ void GestorPasajero::EscribirArchivo() {
 void GestorPasajero::AgregarPasajero(Pasajero^ objPasajero) {
 	this->listaPasajeros->Add(objPasajero);
 }
+
+void GestorPasajero::ActualizarCalificacionPasajeros(List<Pasajero^>^ listaQueActualiza) {
+	Pasajero^ objBuscado = nullptr;
+	for (int i = 0; i < this->listaPasajeros->Count; i++)
+	{
+		for (int j = 0; j < listaQueActualiza->Count; j++){
+			if (this->listaPasajeros[i]->CodigoDeUsuario == listaQueActualiza[j]->CodigoDeUsuario) {
+				int califAnterior = this->listaPasajeros[i]->Calificacion;
+				int califAgregada = listaQueActualiza[j]->Calificacion;
+
+				this->listaPasajeros[i]->Calificacion = (califAnterior + califAgregada)/2;
+			}
+		}
+	}
+}
