@@ -1,2 +1,0 @@
-1;Callao;Lima;Favorito
-2;Lima;Callao;NoFavorito

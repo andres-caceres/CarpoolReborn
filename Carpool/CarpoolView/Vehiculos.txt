@@ -1,1 +1,1 @@
-Alfa Romeo;4x4;1ASDA1;AMA - Amarillo;Sedan;4;Victor Sevillano Macuri;1615656566;6516516156;2;1
+Toyota;Corolla;123456;AMA - Amarillo;Hatchback;4;Conductor Conductor Conductor;1234567891;1234567891;3;2
