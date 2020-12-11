@@ -553,7 +553,7 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	}
 
 	else {
-		MessageBox::Show("No puedo Modificar el estado de estos viaje");
+		MessageBox::Show("No puede modificar el estado de este viaje");
 	}
 }
 

@@ -433,7 +433,7 @@ int GestorViaje::VerificaFecha(int a1, int m1, int d1, int a2, int m2, int d2) {
 			gud = 0;
 		}
 		return gud;
-}
+
 }
 
 List<Viaje^>^ GestorViaje::ListaDeViajesDeUnPasajero(int codigo_Pasajero) {
