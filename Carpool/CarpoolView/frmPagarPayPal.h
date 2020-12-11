@@ -190,9 +190,21 @@ private: void MostrarGrilla(List<Paypal^>^ listaPaypal) {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton pagar
 
-	this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
-	MessageBox::Show("Se ha registrado correctamente");
-	this->Close();
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	//int codigoPagar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+
+	if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value == nullptr) {
+		MessageBox::Show("Por favor, seleccione un PayPal");
+
+	}
+	else
+	{
+
+		this->objGestorViaje->AgregarPasajeroAlViaje(codigoReservar, this->objUsuario->CodigoDeUsuario);
+		MessageBox::Show("Se ha registrado correctamente");
+		this->Close();
+	}
+
 
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
