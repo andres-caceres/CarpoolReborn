@@ -427,7 +427,7 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(113, 22);
 			this->dateTimePicker1->TabIndex = 21;
-			this->dateTimePicker1->Value = System::DateTime(2020, 12, 11, 0, 0, 0, 0);
+			this->dateTimePicker1->Value = System::DateTime(2020, 12, 14, 0, 0, 0, 0);
 			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &frmNuevoViaje::dateTimePicker1_ValueChanged);
 			// 
 			// label13
