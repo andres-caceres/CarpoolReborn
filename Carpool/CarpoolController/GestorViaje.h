@@ -34,7 +34,9 @@ namespace CarpoolController {
 		void EscribirPasajerosViajeArchivoDiseñadoParaEliminarViaje(int codigoEliminar);
 		int ValidarAsientosTarifa(String^ AsientosD, String^ tarifa);
 		int ValidarIngresoHora(String^ c1, String^ c2, String^ c3, String^ c4, String^ c5, String^ c6);
-		int ValidaHoraViaje(String^ HoraActual, String^ HoraViaje);
+		int ValidaHoraViaje(int h1, int m1, int s1, int h2, int m2, int s2);
+		int ValidaHoraActual(int h1, int m1, int s1, int h2, int m2, int s2);
+		int ValidaHoraInicioViaje(int h1, int m1, int s1, int h2, int m2, int s2);
 
 	};
 }

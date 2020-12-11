@@ -137,12 +137,21 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::TextBox^ textBox7;
 	private: System::Windows::Forms::Label^ label16;
+private: System::Windows::Forms::ComboBox^ comboBox3;
 private: System::Windows::Forms::ComboBox^ comboBox2;
 private: System::Windows::Forms::ComboBox^ comboBox1;
-private: System::Windows::Forms::ComboBox^ comboBox4;
 private: System::Windows::Forms::ComboBox^ comboBox5;
+private: System::Windows::Forms::ComboBox^ comboBox4;
+private: System::Windows::Forms::ComboBox^ comboBox7;
 private: System::Windows::Forms::ComboBox^ comboBox6;
-private: System::Windows::Forms::ComboBox^ comboBox3;
+	   //private: System::Windows::Forms::DateTimePicker^ dateTimePicker3;
+//: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
+
+
+
+
+
+
 
 
 
@@ -167,12 +176,6 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox5 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox6 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
@@ -193,6 +196,13 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox5 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox6 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox7 = (gcnew System::Windows::Forms::ComboBox());
 			this->groupBox2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -261,12 +271,12 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->comboBox4);
-			this->groupBox1->Controls->Add(this->comboBox5);
+			this->groupBox1->Controls->Add(this->comboBox7);
 			this->groupBox1->Controls->Add(this->comboBox6);
+			this->groupBox1->Controls->Add(this->comboBox5);
+			this->groupBox1->Controls->Add(this->comboBox4);
 			this->groupBox1->Controls->Add(this->comboBox3);
 			this->groupBox1->Controls->Add(this->comboBox2);
-			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->textBox7);
 			this->groupBox1->Controls->Add(this->label16);
 			this->groupBox1->Controls->Add(this->button4);
@@ -296,91 +306,9 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			this->groupBox1->Text = L"Datos de Viaje";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &frmNuevoViaje::groupBox1_Enter);
 			// 
-			// comboBox4
-			// 
-			this->comboBox4->FormattingEnabled = true;
-			this->comboBox4->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
-				L"00", L"01", L"02", L"03", L"04", L"05", L"06",
-					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24",
-					L"25", L"26", L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42",
-					L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
-			});
-			this->comboBox4->Location = System::Drawing::Point(949, 193);
-			this->comboBox4->Name = L"comboBox4";
-			this->comboBox4->Size = System::Drawing::Size(108, 39);
-			this->comboBox4->TabIndex = 31;
-			// 
-			// comboBox5
-			// 
-			this->comboBox5->FormattingEnabled = true;
-			this->comboBox5->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
-				L"00", L"01", L"02", L"03", L"04", L"05", L"06",
-					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24",
-					L"25", L"26", L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42",
-					L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
-			});
-			this->comboBox5->Location = System::Drawing::Point(834, 193);
-			this->comboBox5->Name = L"comboBox5";
-			this->comboBox5->Size = System::Drawing::Size(109, 39);
-			this->comboBox5->TabIndex = 30;
-			// 
-			// comboBox6
-			// 
-			this->comboBox6->FormattingEnabled = true;
-			this->comboBox6->Items->AddRange(gcnew cli::array< System::Object^  >(24) {
-				L"00", L"01", L"02", L"03", L"04", L"05", L"06",
-					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
-			});
-			this->comboBox6->Location = System::Drawing::Point(720, 193);
-			this->comboBox6->Name = L"comboBox6";
-			this->comboBox6->Size = System::Drawing::Size(108, 39);
-			this->comboBox6->TabIndex = 29;
-			// 
-			// comboBox3
-			// 
-			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
-				L"00", L"01", L"02", L"03", L"04", L"05", L"06",
-					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24",
-					L"25", L"26", L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42",
-					L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
-			});
-			this->comboBox3->Location = System::Drawing::Point(949, 135);
-			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(108, 39);
-			this->comboBox3->TabIndex = 28;
-			// 
-			// comboBox2
-			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
-				L"00", L"01", L"02", L"03", L"04", L"05", L"06",
-					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24",
-					L"25", L"26", L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42",
-					L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
-			});
-			this->comboBox2->Location = System::Drawing::Point(835, 135);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(108, 39);
-			this->comboBox2->TabIndex = 27;
-			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox2_SelectedIndexChanged);
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(24) {
-				L"00", L"01", L"02", L"03", L"04", L"05", L"06",
-					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
-			});
-			this->comboBox1->Location = System::Drawing::Point(720, 135);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(108, 39);
-			this->comboBox1->TabIndex = 26;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox1_SelectedIndexChanged);
-			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(741, 272);
+			this->textBox7->Location = System::Drawing::Point(720, 271);
 			this->textBox7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox7->MaxLength = 3;
 			this->textBox7->Name = L"textBox7";
@@ -402,10 +330,12 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(720, 56);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->dateTimePicker1->MinDate = System::DateTime(2020, 12, 10, 0, 0, 0, 0);
+			this->dateTimePicker1->MinDate = System::DateTime(2020, 12, 10, 20, 16, 16, 67);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(223, 38);
 			this->dateTimePicker1->TabIndex = 21;
+			this->dateTimePicker1->Value = System::DateTime(2020, 12, 10, 20, 16, 16, 67);
+			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &frmNuevoViaje::dateTimePicker1_ValueChanged);
 			// 
 			// label13
 			// 
@@ -520,10 +450,10 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(77, 179);
-			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(140, 32);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Asientos :";
+			this->label3->Name = L"label3";
 			// 
 			// label2
 			// 
@@ -565,11 +495,104 @@ private: System::Windows::Forms::ComboBox^ comboBox3;
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &frmNuevoViaje::button6_Click);
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(0, 0);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 39);
+			this->comboBox1->TabIndex = 31;
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(24) {
+				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
+			});
+			this->comboBox2->Location = System::Drawing::Point(705, 124);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(121, 39);
+			this->comboBox2->TabIndex = 26;
+			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox2_SelectedIndexChanged_1);
+			// 
+			// comboBox3
+			// 
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
+				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24", L"25", L"26",
+					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
+					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
+			});
+			this->comboBox3->Location = System::Drawing::Point(832, 124);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(121, 39);
+			this->comboBox3->TabIndex = 27;
+			this->comboBox3->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox3_SelectedIndexChanged);
+			// 
+			// comboBox4
+			// 
+			this->comboBox4->FormattingEnabled = true;
+			this->comboBox4->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
+				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24", L"25", L"26",
+					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
+					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
+			});
+			this->comboBox4->Location = System::Drawing::Point(959, 124);
+			this->comboBox4->Name = L"comboBox4";
+			this->comboBox4->Size = System::Drawing::Size(121, 39);
+			this->comboBox4->TabIndex = 28;
+			this->comboBox4->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox4_SelectedIndexChanged);
+			// 
+			// comboBox5
+			// 
+			this->comboBox5->FormattingEnabled = true;
+			this->comboBox5->Items->AddRange(gcnew cli::array< System::Object^  >(24) {
+				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
+			});
+			this->comboBox5->Location = System::Drawing::Point(705, 203);
+			this->comboBox5->Name = L"comboBox5";
+			this->comboBox5->Size = System::Drawing::Size(121, 39);
+			this->comboBox5->TabIndex = 29;
+			this->comboBox5->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox5_SelectedIndexChanged);
+			// 
+			// comboBox6
+			// 
+			this->comboBox6->FormattingEnabled = true;
+			this->comboBox6->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
+				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24", L"25", L"26",
+					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
+					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
+			});
+			this->comboBox6->Location = System::Drawing::Point(832, 203);
+			this->comboBox6->Name = L"comboBox6";
+			this->comboBox6->Size = System::Drawing::Size(121, 39);
+			this->comboBox6->TabIndex = 30;
+			// 
+			// comboBox7
+			// 
+			this->comboBox7->FormattingEnabled = true;
+			this->comboBox7->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
+				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24", L"25", L"26",
+					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
+					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
+			});
+			this->comboBox7->Location = System::Drawing::Point(959, 203);
+			this->comboBox7->Name = L"comboBox7";
+			this->comboBox7->Size = System::Drawing::Size(121, 39);
+			this->comboBox7->TabIndex = 31;
+			// 
 			// frmNuevoViaje
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1178, 1048);
+			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->groupBox2);
@@ -609,48 +632,75 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Boton grabar
-	String^ HoraInicioo = this->comboBox1->Text + ":" + this->comboBox2->Text + ":" + this->comboBox3->Text;
-	String^ HoraFinn = this->comboBox6->Text + ":" + this->comboBox5->Text + ":" + this->comboBox4->Text;
+	String^ HoraInicioo = this->comboBox2->Text + ":" + this->comboBox3->Text + ":" + this->comboBox4->Text;
+	String^ HoraFinn = this->comboBox5->Text + ":" + this->comboBox6->Text + ":" + this->comboBox7->Text;
+	String^ separadores = ":";
+	array<String^>^ tiempo1 = HoraInicioo->Split(separadores->ToCharArray());
+	array<String^>^ tiempo2 = HoraFinn->Split(separadores->ToCharArray());
 
+	int hora1 = Convert::ToInt32(tiempo1[0]);
+	int minuto1 = Convert::ToInt32(tiempo1[1]);
+	int segundo1 = Convert::ToInt32(tiempo1[2]);
+	int hora2 = Convert::ToInt32(tiempo2[0]);
+	int minuto2 = Convert::ToInt32(tiempo2[1]);
+	int segundo2 = Convert::ToInt32(tiempo2[2]);
+
+	DateTime FechaActual = System::DateTime::Now;
+	int horaActual = FechaActual.Hour;
+	int minutoActual = FechaActual.Minute;
+	int segundoActual = FechaActual.Second;
+
+	
 	if (this->objGestorCoordenadas->GetFlag() == 0){
 		MessageBox::Show("Por favor, defina una ruta");	
 	}
 	else {
 
-		if (!(this->objGestorViaje->ValidarAsientosTarifa(this->textBox3->Text, this->textBox7->Text)&&
-this->objGestorViaje->ValidarIngresoHora(this->comboBox1->Text, this->comboBox2->Text, this->comboBox3->Text, this->comboBox4->Text, this->comboBox5->Text, this->comboBox6->Text))){
+
+		if (!(this->objGestorViaje->ValidarAsientosTarifa(this->textBox3->Text, this->textBox7->Text) &&
+			this->objGestorViaje->ValidarIngresoHora(this->comboBox2->Text, this->comboBox3->Text, this->comboBox4->Text, this->comboBox5->Text, this->comboBox6->Text, this->comboBox7->Text)
+			))		
+		{
 			int i = 0;
 			MessageBox::Show("Por favor, llene todos campos");
 
 		}
 		else {
-			if (this->objGestorViaje->ValidaHoraViaje(HoraInicioo, HoraFinn)) {
+			if (!(this->objGestorViaje->ValidaHoraViaje(hora1, minuto1, segundo1, hora2, minuto2, segundo2))) {
 				MessageBox::Show("Por favor, llene las horas bien");
 			}
 			else {
-				int codigo = Convert::ToInt32(this->textBox1->Text);
-				String^ HoraInicio = this->comboBox1->Text + ":" + this->comboBox2->Text + ":" + this->comboBox3->Text;
-				String^ HoraFin = this->comboBox6->Text + ":" + this->comboBox5->Text + ":" + this->comboBox4->Text;
-				String^ fecha = this->dateTimePicker1->Text;
-				String^ Estado = this->textBox2->Text;
-				int nroPasajeros = Convert::ToInt32(this->textBox4->Text);
-				int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
-				int Tarifa = Convert::ToInt32(this->textBox7->Text);
-				int codigoConductor = Convert::ToInt32(this->textBox12->Text); //maybe useless?
+
+				if (!(this->objGestorViaje->ValidaHoraActual(horaActual, minutoActual, segundoActual, hora1, minuto1, segundo1))) {
+					MessageBox::Show("Hora de Inicio de viaje invalida");
+				}
+				else {
+					int codigo = Convert::ToInt32(this->textBox1->Text);
+					String^ HoraInicio = this->comboBox2->Text + ":" + this->comboBox3->Text + ":" + this->comboBox4->Text;
+					String^ HoraFin = this->comboBox5->Text + ":" + this->comboBox6->Text + ":" + this->comboBox7->Text;
+					//String^ HoraInicio = this->dateTimePicker2->Text;
+					//String^ HoraFin = this->dateTimePicker3->Text;
+					String^ fecha = this->dateTimePicker1->Text;
+					String^ Estado = this->textBox2->Text;
+					int nroPasajeros = Convert::ToInt32(this->textBox4->Text);
+					int AsientosDisponibles = Convert::ToInt32(this->textBox3->Text);
+					int Tarifa = Convert::ToInt32(this->textBox7->Text);
+					int codigoConductor = Convert::ToInt32(this->textBox12->Text); //maybe useless?
 
 
-				//int codigoRuta = Convert::ToInt32(this->textBox8->Text);
-				/*Usuario^ objUsuarioLogeado = this->objUsuario;
-				Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);*/
-				//Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
+					//int codigoRuta = Convert::ToInt32(this->textBox8->Text);
+					/*Usuario^ objUsuarioLogeado = this->objUsuario;
+					Conductor^ objConductor = objGestorConductor->BuscarConductorxUserID(objUsuarioLogeado->CodigoDeUsuario);*/
+					//Ruta^ objRuta = objGestorRuta->ObtenerRutaxCodigo(codigoRuta);
 
-				Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros, AsientosDisponibles, Tarifa, this->objGestorCoordenadas->GiveMeListaCoordenadas(), this->objConductor);
+					Viaje^ objViaje = gcnew Viaje(codigo, HoraInicio, HoraFin, fecha, Estado, nroPasajeros, AsientosDisponibles, Tarifa, this->objGestorCoordenadas->GiveMeListaCoordenadas(), this->objConductor);
 
-				this->objGestorViaje->AgregarViaje(objViaje);
-				this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(this->objGestorViaje->obtenerCodigoViaje());
+					this->objGestorViaje->AgregarViaje(objViaje);
+					this->objGestorCoordenadas->saveCoordinatesListAndTripCodeInTxt(this->objGestorViaje->obtenerCodigoViaje());
 
 
-				this->Close();
+					this->Close();
+				}
 			}
 		}
 
@@ -736,6 +786,18 @@ private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dateTimePicker3_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void comboBox3_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void comboBox2_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void comboBox5_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void comboBox4_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

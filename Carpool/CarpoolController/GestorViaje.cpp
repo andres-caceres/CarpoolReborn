@@ -359,34 +359,60 @@ int GestorViaje::ValidarAsientosTarifa(String^ AsientosD, String^ tarifa) {
 //
 //}
 
-int GestorViaje::ValidaHoraViaje(String^ HoraInicio, String^HoraLlegada) {
-	int gud = 1;
-	String^ separadores = ":";
-	array<String^>^ dHoraInicio = HoraInicio->Split(separadores->ToCharArray());
-	array<String^>^ dHoraLlegada = HoraLlegada->Split(separadores->ToCharArray());
-	if (Convert::ToInt32(HoraInicio[0]) > Convert::ToInt32(dHoraLlegada [0])){
-		gud = 0;
-	}
-	else {
-		if (Convert::ToInt32(HoraInicio[1]) >= Convert::ToInt32(dHoraLlegada[1]) && Convert::ToInt32(HoraInicio[0]) == Convert::ToInt32(dHoraLlegada[0])) {
-			gud = 0;
-		}
-		else {
-			if (Convert::ToInt32(HoraInicio[2]) >= Convert::ToInt32(dHoraLlegada[2]) &&Convert::ToInt32(HoraInicio[1]) == Convert::ToInt32(dHoraLlegada[1]) && Convert::ToInt32(HoraInicio[0]) == Convert::ToInt32(dHoraLlegada[0])) {
-				gud = 0;
-			}
-		}
 
-	}
-	return gud;
-
-}
-
-int GestorViaje::ValidarIngresoHora(String^ c1, String^ c2, String^ c3, String^ c4, String^ c5, String^ c6) {
-	int gud=1;
+int GestorViaje:: ValidarIngresoHora(String^ c1, String^ c2, String^ c3, String^ c4, String^ c5, String^ c6) {
+	int esta_completo = 1;
 	if (c1 == "" || c2 == "" || c3 == "" || c4 == "" || c5 == "" || c6 == "") {
+		esta_completo = 0;
+	}
+	return esta_completo;
+}
+
+int GestorViaje::ValidaHoraViaje(int h1, int m1, int s1, int h2, int m2, int s2) {
+	int gud = 1;
+	int hora1 = h1 * 3600;
+	int minuto1 = m1 * 60;
+	int segundo1 = s1;
+	int tiempotot1 = hora1 + minuto1 + segundo1;
+	int hora2 = h2 * 3600;
+	int minuto2 = m2 * 60;
+	int segundo2 = s2;
+	int tiempotot2 = hora2 + minuto2 + segundo2;
+	if (tiempotot1 >= tiempotot2) {
 		gud = 0;
 	}
 	return gud;
 }
 
+int GestorViaje::ValidaHoraActual(int h1, int m1, int s1, int h2, int m2, int s2) {
+	int gud = 1;
+	int hora1 = h1 * 3600;
+	int minuto1 = m1 * 60;
+	int segundo1 = s1;
+	int tiempotot1 = hora1 + minuto1 + segundo1;
+	int hora2 = h2 * 3600;
+	int minuto2 = m2 * 60;
+	int segundo2 = s2;
+	int tiempotot2 = hora2 + minuto2 + segundo2;
+	if (tiempotot1 > tiempotot2) {
+		gud = 0;
+	}
+	return gud;
+}
+
+int GestorViaje::ValidaHoraInicioViaje(int h1, int m1, int s1, int h2, int m2, int s2) {
+	int gud = 1;
+	int hora1 = h1 * 3600;
+	int minuto1 = m1 * 60;
+	int segundo1 = s1;
+	int tiempototPlaneado = hora1 + minuto1 + segundo1;
+	int hora2 = h2 * 3600;
+	int minuto2 = m2 * 60;
+	int segundo2 = s2;
+	int tiempototIniciado = hora2 + minuto2 + segundo2;
+	//tolerancia 15 minutos
+	if (tiempototIniciado > (tiempototPlaneado + 15)) {
+		gud = 0;
+	}
+	return gud;
+}
