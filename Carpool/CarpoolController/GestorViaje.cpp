@@ -411,7 +411,7 @@ int GestorViaje::ValidaHoraInicioViaje(int h1, int m1, int s1, int h2, int m2, i
 	int segundo2 = s2;
 	int tiempototIniciado = hora2 + minuto2 + segundo2;
 	//tolerancia 15 minutos
-	if (tiempototIniciado > (tiempototPlaneado + 15)) {
+	if (tiempototIniciado > (tiempototPlaneado + 15*60)) {
 		gud = 0;
 	}
 	return gud;
