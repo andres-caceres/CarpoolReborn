@@ -175,7 +175,7 @@ namespace CarpoolView {
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(260, 57);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->dateTimePicker1->MaxDate = System::DateTime(2020, 12, 9, 3, 43, 23, 840);
+			this->dateTimePicker1->MaxDate = System::DateTime::Now;
 			this->dateTimePicker1->MinDate = System::DateTime(1980, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(130, 22);
