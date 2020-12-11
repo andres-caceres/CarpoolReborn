@@ -100,6 +100,7 @@ namespace CarpoolView {
 	private: System::Windows::Forms::Button^ calificar;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ button7;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
 
 
 
@@ -137,8 +138,10 @@ namespace CarpoolView {
 			this->calificar = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button5
@@ -187,7 +190,7 @@ namespace CarpoolView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(499, 84);
+			this->button1->Location = System::Drawing::Point(367, 34);
 			this->button1->Margin = System::Windows::Forms::Padding(1);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(88, 38);
@@ -199,7 +202,7 @@ namespace CarpoolView {
 			// dateTimePicker1
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(325, 92);
+			this->dateTimePicker1->Location = System::Drawing::Point(193, 42);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(1);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(120, 22);
@@ -209,7 +212,7 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(227, 96);
+			this->label1->Location = System::Drawing::Point(95, 46);
 			this->label1->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(55, 17);
@@ -308,11 +311,24 @@ namespace CarpoolView {
 			this->button7->UseVisualStyleBackColor = true;
 			this->button7->Click += gcnew System::EventHandler(this, &frmMantViajes::button7_Click);
 			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->button1);
+			this->groupBox2->Controls->Add(this->dateTimePicker1);
+			this->groupBox2->Controls->Add(this->label1);
+			this->groupBox2->Location = System::Drawing::Point(157, 48);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(535, 88);
+			this->groupBox2->TabIndex = 27;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Filtro";
+			// 
 			// frmMantViajes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(924, 501);
+			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->button7);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->calificar);
@@ -320,9 +336,6 @@ namespace CarpoolView {
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->dateTimePicker1);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(1);
@@ -332,8 +345,9 @@ namespace CarpoolView {
 			this->Load += gcnew System::EventHandler(this, &frmMantViajes::frmMantViajes_Load);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
