@@ -59,6 +59,10 @@ namespace CarpoolView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+
+
+
 
 
 
@@ -76,6 +80,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmUpdateContacto::typeid));
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -83,6 +88,7 @@ namespace CarpoolView {
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -131,9 +137,9 @@ namespace CarpoolView {
 			// 
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Column1,
-					this->Column2, this->Column3
+					this->Column2, this->Column3, this->Column4
 			});
 			this->dataGridView1->Location = System::Drawing::Point(44, 216);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
@@ -161,6 +167,12 @@ namespace CarpoolView {
 			this->Column3->HeaderText = L"Nombre";
 			this->Column3->MinimumWidth = 12;
 			this->Column3->Name = L"Column3";
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Tipo de usuario";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
 			// 
 			// groupBox1
 			// 
@@ -216,6 +228,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmUpdateContacto";
 			this->Text = L"Contactos";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -233,10 +246,13 @@ namespace CarpoolView {
 		this->dataGridView1->Rows->Clear();
 		for (int i = 0; i < listaContactos->Count; i++) {
 			Contactos^ objContacto = listaContactos[i];
-			array<String^>^ fila = gcnew array<String^>(3);
+			array<String^>^ fila = gcnew array<String^>(4);
 			fila[0] = objContacto->userNameDelAñadido;
 			fila[1] = objContacto->Apodo;
 			fila[2] = objContacto->Nombre;
+			int tipousuario = this->objGestorUsuario->ObtenerTipoDeUsuarioBD(objContacto->userNameDelAñadido);
+			if (tipousuario == 2) { fila[3] = "Pasajero"; }
+			if (tipousuario == 3) { fila[3] = "Conductor"; }
 			this->dataGridView1->Rows->Add(fila);
 			
 		}

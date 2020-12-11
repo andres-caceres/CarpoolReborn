@@ -17,6 +17,7 @@ namespace CarpoolController {
 		Pasajero^ BuscarxUserID(int UserID);
 		void EscribirArchivo();	
 		void AgregarPasajero(Pasajero^ objPasajero);
+		void ActualizarCalificacionPasajeros(List<Pasajero^>^ listaPorActualizar);
 		//void EscribirArchivo();
 		//int ObtenerCantidadContactos();
 		//Contacto^ ObtenerContactoLista(int indice);

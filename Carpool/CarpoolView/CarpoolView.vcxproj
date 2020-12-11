@@ -136,6 +136,7 @@
     <ClCompile Include="frmAgregarPaypal.cpp" />
     <ClCompile Include="frmAgregarVehiculo.cpp" />
     <ClCompile Include="frmBuscarUsuario.cpp" />
+    <ClCompile Include="frmCalificarConductor.cpp" />
     <ClCompile Include="frmCalificarPasajeros.cpp" />
     <ClCompile Include="frmCambiarPassword.cpp" />
     <ClCompile Include="frmConductor.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="frmElegirMetodoPago.cpp" />
     <ClCompile Include="frmElegirModo.cpp" />
     <ClCompile Include="frmEscogerViaje.cpp" />
+    <ClCompile Include="frmHistorialViajes.cpp" />
     <ClCompile Include="frmLogin.cpp" />
     <ClCompile Include="frmMantViajes.cpp" />
     <ClCompile Include="frmMisVehiculos.cpp" />
@@ -196,6 +198,9 @@
     <ClInclude Include="frmBuscarUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmCalificarConductor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmCalificarPasajeros.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -227,6 +232,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmEscogerViaje.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmHistorialViajes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmLogin.h">
@@ -339,6 +347,9 @@
     <EmbeddedResource Include="frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCalificarConductor.resx">
+      <DependentUpon>frmCalificarConductor.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCalificarPasajeros.resx">
       <DependentUpon>frmCalificarPasajeros.h</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEscogerViaje.resx">
       <DependentUpon>frmEscogerViaje.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistorialViajes.resx">
+      <DependentUpon>frmHistorialViajes.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.h</DependentUpon>

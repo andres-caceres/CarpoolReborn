@@ -1,6 +1,7 @@
 #pragma once
 #include "frmRegister.h"
-#include "frmElegirModo.h"
+#include "frmPasajero.h"
+#include "frmConductor.h"
 #include "frmAdministrador.h"
 
 namespace CarpoolView {
@@ -92,10 +93,10 @@ namespace CarpoolView {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(447, 199);
+			this->button1->Location = System::Drawing::Point(471, 205);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(140, 36);
+			this->button1->Size = System::Drawing::Size(156, 36);
 			this->button1->TabIndex = 13;
 			this->button1->Text = L"Ingresar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -107,7 +108,7 @@ namespace CarpoolView {
 			this->textBox2->Margin = System::Windows::Forms::Padding(4);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->PasswordChar = '*';
-			this->textBox2->Size = System::Drawing::Size(132, 22);
+			this->textBox2->Size = System::Drawing::Size(175, 22);
 			this->textBox2->TabIndex = 12;
 			this->textBox2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmLogin::textBox2_KeyPress);
 			// 
@@ -116,7 +117,7 @@ namespace CarpoolView {
 			this->textBox1->Location = System::Drawing::Point(504, 120);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(132, 22);
+			this->textBox1->Size = System::Drawing::Size(175, 22);
 			this->textBox1->TabIndex = 11;
 			// 
 			// label3
@@ -164,7 +165,7 @@ namespace CarpoolView {
 			this->label4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Modern No. 20", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(441, 56);
+			this->label4->Location = System::Drawing::Point(465, 57);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(156, 31);
 			this->label4->TabIndex = 15;
@@ -175,7 +176,7 @@ namespace CarpoolView {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::Blue;
-			this->button2->Location = System::Drawing::Point(133, 238);
+			this->button2->Location = System::Drawing::Point(134, 249);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(123, 33);
@@ -189,7 +190,7 @@ namespace CarpoolView {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::Red;
-			this->button3->Location = System::Drawing::Point(463, 243);
+			this->button3->Location = System::Drawing::Point(497, 249);
 			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(100, 28);
@@ -204,7 +205,7 @@ namespace CarpoolView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(735, 300);
+			this->ClientSize = System::Drawing::Size(796, 323);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label4);

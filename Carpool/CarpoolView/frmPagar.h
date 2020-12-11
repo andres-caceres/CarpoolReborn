@@ -62,6 +62,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmPagar::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -70,17 +71,19 @@ namespace CarpoolView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 9);
+			this->label1->Location = System::Drawing::Point(16, 11);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(144, 13);
+			this->label1->Size = System::Drawing::Size(190, 17);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Seleccione el medio de pago";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(96, 69);
+			this->button1->Location = System::Drawing::Point(128, 85);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(173, 70);
+			this->button1->Size = System::Drawing::Size(220, 57);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Tarjeta";
 			this->button1->UseVisualStyleBackColor = true;
@@ -88,9 +91,10 @@ namespace CarpoolView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(96, 187);
+			this->button2->Location = System::Drawing::Point(128, 230);
+			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(173, 73);
+			this->button2->Size = System::Drawing::Size(220, 59);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"PayPal";
 			this->button2->UseVisualStyleBackColor = true;
@@ -98,14 +102,16 @@ namespace CarpoolView {
 			// 
 			// frmPagar
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(369, 343);
+			this->ClientSize = System::Drawing::Size(487, 388);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmPagar";
-			this->Text = L"frmPagar";
+			this->Text = L"Pagar";
 			this->Load += gcnew System::EventHandler(this, &frmPagar::frmPagar_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

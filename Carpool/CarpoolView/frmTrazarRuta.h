@@ -127,7 +127,7 @@ namespace CarpoolView {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(21, 118);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(100, 28);
 			this->button1->TabIndex = 1;
@@ -138,7 +138,7 @@ namespace CarpoolView {
 			// button2
 			// 
 			this->button2->Location = System::Drawing::Point(21, 422);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(100, 28);
 			this->button2->TabIndex = 2;
@@ -151,7 +151,7 @@ namespace CarpoolView {
 			this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
 			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->panel1->Location = System::Drawing::Point(180, 16);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->panel1->Margin = System::Windows::Forms::Padding(4);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(949, 507);
 			this->panel1->TabIndex = 3;
@@ -181,7 +181,8 @@ namespace CarpoolView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmTrazarRuta";
 			this->Text = L"Trazar ruta";
 			this->Load += gcnew System::EventHandler(this, &frmTrazarRuta::frmTrazarRuta_Load);

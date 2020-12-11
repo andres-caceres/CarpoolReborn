@@ -40,6 +40,9 @@ namespace CarpoolController {
 		int VerificaFecha(int a1, int m1, int d1, int a2, int m2, int d2);
 
 
+		List<Viaje^>^ GestorViaje::ListaDeViajesDeUnPasajero(int codigoPasajero);
+		List<Viaje^>^ GestorViaje::ListaDeViajesDeUnPasajeroConFecha(int codigo_Pasajero, String^ Fecha_buscar);
+
 
 	};
 }
