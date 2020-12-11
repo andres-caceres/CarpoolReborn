@@ -100,6 +100,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmPreguntaSeguridad::typeid));
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
@@ -175,7 +176,7 @@ namespace CarpoolView {
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(260, 57);
-			this->dateTimePicker1->MaxDate = System::DateTime::Now;
+			this->dateTimePicker1->MaxDate = System::DateTime(2020, 12, 11, 2, 39, 24, 582);
 			this->dateTimePicker1->MinDate = System::DateTime(1980, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(134, 22);
@@ -216,6 +217,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox3);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmPreguntaSeguridad";
 			this->Text = L"Pregunta Seguridad";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &frmPreguntaSeguridad::frmPreguntaSeguridad_FormClosing);

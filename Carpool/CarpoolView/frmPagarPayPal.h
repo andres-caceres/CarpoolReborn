@@ -70,6 +70,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmPagarPayPal::typeid));
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
@@ -83,9 +84,10 @@ namespace CarpoolView {
 			// 
 			this->button4->BackColor = System::Drawing::Color::IndianRed;
 			this->button4->ForeColor = System::Drawing::Color::Bisque;
-			this->button4->Location = System::Drawing::Point(348, 274);
+			this->button4->Location = System::Drawing::Point(464, 337);
+			this->button4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(91, 37);
+			this->button4->Size = System::Drawing::Size(121, 46);
 			this->button4->TabIndex = 12;
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = false;
@@ -95,9 +97,10 @@ namespace CarpoolView {
 			// 
 			this->button2->BackColor = System::Drawing::Color::CornflowerBlue;
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button2->Location = System::Drawing::Point(210, 274);
+			this->button2->Location = System::Drawing::Point(280, 337);
+			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(91, 37);
+			this->button2->Size = System::Drawing::Size(121, 46);
 			this->button2->TabIndex = 11;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = false;
@@ -108,12 +111,12 @@ namespace CarpoolView {
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->Column1 });
-			this->dataGridView1->Location = System::Drawing::Point(30, 38);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
+			this->dataGridView1->Location = System::Drawing::Point(40, 47);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(597, 204);
+			this->dataGridView1->Size = System::Drawing::Size(796, 251);
 			this->dataGridView1->TabIndex = 10;
 			// 
 			// Column1
@@ -126,9 +129,10 @@ namespace CarpoolView {
 			// 
 			this->button1->BackColor = System::Drawing::Color::CornflowerBlue;
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button1->Location = System::Drawing::Point(72, 274);
+			this->button1->Location = System::Drawing::Point(96, 337);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(91, 37);
+			this->button1->Size = System::Drawing::Size(121, 46);
 			this->button1->TabIndex = 13;
 			this->button1->Text = L"Pagar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -138,9 +142,10 @@ namespace CarpoolView {
 			// 
 			this->button3->BackColor = System::Drawing::Color::IndianRed;
 			this->button3->ForeColor = System::Drawing::Color::Bisque;
-			this->button3->Location = System::Drawing::Point(488, 274);
+			this->button3->Location = System::Drawing::Point(651, 337);
+			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(91, 37);
+			this->button3->Size = System::Drawing::Size(121, 46);
 			this->button3->TabIndex = 14;
 			this->button3->Text = L"Cancelar";
 			this->button3->UseVisualStyleBackColor = false;
@@ -148,16 +153,18 @@ namespace CarpoolView {
 			// 
 			// frmPagarPayPal
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(659, 343);
+			this->ClientSize = System::Drawing::Size(879, 422);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmPagarPayPal";
-			this->Text = L"frmPagarPayPal";
+			this->Text = L"Pagar Paypal";
 			this->Load += gcnew System::EventHandler(this, &frmPagarPayPal::frmPagarPayPal_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);

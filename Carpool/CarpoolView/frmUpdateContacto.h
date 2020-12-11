@@ -80,18 +80,19 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmUpdateContacto::typeid));
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -148,6 +149,31 @@ namespace CarpoolView {
 			this->dataGridView1->Size = System::Drawing::Size(871, 260);
 			this->dataGridView1->TabIndex = 7;
 			// 
+			// Column1
+			// 
+			this->Column1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			this->Column1->HeaderText = L"userName";
+			this->Column1->MinimumWidth = 12;
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Apodo";
+			this->Column2->MinimumWidth = 12;
+			this->Column2->Name = L"Column2";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Nombre";
+			this->Column3->MinimumWidth = 12;
+			this->Column3->Name = L"Column3";
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Tipo de usuario";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			// 
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->textBox1);
@@ -192,31 +218,6 @@ namespace CarpoolView {
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Apodo:";
 			// 
-			// Column1
-			// 
-			this->Column1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->Column1->HeaderText = L"userName";
-			this->Column1->MinimumWidth = 12;
-			this->Column1->Name = L"Column1";
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Apodo";
-			this->Column2->MinimumWidth = 12;
-			this->Column2->Name = L"Column2";
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Nombre";
-			this->Column3->MinimumWidth = 12;
-			this->Column3->Name = L"Column3";
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Tipo de usuario";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			// 
 			// frmUpdateContacto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -227,6 +228,7 @@ namespace CarpoolView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmUpdateContacto";
 			this->Text = L"Contactos";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;

@@ -85,6 +85,7 @@ namespace CarpoolView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmReservarViaje::typeid));
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -140,10 +141,11 @@ namespace CarpoolView {
 			this->dateTimePicker1->Location = System::Drawing::Point(299, 56);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(1);
 			this->dateTimePicker1->MaxDate = System::DateTime(2100, 1, 1, 0, 0, 0, 0);
-			this->dateTimePicker1->MinDate = System::DateTime::Now;
+			this->dateTimePicker1->MinDate = System::DateTime(2020, 12, 11, 2, 43, 40, 964);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(120, 22);
 			this->dateTimePicker1->TabIndex = 26;
+			this->dateTimePicker1->Value = System::DateTime(2020, 12, 11, 2, 43, 40, 964);
 			// 
 			// label1
 			// 
@@ -230,9 +232,10 @@ namespace CarpoolView {
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmReservarViaje";
-			this->Text = L"frmReservarViaje";
+			this->Text = L"Reservar viaje";
 			this->Load += gcnew System::EventHandler(this, &frmReservarViaje::frmReservarViaje_Load);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

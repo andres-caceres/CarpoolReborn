@@ -101,17 +101,19 @@ namespace CarpoolView {
 			// 
 			this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
 			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->panel1->Location = System::Drawing::Point(104, 12);
+			this->panel1->Location = System::Drawing::Point(139, 15);
+			this->panel1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(712, 412);
+			this->panel1->Size = System::Drawing::Size(949, 507);
 			this->panel1->TabIndex = 5;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmVerRuta::panel1_Paint);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(12, 176);
+			this->button1->Location = System::Drawing::Point(16, 217);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(100, 28);
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"Regresar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -119,13 +121,15 @@ namespace CarpoolView {
 			// 
 			// frmVerRuta
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(834, 443);
+			this->ClientSize = System::Drawing::Size(1112, 545);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->panel1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmVerRuta";
-			this->Text = L"frmVerRuta";
+			this->Text = L"Ver ruta";
 			this->Load += gcnew System::EventHandler(this, &frmVerRuta::frmVerRuta_Load);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &frmVerRuta::frmVerRuta_Paint);
 			this->ResumeLayout(false);
