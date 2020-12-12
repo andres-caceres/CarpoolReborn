@@ -208,10 +208,10 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(191, 180);
+			this->button4->Location = System::Drawing::Point(143, 146);
 			this->button4->Margin = System::Windows::Forms::Padding(1);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(151, 48);
+			this->button4->Size = System::Drawing::Size(113, 39);
 			this->button4->TabIndex = 23;
 			this->button4->Text = L"Definir ruta";
 			this->button4->UseVisualStyleBackColor = true;
@@ -223,50 +223,50 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			this->groupBox2->Controls->Add(this->textBox11);
 			this->groupBox2->Controls->Add(this->label12);
 			this->groupBox2->Controls->Add(this->label11);
-			this->groupBox2->Location = System::Drawing::Point(20, 274);
+			this->groupBox2->Location = System::Drawing::Point(15, 223);
 			this->groupBox2->Margin = System::Windows::Forms::Padding(1);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Padding = System::Windows::Forms::Padding(1);
-			this->groupBox2->Size = System::Drawing::Size(547, 89);
+			this->groupBox2->Size = System::Drawing::Size(410, 72);
 			this->groupBox2->TabIndex = 26;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Conductor";
 			// 
 			// textBox12
 			// 
-			this->textBox12->Location = System::Drawing::Point(267, 52);
+			this->textBox12->Location = System::Drawing::Point(171, 41);
 			this->textBox12->Margin = System::Windows::Forms::Padding(1);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->ReadOnly = true;
-			this->textBox12->Size = System::Drawing::Size(113, 22);
+			this->textBox12->Size = System::Drawing::Size(86, 20);
 			this->textBox12->TabIndex = 22;
 			// 
 			// textBox11
 			// 
-			this->textBox11->Location = System::Drawing::Point(267, 22);
+			this->textBox11->Location = System::Drawing::Point(170, 15);
 			this->textBox11->Margin = System::Windows::Forms::Padding(1);
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->ReadOnly = true;
-			this->textBox11->Size = System::Drawing::Size(113, 22);
+			this->textBox11->Size = System::Drawing::Size(190, 20);
 			this->textBox11->TabIndex = 20;
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(133, 54);
+			this->label12->Location = System::Drawing::Point(100, 44);
 			this->label12->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(60, 17);
+			this->label12->Size = System::Drawing::Size(46, 13);
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Codigo :";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(128, 22);
+			this->label11->Location = System::Drawing::Point(96, 18);
 			this->label11->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(66, 17);
+			this->label11->Size = System::Drawing::Size(50, 13);
 			this->label11->TabIndex = 20;
 			this->label11->Text = L"Nombre :";
 			// 
@@ -297,11 +297,11 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(20, 12);
+			this->groupBox1->Location = System::Drawing::Point(15, 10);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(1);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(1);
-			this->groupBox1->Size = System::Drawing::Size(547, 244);
+			this->groupBox1->Size = System::Drawing::Size(410, 198);
 			this->groupBox1->TabIndex = 25;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Datos de Viaje";
@@ -309,6 +309,7 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			// 
 			// comboBox7
 			// 
+			this->comboBox7->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox7->FormattingEnabled = true;
 			this->comboBox7->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
 				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
@@ -316,14 +317,15 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
 					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
 			});
-			this->comboBox7->Location = System::Drawing::Point(480, 105);
+			this->comboBox7->Location = System::Drawing::Point(360, 85);
 			this->comboBox7->Margin = System::Windows::Forms::Padding(1);
 			this->comboBox7->Name = L"comboBox7";
-			this->comboBox7->Size = System::Drawing::Size(63, 24);
+			this->comboBox7->Size = System::Drawing::Size(48, 21);
 			this->comboBox7->TabIndex = 31;
 			// 
 			// comboBox6
 			// 
+			this->comboBox6->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox6->FormattingEnabled = true;
 			this->comboBox6->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
 				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
@@ -331,28 +333,30 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
 					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
 			});
-			this->comboBox6->Location = System::Drawing::Point(416, 105);
+			this->comboBox6->Location = System::Drawing::Point(312, 85);
 			this->comboBox6->Margin = System::Windows::Forms::Padding(1);
 			this->comboBox6->Name = L"comboBox6";
-			this->comboBox6->Size = System::Drawing::Size(63, 24);
+			this->comboBox6->Size = System::Drawing::Size(48, 21);
 			this->comboBox6->TabIndex = 30;
 			// 
 			// comboBox5
 			// 
+			this->comboBox5->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox5->FormattingEnabled = true;
 			this->comboBox5->Items->AddRange(gcnew cli::array< System::Object^  >(24) {
 				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
 					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
 			});
-			this->comboBox5->Location = System::Drawing::Point(352, 105);
+			this->comboBox5->Location = System::Drawing::Point(264, 85);
 			this->comboBox5->Margin = System::Windows::Forms::Padding(1);
 			this->comboBox5->Name = L"comboBox5";
-			this->comboBox5->Size = System::Drawing::Size(63, 24);
+			this->comboBox5->Size = System::Drawing::Size(48, 21);
 			this->comboBox5->TabIndex = 29;
 			this->comboBox5->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox5_SelectedIndexChanged);
 			// 
 			// comboBox4
 			// 
+			this->comboBox4->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox4->FormattingEnabled = true;
 			this->comboBox4->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
 				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
@@ -360,15 +364,16 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
 					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
 			});
-			this->comboBox4->Location = System::Drawing::Point(480, 64);
+			this->comboBox4->Location = System::Drawing::Point(360, 52);
 			this->comboBox4->Margin = System::Windows::Forms::Padding(1);
 			this->comboBox4->Name = L"comboBox4";
-			this->comboBox4->Size = System::Drawing::Size(63, 24);
+			this->comboBox4->Size = System::Drawing::Size(48, 21);
 			this->comboBox4->TabIndex = 28;
 			this->comboBox4->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox4_SelectedIndexChanged);
 			// 
 			// comboBox3
 			// 
+			this->comboBox3->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox3->FormattingEnabled = true;
 			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(60) {
 				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
@@ -376,56 +381,57 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 					L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44",
 					L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59"
 			});
-			this->comboBox3->Location = System::Drawing::Point(416, 64);
+			this->comboBox3->Location = System::Drawing::Point(312, 52);
 			this->comboBox3->Margin = System::Windows::Forms::Padding(1);
 			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(63, 24);
+			this->comboBox3->Size = System::Drawing::Size(48, 21);
 			this->comboBox3->TabIndex = 27;
 			this->comboBox3->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox3_SelectedIndexChanged);
 			// 
 			// comboBox2
 			// 
+			this->comboBox2->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(24) {
 				L"0", L"1", L"2", L"3", L"4", L"5", L"6", L"7",
 					L"8", L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
 			});
-			this->comboBox2->Location = System::Drawing::Point(352, 64);
+			this->comboBox2->Location = System::Drawing::Point(264, 52);
 			this->comboBox2->Margin = System::Windows::Forms::Padding(1);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(63, 24);
+			this->comboBox2->Size = System::Drawing::Size(48, 21);
 			this->comboBox2->TabIndex = 26;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &frmNuevoViaje::comboBox2_SelectedIndexChanged_1);
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(360, 140);
+			this->textBox7->Location = System::Drawing::Point(270, 114);
 			this->textBox7->Margin = System::Windows::Forms::Padding(1);
 			this->textBox7->MaxLength = 3;
 			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(113, 22);
+			this->textBox7->Size = System::Drawing::Size(86, 20);
 			this->textBox7->TabIndex = 25;
 			this->textBox7->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmNuevoViaje::textBox7_KeyPress);
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(292, 142);
+			this->label16->Location = System::Drawing::Point(219, 115);
 			this->label16->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(53, 17);
+			this->label16->Size = System::Drawing::Size(40, 13);
 			this->label16->TabIndex = 24;
 			this->label16->Text = L"Tarifa :";
 			// 
 			// dateTimePicker1
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(360, 28);
+			this->dateTimePicker1->Location = System::Drawing::Point(270, 23);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(1);
 			this->dateTimePicker1->MaxDate = System::DateTime(2100, 1, 1, 0, 0, 0, 0);
-			this->dateTimePicker1->MinDate = System::DateTime::Now;
+			this->dateTimePicker1->MinDate = System::DateTime(2020, 12, 11, 22, 23, 31, 755);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(113, 22);
+			this->dateTimePicker1->Size = System::Drawing::Size(86, 20);
 			this->dateTimePicker1->TabIndex = 21;
 			this->dateTimePicker1->Value = System::DateTime(2020, 12, 14, 0, 0, 0, 0);
 			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &frmNuevoViaje::dateTimePicker1_ValueChanged);
@@ -433,157 +439,157 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(307, 108);
+			this->label13->Location = System::Drawing::Point(230, 88);
 			this->label13->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(0, 17);
+			this->label13->Size = System::Drawing::Size(0, 13);
 			this->label13->TabIndex = 20;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(136, 134);
+			this->textBox4->Location = System::Drawing::Point(102, 109);
 			this->textBox4->Margin = System::Windows::Forms::Padding(1);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(113, 22);
+			this->textBox4->Size = System::Drawing::Size(86, 20);
 			this->textBox4->TabIndex = 13;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(136, 97);
+			this->textBox3->Location = System::Drawing::Point(102, 79);
 			this->textBox3->Margin = System::Windows::Forms::Padding(1);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->ReadOnly = true;
-			this->textBox3->Size = System::Drawing::Size(113, 22);
+			this->textBox3->Size = System::Drawing::Size(86, 20);
 			this->textBox3->TabIndex = 12;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &frmNuevoViaje::textBox3_TextChanged);
 			this->textBox3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmNuevoViaje::textBox3_KeyPress);
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(136, 64);
+			this->textBox2->Location = System::Drawing::Point(102, 52);
 			this->textBox2->Margin = System::Windows::Forms::Padding(1);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(113, 22);
+			this->textBox2->Size = System::Drawing::Size(86, 20);
 			this->textBox2->TabIndex = 11;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &frmNuevoViaje::textBox2_TextChanged);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(136, 32);
+			this->textBox1->Location = System::Drawing::Point(102, 26);
 			this->textBox1->Margin = System::Windows::Forms::Padding(1);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(113, 22);
+			this->textBox1->Size = System::Drawing::Size(86, 20);
 			this->textBox1->TabIndex = 10;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(288, 34);
+			this->label6->Location = System::Drawing::Point(216, 28);
 			this->label6->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(55, 17);
+			this->label6->Size = System::Drawing::Size(43, 13);
 			this->label6->TabIndex = 9;
 			this->label6->Text = L"Fecha :";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(299, 62);
+			this->label7->Location = System::Drawing::Point(224, 50);
 			this->label7->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(43, 17);
+			this->label7->Size = System::Drawing::Size(33, 13);
 			this->label7->TabIndex = 8;
 			this->label7->Text = L"Hora:";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(299, 75);
+			this->label8->Location = System::Drawing::Point(224, 61);
 			this->label8->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(40, 17);
+			this->label8->Size = System::Drawing::Size(32, 13);
 			this->label8->TabIndex = 7;
 			this->label8->Text = L"Inicio";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(299, 100);
+			this->label9->Location = System::Drawing::Point(224, 81);
 			this->label9->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(47, 17);
+			this->label9->Size = System::Drawing::Size(36, 13);
 			this->label9->TabIndex = 6;
 			this->label9->Text = L"Hora :";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(301, 113);
+			this->label10->Location = System::Drawing::Point(226, 92);
 			this->label10->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(27, 17);
+			this->label10->Size = System::Drawing::Size(21, 13);
 			this->label10->TabIndex = 5;
 			this->label10->Text = L"Fin";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(39, 135);
+			this->label5->Location = System::Drawing::Point(29, 110);
 			this->label5->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(91, 17);
+			this->label5->Size = System::Drawing::Size(69, 13);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"# Pasajeros :";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(39, 108);
+			this->label4->Location = System::Drawing::Point(29, 88);
 			this->label4->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(81, 17);
+			this->label4->Size = System::Drawing::Size(61, 13);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Disponibles";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(39, 92);
+			this->label3->Location = System::Drawing::Point(29, 75);
 			this->label3->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(70, 17);
+			this->label3->Size = System::Drawing::Size(53, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Asientos :";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(39, 64);
+			this->label2->Location = System::Drawing::Point(29, 52);
 			this->label2->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(60, 17);
+			this->label2->Size = System::Drawing::Size(46, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Estado :";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(39, 32);
+			this->label1->Location = System::Drawing::Point(29, 26);
 			this->label1->Margin = System::Windows::Forms::Padding(1, 0, 1, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(60, 17);
+			this->label1->Size = System::Drawing::Size(46, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Codigo :";
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(44, 379);
+			this->button5->Location = System::Drawing::Point(33, 308);
 			this->button5->Margin = System::Windows::Forms::Padding(1);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(171, 33);
+			this->button5->Size = System::Drawing::Size(128, 27);
 			this->button5->TabIndex = 29;
 			this->button5->Text = L"Grabar";
 			this->button5->UseVisualStyleBackColor = true;
@@ -591,10 +597,10 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(359, 379);
+			this->button6->Location = System::Drawing::Point(269, 308);
 			this->button6->Margin = System::Windows::Forms::Padding(1);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(171, 33);
+			this->button6->Size = System::Drawing::Size(128, 27);
 			this->button6->TabIndex = 30;
 			this->button6->Text = L"Cancelar";
 			this->button6->UseVisualStyleBackColor = true;
@@ -602,9 +608,9 @@ private: System::Windows::Forms::ComboBox^ comboBox6;
 			// 
 			// frmNuevoViaje
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(589, 433);
+			this->ClientSize = System::Drawing::Size(442, 352);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->groupBox2);
