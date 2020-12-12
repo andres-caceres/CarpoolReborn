@@ -66,7 +66,8 @@ namespace CarpoolView {
 
 		Viaje^ objViaje;
 		GestorConductor^ objGestorConductor;
-		Conductor^ ConductorCalificado;
+		Conductor^ objConductorCalificado;
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -112,6 +113,7 @@ namespace CarpoolView {
 			this->aceptar->TabIndex = 4;
 			this->aceptar->Text = L"Aceptar";
 			this->aceptar->UseVisualStyleBackColor = true;
+			this->aceptar->Click += gcnew System::EventHandler(this, &frmCalificarConductor::aceptar_Click);
 			// 
 			// groupBox1
 			// 
@@ -188,6 +190,7 @@ namespace CarpoolView {
 			this->calificacion->Name = L"calificacion";
 			this->calificacion->Size = System::Drawing::Size(121, 21);
 			this->calificacion->TabIndex = 5;
+			this->calificacion->SelectedIndexChanged += gcnew System::EventHandler(this, &frmCalificarConductor::calificacion_SelectedIndexChanged);
 			// 
 			// viaje
 			// 
@@ -225,11 +228,23 @@ namespace CarpoolView {
 		}
 #pragma endregion
 	private: System::Void frmCalificarConductor_Load(System::Object^ sender, System::EventArgs^ e) {
-		
-		this->ConductorCalificado=this->objGestorConductor->ObtenerConductorxCodigo(this->objViaje->objConductor->CodigoDeUsuario);
-		this->calificacion->Text = Convert::ToString(this->ConductorCalificado->CalificacionConductor);
-		
 
+		this->objGestorConductor->LeerConductoresDesdeArchivo();
+		this->objConductorCalificado =this->objGestorConductor->ObtenerConductorxCodigo(this->objViaje->objConductor->CodigoDeUsuario);
+		this->calificacion->Text = Convert::ToString(this->objConductorCalificado->CalificacionConductor);
 	}
+private: System::Void calificacion_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+		int selectedIndex = this->calificacion->SelectedIndex;
+		this->objConductorCalificado->CalificacionConductor = selectedIndex;
+		this->lblCalificacion->ImageIndex = selectedIndex * 2;	
+}
+private: System::Void aceptar_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	this->objGestorConductor->EliminarConductorxCodigo(this->objConductorCalificado->CodigoDeUsuario);
+	this->objGestorConductor->AgregarALista(this->objConductorCalificado);
+	this->objGestorConductor->EscribirArchivo();
+
+}
 };
 }
