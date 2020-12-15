@@ -2,7 +2,7 @@
 
 *Proyecto final del curso de Lenguaje de Programación Orientado a Objetos - Ciclo 2020-2*
 
-## Documentación
+## Sobre el proyecto
 
 Proyecto implementado con la estructura MVC y persistencia de datos mediante base de datos (SQL) y al igual que archivos .txt
 Se buscará implementar la persistencia de datos en base de datos en su totalidad en un futuro cercano.
